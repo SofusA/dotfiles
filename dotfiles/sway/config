@@ -17,7 +17,8 @@ for_window [app_id="^launcher$"] floating enable, border none, resize set width 
 
 
 ### Output configuration
-output * bg ~/.config/sway/Leaf.jpg fill
+set $bg ~/.config/sway/Leaf.jpg fill
+output * bg $bg
 
 #output DP-1 scale 1.2
 
