@@ -5,5 +5,5 @@ do
     dir=${dir%*/}
     dir="${dir##*/}"
     #echo "$dir"
-    rsync -a ~./config/$dir dotfiles/
+    rsync -a ~/.config/$dir dotfiles/ --delete
 done
