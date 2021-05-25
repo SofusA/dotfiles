@@ -26,19 +26,19 @@ output * bg $bg
 #exec nm-applet --indicator
 exec waybar
 exec mako --font Roboto --margin 30 --padding 10 --text-color "#eceff4" --background-color "#2c2c2ccc" --border-size 0 --default-timeout 5000 --ignore-timeout 1
-#exec /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1
-#exec --no-startup-id flashfocus
-#exec --no-startup-id autotiling
 #exec udiskie -f nautilus
 #exec gnome-keyring-daemon --start
 #exec export SSH_AUTH_SOCK
+exec lxpolkit
 
 ### Idle configuration
 exec swayidle -w \
+	timeout 150 'swaylock -f -c 000000 -i $bg'\
         timeout 300 'swaymsg "output * dpms off"' \
             resume 'swaymsg "output * dpms on"' \
             before-sleep 'swaymsg "output * dpms on"'\
-        timeout 1200 'systemctl suspend' 
+        timeout 1200 'systemctl suspend'\
+        before-sleep 'swaylock -f -c 000000 -i $bg'
 
 ### Input configuration
 input type:keyboard {
