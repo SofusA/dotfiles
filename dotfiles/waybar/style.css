@@ -50,6 +50,11 @@ window#waybar.hidden {
     background-color: #64727D;
     border-top: 3px solid #ffffff;
 }
+
+#window {
+    margin-left: 22px;
+}
+
 @keyframes blink {
     to {
         background-color: #ffffff;
