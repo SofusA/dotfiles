@@ -1,0 +1,190 @@
+# Logo key. Use Mod1 for Alt, Mod4 for Super.
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term alacritty
+set $browser firefox
+
+# Menu
+set $menu wofi -I -S drun
+
+for_window [app_id="^launcher$"] floating enable, border none, resize set width 25 ppt height 25 ppt
+
+
+### Output configuration
+set $bg ~/.config/sway/Leaf.jpg fill
+output * bg $bg
+
+#output DP-1 scale 1.2
+
+### Autostart Applications
+#exec nm-applet --indicator
+exec waybar
+exec mako --font Roboto --margin 30 --padding 10 --text-color "#eceff4" --background-color "#2c2c2ccc" --border-size 0 --default-timeout 5000 --ignore-timeout 1
+#exec /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1
+#exec --no-startup-id flashfocus
+#exec --no-startup-id autotiling
+#exec udiskie -f nautilus
+#exec gnome-keyring-daemon --start
+#exec export SSH_AUTH_SOCK
+
+### Idle configuration
+exec swayidle -w \
+        timeout 300 'swaymsg "output * dpms off"' \
+            resume 'swaymsg "output * dpms on"' \
+            before-sleep 'swaymsg "output * dpms on"'\
+        timeout 1200 'systemctl suspend' 
+
+### Input configuration
+input type:keyboard {
+    xkb_layout "dk"
+    xkb_options "ctrl:swap_lalt_lctl_lwin, caps:escape"
+    xkb_numlock enabled
+}
+
+### Key bindings
+
+    # Start a terminal
+    bindsym $mod+Return exec $term
+
+    # Start browser
+    bindsym $mod+Shift+Return exec $browser
+
+    # Kill focused window
+    bindsym $mod+Shift+q kill
+
+    # Start your launcher
+    bindsym $mod+d exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    # bindsym $mod+Shift+c exec $term --class launcher 'upgrade'
+
+    # Exit sway (logs you out of your Wayland session)
+    #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+# Screenshots
+    bindsym Ctrl+Shift+3 exec grim ~/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png
+    bindsym Ctrl+Shift+4 exec grim -g "$(slurp)" ~/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png
+    bindsym $mod+Ctrl+Shift+3 exec grim ~/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png | wl-copy
+    bindsym $mod+Ctrl+Shift+4 exec grim -g "$(slurp)" ~/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png | wl-copy
+
+# Moving around:
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+#
+# Workspaces:
+#
+    # Switch to workspace
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
+    bindsym $mod+3 workspace 3
+    bindsym $mod+4 workspace 4
+    bindsym $mod+5 workspace 5
+    bindsym $mod+6 workspace 6
+    bindsym $mod+7 workspace 7
+    bindsym $mod+8 workspace 8
+    bindsym $mod+9 workspace 9
+    bindsym $mod+0 workspace 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+3 move container to workspace 3
+    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+6 move container to workspace 6
+    bindsym $mod+Shift+7 move container to workspace 7
+    bindsym $mod+Shift+8 move container to workspace 8
+    bindsym $mod+Shift+9 move container to workspace 9
+    bindsym $mod+Shift+0 move container to workspace 10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    #bindsym $mod+b splith
+    #bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    #bindsym $mod+s layout stacking
+    #bindsym $mod+w layout tabbed
+    #bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    #bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    #bindsym $mod+a focus parent
+
+# Resizing containers:
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 20px
+    bindsym $down resize grow height 20px
+    bindsym $up resize shrink height 20px
+    bindsym $right resize grow width 20px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 20px
+    bindsym Down resize grow height 20px
+    bindsym Up resize shrink height 20px
+    bindsym Right resize grow width 20px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+
+#### Styling
+# Hide borders
+default_border pixel 0
+
+# Set inner/outer gaps
+gaps inner 20
+gaps outer 0
+
+include /etc/sway/config.d/|

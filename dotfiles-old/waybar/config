@@ -1,0 +1,52 @@
+{
+    "layer": "top",
+    "height": 20,
+    "margin-bottom": -30,
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["clock"],
+    "modules-right": ["idle_inhibitor", "tray", "battery", "battery#bat2", "custom/power"],
+
+    "sway/window": {
+        "max-length": 50
+    },
+    
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
+    "tray": {
+        "spacing": 10
+    },
+    
+    "clock": {
+        "format": "{:%A, %d. %B  %H:%M}"
+    },
+
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+        "battery#bat2": {
+            "bat": "BAT2"
+    },
+
+    "custom/power":{
+        "format":"",
+        "on-click":"swaynag -t warning -m 'Power Menu Options' -b 'Reboot' 'systemctl reboot' -b 'Suspend' 'systemctl suspend-then-hibernate' -b 'Shutdown' 'systemctl poweroff'"
+    }
+}
+

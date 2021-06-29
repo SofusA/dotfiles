@@ -1,0 +1,160 @@
+### Logo key. Use Mod1 for Alt, Mod4 for Super.
+set $mod Mod4
+
+# Standard applications
+set $term kitty
+set $shell $term -e fish; clear
+set $browser flatpak run org.mozilla.firefox
+
+### Menu
+#set $menu wofi -I -S drun
+
+for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
+set $menu $term --class=launcher -e ~/.config/sway/sway-launcher-desktop/sway-launcher-desktop.sh
+
+### Output configuration
+set $bg ~/.config/sway/Leaf.jpg fill
+set $bg_blur ~/.config/sway/Leaf_blur.jpg fill
+output * bg $bg
+output DP-1 pos 1920 0
+output DP-2 pos 3840 0
+output eDP-1 pos 0 0
+focus output DP-1
+
+### App shortcuts
+bindsym $mod+Shift+t exec 'flatpak run --socket=wayland org.chromium.Chromium --enable-features=UseOzonePlatform --ozone-platform=wayland --app=https://teams.microsoft.com'
+bindsym $mod+Shift+w exec "gnome-boxes 'Microsoft Windows 10'"
+bindsym $mod+Shift+n exec nautilus
+bindsym $mod+Shift+r exec '$shell -c ranger'
+bindsym $mod+Shift+c exec '$shell -c "toolbox run fish"'
+bindsym $mod+Return exec $shell
+bindsym $mod+Shift+i exec $term
+bindsym $mod+Shift+Return exec $browser
+bindsym $mod+d exec $menu
+
+### Sound
+bindsym XF86AudioRaiseVolume exec amixer -D pipewire sset Master 1%+
+bindsym XF86AudioLowerVolume exec amixer -D pipewire sset Master 1%-
+bindsym XF86AudioMute exec amixer -D pipewire sset Master toggle
+
+### Autostart Applications
+exec kanshi
+exec waybar
+exec mako --font Roboto --margin 30 --padding 10 --text-color "#eceff4" --background-color "#2c2c2ccc" --border-size 0 --default-timeout 5000 --ignore-timeout 1
+exec lxpolkit
+exec /usr/libexec/xdg-desktop-portal-gtk
+
+### Scrensharing
+exec systemctl --user import-environment
+exec /usr/libexec/xdg-desktop-portal -r 
+
+### Idle configuration
+set $lock 'swaylock -f -c 000000 -i $bg_blur'
+bindsym $mod+Shift+l exec $lock
+exec swayidle -w \
+	timeout 180 $lock\
+        timeout 300 'swaymsg "output * dpms off"' \
+            resume 'swaymsg "output * dpms on"' \
+            before-sleep 'swaymsg "output * dpms on"'\
+        timeout 1200 'systemctl suspend'\
+
+### Input configuration
+input type:keyboard {
+    xkb_layout "dk"
+    xkb_options "ctrl:swap_lwin_lctl, ctrl:swap_rwin_rctl, caps:escape"
+    xkb_numlock enabled
+}
+
+### Key bindings
+    # Kill focused window
+    bindsym $mod+Shift+q kill
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    # bindsym $mod+Shift+c exec $term --class launcher 'upgrade'
+
+    # Exit sway (logs you out of your Wayland session)
+    #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+# Screenshots
+    bindsym Ctrl+Shift+3 exec grim ~/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png
+    bindsym Ctrl+Shift+4 exec grim -g "$(slurp)" ~/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png
+    bindsym $mod+Ctrl+Shift+3 exec grim ~/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png | wl-copy
+    bindsym $mod+Ctrl+Shift+4 exec grim -g "$(slurp)" ~/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png | wl-copy
+
+# Moving around:
+    # Move your focus around
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+# Workspaces:
+    # Switch to workspace
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
+    bindsym $mod+3 workspace 3
+    bindsym $mod+4 workspace 4
+    bindsym $mod+5 workspace 5
+    bindsym $mod+6 workspace 6
+    bindsym $mod+7 workspace 7
+    bindsym $mod+8 workspace 8
+    bindsym $mod+9 workspace 9
+    bindsym $mod+0 workspace 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+3 move container to workspace 3
+    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+6 move container to workspace 6
+    bindsym $mod+Shift+7 move container to workspace 7
+    bindsym $mod+Shift+8 move container to workspace 8
+    bindsym $mod+Shift+9 move container to workspace 9
+    bindsym $mod+Shift+0 move container to workspace 10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+    
+     
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+space floating toggle
+
+# Resizing containers:
+mode "resize" {
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 20px
+    bindsym Down resize grow height 20px
+    bindsym Up resize shrink height 20px
+    bindsym Right resize grow width 20px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+
+#### Styling
+# Hide borders
+default_border pixel 0
+
+# Set inner/outer gaps
+gaps inner 20
+gaps outer 0
+
+include /etc/sway/config.d/*|
