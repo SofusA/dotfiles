@@ -30,8 +30,8 @@ focus output DP-3
 # workspace 6 output DP-4
 	
 ### App shortcuts
-bindsym $modalt+t exec 'flatpak run --socket=wayland org.chromium.Chromium --enable-features=UseOzonePlatform --ozone-platform=wayland --app=https://teams.microsoft.com'
-bindsym $modalt+m exec 'flatpak run --socket=wayland org.chromium.Chromium --enable-features=UseOzonePlatform --ozone-platform=wayland --app=https://outlook.office.com/mail/inbox'
+bindsym $modalt+t exec 'flatpak run com.microsoft.Edge --app=https://teams.microsoft.com'
+bindsym $modalt+m exec 'flatpak run com.microsoft.Edge --app=https://outlook.office.com/mail/inbox'
 bindsym $modalt+w exec "gnome-boxes 'Microsoft Windows 10'"
 bindsym $modalt+n exec nautilus
 bindsym $modalt+r exec '$shell -C ranger'
@@ -47,12 +47,12 @@ bindsym XF86AudioLowerVolume exec amixer -D pipewire sset Master 1%-
 bindsym XF86AudioMute exec amixer -D pipewire sset Master toggle
 
 ### Autostart Applications
-exec_always pkill kanshi; exec kanshi
-exec_always pkill waybar; exec waybar
+exec kanshi
+exec waybar
 exec mako --font Roboto --margin 30 --padding 10 --text-color "#eceff4" --background-color "#2c2c2ccc" --border-size 0 --default-timeout 5000 --ignore-timeout 1
 exec lxpolkit
 exec /usr/libexec/xdg-desktop-portal-gtk
-exec autotiling
+exec ~/.local/bin/autotiling
 
 ### Scrensharing
 exec systemctl --user import-environment
@@ -61,13 +61,13 @@ exec /usr/libexec/xdg-desktop-portal -r
 ### Idle configuration
 set $lock 'swaylock -f -c 000000 -i $bg_blur'
 bindsym $modalt+l exec $lock
-exec_always pkill swayidle; exec swayidle -w \
+exec swayidle -w \
         timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' 
 
 ### Input configuration
 input type:keyboard {
     xkb_layout "dk"
-    xkb_options "ctrl:swap_lwin_lctl, ctrl:swap_rwin_rctl, caps:escape"
+    xkb_options "ctrl:swap_lwin_lctl, ctrl:swap_rwin_rctl, caps:escape, apple:badmap"
     xkb_numlock enabled
 }
 
