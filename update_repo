@@ -1,9 +1,8 @@
 #!/bin/bash
 
-for dir in dotfiles/*/
+for dir in config/*/
 do
-    dir=${dir%*/}
     dir="${dir##*/}"
-    #echo "$dir"
-    rsync -a ~/.config/$dir dotfiles/ --delete
+    rm -rf config/$dir
+    cp -r ~/.config/$dir config/
 done

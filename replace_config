@@ -1,2 +1,8 @@
 #!/bin/bash
-rsync -a dotfiles/ ../.config/
+
+for dir in config/*/
+do
+    dir="${dir##*/}"
+    rm -rf ~/.config/$dir
+    cp -r config/$dir ~/.config/
+done
