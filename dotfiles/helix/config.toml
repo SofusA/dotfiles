@@ -1,0 +1,55 @@
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+mouse = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[keys.normal]
+d = "delete_selection_noyank"
+c = "change_selection_noyank"
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+"X" = "extend_line_up"
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+y = "yank_main_selection_to_clipboard"
+Y = "no_op"
+p = "paste_clipboard_after"
+P = "paste_clipboard_before"
+
+[keys.normal.space]
+w = ":write"
+f = "file_picker_in_current_directory"
+F = "no_op"
+"'" = "no_op"
+j = "no_op"
+y = "no_op"
+Y = "no_op"
+p = "no_op"
+P = "no_op"
+R = "no_op"
+i = "select_textobject_inner"
+I = "select_textobject_around"
+
+[keys.normal.t]
+t = ":append-output cat ~/.config/helix/snippets/component"
+p = ":append-output cat ~/.config/helix/snippets/pipe"
+d = ":append-output cat ~/.config/helix/snippets/directive"
+
+[keys.select]
+d = "delete_selection_noyank"
+c = "change_selection_noyank"
+
+[keys.insert]
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+

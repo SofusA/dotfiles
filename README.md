@@ -1,2 +1,2 @@
 # My configuration files
-Configurations for the applications i use
+Configurations for tools that i use
