@@ -15,7 +15,14 @@ auto-format = true
 [[language]]
 name = "json"
 formatter = { command = 'prettier', args = ["--write", "--parser", "json"] }
+auto-format = true
 
 [[language]]
 name = "css"
 formatter = { command = 'prettier', args = ["--write", "--parser", "css"] }
+auto-format = true
+
+[[language]]
+name = "scss"
+formatter = { command = 'prettier', args = ["--write", "--parser", "scss"] }
+auto-format = true
