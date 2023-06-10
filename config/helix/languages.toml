@@ -4,12 +4,12 @@ auto-format = true
 
 [[language]]
 name = "typescript"
-formatter = { command = 'prettier', args = ["--write", "--parser", "typescript"] }
+formatter = { command = 'prettier', args = ["--write", "--parser", "typescript", "--print-width", "120", "--single-quote", "false", "--html-whitespace-sensitivity", "ignore"] }
 auto-format = true
 
 [[language]]
 name = "html"
-formatter = { command = 'prettier', args = ["--write", "--html-whitespace-sensitivity", "ignore", "--parser", "html"] }
+formatter = { command = 'prettier', args = ["--write", "--parser", "html"] }
 auto-format = true
 
 [[language]]

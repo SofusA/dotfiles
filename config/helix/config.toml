@@ -3,6 +3,7 @@ theme = "onedark"
 [editor]
 line-number = "relative"
 mouse = false
+bufferline = "always"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -19,10 +20,6 @@ up = "no_op"
 down = "no_op"
 left = "no_op"
 right = "no_op"
-y = "yank_main_selection_to_clipboard"
-Y = "no_op"
-p = "paste_clipboard_after"
-P = "paste_clipboard_before"
 
 [keys.normal.space]
 w = ":write"
@@ -30,16 +27,13 @@ f = "file_picker_in_current_directory"
 F = "no_op"
 "'" = "no_op"
 j = "no_op"
-y = "no_op"
-Y = "no_op"
-p = "no_op"
-P = "no_op"
 R = "no_op"
 i = "select_textobject_inner"
 I = "select_textobject_around"
+c = ":buffer-close"
 
 [keys.normal.t]
-t = ":append-output cat ~/.config/helix/snippets/component"
+c = ":append-output cat ~/.config/helix/snippets/component"
 p = ":append-output cat ~/.config/helix/snippets/pipe"
 d = ":append-output cat ~/.config/helix/snippets/directive"
 
