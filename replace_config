@@ -2,6 +2,7 @@
 
 for dir in config/*/
 do
+    dir=${dir%/*}
     dir="${dir##*/}"
     rm -rf ~/.config/$dir
     cp -r config/$dir ~/.config/
