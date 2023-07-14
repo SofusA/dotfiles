@@ -1,4 +1,4 @@
-alias upgrade 'sudo dnf upgrade -y; flatpak upgrade -y; distrobox upgrade -a'
+alias upgrade 'flatpak upgrade -y; home-manager -f ~/dotfiles/home.nix switch && ~/dotfiles/replace_config'
 alias ls 'exa -1 --color=always --group-directories-first'
 
 set -gx EDITOR hx

@@ -1,0 +1,109 @@
+# Mod. Use Mod1 for Alt, Mod4 for Super.
+    set $mod Mod4
+    set $modalt $mod+Shift
+
+# Autostart Applications
+    exec waybar
+    
+# Standard applications
+    set $term foot
+    set $shell $term -e fish
+    set $browser flatpak run org.mozilla.firefox
+    set $menu wofi -I -S drun
+	
+# Key bindings
+    bindsym $modalt+w kill
+    floating_modifier $mod normal
+    bindsym $mod+f fullscreen
+    bindsym $mod+g floating toggle
+
+    bindsym $modalt+t exec 'flatpak run com.microsoft.Edge --app=https://teams.microsoft.com & flatpak run com.google.Chrome --app=https://teams.microsoft.com'
+    bindsym $mod+Return exec $shell
+    bindsym $modalt+i exec $term
+    bindsym $modalt+Return exec $browser
+    bindsym $mod+d exec $menu
+
+    set $lock 'xdg-screensaver lock'
+    bindsym $modalt+q exec $lock
+
+# Input configuration
+    input type:keyboard {
+        xkb_layout "dk"
+    }
+
+# Screenshots
+    #bindsym Ctrl+Shift+3 exec grim ~/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png
+    #bindsym Ctrl+Shift+4 exec grim -g "$(slurp)" ~/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png
+    bindsym $mod+p exec grim ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png | wl-copy
+    bindsym $modalt+p exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png | wl-copy
+
+# Moving around
+    bindsym $mod+h focus left
+    bindsym $mod+j focus down
+    bindsym $mod+k focus up
+    bindsym $mod+l focus right
+
+    bindsym $modalt+h move left
+    bindsym $modalt+j move down
+    bindsym $modalt+k move up
+    bindsym $modalt+l move right
+
+# Workspaces
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
+    bindsym $mod+3 workspace 3
+    bindsym $mod+4 workspace 4
+    bindsym $mod+5 workspace 5
+    bindsym $mod+6 workspace 6
+    bindsym $mod+7 workspace 7
+    bindsym $mod+8 workspace 8
+    bindsym $mod+9 workspace 9
+    bindsym $mod+0 workspace 10
+
+    bindsym $modalt+1 move container to workspace 1
+    bindsym $mod+at move container to workspace 2
+    bindsym $modalt+3 move container to workspace 3
+    bindsym $mod+dollar move container to workspace 4
+    bindsym $mod+percent move container to workspace 5
+    bindsym $modalt+6 move container to workspace 6
+    bindsym $modalt+7 move container to workspace 7
+    bindsym $modalt+8 move container to workspace 8
+    bindsym $modalt+9 move container to workspace 9
+    bindsym $modalt+0 move container to workspace 10
+   
+     
+# Resize
+    mode "resize" {
+        bindsym h resize shrink width 20px
+        bindsym j resize grow height 20px
+        bindsym k resize shrink height 20px
+        bindsym l resize grow width 20px
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+
+    bindsym $mod+r mode "resize"
+
+# Styling
+# Hide borders
+default_border pixel 2
+smart_borders on
+
+# Set colors
+set $colour_bg #171717
+set $colour_fg #eff1f5
+set $colour_br #225a9a
+set $colour_ia #232425
+
+# class              	border 	 	backgr. text    indicator 	child_border
+client.focused          $colour_bg     	$colour_br     	$colour_fg     	$colour_br       $colour_br
+client.focused_inactive $colour_bg     	$colour_bg     	$colour_fg     	$colour_bg       $colour_bg
+client.unfocused        $colour_bg     	$colour_bg     	$colour_fg     	$colour_bg       $colour_bg
+#client.urgent          $colour_br     	$colour_br     	$colour_fg     	$colour_bg       $colour_br #currently not implemented
+#client.placeholder     $colour_br     	$colour_br     	$colour_fg     	$colour_bg       $colour_br #currently not implemented
+client.background $colour_bg
+
+# Set inner/outer gaps
+gaps inner 20
+gaps outer 0
