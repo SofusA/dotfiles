@@ -2,9 +2,9 @@
 # command = "omnisharp"
 # args = ["--languageserver"]
 
-# [language-server.angular]
-# command = "ngserver"
-# args = ["--stdio", "--tsProbeLocations", "/usr/lib/node_modules", "--ngProbeLocations", "/usr/lib/node_modules"]
+[language-server.angular]
+command = "ngserver"
+args = ["--stdio", "--tsProbeLocations", "/var/home/sofusa/.npm-packages/lib/node_modules", "--ngProbeLocations", "/var/home/sofusa/.npm-packages/lib/node_modules"]
 
 [[language]]
 name = "c-sharp"
@@ -15,13 +15,13 @@ auto-format = true
 name = "typescript"
 formatter = { command = 'prettier', args = ["--write", "--parser", "typescript", "--trailing-comma", "all" ] }
 auto-format = true
-# language-servers = ["typescript-language-server", "angular"]
+language-servers = ["typescript-language-server", "angular"]
 
 [[language]]
 name = "html"
 formatter = { command = 'prettier', args = ["--write", "--parser", "html"] }
 auto-format = true
-# language-servers = ["vscode-html-language-server", "angular"]
+language-servers = ["vscode-html-language-server", "angular"]
 
 [[language]]
 name = "json"
