@@ -1,0 +1,3 @@
+#!/bin/bash
+
+curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/dnkmmr69420/nix-installer-scripts/main/installer-scripts/silverblue-nix-installer.sh | sh
