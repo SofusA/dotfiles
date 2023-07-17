@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -27,6 +27,7 @@
 
     wofi
     waybar
+    azure-cli
   ];
 
   home.stateVersion = "23.05";
