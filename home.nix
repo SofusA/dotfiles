@@ -22,6 +22,9 @@
     gitAndTools.gh
     vscode
 
+    taplo # toml lsp
+    nil # nix lsp
+
     wofi
     waybar
   ];

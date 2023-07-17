@@ -6,6 +6,20 @@
 command = "ngserver"
 args = ["--stdio", "--tsProbeLocations", "/var/home/sofusa/.npm-packages/lib/node_modules", "--ngProbeLocations", "/var/home/sofusa/.npm-packages/lib/node_modules"]
 
+[language-server.eslint]
+command = "vscode-eslint-language-server"
+args = ["--stdio"]
+
+[language-server.eslint.config]
+validate = "on"
+experimental = { useFlatConfig = false }
+rulesCustomizations = []
+run = "onType"
+problems = { shortenToSingleLine = false }
+nodePath = ""
+format = false
+codeAction = { disableRuleComment = { enable = true, location = 'separateLine' }, showDocumentation = { enable = true }}
+
 [[language]]
 name = "c-sharp"
 formatter = { command = "dotnet-csharpier" }
@@ -15,7 +29,7 @@ auto-format = true
 name = "typescript"
 formatter = { command = 'prettier', args = ["--write", "--parser", "typescript", "--trailing-comma", "all" ] }
 auto-format = true
-language-servers = ["typescript-language-server", "angular"]
+language-servers = ["typescript-language-server", "angular", "eslint"]
 
 [[language]]
 name = "html"
