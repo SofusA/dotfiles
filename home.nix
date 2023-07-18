@@ -11,20 +11,22 @@
     helix
     exa
     joshuto
+    gitui
+
     vscode-langservers-extracted
-    exa
     dotnet-sdk_7
     csharp-ls
+
+    taplo # toml lsp
+    nil # nix lsp
 
     nodePackages.prettier
     nodePackages.typescript-language-server
     nodejs_20
-    gitui
     gitAndTools.gh
     vscode
 
-    taplo # toml lsp
-    nil # nix lsp
+    wl-clipboard
 
     wofi
     waybar
