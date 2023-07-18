@@ -27,7 +27,11 @@
 
     wofi
     waybar
+
     azure-cli
+    powershell
+
+    google-chrome
   ];
 
   home.stateVersion = "23.05";

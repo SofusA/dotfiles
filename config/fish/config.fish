@@ -4,5 +4,6 @@ alias hxg 'nix run github:helix-editor/helix'
 
 set -gx EDITOR hx
 set -U fish_greeting
+set -g -x ASPNETCORE_ENVIRONMENT Test
 
 set PATH /var/home/sofusa/.npm-packages/bin $PATH
