@@ -14,7 +14,8 @@
     vscode-langservers-extracted
     exa
     dotnet-sdk_7
-    omnisharp-roslyn
+    csharp-ls
+
     nodePackages.prettier
     nodePackages.typescript-language-server
     nodejs_20
