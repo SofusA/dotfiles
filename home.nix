@@ -12,6 +12,7 @@
     exa
     joshuto
     gitui
+    ripgrep
 
     vscode-langservers-extracted
     dotnet-sdk_7
@@ -27,9 +28,9 @@
     vscode
 
     wl-clipboard
-
     wofi
     waybar
+    autotiling-rs
 
     azure-cli
     powershell

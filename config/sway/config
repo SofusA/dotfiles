@@ -4,6 +4,7 @@
 
 # Autostart Applications
     exec waybar
+    exec --no-startup-id autotiling_rs
     
 # Standard applications
     set $term foot
