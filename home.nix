@@ -17,6 +17,7 @@
     vscode-langservers-extracted
     dotnet-sdk_7
     csharp-ls
+    omnisharp-roslyn
 
     taplo # toml lsp
     nil # nix lsp

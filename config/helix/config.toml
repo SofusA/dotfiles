@@ -50,3 +50,9 @@ down = "no_op"
 left = "no_op"
 right = "no_op"
 
+[editor.statusline]
+left = ["mode", "spinner", "file-name"]
+right = ["diagnostics", "selections", "position", "file-line-ending"]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"

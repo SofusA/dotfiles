@@ -7,3 +7,9 @@ set -U fish_greeting
 set -g -x ASPNETCORE_ENVIRONMENT Test
 
 set PATH /var/home/sofusa/.npm-packages/bin $PATH
+
+alias gui "gitui"
+alias gap "git commit --amend && git push --force"
+alias gp "git push"
+alias gpu "git pull"
+alias gpud "git pull origin develop"
