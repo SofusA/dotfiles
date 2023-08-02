@@ -14,6 +14,8 @@
     gitui
     ripgrep
 
+    rustup
+
     vscode-langservers-extracted
     dotnet-sdk_7
     csharp-ls

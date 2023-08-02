@@ -4,7 +4,10 @@
 
 # Autostart Applications
     exec waybar
-    exec --no-startup-id autotiling_rs
+    #exec_always --no-startup-id autotiling_rs
+    exec /usr/libexec/lxqt-policykit-agent 
+    exec /usr/libexec/sway-systemd/wait-sni-ready systemctl --user start sway-xdg-autostart.target
+    exec /usr/bin/xdg-user-dirs-update 
     
 # Standard applications
     set $term foot
@@ -23,9 +26,6 @@
     bindsym $modalt+i exec $term
     bindsym $modalt+Return exec $browser
     bindsym $mod+d exec $menu
-
-    set $lock 'xdg-screensaver lock'
-    bindsym $modalt+q exec $lock
 
 # Input configuration
     input type:keyboard {
