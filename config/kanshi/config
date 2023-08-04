@@ -1,0 +1,4 @@
+profile {
+	output eDP-1 disable
+	output DP-5 enable
+}

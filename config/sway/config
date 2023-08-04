@@ -4,6 +4,7 @@
 
 # Autostart Applications
     exec waybar
+    exec kanshi
     #exec_always --no-startup-id autotiling_rs
     # exec /usr/libexec/lxqt-policykit-agent 
     # exec /usr/libexec/sway-systemd/wait-sni-ready systemctl --user start sway-xdg-autostart.target
