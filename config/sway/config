@@ -1,6 +1,6 @@
 # Mod. Use Mod1 for Alt, Mod4 for Super.
     set $mod Mod4
-    set $modalt $mod+Shift
+    set $modalt $mod+Ctrl
 
 # Autostart Applications
     exec waybar
