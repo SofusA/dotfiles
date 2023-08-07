@@ -5,10 +5,7 @@
 # Autostart Applications
     exec waybar
     exec kanshi
-    #exec_always --no-startup-id autotiling_rs
-    # exec /usr/libexec/lxqt-policykit-agent 
-    # exec /usr/libexec/sway-systemd/wait-sni-ready systemctl --user start sway-xdg-autostart.target
-    # exec /usr/bin/xdg-user-dirs-update 
+    exec autotiling_rs
     
 # Standard applications
     set $term foot
@@ -28,6 +25,9 @@
     bindsym $modalt+Return exec $browser
     bindsym $mod+d exec $menu
 
+exec swayidle -w \
+        timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+          
 # Input configuration
     input type:keyboard {
         xkb_layout "dk"
@@ -61,17 +61,16 @@
     bindsym $mod+0 workspace 10
 
     bindsym $modalt+1 move container to workspace 1
-    bindsym $mod+at move container to workspace 2
+    bindsym $modalt+2 move container to workspace 2
     bindsym $modalt+3 move container to workspace 3
-    bindsym $mod+dollar move container to workspace 4
-    bindsym $mod+percent move container to workspace 5
+    bindsym $modalt+4 move container to workspace 4
+    bindsym $modalt+5 move container to workspace 5
     bindsym $modalt+6 move container to workspace 6
     bindsym $modalt+7 move container to workspace 7
     bindsym $modalt+8 move container to workspace 8
     bindsym $modalt+9 move container to workspace 9
     bindsym $modalt+0 move container to workspace 10
-   
-     
+        
 # Resize
     mode "resize" {
         bindsym h resize shrink width 20px
@@ -86,17 +85,17 @@
     bindsym $mod+r mode "resize"
 
 # Styling
-# Hide borders
+## Hide borders
 default_border pixel 2
 smart_borders on
 
-# Set colors
+## Set colors
 set $colour_bg #171717
 set $colour_fg #eff1f5
 set $colour_br #225a9a
 set $colour_ia #232425
 
-# class              	border 	 	backgr. text    indicator 	child_border
+# class              	border 	        backgr.text    indicator 	child_border
 client.focused          $colour_bg     	$colour_br     	$colour_fg     	$colour_br       $colour_br
 client.focused_inactive $colour_bg     	$colour_bg     	$colour_fg     	$colour_bg       $colour_bg
 client.unfocused        $colour_bg     	$colour_bg     	$colour_fg     	$colour_bg       $colour_bg
@@ -108,4 +107,8 @@ client.background $colour_bg
 gaps inner 20
 gaps outer 0
 
-include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+include /etc/sway/config.d/*.conf
+include /usr/share/sway/config.d/50-*.conf
+include /usr/share/sway/config.d/95-*.conf
+include /usr/share/sway/config.d/60-bindings-media.conf
+include /usr/share/sway/config.d/60-bindings-volume.conf
