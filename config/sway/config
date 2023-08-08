@@ -3,9 +3,22 @@
     set $modalt $mod+Ctrl
 
 # Autostart Applications
-    exec waybar
     exec kanshi
     exec autotiling_rs
+
+bar {
+    status_command while date +'%Y-%m-%d %H:%M %p'; do sleep 10; done
+    position top
+    mode overlay
+    height 19
+    colors {
+        statusline #ffffff
+        background #32323200
+        focused_workspace #32323200 #32323200 #ffffff
+        inactive_workspace #32323200 #32323200 #5c5c5c
+        urgent_workspace #32323200 #32323200 #ff0000
+    }
+}
     
 # Standard applications
     set $term foot
