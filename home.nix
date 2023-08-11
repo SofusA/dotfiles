@@ -5,6 +5,7 @@
 
   home.username = "sofusa";
   home.homeDirectory = "/home/sofusa";
+  home.language.base = "en_GB.UTF-8";
 
   home.packages = with pkgs; [                               
     fish
@@ -15,7 +16,6 @@
     ripgrep
 
     rustup
-
     vscode-langservers-extracted
     dotnet-sdk_7
     csharp-ls

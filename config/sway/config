@@ -21,7 +21,7 @@ bar {
 }
     
 # Standard applications
-    set $term foot
+    set $term foot -t foot
     set $shell $term -e fish
     set $browser flatpak run org.mozilla.firefox
     set $menu wofi -I -S drun

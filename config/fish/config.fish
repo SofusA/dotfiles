@@ -6,6 +6,8 @@ set -gx EDITOR hx
 set -U fish_greeting
 set -g -x ASPNETCORE_ENVIRONMENT Test
 
+set -gx LOCALE_ARCHIVE /usr/lib/locale/locale-archive
+
 set PATH /var/home/sofusa/.npm-packages/bin $PATH
 
 alias gui "gitui"
