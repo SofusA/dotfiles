@@ -51,14 +51,14 @@ exec swayidle -w \
     bindsym $modalt+p exec grim - | wl-copy
 
 # Moving around
-    bindsym $mod+h focus left
-    bindsym $mod+j focus down
-    bindsym $mod+k focus up
+    bindsym $mod+j focus left
+    bindsym $mod+k focus down
+    bindsym $mod+i focus up
     bindsym $mod+l focus right
 
-    bindsym $modalt+h move left
-    bindsym $modalt+j move down
-    bindsym $modalt+k move up
+    bindsym $modalt+j move left
+    bindsym $modalt+k move down
+    bindsym $modalt+i move up
     bindsym $modalt+l move right
 
 # Workspaces

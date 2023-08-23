@@ -11,18 +11,52 @@ normal = "block"
 select = "underline"
 
 [keys.normal]
-d = "delete_selection_noyank"
-c = "change_selection_noyank"
-C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
-C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
-"X" = "extend_line_up"
 up = "no_op"
 down = "no_op"
 left = "no_op"
 right = "no_op"
+
+d = "delete_selection_noyank"
+"X" = "extend_line_up"
 C-h = ":buffer-previous"
 C-l = ":buffer-next"
+
 esc = ["collapse_selection", "keep_primary_selection"]
+
+j = "move_char_left"
+k = "move_visual_line_down"
+l = "move_char_right"
+i = "move_visual_line_up"
+u = "goto_prev_function"
+o = "goto_next_function"
+
+C-k = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-i = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+
+z = "undo"
+Z = "redo"
+
+a = "no_op"
+A = "no_op"
+O = "no_op"
+r = "no_op"
+R = "no_op"
+I = "no_op"
+
+[keys.normal.c]
+i = "insert_mode"
+I = "insert_at_line_start"
+a = "append_mode"
+A = "insert_at_line_end"
+r = "replace"
+R = "replace_with_yanked"
+
+o = "open_below"
+O = "open_above"
+
+u = "increment"
+U = "decrement"
+c = "switch_case"
 
 [keys.normal.space]
 w = ":write"
@@ -40,9 +74,30 @@ c = ":append-output cat ~/.config/helix/snippets/component"
 p = ":append-output cat ~/.config/helix/snippets/pipe"
 d = ":append-output cat ~/.config/helix/snippets/directive"
 
+[keys.normal.g]
+h = "move_line_up"
+j = "goto_line_start"
+k = "move_line_down"
+l = "goto_line_end"
+
+[keys.select.g]
+h = "extend_line_up"
+j = "goto_line_start"
+k = "extend_line_down"
+l = "goto_line_end"
+
 [keys.select]
 d = "delete_selection_noyank"
-c = "change_selection_noyank"
+c = "no_op"
+
+j = "extend_char_left"
+k = "extend_visual_line_down"
+l = "extend_char_right"
+i = "extend_visual_line_up"
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
 
 [keys.insert]
 up = "no_op"
