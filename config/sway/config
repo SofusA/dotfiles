@@ -34,7 +34,6 @@ bar {
 
     bindsym $modalt+t exec 'flatpak run com.microsoft.Edge --app=https://teams.microsoft.com & flatpak run com.google.Chrome --app=https://teams.microsoft.com'
     bindsym $mod+Return exec $shell
-    bindsym $modalt+i exec $term
     bindsym $modalt+Return exec $browser
     bindsym $mod+d exec $menu
 
