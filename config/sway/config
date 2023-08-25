@@ -83,28 +83,48 @@ exec swayidle -w \
 
     bindsym $mod+r mode "resize"
 
+    mode "cursor" {
+        bindsym j seat * cursor move -10 0
+        bindsym l seat * cursor move 10 0
+        bindsym i seat * cursor move 0 -10
+        bindsym k seat * cursor move 0 10
+
+        bindsym $mod+j seat * cursor move -50 0
+        bindsym $mod+l seat * cursor move 50 0
+        bindsym $mod+i seat * cursor move 0 -50
+        bindsym $mod+k seat * cursor move 0 50
+
+        bindsym u seat * cursor press BTN_LEFT; seat * cursor release BTN_LEFT
+        bindsym o seat * cursor press BTN_RIGHT; seat * cursor release BTN_RIGHT
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+
+    bindsym $mod+m mode "cursor"
+
 # Styling
-## Hide borders
-default_border pixel 2
-smart_borders on
+    ## Hide borders
+    default_border pixel 2
+    smart_borders on
 
-## Set colors
-set $colour_bg #171717
-set $colour_fg #eff1f5
-set $colour_br #225a9a
-set $colour_ia #232425
+    ## Set colors
+    set $colour_bg #171717
+    set $colour_fg #eff1f5
+    set $colour_br #225a9a
+    set $colour_ia #232425
 
-# class              	border 	        backgr.text    indicator 	child_border
-client.focused          $colour_bg     	$colour_br     	$colour_fg     	$colour_br       $colour_br
-client.focused_inactive $colour_bg     	$colour_bg     	$colour_fg     	$colour_bg       $colour_bg
-client.unfocused        $colour_bg     	$colour_bg     	$colour_fg     	$colour_bg       $colour_bg
-#client.urgent          $colour_br     	$colour_br     	$colour_fg     	$colour_bg       $colour_br #currently not implemented
-#client.placeholder     $colour_br     	$colour_br     	$colour_fg     	$colour_bg       $colour_br #currently not implemented
-client.background $colour_bg
+    # class              	border 	        backgr.text    indicator 	child_border
+    client.focused          $colour_bg     	$colour_br     	$colour_fg     	$colour_br       $colour_br
+    client.focused_inactive $colour_bg     	$colour_bg     	$colour_fg     	$colour_bg       $colour_bg
+    client.unfocused        $colour_bg     	$colour_bg     	$colour_fg     	$colour_bg       $colour_bg
+    #client.urgent          $colour_br     	$colour_br     	$colour_fg     	$colour_bg       $colour_br #currently not implemented
+    #client.placeholder     $colour_br     	$colour_br     	$colour_fg     	$colour_bg       $colour_br #currently not implemented
+    client.background $colour_bg
 
 # Set inner/outer gaps
-gaps inner 20
-gaps outer 0
+    gaps inner 20
+    gaps outer 0
 
 include /etc/sway/config.d/*.conf
 include /usr/share/sway/config.d/50-*.conf
