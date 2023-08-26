@@ -11,11 +11,6 @@ normal = "block"
 select = "underline"
 
 [keys.normal]
-up = "no_op"
-down = "no_op"
-left = "no_op"
-right = "no_op"
-
 d = "delete_selection_noyank"
 "X" = "extend_line_up"
 C-h = ":buffer-previous"
@@ -94,16 +89,6 @@ j = "extend_char_left"
 k = "extend_visual_line_down"
 l = "extend_char_right"
 i = "extend_visual_line_up"
-up = "no_op"
-down = "no_op"
-left = "no_op"
-right = "no_op"
-
-[keys.insert]
-up = "no_op"
-down = "no_op"
-left = "no_op"
-right = "no_op"
 
 [editor.statusline]
 left = ["mode", "spinner", "file-name"]

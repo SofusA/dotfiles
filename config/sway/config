@@ -1,6 +1,6 @@
 # Mod. Use Mod1 for Alt, Mod4 for Super.
     set $mod Mod4
-    set $modalt $mod+Ctrl
+    set $modalt $mod+Shift
 
 # Autostart Applications
     exec kanshi
@@ -82,26 +82,6 @@ exec swayidle -w \
     }
 
     bindsym $mod+r mode "resize"
-
-    mode "cursor" {
-        bindsym j seat * cursor move -10 0
-        bindsym l seat * cursor move 10 0
-        bindsym i seat * cursor move 0 -10
-        bindsym k seat * cursor move 0 10
-
-        bindsym $mod+j seat * cursor move -50 0
-        bindsym $mod+l seat * cursor move 50 0
-        bindsym $mod+i seat * cursor move 0 -50
-        bindsym $mod+k seat * cursor move 0 50
-
-        bindsym u seat * cursor press BTN_LEFT; seat * cursor release BTN_LEFT
-        bindsym o seat * cursor press BTN_RIGHT; seat * cursor release BTN_RIGHT
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-    }
-
-    bindsym $mod+m mode "cursor"
 
 # Styling
     ## Hide borders
