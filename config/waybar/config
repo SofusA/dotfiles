@@ -6,6 +6,10 @@
     "modules-center": ["clock"],
     "modules-right": ["idle_inhibitor", "tray", "custom/power"],
 
+    "sway/workspaces": {
+        "disable-click": true
+    },
+
     "sway/window": {
         "max-length": 50
     },
