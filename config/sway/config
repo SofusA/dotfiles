@@ -5,7 +5,21 @@
 # Autostart Applications
     exec kanshi
     exec autotiling_rs
-    exec waybar
+
+bar {
+    status_command while date +'%A %d. %B %H:%M %p'; do sleep 10; done
+    position top
+    mode overlay
+    height 19
+    colors {
+        statusline #ffffff
+        background #32323200
+        focused_workspace #32323200 #32323200 #ffffff
+        inactive_workspace #32323200 #32323200 #5c5c5c
+        urgent_workspace #32323200 #32323200 #ff0000
+        font DejaVuSans 10
+    }
+}
     
 # Standard applications
     set $term foot -t foot
@@ -24,8 +38,10 @@
     bindsym $modalt+Return exec $browser
     bindsym $mod+d exec $menu
 
-exec swayidle -w \
+    exec swayidle -w \
         timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+
+    seat * hide_cursor when-typing enable
           
 # Input configuration
     input type:keyboard {
