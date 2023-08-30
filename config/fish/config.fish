@@ -15,3 +15,8 @@ alias gap "git commit --amend && git push --force"
 alias gp "git push"
 alias gpu "git pull"
 alias gpud "git pull origin develop"
+
+alias dt "dotnet test"
+function dtt
+    dotnet test --filter Name~$argv
+end

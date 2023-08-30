@@ -7,9 +7,9 @@
     exec autotiling_rs
 
 bar {
-    status_command while date +'%A %d. %B %H:%M %p'; do sleep 10; done
+    status_command while date +'%A %d. %B %H:%M'; do sleep 10; done
     position top
-    mode overlay
+    mode dock
     height 19
     colors {
         statusline #ffffff
@@ -119,7 +119,7 @@ bar {
     client.background $colour_bg
 
 # Set inner/outer gaps
-    gaps inner 20
+    gaps inner 10
     gaps outer 0
 
 include /etc/sway/config.d/*.conf
