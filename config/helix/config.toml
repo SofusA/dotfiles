@@ -13,7 +13,7 @@ select = "underline"
 [keys.normal]
 d = "delete_selection_noyank"
 "X" = "extend_line_up"
-C-h = ":buffer-previous"
+C-j = ":buffer-previous"
 C-l = ":buffer-next"
 
 esc = ["collapse_selection", "keep_primary_selection"]

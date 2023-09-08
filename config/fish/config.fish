@@ -20,3 +20,13 @@ alias dt "dotnet test"
 function dtt
     dotnet test --filter Name~$argv
 end
+
+function drmock
+    cd ~/Documents/CorporateActions/src
+    dotnet run --project IOS.Mock --launch-profile http
+end
+
+function drapi    
+    cd ~/Documents/CorporateActions/src
+    dotnet run --project IOS.Api 
+end

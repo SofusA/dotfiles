@@ -3,11 +3,11 @@
     set $modalt $mod+Shift
 
 # Autostart Applications
-    exec kanshi
+    exec_always kanshi
     exec autotiling_rs
 
 bar {
-    status_command while date +'%A %d. %B %H:%M'; do sleep 10; done
+    status_command while LANG=da_DK date +'%A %d. %B %H:%M'; do sleep 10; done
     position top
     mode dock
     height 19
@@ -38,8 +38,8 @@ bar {
     bindsym $modalt+Return exec $browser
     bindsym $mod+d exec $menu
 
-    exec swayidle -w \
-        timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+#    exec swayidle -w \
+#        timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
 
     seat * hide_cursor when-typing enable
           
