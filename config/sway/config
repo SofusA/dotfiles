@@ -1,10 +1,34 @@
-# Mod. Use Mod1 for Alt, Mod4 for Super.
-    set $mod Mod4
-    set $modalt $mod+Shift
+exec_always kanshi
+exec_always autotiling_rs
 
-# Autostart Applications
-    exec_always kanshi
-    exec autotiling_rs
+exec "sleep 2; swaymsg workspace browser;"
+
+mode "leader" {
+    bindsym d mode "launch"
+    bindsym v mode "move window"
+    bindsym g mode "move to workspace"
+    bindsym r mode "resize"
+    bindsym h mode "cursor"; seat * hide_cursor when-typing disable
+
+    bindsym w kill
+    bindsym f fullscreen
+    bindsym p exec grim -g "$(slurp -d)" - | wl-copy
+
+    bindsym j focus left
+    bindsym k focus down
+    bindsym i focus up
+    bindsym l focus right
+
+    bindsym b workspace browser
+    bindsym c workspace code
+    bindsym m workspace music
+    bindsym t workspace teams
+    bindsym s workspace services
+
+    bindsym Escape mode "default"
+}
+
+bindsym F1 mode "leader"
 
 bar {
     status_command while LANG=da_DK date +'%A %d. %B %H:%M'; do sleep 10; done
@@ -21,83 +45,77 @@ bar {
     }
 }
     
-# Standard applications
-    set $term foot -t foot
-    set $shell $term -e fish
-    set $browser flatpak run org.mozilla.firefox
-    set $menu wofi -I -S drun
-	
-# Key bindings
-    bindsym $modalt+w kill
-    floating_modifier $mod normal
-    bindsym $mod+f fullscreen
-    bindsym $mod+g floating toggle
+set $term foot -t foot
+set $shell $term -e fish
+set $browser flatpak run org.mozilla.firefox
+set $menu wofi -I -S drun
 
-    bindsym $modalt+t exec 'flatpak run com.microsoft.Edge --app=https://teams.microsoft.com & flatpak run com.google.Chrome --app=https://teams.microsoft.com'
-    bindsym $mod+Return exec $shell
-    bindsym $modalt+Return exec $browser
-    bindsym $mod+d exec $menu
+mode "launch" {
+    bindsym t exec 'flatpak run com.microsoft.Edge --app=https://teams.microsoft.com & flatpak run com.google.Chrome --app=https://teams.microsoft.com'
+    bindsym Return exec $shell
+    bindsym b exec $browser
+    bindsym d exec $menu
+    bindsym s exec flatpak run com.slack.Slack
+    bindsym c exec flatpak run sh.cider.cider
 
-#    exec swayidle -w \
-#        timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+    bindsym Escape mode "default"
+}
 
-    seat * hide_cursor when-typing enable
+mode "move window" {
+    bindsym j move left
+    bindsym k move down
+    bindsym i move up
+    bindsym l move right
+
+    bindsym Escape mode "default"
+}
+
+mode "move to workspace" {
+    bindsym b move container to workspace browser
+    bindsym c move container to workspace code
+    bindsym m move container to workspace music
+    bindsym t move container to workspace teams
+    bindsym s move container to workspace services
+
+    bindsym Escape mode "default"
+}
+
+mode "cursor" {
+    bindsym j seat * cursor move -10 0
+    bindsym l seat * cursor move 10 0
+    bindsym i seat * cursor move 0 -10
+    bindsym k seat * cursor move 0 10
+
+    bindsym s seat * cursor move -50 0
+    bindsym f seat * cursor move 50 0
+    bindsym e seat * cursor move 0 -50
+    bindsym d seat * cursor move 0 50
+
+    bindsym u seat * cursor press BTN_LEFT; seat * cursor release BTN_LEFT
+    bindsym w seat * cursor press BTN_LEFT; seat * cursor release BTN_LEFT
+    bindsym o seat * cursor press BTN_RIGHT; seat * cursor release BTN_RIGHT
+    bindsym r seat * cursor press BTN_RIGHT; seat * cursor release BTN_RIGHT
+
+    bindsym Escape mode "default"; seat * hide_cursor when-typing enable
+}
+    
+mode "resize" {
+    bindsym h resize shrink width 20px
+    bindsym j resize grow height 20px
+    bindsym k resize shrink height 20px
+    bindsym l resize grow width 20px
+    bindsym g floating toggle
+
+    bindsym Escape mode "default"
+}
+
           
 # Input configuration
     input type:keyboard {
         xkb_layout "dk"
     }
 
-# Screenshots
-    bindsym $mod+p exec grim -g "$(slurp -d)" - | wl-copy
-    bindsym $modalt+p exec grim - | wl-copy
-
-# Moving around
-    bindsym $mod+j focus left
-    bindsym $mod+k focus down
-    bindsym $mod+i focus up
-    bindsym $mod+l focus right
-
-    bindsym $modalt+j move left
-    bindsym $modalt+k move down
-    bindsym $modalt+i move up
-    bindsym $modalt+l move right
-
-# Workspaces
-    bindsym $mod+1 workspace 1
-    bindsym $mod+2 workspace 2
-    bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
-    bindsym $mod+5 workspace 5
-    bindsym $mod+6 workspace 6
-    bindsym $mod+7 workspace 7
-    bindsym $mod+8 workspace 8
-    bindsym $mod+9 workspace 9
-    bindsym $mod+0 workspace 10
-
-    bindsym $modalt+1 move container to workspace 1
-    bindsym $modalt+2 move container to workspace 2
-    bindsym $modalt+3 move container to workspace 3
-    bindsym $modalt+4 move container to workspace 4
-    bindsym $modalt+5 move container to workspace 5
-    bindsym $modalt+6 move container to workspace 6
-    bindsym $modalt+7 move container to workspace 7
-    bindsym $modalt+8 move container to workspace 8
-    bindsym $modalt+9 move container to workspace 9
-    bindsym $modalt+0 move container to workspace 10
-        
-# Resize
-    mode "resize" {
-        bindsym h resize shrink width 20px
-        bindsym j resize grow height 20px
-        bindsym k resize shrink height 20px
-        bindsym l resize grow width 20px
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-    }
-
-    bindsym $mod+r mode "resize"
+#seat * hide_cursor when-typing enable
 
 # Styling
     ## Hide borders
@@ -127,3 +145,7 @@ include /usr/share/sway/config.d/50-*.conf
 include /usr/share/sway/config.d/95-*.conf
 include /usr/share/sway/config.d/60-bindings-media.conf
 include /usr/share/sway/config.d/60-bindings-volume.conf
+
+#    exec swayidle -w \
+#        timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+# floating_modifier $mod normal
