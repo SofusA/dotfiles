@@ -2,33 +2,93 @@ exec_always kanshi
 exec_always autotiling_rs
 
 exec "sleep 2; swaymsg workspace browser;"
+seat * hide_cursor when-typing enable
 
-mode "leader" {
+bindsym F1 mode "sway"
+
+mode "sway" {
     bindsym d mode "launch"
     bindsym v mode "move window"
     bindsym g mode "move to workspace"
     bindsym r mode "resize"
     bindsym h mode "cursor"; seat * hide_cursor when-typing disable
 
-    bindsym w kill
-    bindsym f fullscreen
-    bindsym p exec grim -g "$(slurp -d)" - | wl-copy
+    bindsym w kill; mode "default"
+    bindsym f fullscreen; mode "default"
+    bindsym p exec grim -g "$(slurp -d)" - | wl-copy; mode "default"
 
-    bindsym j focus left
-    bindsym k focus down
-    bindsym i focus up
-    bindsym l focus right
+    bindsym n focus left
+    bindsym e focus down
+    bindsym u focus up
+    bindsym i focus right
 
-    bindsym b workspace browser
-    bindsym c workspace code
-    bindsym m workspace music
-    bindsym t workspace teams
-    bindsym s workspace services
+    bindsym b workspace browser; mode "default"
+    bindsym c workspace code; mode "default"
+    bindsym m workspace music; mode "default"
+    bindsym t workspace teams; mode "default"
+    bindsym s workspace services; mode "default"
 
     bindsym Escape mode "default"
 }
 
-bindsym F1 mode "leader"
+mode "launch" {
+    bindsym t exec 'flatpak run com.microsoft.Edge --app=https://teams.microsoft.com & flatpak run com.google.Chrome --app=https://teams.microsoft.com'; mode "default"
+    bindsym Return exec $shell; mode "default"
+    bindsym b exec $browser; mode "default"
+    bindsym d exec $menu; mode "default"
+    bindsym s exec flatpak run com.slack.Slack; mode "default"
+    bindsym c exec flatpak run sh.cider.cider; mode "default"
+
+    bindsym Escape mode "default"
+}
+
+mode "move window" {
+    bindsym n move left
+    bindsym e move down
+    bindsym u move up
+    bindsym i move right
+
+    bindsym Escape mode "default"
+}
+
+mode "move to workspace" {
+    bindsym b move container to workspace browser; mode "default"
+    bindsym c move container to workspace code; mode "default"
+    bindsym m move container to workspace music; mode "default"
+    bindsym t move container to workspace teams; mode "default"
+    bindsym s move container to workspace services; mode "default"
+
+    bindsym Escape mode "default"
+}
+
+mode "cursor" {
+    bindsym n seat * cursor move -10 0
+    bindsym i seat * cursor move 10 0
+    bindsym u seat * cursor move 0 -10
+    bindsym e seat * cursor move 0 10
+
+    bindsym r seat * cursor move -50 0
+    bindsym t seat * cursor move 50 0
+    bindsym f seat * cursor move 0 -50
+    bindsym s seat * cursor move 0 50
+
+    bindsym l seat * cursor press BTN_LEFT; seat * cursor release BTN_LEFT
+    bindsym w seat * cursor press BTN_LEFT; seat * cursor release BTN_LEFT
+    bindsym y seat * cursor press BTN_RIGHT; seat * cursor release BTN_RIGHT
+    bindsym p seat * cursor press BTN_RIGHT; seat * cursor release BTN_RIGHT
+
+    bindsym Escape mode "default"; seat * hide_cursor when-typing enable
+}
+    
+mode "resize" {
+    bindsym n resize shrink width 20px
+    bindsym u resize grow height 20px
+    bindsym e resize shrink height 20px
+    bindsym i resize grow width 20px
+    bindsym g floating toggle
+
+    bindsym Escape mode "default"
+}
 
 bar {
     status_command while LANG=da_DK date +'%A %d. %B %H:%M'; do sleep 10; done
@@ -49,66 +109,6 @@ set $term foot -t foot
 set $shell $term -e fish
 set $browser flatpak run org.mozilla.firefox
 set $menu wofi -I -S drun
-
-mode "launch" {
-    bindsym t exec 'flatpak run com.microsoft.Edge --app=https://teams.microsoft.com & flatpak run com.google.Chrome --app=https://teams.microsoft.com'
-    bindsym Return exec $shell
-    bindsym b exec $browser
-    bindsym d exec $menu
-    bindsym s exec flatpak run com.slack.Slack
-    bindsym c exec flatpak run sh.cider.cider
-
-    bindsym Escape mode "default"
-}
-
-mode "move window" {
-    bindsym j move left
-    bindsym k move down
-    bindsym i move up
-    bindsym l move right
-
-    bindsym Escape mode "default"
-}
-
-mode "move to workspace" {
-    bindsym b move container to workspace browser
-    bindsym c move container to workspace code
-    bindsym m move container to workspace music
-    bindsym t move container to workspace teams
-    bindsym s move container to workspace services
-
-    bindsym Escape mode "default"
-}
-
-mode "cursor" {
-    bindsym j seat * cursor move -10 0
-    bindsym l seat * cursor move 10 0
-    bindsym i seat * cursor move 0 -10
-    bindsym k seat * cursor move 0 10
-
-    bindsym s seat * cursor move -50 0
-    bindsym f seat * cursor move 50 0
-    bindsym e seat * cursor move 0 -50
-    bindsym d seat * cursor move 0 50
-
-    bindsym u seat * cursor press BTN_LEFT; seat * cursor release BTN_LEFT
-    bindsym w seat * cursor press BTN_LEFT; seat * cursor release BTN_LEFT
-    bindsym o seat * cursor press BTN_RIGHT; seat * cursor release BTN_RIGHT
-    bindsym r seat * cursor press BTN_RIGHT; seat * cursor release BTN_RIGHT
-
-    bindsym Escape mode "default"; seat * hide_cursor when-typing enable
-}
-    
-mode "resize" {
-    bindsym h resize shrink width 20px
-    bindsym j resize grow height 20px
-    bindsym k resize shrink height 20px
-    bindsym l resize grow width 20px
-    bindsym g floating toggle
-
-    bindsym Escape mode "default"
-}
-
           
 # Input configuration
     input type:keyboard {
