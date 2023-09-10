@@ -51,8 +51,8 @@ i = "insert_at_line_end"
 r = "replace"
 R = "replace_with_yanked"
 
-e = "open_below"
 u = "open_above"
+e = "open_below"
 
 l = "increment"
 L = "decrement"
