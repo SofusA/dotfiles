@@ -25,8 +25,8 @@ l = "goto_prev_function"
 y = "goto_next_function"
 h = "yank"
 
-E = ["extend_to_line_bounds", "delete_selection", "paste_after"]
-U = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+"?" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+"&" = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 
 z = "undo"
 Z = "redo"
@@ -84,6 +84,10 @@ i = "select_textobject_inner"
 I = "select_textobject_around"
 c = ":buffer-close"
 
+h = "yank_joined_to_clipboard"
+y = "no_op"
+Y = "no_op"
+
 [keys.normal.g]
 u = "move_line_up"
 n = "goto_line_start"
@@ -104,6 +108,12 @@ n = "extend_char_left"
 e = "extend_visual_line_down"
 i = "extend_char_right"
 u = "extend_visual_line_up"
+
+h = "yank"
+y = "no_op"
+
+z = "undo"
+Z = "redo"
 
 [editor.statusline]
 left = ["mode", "spinner", "file-name"]
