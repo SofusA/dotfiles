@@ -7,3 +7,6 @@ do
     rm -rf ~/.config/$dir
     cp -r ~/dotfiles/config/$dir ~/.config/
 done
+
+rm -rf ~/.omnisharp
+cp -r ~/dotfiles/home/.omnisharp ~/

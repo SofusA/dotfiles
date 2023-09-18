@@ -1,9 +1,0 @@
-#!/bin/bash
-
-for dir in ~/dotfiles/config/*/
-do
-    dir=${dir%/*}
-    dir="${dir##*/}"
-    rm -rf ~/dotfiles/config/$dir
-    cp -r ~/.config/$dir ~/dotfiles/config/
-done
