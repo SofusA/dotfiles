@@ -105,7 +105,7 @@ bar {
     }
 }
     
-set $term foot -t foot
+set $term alacritty
 set $shell $term -e fish
 set $browser flatpak run org.mozilla.firefox
 set $menu wofi -I -S drun

@@ -23,7 +23,7 @@ end
 
 function drmock
     cd ~/Documents/CorporateActions/src
-    dotnet run --project IOS.Mock --launch-profile http
+    dotnet run --project IOS.Dimension.Mock --launch-profile http
 end
 
 function drapi    
