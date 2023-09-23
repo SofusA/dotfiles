@@ -12,8 +12,8 @@ select = "underline"
 
 [keys.normal]
 d = "delete_selection_noyank"
-N = ":buffer-previous"
-I = ":buffer-next"
+N = "goto_previous_buffer"
+I = "goto_next_buffer"
 
 esc = ["collapse_selection", "keep_primary_selection"]
 
@@ -25,16 +25,14 @@ l = "goto_prev_function"
 y = "goto_next_function"
 h = "yank"
 
-"?" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
-"&" = ["extend_to_line_bounds", "delete_selection", "paste_after"]
-
 z = "undo"
 Z = "redo"
+
+r = "flip_selections"
 
 a = "no_op"
 A = "no_op"
 O = "no_op"
-r = "no_op"
 R = "no_op"
 j = "no_op" 
 J = "no_op"
@@ -44,7 +42,17 @@ k = "no_op"
 q = "no_op"
 Q = "no_op"
 
-[keys.normal.c]
+[keys.normal.m] # move
+u = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+e = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+
+[keys.normal.f] # find
+f = "search"
+i = "search_next"
+n = "search_prev"
+s = ["search_selection", "search"]
+
+[keys.normal.c] # change
 h = "insert_mode"
 n = "insert_at_line_start"
 i = "insert_at_line_end"
@@ -58,7 +66,7 @@ l = "increment"
 L = "decrement"
 c = "switch_case"
 
-[keys.normal.t]
+[keys.normal.t] # tile
 s = "hsplit"
 v = "vsplit"
 c = "wclose"
@@ -88,11 +96,26 @@ h = "yank_joined_to_clipboard"
 y = "no_op"
 Y = "no_op"
 
+g = "no_op"
+
 [keys.normal.g]
-u = "move_line_up"
-n = "goto_line_start"
-e = "move_line_down"
+u = "no_op"
+n = "goto_first_nonwhitespace"
+e = "goto_file_end"
 i = "goto_line_end"
+
+j = "no_op"
+h = "no_op"
+l = "no_op"
+k = "no_op"
+f = "no_op"
+
+t = "no_op"
+c = "no_op"
+b = "no_op"
+m = "no_op"
+p = "no_op"
+s = "no_op"
 
 [keys.select.g]
 u = "extend_line_up"
