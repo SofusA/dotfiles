@@ -1,5 +1,6 @@
 exec_always kanshi
 exec_always autotiling_rs
+exec waybar
 
 exec "sleep 2; swaymsg workspace browser;"
 seat * hide_cursor when-typing enable
@@ -90,23 +91,8 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 
-bar {
-    status_command while LANG=da_DK date +'%A %d. %B %H:%M'; do sleep 10; done
-    position top
-    mode dock
-    height 19
-    colors {
-        statusline #ffffff
-        background #32323200
-        focused_workspace #32323200 #32323200 #ffffff
-        inactive_workspace #32323200 #32323200 #5c5c5c
-        urgent_workspace #32323200 #32323200 #ff0000
-        font DejaVuSans 10
-    }
-}
-    
 set $term alacritty
-set $shell $term -e fish
+set $shell $term -e toolbox run --container archlinux-toolbox-latest nu
 set $browser flatpak run org.mozilla.firefox
 set $menu wofi -I -S drun
           
@@ -137,7 +123,7 @@ set $menu wofi -I -S drun
     client.background $colour_bg
 
 # Set inner/outer gaps
-    gaps inner 10
+    gaps inner 20
     gaps outer 0
 
 include /etc/sway/config.d/*.conf
