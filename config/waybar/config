@@ -4,7 +4,7 @@
     "margin-bottom": -30,
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": ["idle_inhibitor", "tray", "custom/power"],
+    "modules-right": ["battery", "idle_inhibitor", "tray", "custom/power"],
 
     "sway/workspaces": {
         "disable-click": true
