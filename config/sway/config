@@ -1,3 +1,5 @@
+xwayland disable
+
 exec_always kanshi
 exec_always autotiling_rs
 exec waybar
@@ -33,7 +35,7 @@ mode "sway" {
 }
 
 mode "launch" {
-    bindsym t exec 'flatpak run com.microsoft.Edge --app=https://teams.microsoft.com & flatpak run com.google.Chrome --app=https://teams.microsoft.com'; mode "default"
+    bindsym t exec 'flatpak run com.microsoft.Edge --app=https://teams.microsoft.com --enable-features=UseOzonePlatform --ozone-platform=wayland & flatpak run com.google.Chrome --app=https://teams.microsoft.com --enable-features=UseOzonePlatform --ozone-platform=wayland'; mode "default"
     bindsym Return exec $shell; mode "default"
     bindsym b exec $browser; mode "default"
     bindsym d exec $menu; mode "default"
