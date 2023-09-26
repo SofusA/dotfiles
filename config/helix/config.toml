@@ -64,7 +64,16 @@ e = "open_below"
 
 l = "increment"
 L = "decrement"
-c = "switch_case"
+
+[keys.normal.c.c] # change case
+t = "switch_case"
+p = [":pipe ccase -t pascal", "ensure_selections_forward", "delete_char_forward"]
+u = [":pipe ccase -t upper", "ensure_selections_forward", "delete_char_forward"]
+l = [":pipe ccase -t lower", "ensure_selections_forward", "delete_char_forward"]
+c = [":pipe ccase -t camel", "ensure_selections_forward", "delete_char_forward"]
+s = [":pipe ccase -t snake", "ensure_selections_forward", "delete_char_forward"]
+k = [":pipe ccase -t kebab", "ensure_selections_forward", "delete_char_forward"]
+o = [":pipe ccase -p sentence -d \" \"", "ensure_selections_forward", "delete_char_forward"]
 
 [keys.normal.t] # tile
 s = "hsplit"
