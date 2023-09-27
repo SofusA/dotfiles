@@ -767,5 +767,17 @@ $env.config = {
     ]
 }
 
+def gui [] { gitui }
+def gap [] { git commit --amend; git push --force }
+def gp [] { git push }
+def gpu [] { git pull }
+def gpud [] { git pull origin develop }
+
+def dt [] { dotnet test }
+def dtt [testName] { dotnet test --filter Name~$testName }
+
+def drmock [] { cd ~/CorporateActions/src; dotnet run --project IOS.Dimension.Mock }
+def drapi [] { cd ~/CorporateActions/src; dotnet run --project IOS.Dimension.Api }
+
 use ~/.cache/starship/init.nu
 source ~/.zoxide.nu
