@@ -779,5 +779,8 @@ def dtt [testName] { dotnet test --filter Name~$testName }
 def drmock [] { cd ~/CorporateActions/src; dotnet run --project IOS.Dimension.Mock }
 def drapi [] { cd ~/CorporateActions/src; dotnet run --project IOS.Dimension.Api }
 
+def updot [] { cd ~/dotfiles; ./replace_config }
+def upgrade [] { sudo pacman -Syu --noconfirm; paru -Syu --noconfirm }
+
 use ~/.cache/starship/init.nu
 source ~/.zoxide.nu
