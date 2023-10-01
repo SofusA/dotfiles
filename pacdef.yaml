@@ -1,0 +1,67 @@
+[arch]
+# Zip
+zip
+unzip
+
+# Arch
+paru
+pacdef
+base
+base-devel
+
+# Dotnet develop
+aspnet-runtime
+omnisharp-roslyn
+powershell-bin
+
+# Playwright
+gtk3
+nss
+alsa-lib
+
+# Angular develop
+npm
+typescript-language-server
+vscode-langservers-extracted
+prettier
+
+# Shell
+nushell
+fzf
+starship
+zoxide
+
+# Helix
+helix-git
+ccase
+
+# Git
+git
+github-cli
+gitui
+
+# Container integration
+flatpak-xdg-utils
+wl-clipboard
+
+# Other from toolbox container
+bash-completion
+gnupg
+keyutils
+lsof
+man-db
+man-pages
+mlocate
+mtr
+nss-mdns
+openssh
+pigz
+rsync
+tcpdump
+time
+traceroute
+tree
+vte-common
+wget
+words
+xorg-xauth

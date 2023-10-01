@@ -1,5 +1,3 @@
-xwayland disable
-
 exec_always kanshi
 exec_always autotiling_rs
 exec waybar
