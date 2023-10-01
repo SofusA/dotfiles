@@ -28,6 +28,7 @@ prettier
 # Shell
 nushell
 fish
+exa
 fzf
 starship
 zoxide
