@@ -92,7 +92,7 @@ mode "resize" {
 }
 
 set $term alacritty
-set $shell $term -e toolbox run --container archlinux-toolbox-latest nu
+set $shell $term -e toolbox run --container archlinux-toolbox-latest fish
 set $browser flatpak run org.mozilla.firefox
 set $menu wofi -I -S drun
           

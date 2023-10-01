@@ -1,4 +1,5 @@
-alias upgrade 'home-manager -f ~/dotfiles/home.nix switch && ~/dotfiles/replace_config'
+alias upgrade 'sudo pacman -Syu --noconfirm; paru -Syu --noconfirm'
+alias updot '~/dotfiles/replace_config'
 alias ls 'exa -1 --color=always --group-directories-first'
 alias hxg 'nix run github:helix-editor/helix'
 
@@ -30,3 +31,6 @@ function drapi
     cd ~/Documents/CorporateActions/src
     dotnet run --project IOS.Api 
 end
+
+starship init fish | source
+zoxide init fish | source
