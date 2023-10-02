@@ -2,9 +2,8 @@
     "layer": "top",
     "height": 20,
     "margin-bottom": -30,
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["battery", "idle_inhibitor", "tray", "custom/power"],
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-right": ["clock", "battery", "idle_inhibitor", "tray", "custom/power"],
 
     "sway/workspaces": {
         "disable-click": true
@@ -32,6 +31,6 @@
 
     "custom/power":{
         "format":"",
-        "on-click":"swaynag -t warning -m 'Power Menu Options' -b 'Reboot' 'systemctl reboot' -b 'Suspend' 'systemctl suspend-then-hibernate' -b 'Shutdown' 'systemctl poweroff'"
+        "on-click":"swaynag -t warning -m 'Power Menu Options' -b 'Reboot' 'systemctl reboot' -b 'Suspend' 'swaylock && systemctl suspend' -b 'Shutdown' 'systemctl poweroff'"
     }
 }
