@@ -1,0 +1,35 @@
+#!/usr/bin/env sh
+
+power_off=' Power off'
+reboot=' Reboot'
+lock=' Lock'
+suspend='󰤄 Suspend'
+log_out=' Log out'
+
+chosen=$(printf '%s;%s;%s;%s;%s\n' "$power_off" "$reboot" "$lock" "$suspend" \
+                                   "$log_out" \
+    | rofi -p  -i -dmenu -sep ';')
+
+case "$chosen" in
+    "$power_off")
+        poweroff
+        ;;
+
+    "$reboot")
+        reboot
+        ;;
+
+    "$lock")
+        swaylock
+		    ;;
+
+    "$suspend")
+        systemctl suspend
+        ;;
+
+    "$log_out")
+        swaymsg exit
+        ;;
+
+    *) exit 1 ;;
+esac

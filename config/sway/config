@@ -17,6 +17,7 @@ mode "sway" {
     bindsym f fullscreen; mode "default"
     bindsym p exec grim -g "$(slurp -d)" - | wl-copy; mode "default"
     bindsym a mode "default"; exec bemoji -t 
+    bindsym l mode "default"; exec ~/.config/sway/power-menu
 
     bindsym n focus left
     bindsym e focus down

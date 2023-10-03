@@ -3,7 +3,7 @@
     "height": 20,
     "margin-bottom": -30,
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-right": ["clock", "battery", "idle_inhibitor", "tray", "custom/power"],
+    "modules-right": ["clock", "battery", "idle_inhibitor", "tray"],
 
     "sway/workspaces": {
         "disable-click": true
@@ -28,9 +28,4 @@
     "clock": {
         "format": "{:%A, %d. %B  %H:%M}"
     },
-
-    "custom/power":{
-        "format":"",
-        "on-click":"swaynag -t warning -m 'Power Menu Options' -b 'Reboot' 'systemctl reboot' -b 'Suspend' 'swaylock && systemctl suspend' -b 'Shutdown' 'systemctl poweroff'"
-    }
 }
