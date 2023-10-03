@@ -1,9 +1,12 @@
 #!/bin/bash
-
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-nix-channel --update
-nix-shell '<home-manager>' -A install
-
 mkdir ~/.npm-packages
 touch ~/.npmrc
 echo "prefix = ${HOME}/.npm-packages" >> ~/.npmrc 
+
+mkdir -p /var/home/sofusa/.local/bin
+touch /var/home/sofusa/.local/bin/bemoji
+wget -O /var/home/sofusa/.local/bin/bemoji https://raw.githubusercontent.com/marty-oehme/bemoji/main/bemoji
+
+toolbox create --image quay.io/toolbx-images/archlinux-toolbox:latest
+
+rpm-ostree install alacritty langpacks-da wtype

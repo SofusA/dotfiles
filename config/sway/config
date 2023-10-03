@@ -1,8 +1,7 @@
 exec_always kanshi
-exec_always autotiling_rs
 exec waybar
 
-exec "sleep 2; swaymsg workspace browser;"
+exec "sleep 1; swaymsg workspace browser;"
 seat * hide_cursor when-typing enable
 
 bindsym F1 mode "sway"
@@ -17,6 +16,7 @@ mode "sway" {
     bindsym w kill; mode "default"
     bindsym f fullscreen; mode "default"
     bindsym p exec grim -g "$(slurp -d)" - | wl-copy; mode "default"
+    bindsym a mode "default"; exec bemoji -t 
 
     bindsym n focus left
     bindsym e focus down
@@ -94,7 +94,7 @@ mode "resize" {
 set $term alacritty
 set $shell $term -e toolbox run --container archlinux-toolbox-latest fish
 set $browser flatpak run org.mozilla.firefox
-set $menu wofi -I -S drun
+set $menu rofi -combi-modi window,drun -show combi -show-icons
           
 # Input configuration
     input type:keyboard {

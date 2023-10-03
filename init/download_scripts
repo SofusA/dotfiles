@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mkdir -p /var/home/sofusa/.local/bin
+touch /var/home/sofusa/.local/bin/bemoji
+wget -O /var/home/sofusa/.local/bin/bemoji https://raw.githubusercontent.com/marty-oehme/bemoji/main/bemoji
