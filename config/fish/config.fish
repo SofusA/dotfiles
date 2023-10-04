@@ -23,12 +23,12 @@ function dtt
 end
 
 function drmock
-    cd ~/Documents/CorporateActions/src
+    cd ~/CorporateActions/src
     dotnet run --project IOS.Dimension.Mock --launch-profile http
 end
 
 function drapi    
-    cd ~/Documents/CorporateActions/src
+    cd ~/CorporateActions/src
     dotnet run --project IOS.Api 
 end
 
