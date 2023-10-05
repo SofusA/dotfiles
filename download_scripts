@@ -1,7 +1,0 @@
-#!/bin/bash
-
-mkdir -p ~/.local/bin
-touch ~/.local/bin/bemoji
-wget -O ~/.local/bin/bemoji https://raw.githubusercontent.com/marty-oehme/bemoji/main/bemoji
-
-chmod +x ~/.local/bin/bemoji
