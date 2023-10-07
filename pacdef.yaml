@@ -1,4 +1,8 @@
 [arch]
+# Sway stuff
+warpd-wayland-git
+autotiling-rs
+
 # Zip
 zip
 unzip

@@ -13,3 +13,7 @@ cp -r ~/dotfiles/home/.omnisharp ~/
 
 cp ~/dotfiles/config/starship.toml ~/.config/
 
+if [ -f /run/.containerenv ]; then
+    cp /usr/sbin/autotiling-rs ~/.local/bin
+    cp /usr/sbin/warpd ~/.local/bin
+fi

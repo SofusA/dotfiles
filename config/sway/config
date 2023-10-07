@@ -1,5 +1,6 @@
 exec_always kanshi
 exec waybar
+exec autotiling-rs
 
 exec "sleep 1; swaymsg workspace browser;"
 seat * hide_cursor when-typing enable
@@ -11,7 +12,7 @@ mode "sway" {
     bindsym v mode "move window"
     bindsym g mode "move to workspace"
     bindsym r mode "resize"
-    bindsym h mode "cursor"; seat * hide_cursor when-typing disable
+    bindsym h exec warpd --normal; mode "default"
 
     bindsym w kill; mode "default"
     bindsym f fullscreen; mode "default"
@@ -61,32 +62,6 @@ mode "move to workspace" {
     bindsym s move container to workspace services; mode "default"
 
     bindsym Escape mode "default"
-}
-
-mode "cursor" {
-    bindsym n seat * cursor move -15 0
-    bindsym i seat * cursor move 15 0
-    bindsym u seat * cursor move 0 -15
-    bindsym e seat * cursor move 0 15
-
-    bindsym r seat * cursor move -50 0
-    bindsym t seat * cursor move 50 0
-    bindsym f seat * cursor move 0 -50
-    bindsym s seat * cursor move 0 50
-
-    bindsym l seat * cursor press button1
-    bindsym --release l seat * cursor release button1; mode "default"; seat * hide_cursor when-typing enable
-
-    bindsym w seat * cursor press button1
-    bindsym --release w seat * cursor release button1; mode "default"; seat * hide_cursor when-typing enable
-
-    bindsym y seat * cursor press button3
-    bindsym --release y seat * cursor release button3; mode "default"; seat * hide_cursor when-typing enable
-
-    bindsym p seat * cursor press button3
-    bindsym --release p seat * cursor release button3; mode "default"; seat * hide_cursor when-typing enable
-
-    bindsym Escape mode "default"; seat * hide_cursor when-typing enable
 }
     
 mode "resize" {
