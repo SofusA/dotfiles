@@ -37,3 +37,8 @@ window:
 
 key_bindings:
   - { key: Back, mods: Control, chars: "\x1b\x7f" } # Delete word
+  - { key: V, mods: Control, action: ToggleViMode }
+  - { key: N, mode: Vi, action: Left}
+  - { key: I, mode: Vi, action: Right}
+  - { key: U, mode: Vi, action: Up}
+  - { key: E, mode: Vi, action: Down}
