@@ -42,3 +42,5 @@ key_bindings:
   - { key: I, mode: Vi, action: Right}
   - { key: U, mode: Vi, action: Up}
   - { key: E, mode: Vi, action: Down}
+  - { key: L, mode: Vi, action: ScrollHalfPageUp}
+  - { key: Y, mode: Vi, action: ScrollHalfPageDown}

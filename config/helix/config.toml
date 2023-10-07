@@ -21,9 +21,10 @@ n = "move_char_left"
 e = "move_visual_line_down"
 i = "move_char_right"
 u = "move_visual_line_up"
-l = "goto_prev_function"
-y = "goto_next_function"
 h = "yank"
+
+l = "half_page_up"
+y = "half_page_down"
 
 z = "undo"
 Z = "redo"
@@ -113,13 +114,16 @@ n = "goto_first_nonwhitespace"
 e = "goto_file_end"
 i = "goto_line_end"
 
+l = "goto_prev_function"
+y = "goto_next_function"
+
+t = "goto_type_definition"
+
 j = "no_op"
 h = "no_op"
-l = "no_op"
 k = "no_op"
 f = "no_op"
 
-t = "no_op"
 c = "no_op"
 b = "no_op"
 m = "no_op"
