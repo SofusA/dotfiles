@@ -24,11 +24,11 @@ npm
 typescript-language-server
 vscode-langservers-extracted
 prettier
+vscodium
+google-chrome
 
 # Shell
-nushell
 fish
-exa
 fzf
 starship
 zoxide

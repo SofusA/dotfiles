@@ -1,7 +1,5 @@
 #!/bin/bash
 
-mv ~/.config/nushell/history.txt ~/
-
 for dir in ~/dotfiles/config/*/
 do
     dir=${dir%/*}
@@ -15,4 +13,3 @@ cp -r ~/dotfiles/home/.omnisharp ~/
 
 cp ~/dotfiles/config/starship.toml ~/.config/
 
-mv ~/history.txt ~/.config/nushell/

@@ -1,12 +1,11 @@
 #!/bin/bash
-mkdir ~/.npm-packages
-touch ~/.npmrc
-echo "prefix = ${HOME}/.npm-packages" >> ~/.npmrc 
-
-mkdir -p /var/home/sofusa/.local/bin
-touch /var/home/sofusa/.local/bin/bemoji
-wget -O /var/home/sofusa/.local/bin/bemoji https://raw.githubusercontent.com/marty-oehme/bemoji/main/bemoji
+~/dotfiles/init/download_scripts
+~/dotfiles/replace_config
 
 toolbox create --image quay.io/toolbx-images/archlinux-toolbox:latest
 
 rpm-ostree install alacritty langpacks-da wtype
+
+echo "[Autologin]
+User=sofusa
+Session=sway" | sudo tee /etc/sddm.conf.d/autologin.conf
