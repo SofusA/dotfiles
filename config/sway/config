@@ -19,10 +19,10 @@ mode "sway" {
     bindsym a mode "default"; exec bemoji -t 
     bindsym l mode "default"; exec ~/.config/sway/power-menu
 
-    bindsym n focus left
-    bindsym e focus down
-    bindsym u focus up
-    bindsym i focus right
+    bindsym n focus left; mode "default"
+    bindsym e focus down; mode "default"
+    bindsym u focus up; mode "default"
+    bindsym i focus right; mode "default"
 
     bindsym b workspace browser; mode "default"
     bindsym c workspace code; mode "default"
@@ -45,10 +45,10 @@ mode "launch" {
 }
 
 mode "move window" {
-    bindsym n move left
-    bindsym e move down
-    bindsym u move up
-    bindsym i move right
+    bindsym n move left; mode "default"
+    bindsym e move down; mode "default"
+    bindsym u move up; mode "default"
+    bindsym i move right; mode "default"
 
     bindsym Escape mode "default"
 }
@@ -64,20 +64,27 @@ mode "move to workspace" {
 }
 
 mode "cursor" {
-    bindsym n seat * cursor move -10 0
-    bindsym i seat * cursor move 10 0
-    bindsym u seat * cursor move 0 -10
-    bindsym e seat * cursor move 0 10
+    bindsym n seat * cursor move -15 0
+    bindsym i seat * cursor move 15 0
+    bindsym u seat * cursor move 0 -15
+    bindsym e seat * cursor move 0 15
 
     bindsym r seat * cursor move -50 0
     bindsym t seat * cursor move 50 0
     bindsym f seat * cursor move 0 -50
     bindsym s seat * cursor move 0 50
 
-    bindsym l seat * cursor press BTN_LEFT; seat * cursor release BTN_LEFT
-    bindsym w seat * cursor press BTN_LEFT; seat * cursor release BTN_LEFT
-    bindsym y seat * cursor press BTN_RIGHT; seat * cursor release BTN_RIGHT
-    bindsym p seat * cursor press BTN_RIGHT; seat * cursor release BTN_RIGHT
+    bindsym l seat * cursor press button1
+    bindsym --release l seat * cursor release button1; mode "default"; seat * hide_cursor when-typing enable
+
+    bindsym w seat * cursor press button1
+    bindsym --release w seat * cursor release button1; mode "default"; seat * hide_cursor when-typing enable
+
+    bindsym y seat * cursor press button3
+    bindsym --release y seat * cursor release button3; mode "default"; seat * hide_cursor when-typing enable
+
+    bindsym p seat * cursor press button3
+    bindsym --release p seat * cursor release button3; mode "default"; seat * hide_cursor when-typing enable
 
     bindsym Escape mode "default"; seat * hide_cursor when-typing enable
 }
