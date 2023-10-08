@@ -12,7 +12,7 @@ mode "sway" {
     bindsym v mode "move window"
     bindsym g mode "move to workspace"
     bindsym r mode "resize"
-    bindsym h exec warpd --normal; mode "default"
+    bindsym h exec warpd --hint; mode "default"
 
     bindsym w kill; mode "default"
     bindsym f fullscreen; mode "default"
