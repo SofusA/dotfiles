@@ -1,0 +1,38 @@
+# the keyboard devices it reads from, if no devices are specified, it reads from all
+devices:
+# - "/dev/input/by-id/SOME_KEYBOARD_REPLACE_ME-event-kbd"
+
+# this is executed when mouseless starts, e.g. useful for setting the keyboard layout
+# startCommand: "setxkbmap de"
+
+# the default speed for mouse movement and scrolling
+baseMouseSpeed: 750.0
+baseScrollSpeed: 20.0
+
+mouseAccelerationTime: 500.0
+mouseAccelerationCurve: 3.0
+startMouseSpeed: 100.0
+
+layers:
+- name: initial
+  bindings:
+    space: tap-hold space ; toggle-layer mouse ; 300
+      
+- name: mouse
+  passThrough: true
+  bindings:
+    # quit mouse layer
+    q: layer initial
+    # keep the mouse layer active
+    space: layer mouse
+    r: reload-config
+    n: move -1  0
+    i: move  1  0
+    u: move  0 -1
+    e: move  0  1
+    w: scroll up
+    p: scroll down
+    c: speed 0.3
+    r: button left
+    s: button middle
+    t: button right

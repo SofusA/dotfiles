@@ -1,6 +1,7 @@
 exec_always kanshi
 exec waybar
 exec autotiling-rs
+exec ~/.config/sway/exec-mouseless
 
 exec "sleep 1; swaymsg workspace browser;"
 seat * hide_cursor when-typing enable
@@ -12,7 +13,6 @@ mode "sway" {
     bindsym v mode "move window"
     bindsym g mode "move to workspace"
     bindsym r mode "resize"
-    bindsym h exec warpd --hint; mode "default"
 
     bindsym w kill; mode "default"
     bindsym f fullscreen; mode "default"

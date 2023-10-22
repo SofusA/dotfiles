@@ -7,5 +7,9 @@ toolbox create --image quay.io/toolbx-images/archlinux-toolbox:latest
 rpm-ostree install alacritty langpacks-da wtype
 
 echo "[Autologin]
-User=sofusa
+User=$USER
 Session=sway" | sudo tee /etc/sddm.conf.d/autologin.conf
+
+echo "KERNEL==\"uinput\", GROUP=\"$USER\", MODE:=\"0660\"
+KERNEL==\"event*\", GROUP=\"$USER\", NAME=\"input/%k\", MODE=\"660\"" \
+| sudo tee /etc/udev/rules.d/99-$USER.rules

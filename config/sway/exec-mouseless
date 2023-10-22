@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+sleep 5;
+
+~/.local/bin/mouseless --config ~/.config/mouseless/config.yaml
