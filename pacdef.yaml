@@ -1,6 +1,6 @@
 [arch]
 # Sway stuff
-warpd-wayland-git
+mouseless-bin
 autotiling-rs
 
 # Zip
