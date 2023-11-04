@@ -13,8 +13,3 @@ cp -r ~/dotfiles/home/.omnisharp ~/
 
 cp ~/dotfiles/config/starship.toml ~/.config/
 
-if [ -f /run/.containerenv ]; then
-    pkill autotiling-rs
-    cp /usr/sbin/autotiling-rs ~/.local/bin
-    flatpak-spawn --host swaymsg reload
-fi

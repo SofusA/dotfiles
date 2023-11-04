@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=mouseless
+
+Path=/var/home/sofusa/.local/bin
+Exec=mouseless
+Terminal=false
+
