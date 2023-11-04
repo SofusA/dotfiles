@@ -1,0 +1,9 @@
+#!/bin/bash
+app=$(zenity --list --height=400 --title="Power options" --column="Name" --column="Command" --print-column=2 --hide-column=2 \
+  Shutdown poweroff \
+  Reboot reboot \
+  Lock "xdg-screensaver lock" \
+  Logout "gnome-session-quit --no-prompt" \
+  Suspend "systemctl suspend" \
+)
+eval $app

@@ -3,6 +3,6 @@ Type=Application
 Name=mouseless
 
 Path=/var/home/sofusa/.local/bin
-Exec=mouseless
+Exec=sleep 10 && mouseless
 Terminal=false
 
