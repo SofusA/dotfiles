@@ -23,12 +23,12 @@ end
 
 function drmock
     cd ~/CorporateActions/src
-    dotnet run --project IOS.Dimension.Mock --launch-profile http
+    dotnet run --project CAE.Dimension.Mock --launch-profile http
 end
 
 function drapi    
     cd ~/CorporateActions/src
-    dotnet run --project IOS.Api 
+    dotnet run --project CAE.Api 
 end
 
 starship init fish | source

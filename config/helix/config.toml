@@ -53,6 +53,7 @@ i = "search_next"
 n = "search_prev"
 s = ["search_selection", "search"]
 c = "find_next_char"
+C = "find_prev_char"
 
 [keys.normal.c] # change
 h = "insert_mode"
@@ -136,6 +137,14 @@ u = "extend_line_up"
 n = "goto_line_start"
 e = "extend_line_down"
 i = "goto_line_end"
+
+[keys.select.f] # find
+f = "search"
+i = "search_next"
+n = "search_prev"
+s = ["search_selection", "search"]
+c = "find_next_char"
+C = "find_prev_char"
 
 [keys.select]
 d = "delete_selection_noyank"
