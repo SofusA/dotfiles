@@ -2,7 +2,7 @@
 Type=Application
 Name=mouseless
 
-Path=/var/home/sofusa/.local/bin
-Exec=sleep 10 && mouseless
+Path=/var/home/sofusa/dotfiles/config/sway
+Exec=exec-mouseless
 Terminal=false
 
