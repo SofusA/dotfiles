@@ -38,7 +38,7 @@ starship
 zoxide
 
 # Helix
-helix-git
+helix
 ccase
 
 # Git
