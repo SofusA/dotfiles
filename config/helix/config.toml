@@ -26,13 +26,11 @@ h = "yank"
 l = "half_page_up"
 y = "half_page_down"
 
-z = "undo"
-Z = "redo"
+a = "undo"
+A = "redo"
 
 r = "flip_selections"
 
-a = "no_op"
-A = "no_op"
 O = "no_op"
 R = "no_op"
 j = "no_op" 

@@ -1,6 +1,8 @@
 alias upgrade 'sudo pacman -Syu --noconfirm; paru -Syu --noconfirm'
 alias updot '~/dotfiles/replace_config'
-alias hxg 'nix run github:helix-editor/helix'
+
+alias h helix
+alias t z
 
 set -gx EDITOR hx
 set -U fish_greeting
