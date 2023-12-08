@@ -1,4 +1,3 @@
-alias upgrade 'sudo pacman -Syu --noconfirm; paru -Syu --noconfirm'
 alias updot '~/dotfiles/replace_config'
 
 alias h helix
@@ -18,19 +17,34 @@ alias gp "git push"
 alias gpu "git pull"
 alias gpud "git pull origin develop"
 
+function gdb
+    set branch (git branch | grep -v ^\* | fzf)
+    if not test -z "$branch"
+        set trim (string trim $branch)
+        git branch -d $trim
+    end
+
+end
+
+function gsb
+    set branch (git branch --format='%(refname:short)' | fzf)
+
+    if not test -z "$branch"
+        git checkout $branch
+    end
+end
+
 alias dt "dotnet test"
 function dtt
     dotnet test --filter Name~$argv
 end
 
-function drmock
-    cd ~/CorporateActions/src
-    dotnet run --project CAE.Dimension.Mock --launch-profile http
-end
+function ts
+    set dir (fd -t d | fzf)
 
-function drapi    
-    cd ~/CorporateActions/src
-    dotnet run --project CAE.Api 
+    if not test -z "$dir"
+        cd $dir
+    end
 end
 
 starship init fish | source
