@@ -4,7 +4,7 @@ alias updot '~/dotfiles/replace_config'
 alias h helix
 alias t z
 
-set -gx EDITOR hx
+set -gx EDITOR helix
 set -U fish_greeting
 set -g -x ASPNETCORE_ENVIRONMENT Test
 
