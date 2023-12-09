@@ -12,11 +12,14 @@ paru
 pacdef
 base
 base-devel
+sudo
 
 # Dotnet develop
-aspnet-runtime
+aspnet-runtime-6.0
+dotnet-sdk-6.0
 omnisharp-roslyn
 powershell-bin
+azure-cli
 
 # Playwright
 gtk3
@@ -28,14 +31,17 @@ npm
 typescript-language-server
 vscode-langservers-extracted
 prettier
-vscodium
+visual-studio-code-bin
 google-chrome
 
 # Shell
 fish
 fzf
+fd
+ripgrep
 starship
 zoxide
+eza
 
 # Helix
 helix

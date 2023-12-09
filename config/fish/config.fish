@@ -11,6 +11,8 @@ set -gx LOCALE_ARCHIVE /usr/lib/locale/locale-archive
 
 set PATH /var/home/sofusa/.npm-packages/bin $PATH
 
+alias ls "eza -1 --icons --group-directories-first"
+
 alias gui "gitui"
 alias gap "git commit --amend && git push --force"
 alias gp "git push"
