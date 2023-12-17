@@ -7,12 +7,13 @@ args = ["--languageserver"]
 
 [language-server.angular]
 command = "ngserver"
+roots = ["angular.json", "nx.json"]
 args = [
   "--stdio",
   "--tsProbeLocations",
-  "/usr/lib/npm-packages/lib/node_modules",
+  "~/.npm-packages/lib/node_modules",
   "--ngProbeLocations",
-  "/usr/lib/npm-packages/lib/node_modules",
+  "~/.npm-packages//lib/node_modules",
 ]
 
 [language-server.eslint]
