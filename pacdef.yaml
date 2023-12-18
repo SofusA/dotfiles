@@ -1,4 +1,6 @@
 [arch]
+aspnet-runtime
+tailwindcss-language-server
 # Sway stuff
 mouseless-bin
 autotiling-rs

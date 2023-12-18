@@ -11,9 +11,9 @@ roots = ["angular.json", "nx.json"]
 args = [
   "--stdio",
   "--tsProbeLocations",
-  "~/.npm-packages/lib/node_modules",
+  "$(npm -g root)",
   "--ngProbeLocations",
-  "~/.npm-packages//lib/node_modules",
+  "$(npm -g root)",
 ]
 
 [language-server.eslint]
@@ -56,7 +56,7 @@ language-servers = ["typescript-language-server", "angular", "eslint"]
 name = "html"
 formatter = { command = 'prettier', args = ["--write", "--parser", "html"] }
 auto-format = true
-language-servers = ["vscode-html-language-server", "angular"]
+language-servers = ["vscode-html-language-server", "angular", "tailwindcss-ls"]
 
 [[language]]
 name = "json"
