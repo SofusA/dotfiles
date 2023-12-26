@@ -6,7 +6,7 @@ devices:
 # startCommand: "setxkbmap de"
 
 # the default speed for mouse movement and scrolling
-baseMouseSpeed: 750.0
+baseMouseSpeed: 1200.0
 baseScrollSpeed: 20.0
 
 mouseAccelerationTime: 500.0
@@ -21,18 +21,19 @@ layers:
 - name: mouse
   passThrough: true
   bindings:
-    # quit mouse layer
-    q: layer initial
-    # keep the mouse layer active
     space: layer mouse
-    r: reload-config
+    q: reload-config
     n: move -1  0
     i: move  1  0
     u: move  0 -1
     e: move  0  1
+    c: space
     w: scroll up
     p: scroll down
-    c: speed 0.3
+    z: speed 0.3
     r: button left
     s: button middle
     t: button right
+    o: leftctrl
+    f: leftshift
+    a: leftalt

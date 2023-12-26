@@ -30,19 +30,20 @@ l = "half_page_up"
 y = "half_page_down"
 
 a = "undo"
-A = "redo"
+q = "redo"
 
 r = "flip_selections"
 
 O = "no_op"
 R = "no_op"
-j = "no_op" 
 J = "no_op"
 C-w = "no_op"
-o = "no_op"
 k = "no_op"
-q = "no_op"
 Q = "no_op"
+
+[keys.normal.o]
+n = "jump_backward"
+i = "jump_forward"
 
 [keys.normal.m] # move
 u = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
@@ -97,19 +98,34 @@ U = "swap_view_up"
 [keys.normal.space]
 w = ":write"
 f = "file_picker_in_current_directory"
+i = "select_textobject_inner"
+I = "select_textobject_around"
+c = ":buffer-close"
+h = "yank_joined_to_clipboard"
+
+y = "no_op"
+Y = "no_op"
+g = "no_op"
 F = "no_op"
 "'" = "no_op"
 j = "no_op"
 R = "no_op"
+
+[keys.select.space]
+w = ":write"
+f = "file_picker_in_current_directory"
 i = "select_textobject_inner"
 I = "select_textobject_around"
 c = ":buffer-close"
-
 h = "yank_joined_to_clipboard"
+
 y = "no_op"
 Y = "no_op"
-
 g = "no_op"
+F = "no_op"
+"'" = "no_op"
+j = "no_op"
+R = "no_op"
 
 [keys.normal.g]
 u = "no_op"
