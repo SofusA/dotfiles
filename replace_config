@@ -1,12 +1,7 @@
 #!/bin/bash
 
-for dir in ~/dotfiles/config/*/
-do
-    dir=${dir%/*}
-    dir="${dir##*/}"
-    rm -rf ~/.config/$dir
-    cp -r ~/dotfiles/config/$dir ~/.config/
-done
+fd -t d "" config -x rm -rf ~/.{}
+fd -t d "" config -d 1 -x ln -s $HOME/dotfiles/{} $HOME/.{}
 
 rm -rf ~/.omnisharp
 cp -r ~/dotfiles/home/.omnisharp ~/

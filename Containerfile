@@ -26,9 +26,9 @@ RUN aur-install npm typescript-language-server vscode-langservers-extracted pret
 # Shell
 RUN aur-install fish fzf fd ripgrep starship zoxide eza ccase 
 
-RUN pacman -Scc --noconfirm
-
 RUN npm install -g @angular/cli @angular/language-service typescript @angular/language-server nx
+
+RUN pacman -Scc --noconfirm
 
 # Enable sudo permission for wheel users
 RUN echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/t
