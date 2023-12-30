@@ -2,13 +2,10 @@
 ~/dotfiles/init/download_scripts
 ~/dotfiles/replace_config
 
-toolbox create --image quay.io/toolbx-images/archlinux-toolbox:latest
+toolbox create dev -i ghcr.io/sofusa/dotfiles/dev-container
 
 rpm-ostree install alacritty langpacks-da wtype
-
-echo "[Autologin]
-User=$USER
-Session=sway" | sudo tee /etc/sddm.conf.d/autologin.conf
+rpm-ostree override remove firefox firefox-langpacks
 
 echo "KERNEL==\"uinput\", GROUP=\"$USER\", MODE:=\"0660\"
 KERNEL==\"event*\", GROUP=\"$USER\", NAME=\"input/%k\", MODE=\"660\"" \
