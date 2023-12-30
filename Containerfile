@@ -8,6 +8,9 @@ RUN aur-install flatpak-xdg-utils wl-clipboard
 # Arch
 RUN aur-install base base-devel 
 
+# Rust
+RUN aur-install rustup rust-analyzer cargo-watch
+
 # Zip
 RUN aur-install zip unzip 
 
