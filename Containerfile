@@ -28,5 +28,7 @@ RUN aur-install fish fzf fd ripgrep starship zoxide eza ccase
 
 RUN pacman -Scc --noconfirm
 
+RUN npm install -g @angular/cli @angular/language-service typescript @angular/language-server nx
+
 # Enable sudo permission for wheel users
 RUN echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/t
