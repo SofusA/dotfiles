@@ -33,7 +33,7 @@ l = "half_page_up"
 y = "half_page_down"
 
 a = "undo"
-q = "redo"
+z = "redo"
 
 r = "flip_selections"
 
@@ -43,6 +43,13 @@ J = "no_op"
 C-w = "no_op"
 k = "no_op"
 Q = "no_op"
+
+[keys.normal.q]
+q = ":q"
+Q = ":q!"
+w = ":wq"
+W = ":wq!"
+r = ":reload"
 
 [keys.normal.o]
 n = "jump_backward"
