@@ -1,7 +1,6 @@
 alias updot '~/dotfiles/replace_config'
 
 alias h helix
-alias t z
 
 alias host "flatpak-spawn --host"
 
@@ -22,7 +21,7 @@ alias gpu "git pull"
 alias gpud "git pull origin develop"
 
 function gdb
-    set branch (git branch | grep -v ^\* | fzf)
+    set branch (git branch | grep -v ^\* | sk)
     if not test -z "$branch"
         set trim (string trim $branch)
         git branch -d $trim
@@ -31,7 +30,7 @@ function gdb
 end
 
 function gsb
-    set branch (git branch --format='%(refname:short)' | fzf)
+    set branch (git branch -a --format='%(refname:short)' | sk)
 
     if not test -z "$branch"
         git checkout $branch
@@ -44,12 +43,31 @@ function dtt
 end
 
 function ts
-    set dir (fd -t d | fzf)
+    if set -q argv[1]
+        z $argv[1]
+    else
+        set dir (fd -t d | sk --preview 'eza -1 --icons --group-directories-first {} --color=always')
 
-    if not test -z "$dir"
-        cd $dir
+        if not test -z "$dir"
+            cd $dir
+        end
     end
 end
+
+function t
+    if set -q argv[1]
+        z $argv[1]
+    else
+        set dir (fd -t d -d 1 | sort -r -f | cat - (echo .. | psub) | sk --preview 'eza -1 --icons --group-directories-first {} --color=always')
+
+        if not test -z "$dir"
+            cd $dir
+            t
+        end
+    end
+end
+
+alias th "cd ~"
 
 starship init fish | source
 zoxide init fish | source

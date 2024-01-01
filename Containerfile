@@ -27,7 +27,7 @@ RUN aur-install aspnet-runtime aspnet-runtime-6.0 dotnet-sdk-6.0 omnisharp-rosly
 RUN aur-install npm typescript-language-server vscode-langservers-extracted prettier visual-studio-code-bin google-chrome tailwindcss-language-server 
 
 # Shell
-RUN aur-install fish fzf fd ripgrep starship zoxide eza ccase 
+RUN aur-install fish less skim fd ripgrep starship zoxide eza ccase 
 
 RUN npm install -g @angular/cli @angular/language-service typescript @angular/language-server nx
 
