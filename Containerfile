@@ -6,7 +6,7 @@ RUN paru -Sy
 RUN aur-install flatpak-xdg-utils wl-clipboard 
 
 # Arch
-RUN aur-install base base-devel 
+RUN aur-install base base-devel openssh
 
 # Rust
 RUN aur-install rustup rust-analyzer cargo-watch
