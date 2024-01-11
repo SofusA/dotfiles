@@ -16,7 +16,7 @@ startMouseSpeed: 100.0
 layers:
 - name: initial
   bindings:
-    space: tap-hold space ; toggle-layer mouse ; 300
+    space: tap-hold space ; toggle-layer mouse ; 200
       
 - name: mouse
   passThrough: true

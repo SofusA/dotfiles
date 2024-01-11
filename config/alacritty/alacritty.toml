@@ -1,0 +1,90 @@
+[colors.bright]
+black = "0x5c6370"
+blue = "0x61afef"
+cyan = "0x56b6c2"
+green = "0x98c379"
+magenta = "0xc678dd"
+red = "0xe06c75"
+white = "0xffffff"
+yellow = "0xd19a66"
+
+[colors.normal]
+black = "0x1e2127"
+blue = "0x61afef"
+cyan = "0x56b6c2"
+green = "0x98c379"
+magenta = "0xc678dd"
+red = "0xe06c75"
+white = "0xabb2bf"
+yellow = "0xd19a66"
+
+[colors.primary]
+background = "0x282C34"
+bright_foreground = "0xe6efff"
+foreground = "0xabb2bf"
+
+[font]
+size = 12
+
+[font.normal]
+family = "DejaVuSansM Nerd Font Mono"
+style = "Regular"
+
+[[keyboard.bindings]]
+chars = "\u001B\u007F"
+key = "Back"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "S"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Left"
+key = "N"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "Right"
+key = "I"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "Up"
+key = "U"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "Down"
+key = "E"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "ScrollHalfPageUp"
+key = "L"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "ScrollHalfPageDown"
+key = "Y"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u0003"
+key = "K"
+mods = "Control"
+
+[window.padding]
+x = 10
+y = 10

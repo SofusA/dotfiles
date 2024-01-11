@@ -2,7 +2,7 @@
 command = "csharp-ls"
 
 [language-server.omnisharp]
-command = "OmniSharp"
+command = "omnisharp"
 args = ["--languageserver"]
 
 [language-server.angular]
@@ -40,7 +40,7 @@ roots = ["sln", "csproj"]
 comment-token = "//"
 indent = { tab-width = 2, unit = "  " }
 auto-format = true
-language-servers = ["omnisharp"]
+language-servers = ["csharp-ls"]
 
 [[language]]
 name = "typescript"
