@@ -134,7 +134,7 @@ j = "no_op"
 R = "no_op"
 
 [keys.normal.g]
-u = "no_op"
+u = "goto_last_change"
 n = "goto_first_nonwhitespace"
 e = "goto_file_end"
 i = "goto_line_end"
