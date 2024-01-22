@@ -6,12 +6,12 @@ devices:
 # startCommand: "setxkbmap de"
 
 # the default speed for mouse movement and scrolling
-baseMouseSpeed: 1200.0
+baseMouseSpeed: 2000.0
 baseScrollSpeed: 20.0
 
-mouseAccelerationTime: 500.0
+mouseAccelerationTime: 300.0
 mouseAccelerationCurve: 3.0
-startMouseSpeed: 100.0
+startMouseSpeed: 50.0
 
 layers:
 - name: initial

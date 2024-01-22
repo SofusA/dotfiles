@@ -50,7 +50,7 @@ formatter = { command = 'prettier', args = [
   "typescript",
 ] }
 auto-format = true
-language-servers = ["typescript-language-server", "angular", "eslint"]
+language-servers = ["typescript-language-server", "angular", "eslint", "tailwindcss-ls"]
 
 [[language]]
 name = "html"
