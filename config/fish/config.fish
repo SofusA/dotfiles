@@ -1,3 +1,5 @@
+set -g -x LC_ALL C
+
 alias updot '~/dotfiles/replace_config'
 
 alias h helix
@@ -21,6 +23,7 @@ alias gpu "git pull"
 alias gpud "git pull origin develop"
 
 function gdb
+    git fetch
     set branch (git branch | grep -v ^\* | sk)
     if not test -z "$branch"
         set trim (string trim $branch)
@@ -30,6 +33,7 @@ function gdb
 end
 
 function gsb
+    git fetch
     set branch (git branch -a --format='%(refname:short)' | sk)
 
     if not test -z "$branch"
