@@ -22,6 +22,8 @@ alias gp "git push"
 alias gpu "git pull"
 alias gpud "git pull origin develop"
 
+alias dnr "~/dotnet-run-multiple/target/release/dotnet_run_multi"
+
 function gdb
     git fetch
     set branch (git branch | grep -v ^\* | sk)
