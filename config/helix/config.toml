@@ -30,6 +30,7 @@ e = "move_visual_line_down"
 i = "move_char_right"
 u = "move_visual_line_up"
 h = "yank"
+j = "no_op"
 
 l = "half_page_up"
 y = "half_page_down"

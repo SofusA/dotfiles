@@ -72,3 +72,6 @@ auto-format = true
 name = "scss"
 formatter = { command = 'prettier', args = ["--write", "--parser", "scss"] }
 auto-format = true
+
+[language-server.rust-analyzer.config]
+check.command = "clippy"
