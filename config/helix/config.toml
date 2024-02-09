@@ -21,6 +21,8 @@ d = "delete_selection_noyank"
 N = "goto_previous_buffer"
 I = "goto_next_buffer"
 
+j = "extend_line_below"
+
 esc = ["collapse_selection", "keep_primary_selection"]
 
 n = "move_char_left"
@@ -45,12 +47,16 @@ C-w = "no_op"
 k = "no_op"
 Q = "no_op"
 
-[keys.normal.q]
-q = ":q"
-Q = ":q!"
+[keys.normal.backspace]
+backspace = ":q"
 w = ":wq"
-W = ":wq!"
 r = ":reload"
+b = ":buffer-close"
+
+[keys.normal.backspace.f]
+backspace = ":q!"
+W = ":wq!"
+b = ":buffer-close!"
 
 [keys.normal.m] # move
 u = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
@@ -174,6 +180,8 @@ C = "find_prev_char"
 [keys.select]
 d = "delete_selection_noyank"
 c = "no_op"
+j = "extend_line_below"
+r = "flip_selections"
 
 n = "extend_char_left"
 e = "extend_visual_line_down"
