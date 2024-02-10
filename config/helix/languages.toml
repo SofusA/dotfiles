@@ -81,6 +81,7 @@ config = { userLanguages = { rust = "html", "*.rs" = "html" } }
 
 [[language]]
 name = "rust"
+formatter = { command = "leptosfmt", args = ["--stdin", "--rustfmt"] }
 scope = "source.rust"
 injection-regex = "rust"
 file-types = ["rs"]
