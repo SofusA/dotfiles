@@ -75,3 +75,17 @@ auto-format = true
 
 [language-server.rust-analyzer.config]
 check.command = "clippy"
+
+[language-server.tailwindcss-ls]
+config = { userLanguages = { rust = "html", "*.rs" = "html" } }
+
+[[language]]
+name = "rust"
+scope = "source.rust"
+injection-regex = "rust"
+file-types = ["rs"]
+roots = ["Cargo.toml", "Cargo.lock"]
+auto-format = true
+comment-token = "//"
+language-servers = [ "rust-analyzer", "tailwindcss-ls" ]
+indent = { tab-width = 4, unit = "    " }
