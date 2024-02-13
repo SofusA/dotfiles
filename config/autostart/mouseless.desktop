@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=mouseless
-
-Path=/var/home/sofusa/dotfiles/config/sway
-Exec=exec-mouseless
-Terminal=false
-
