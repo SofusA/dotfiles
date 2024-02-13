@@ -2,11 +2,11 @@ set -g -x LC_ALL C
 
 alias updot '~/dotfiles/replace_config'
 
-alias h helix
+alias h hx
 
 alias host "flatpak-spawn --host"
 
-set -gx EDITOR helix
+set -gx EDITOR hx
 set -U fish_greeting
 set -g -x ASPNETCORE_ENVIRONMENT Test
 
@@ -17,7 +17,7 @@ fish_add_path ~/.cargo/bin/
 
 alias ls "eza -1 --icons --group-directories-first"
 
-alias gui "gitui"
+alias gui gitui
 alias gap "git commit --amend && git push --force"
 alias gp "git push"
 alias gpu "git pull"
