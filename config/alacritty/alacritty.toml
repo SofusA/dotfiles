@@ -30,6 +30,9 @@ size = 12
 family = "DejaVuSansM Nerd Font Mono"
 style = "Regular"
 
+[mouse]
+hide_when_typing = true
+
 [[keyboard.bindings]]
 chars = "\u001B\u007F"
 key = "Back"
