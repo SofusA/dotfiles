@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "height": 20,
-    "margin-bottom": -30,
+    "margin-bottom": -10,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-right": ["clock", "battery", "idle_inhibitor", "tray"],
 
