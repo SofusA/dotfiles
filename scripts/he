@@ -1,0 +1,4 @@
+#!/bin/bash
+
+tmp_file=$(mktemp).md
+alacritty --class="__text_scratchpad" -e toolbox run --container dev fish -lc "sleep 0.1 && hx ${tmp_file}" && wl-copy < $tmp_file

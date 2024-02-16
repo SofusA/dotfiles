@@ -43,6 +43,8 @@ layout {
     gaps 16
 }
 
+spawn-at-startup "waybar"
+
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 binds {
