@@ -19,7 +19,7 @@ RUN aur-install git github-cli gitui
 
 # Helix
 RUN aur-install helix-git
-RUN aur-install rustywind
+RUN aur-install rustywind leptosfmt
 
 # Dotnet develop
 RUN aur-install aspnet-runtime aspnet-runtime-6.0 dotnet-sdk-6.0 omnisharp-roslyn powershell-bin azure-cli 
