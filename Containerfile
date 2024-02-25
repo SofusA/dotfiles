@@ -21,7 +21,7 @@ RUN aur-install git github-cli gitui
 RUN aur-install helix-git
 
 # Cargo
-RUN rustup default nightly
+RUN rustup default stable
 RUN cargo install leptosfmt rustywind
 
 # Dotnet develop
