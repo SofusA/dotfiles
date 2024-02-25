@@ -21,8 +21,9 @@ RUN aur-install git github-cli gitui
 RUN aur-install helix-git
 
 # Cargo
-RUN rustup default stable
-RUN cargo install leptosfmt rustywind
+RUN rustup default nightly
+RUN cargo install cargo-binstall
+RUN cargo -y bininstall leptosfmt rustywind
 
 # Dotnet develop
 RUN aur-install aspnet-runtime aspnet-runtime-6.0 dotnet-sdk-6.0 omnisharp-roslyn powershell-bin azure-cli 
