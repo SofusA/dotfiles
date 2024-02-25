@@ -2,6 +2,7 @@ set -g -x LC_ALL C
 
 alias updot '~/dotfiles/replace_config'
 
+alias hx helix
 alias h hx
 
 alias host "flatpak-spawn --host"
@@ -72,6 +73,11 @@ function t
             t
         end
     end
+end
+
+function hs 
+    set file (rg --files-with-matches --no-messages $argv[1] | sk --preview "hgrep $argv[1] {} --theme=TwoDark --no-grid --term-width 200")
+    h $file
 end
 
 alias th "cd ~"
