@@ -43,50 +43,40 @@ layout {
     gaps 16
 }
 
+spawn-at-startup "waybar"
+
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 binds {
     Mod+T { spawn "alacritty" "-e" "toolbox" "run" "--container" "dev" "fish"; }
     Mod+D { spawn "fuzzel"; }
-    Super+L { spawn "swaylock"; }
+    Mod+L { spawn "swaylock"; }
 
     XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     XF86AudioPlay { spawn "playerctl" "play-pause"; }
 
     Mod+Backspace { close-window; }
+    Mod+H { spawn "he"; }
 
     Mod+N     { focus-column-left; }
     Mod+E     { focus-window-down; }
     Mod+U     { focus-window-up; }
     Mod+I     { focus-column-right; }
 
-    Mod+Ctrl+Left  { move-column-left; }
-    Mod+Ctrl+Down  { move-window-down; }
-    Mod+Ctrl+Up    { move-window-up; }
-    Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down; }
-    Mod+Ctrl+K     { move-window-up; }
-    Mod+Ctrl+L     { move-column-right; }
-
-    Mod+Page_Down      { focus-workspace-down; }
-    Mod+Page_Up        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
-    Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
-    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
-    Mod+Ctrl+U         { move-column-to-workspace-down; }
-    Mod+Ctrl+I         { move-column-to-workspace-up; }
+    Mod+Shift+N     { move-column-left; }
+    Mod+Shift+E     { move-window-down; }
+    Mod+Shift+K     { move-window-up; }
+    Mod+Shift+I     { move-column-right; }
 
     Mod+B { focus-workspace 1; }
     Mod+C { focus-workspace 2; }
     Mod+M { focus-workspace 3; }
     Mod+J { focus-workspace 4; }
-    Mod+Ctrl+B { move-window-to-workspace 1; }
-    Mod+Ctrl+C { move-window-to-workspace 2; }
-    Mod+Ctrl+M { move-window-to-workspace 3; }
-    Mod+Ctrl+J { move-window-to-workspace 4; }
+    Mod+Shift+B { move-window-to-workspace 1; }
+    Mod+Shift+C { move-window-to-workspace 2; }
+    Mod+Shift+M { move-window-to-workspace 3; }
+    Mod+Shift+J { move-window-to-workspace 4; }
 
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }

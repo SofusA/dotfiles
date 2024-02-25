@@ -2,11 +2,11 @@ set -g -x LC_ALL C
 
 alias updot '~/dotfiles/replace_config'
 
-alias h helix
+alias h hx
 
 alias host "flatpak-spawn --host"
 
-set -gx EDITOR helix
+set -gx EDITOR hx
 set -U fish_greeting
 set -g -x ASPNETCORE_ENVIRONMENT Test
 

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# flatpak install -y --noninteractive $(cat gnome/flatpak-list.txt)
+
+dconf load /org/gnome/desktop/ < gnome/desktop.ini
+dconf load /org/gnome/shell/ < gnome/shell.ini
