@@ -81,7 +81,7 @@ config = { userLanguages = { rust = "html", "*.rs" = "html" } }
 
 [[language]]
 name = "rust"
-formatter = { command = "bash", args = ["-c", "leptosfmt --stdin --rustfmt | rustywind --stdin"] }
+formatter = { command = "bash", args = ["-c", "rustywind --stdin | leptosfmt --stdin --rustfmt"] }
 scope = "source.rust"
 injection-regex = "rust"
 file-types = ["rs"]
