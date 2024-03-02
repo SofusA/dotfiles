@@ -2,7 +2,6 @@ set -g -x LC_ALL C
 
 alias updot '~/dotfiles/replace_config'
 
-alias hx helix
 alias h hx
 
 alias host "flatpak-spawn --host"

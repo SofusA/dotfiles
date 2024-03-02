@@ -37,7 +37,6 @@ formatter = { command = "dotnet", args = ["csharpier"] }
 injection-regex = "c-?sharp"
 file-types = ["cs"]
 roots = ["sln", "csproj"]
-comment-token = "//"
 indent = { tab-width = 2, unit = "  " }
 auto-format = true
 language-servers = ["csharpls"]
@@ -87,6 +86,5 @@ injection-regex = "rust"
 file-types = ["rs"]
 roots = ["Cargo.toml", "Cargo.lock"]
 auto-format = true
-comment-token = "//"
 language-servers = [ "rust-analyzer", "tailwindcss-ls" ]
 indent = { tab-width = 4, unit = "    " }
