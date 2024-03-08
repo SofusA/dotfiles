@@ -32,7 +32,7 @@ RUN cargo install --git https://github.com/bram209/leptosfmt
 RUN aur-install aspnet-runtime aspnet-runtime-6.0 dotnet-sdk-6.0 omnisharp-roslyn powershell-bin azure-cli 
 
 # Angular develop
-RUN aur-install npm typescript-language-server vscode-langservers-extracted prettier visual-studio-code-bin google-chrome tailwindcss-language-server 
+RUN aur-install npm typescript-language-server vscode-langservers-extracted prettier visual-studio-code-bin google-chrome tailwindcss-language-server chromedriver
 RUN npm install -g @angular/cli @angular/language-service typescript @angular/language-server nx
 
 # Shell
