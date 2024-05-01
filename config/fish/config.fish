@@ -2,11 +2,11 @@ set -g -x LC_ALL C
 
 alias updot '~/dotfiles/replace_config'
 
-alias h hx
+alias h helix
 
 alias host "flatpak-spawn --host"
 
-set -gx EDITOR hx
+set -gx EDITOR helix
 set -U fish_greeting
 set -g -x ASPNETCORE_ENVIRONMENT Test
 
@@ -74,7 +74,7 @@ function t
     end
 end
 
-function hs 
+function hs
     set file (rg --files-with-matches --no-messages $argv[1] | sk --preview "hgrep $argv[1] {} --theme=TwoDark --no-grid --term-width 200")
     h $file
 end
