@@ -39,7 +39,7 @@ file-types = ["cs"]
 roots = ["sln", "csproj"]
 indent = { tab-width = 2, unit = "  " }
 auto-format = true
-language-servers = ["csharpls"]
+language-servers = ["omnisharp"]
 
 [[language]]
 name = "typescript"
