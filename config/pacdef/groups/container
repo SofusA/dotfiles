@@ -3,6 +3,8 @@
 pacdef
 
 [arch]
+paru
+paru-debug
 base
 base-devel
 bash-completion

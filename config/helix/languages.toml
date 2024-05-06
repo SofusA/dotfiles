@@ -43,33 +43,31 @@ language-servers = ["omnisharp"]
 
 [[language]]
 name = "typescript"
-formatter = { command = 'prettier', args = [
-  "--write",
-  "--parser",
-  "typescript",
-] }
+formatter = { command = 'prettier', args = ["--stdin-filepath=lol.ts"] }
 auto-format = true
 language-servers = ["typescript-language-server", "angular", "eslint", "tailwindcss-ls"]
 
 [[language]]
 name = "html"
-formatter = { command = 'prettier', args = ["--write", "--parser", "html"] }
+formatter = { command = 'prettier', args = ["--stdin-filepath=lol.liquid"]}
+roots = ["package.json"]
+file-types = ["liquid", "html"]
 auto-format = true
-language-servers = ["vscode-html-language-server", "angular", "tailwindcss-ls"]
+language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
 
 [[language]]
 name = "json"
-formatter = { command = 'prettier', args = ["--write", "--parser", "json"] }
+formatter = { command = 'prettier', args = ["--stdin-filepath=lol.json"] }
 auto-format = true
 
 [[language]]
 name = "css"
-formatter = { command = 'prettier', args = ["--write", "--parser", "css"] }
+formatter = { command = 'prettier', args = ["--stdin-filepath=lol.css"] }
 auto-format = true
 
 [[language]]
 name = "scss"
-formatter = { command = 'prettier', args = ["--write", "--parser", "scss"] }
+formatter = { command = 'prettier', args = ["--stdin-filepath=lol.cscc"] }
 auto-format = true
 
 [language-server.rust-analyzer.config]

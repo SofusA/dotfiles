@@ -3,5 +3,8 @@
 live-server
 
 [arch]
+npm
+prettier
+visual-studio-code-bin
 github-cli
 gitui

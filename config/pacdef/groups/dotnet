@@ -1,4 +1,6 @@
 
 [arch]
+azure-functions-core-tools-bin
+omnisharp-roslyn
 aspnet-runtime
 dotnet-sdk
