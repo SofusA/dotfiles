@@ -19,7 +19,11 @@
             nil
             taplo
             omnisharp-roslyn
-
+            tailwindcss-language-server
+            nodePackages.typescript-language-server
+            vscode-langservers-extracted
+            nodePackages.prettier
+            
             # shell
             fish
             starship
@@ -30,6 +34,7 @@
 
             # git
             gitui
+            gh
 
             # dotnet
             dotnetCorePackages.dotnet_8.sdk

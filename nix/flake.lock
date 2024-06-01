@@ -6,7 +6,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-Pf7/oqKH2yEKnrCZjkAUmVlVKqZSx6s3r1CZ8x+Csl0=",
+        "narHash": "sha256-UupZB7DZyVpSEM5zHmMTvoMD1o3opUu9lL6h/pwOi0k=",
         "path": "./tools/ccase",
         "type": "path"
       },
@@ -39,7 +39,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-eQYIVnW1O1b3vEu8c1df3aIrNcg2qTh3LRNKpfymUFk=",
+        "narHash": "sha256-mM324G03Z1khbrKd9/XWlcVy1VKTZb6jn+dM4fCTstw=",
         "path": "./tools/flatpak-xdg-utils",
         "type": "path"
       },

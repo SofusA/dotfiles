@@ -12,7 +12,7 @@
           src = pkgs.fetchFromGitHub {
             owner = "rutrum";
             repo = "ccase";
-            rev = "7ca56557d0cc69641e0d0c5ae9370c48f4cce09d";
+            rev = "master";
             hash = "sha256-TQJkvANms/5Mzh1J4qsEYOrlML17dVv7MYEoN4Z/gm0=";
           };
 

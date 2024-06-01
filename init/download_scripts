@@ -1,5 +1,13 @@
 #!/bin/bash
 
 mkdir -p /var/home/sofusa/.local/bin
-touch /var/home/sofusa/.local/bin/bemoji
-wget -O /var/home/sofusa/.local/bin/bemoji https://raw.githubusercontent.com/marty-oehme/bemoji/main/bemoji
+curl -L https://github.com/DavHau/nix-portable/releases/latest/download/nix-portable-$(uname -m) > ~/.local/bin/nix-portable
+chmod +x ~/.local/bin/nix-portable
+
+cat > ~/.local/bin/nix-shell << 'EOF'
+#! /bin/bash
+export NP_RUNTIME=bwrap
+nix-portable nix develop ~/dotfiles/nix
+EOF
+
+chmod +x ~/.local/bin/nix-shell
