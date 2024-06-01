@@ -19,17 +19,23 @@
             nil
             taplo
             omnisharp-roslyn
-
+            tailwindcss-language-server
+            nodePackages.typescript-language-server
+            vscode-langservers-extracted
+            nodePackages.prettier
+            
             # shell
             fish
             starship
             zoxide
             atuin
+            fd
             ccase.packages.${system}.ccase
             flatpak-xdg-utils.packages.${system}.flatpak-xdg-utils
 
             # git
             gitui
+            gh
 
             # dotnet
             dotnetCorePackages.dotnet_8.sdk

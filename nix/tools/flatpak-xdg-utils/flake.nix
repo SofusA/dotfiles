@@ -7,9 +7,10 @@
       pname = "flatpak-xdg-utils";
       version = "unstable-2024-05-31";
 
-      src = fetchgit {
-        url = "https://github.com/flatpak/flatpak-xdg-utils";
-        rev = "b24e62ea9b342797ebd203ef3dc7aa0dc02d45a8";
+      src = pkgs.fetchFromGitHub {
+        owner = "flatpak";
+        repo = "flatpak-xdg-utils";
+        rev = "master";
         sha256 = "sha256-etsrkVpRdvGxipa9TQ5cSvTYviIJBkSpjQJaMeuAtXc=";
       };
 

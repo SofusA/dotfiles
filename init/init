@@ -6,7 +6,3 @@ toolbox create dev -i ghcr.io/sofusa/dotfiles/dev-container
 
 rpm-ostree install alacritty langpacks-da
 rpm-ostree override remove firefox firefox-langpacks
-
-echo "KERNEL==\"uinput\", GROUP=\"$USER\", MODE:=\"0660\"
-KERNEL==\"event*\", GROUP=\"$USER\", NAME=\"input/%k\", MODE=\"660\"" \
-| sudo tee /etc/udev/rules.d/99-$USER.rules

@@ -2,7 +2,7 @@
 command = "csharp-ls"
 
 [language-server.omnisharp]
-command = "omnisharp"
+command = "OmniSharp"
 args = ["--languageserver"]
 
 [language-server.angular]
@@ -46,6 +46,11 @@ name = "typescript"
 formatter = { command = 'prettier', args = ["--stdin-filepath=lol.ts"] }
 auto-format = true
 language-servers = ["typescript-language-server", "angular", "eslint", "tailwindcss-ls"]
+
+[[language]]
+name = "javascript"
+formatter = { command = 'prettier', args = ["--stdin-filepath=lol.js"] }
+auto-format = true
 
 [[language]]
 name = "html"
