@@ -52,19 +52,19 @@ function ts
         set dir (fd -t d | sk --preview 'eza -1 --icons --group-directories-first {} --color=always')
 
         if not test -z "$dir"
-            cd $dir
+            z $dir
         end
     end
 end
 
 function t
     if set -q argv[1]
-        z $argv[1]
+        z $argv[1..-1]
     else
         set dir (fd -t d -d 1 | sort -r -f | cat - (echo .. | psub) | sk --preview 'eza -1 --icons --group-directories-first {} --color=always')
 
         if not test -z "$dir"
-            cd $dir
+            z $dir
             t
         end
     end
