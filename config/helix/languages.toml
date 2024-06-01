@@ -49,7 +49,7 @@ language-servers = ["typescript-language-server", "angular", "eslint", "tailwind
 
 [[language]]
 name = "html"
-formatter = { command = 'prettier', args = ["--stdin-filepath=lol.liquid"]}
+formatter = { command = 'prettier', args = ["--stdin-filepath=lol.html"]}
 roots = ["package.json"]
 file-types = ["liquid", "html"]
 auto-format = true
@@ -78,7 +78,7 @@ config = { userLanguages = { rust = "html", "*.rs" = "html" } }
 
 [[language]]
 name = "rust"
-formatter = { command = "bash", args = ["-c", "rustywind --stdin | leptosfmt --stdin --rustfmt --html-macro html"] }
+formatter = { command = "bash", args = ["-c", "rustywind --stdin | leptosfmt --stdin --rustfmt --override-macro-names html"] }
 scope = "source.rust"
 injection-regex = "rust"
 file-types = ["rs"]
