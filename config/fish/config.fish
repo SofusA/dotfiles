@@ -21,6 +21,8 @@ alias gpud "git pull origin develop"
 
 alias dnr "~/dotnet-run-multiple/target/release/dotnet_run_multi"
 
+alias git "flatpak-spawn --host git"
+
 function gdb
     git fetch
     set branch (git branch | grep -v ^\* | sk)
