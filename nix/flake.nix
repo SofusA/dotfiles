@@ -32,6 +32,8 @@
             fd
             ccase.packages.${system}.ccase
             flatpak-xdg-utils.packages.${system}.flatpak-xdg-utils
+            skim
+            wl-clipboard
 
             # git
             gitui
