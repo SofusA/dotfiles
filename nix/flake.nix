@@ -29,6 +29,7 @@
             starship
             zoxide
             atuin
+            fd
             ccase.packages.${system}.ccase
             flatpak-xdg-utils.packages.${system}.flatpak-xdg-utils
 

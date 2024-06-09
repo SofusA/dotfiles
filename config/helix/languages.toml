@@ -2,7 +2,7 @@
 command = "csharp-ls"
 
 [language-server.omnisharp]
-command = "omnisharp"
+command = "OmniSharp"
 args = ["--languageserver"]
 
 [language-server.angular]
