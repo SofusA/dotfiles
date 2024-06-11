@@ -34,6 +34,7 @@
             flatpak-xdg-utils.packages.${system}.flatpak-xdg-utils
             skim
             wl-clipboard
+            ripgrep
 
             # git
             gitui
