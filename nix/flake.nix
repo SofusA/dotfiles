@@ -59,6 +59,10 @@
 
             # vscode
             vscode
+
+            # Chrome
+            google-chrome
+            chromedriver
           ];
 
           shellHook = 
