@@ -10,7 +10,7 @@
   outputs = { self, nixpkgs, flake-utils, flatpak-xdg-utils, ccase}:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = import nixpkgs { inherit system; config.allowUnfree = true;};
       in {
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
@@ -56,6 +56,9 @@
             # node
             nodePackages.npm
             nodePackages.nodejs
+
+            # vscode
+            vscode
           ];
 
           shellHook = 
