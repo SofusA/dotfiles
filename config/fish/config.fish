@@ -8,7 +8,7 @@ set -g -x ASPNETCORE_ENVIRONMENT Test
 
 set -gx LOCALE_ARCHIVE /usr/lib/locale/locale-archive
 
-set PATH /var/home/sofusa/.npm-packages/bin $PATH
+# set PATH /var/home/sofusa/.npm-packages/bin $PATH
 fish_add_path ~/.cargo/bin/
 
 alias ls "eza -1 --icons --group-directories-first"

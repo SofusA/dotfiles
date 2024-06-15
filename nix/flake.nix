@@ -4,14 +4,31 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
-  inputs.flatpak-xdg-utils.url ="path:./tools/flatpak-xdg-utils";
-  inputs.ccase.url ="path:./tools/ccase";
+  inputs.flatpak-xdg-utils.url = "path:./tools/flatpak-xdg-utils";
+  inputs.ccase.url = "path:./tools/ccase";
 
-  outputs = { self, nixpkgs, flake-utils, flatpak-xdg-utils, ccase}:
+  inputs.language-servers.url = "path:./tools/ngserver";
+  inputs.language-servers.inputs.nixpkgs.follows = "nixpkgs";
+
+  outputs = { self, nixpkgs, flake-utils, flatpak-xdg-utils, ccase, language-servers}:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; config.allowUnfree = true;};
       in {
+
+        packages.dotnetSdks = pkgs.buildEnv {
+          name = "dotnetSdks";
+          paths = [
+            (with pkgs.dotnetCorePackages;
+              combinePackages [
+                dotnet_8.sdk
+                dotnet_8.aspnetcore
+                sdk_6_0_1xx
+              ])
+          ];
+        };
+
+      
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
             # helix
@@ -41,8 +58,11 @@
             gh
 
             # dotnet
-            dotnetCorePackages.dotnet_8.sdk
-            dotnetCorePackages.dotnet_8.aspnetcore
+            self.packages.${system}.dotnetSdks
+            csharpier
+
+            # angular
+            language-servers.packages.angular-language-server
 
             # azure
             azure-cli
@@ -55,6 +75,7 @@
 
             # node
             nodePackages.npm
+            nodePackages.yarn
             nodePackages.nodejs
 
             # vscode

@@ -6,15 +6,8 @@ command = "OmniSharp"
 args = ["--languageserver"]
 
 [language-server.angular]
-command = "ngserver"
+command = "angular-language-server"
 roots = ["angular.json", "nx.json"]
-args = [
-  "--stdio",
-  "--tsProbeLocations",
-  "$(npm -g root)",
-  "--ngProbeLocations",
-  "$(npm -g root)",
-]
 
 [language-server.eslint]
 command = "vscode-eslint-language-server"
@@ -33,7 +26,7 @@ codeAction = { disableRuleComment = { enable = true, location = 'separateLine' }
 [[language]]
 name = "c-sharp"
 scope = "source.csharp"
-formatter = { command = "dotnet", args = ["csharpier"] }
+formatter = { command = "dotnet-csharpier" }
 injection-regex = "c-?sharp"
 file-types = ["cs"]
 roots = ["sln", "csproj"]
@@ -43,36 +36,36 @@ language-servers = ["omnisharp"]
 
 [[language]]
 name = "typescript"
-formatter = { command = 'prettier', args = ["--stdin-filepath=lol.ts"] }
+formatter = { command = 'prettier', args = ["--stdin-filepath=file.ts"] }
 auto-format = true
 language-servers = ["typescript-language-server", "angular", "eslint", "tailwindcss-ls"]
 
 [[language]]
 name = "javascript"
-formatter = { command = 'prettier', args = ["--stdin-filepath=lol.js"] }
+formatter = { command = 'prettier', args = ["--stdin-filepath=file.js"] }
 auto-format = true
 
 [[language]]
 name = "html"
-formatter = { command = 'prettier', args = ["--stdin-filepath=lol.html"]}
+formatter = { command = 'prettier', args = ["--parser", "angular", "--stdin-filepath=file.html"]}
 roots = ["package.json"]
-file-types = ["liquid", "html"]
+file-types = ["html"]
 auto-format = true
-language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
+language-servers = ["vscode-html-language-server", "tailwindcss-ls", "angular"]
 
 [[language]]
 name = "json"
-formatter = { command = 'prettier', args = ["--stdin-filepath=lol.json"] }
+formatter = { command = 'prettier', args = ["--stdin-filepath=file.json"] }
 auto-format = true
 
 [[language]]
 name = "css"
-formatter = { command = 'prettier', args = ["--stdin-filepath=lol.css"] }
+formatter = { command = 'prettier', args = ["--stdin-filepath=file.css"] }
 auto-format = true
 
 [[language]]
 name = "scss"
-formatter = { command = 'prettier', args = ["--stdin-filepath=lol.cscc"] }
+formatter = { command = 'prettier', args = ["--stdin-filepath=file.scss"] }
 auto-format = true
 
 [language-server.rust-analyzer.config]
