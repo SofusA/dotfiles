@@ -7,7 +7,7 @@ let
 
 in pkgs.mkYarnPackage rec {
   pname = "angular-language-server";
-  version = "15.1";
+  version = "18.0";
 
   src = ./.;
   inherit nodejs;
