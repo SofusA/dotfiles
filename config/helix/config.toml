@@ -1,4 +1,4 @@
-theme = "onedark"
+theme = "mytheme"
 
 [editor]
 line-number = "relative"
@@ -45,17 +45,20 @@ J = "no_op"
 C-w = "no_op"
 k = "no_op"
 Q = "no_op"
+"/" = "no_op"
 
 [keys.normal.backspace]
 backspace = ":q"
-w = ":wq"
+w = ":w"
 r = ":reload"
 b = ":buffer-close"
+c = ":q"
 
 [keys.normal.backspace.f]
 backspace = ":q!"
-W = ":wq!"
+w = ":w!"
 b = ":buffer-close!"
+c = ":q!"
 
 [keys.normal.m] # move
 u = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
@@ -63,6 +66,7 @@ e = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 
 [keys.normal.f] # find
 f = "search"
+g = "global_search"
 i = "search_next"
 n = "search_prev"
 s = ["search_selection", "search"]
@@ -92,27 +96,10 @@ k = [":pipe ccase -t kebab", "ensure_selections_forward", "delete_char_forward"]
 t = [":pipe ccase -t title", "ensure_selections_forward", "delete_char_forward"]
 o = [":pipe ccase -p sentence -d \" \"", "ensure_selections_forward", "delete_char_forward"]
 
-[keys.normal.t] # tile
-s = "hsplit"
-v = "vsplit"
-c = "wclose"
-
-n = "jump_view_left"
-e = "jump_view_down"
-i = "jump_view_right"
-u = "jump_view_up"
-
-N = "swap_view_left"
-E = "swap_view_down"
-I = "swap_view_right"
-U = "swap_view_up"
-
 [keys.normal.space]
-w = ":write"
 f = "file_picker_in_current_directory"
 i = "select_textobject_inner"
 I = "select_textobject_around"
-c = ":buffer-close"
 h = "yank_joined_to_clipboard"
 
 y = "no_op"
@@ -122,22 +109,8 @@ F = "no_op"
 "'" = "no_op"
 j = "no_op"
 R = "no_op"
-
-[keys.select.space]
-w = ":write"
-f = "file_picker_in_current_directory"
-i = "select_textobject_inner"
-I = "select_textobject_around"
-c = ":buffer-close"
-h = "yank_joined_to_clipboard"
-
-y = "no_op"
-Y = "no_op"
-g = "no_op"
-F = "no_op"
-"'" = "no_op"
-j = "no_op"
-R = "no_op"
+A-c = "no_op"
+"/" = "no_op"
 
 [keys.normal.g]
 u = "goto_last_change"
@@ -162,40 +135,15 @@ m = "no_op"
 p = "no_op"
 s = "no_op"
 
-[keys.select.g]
+[keys.normal.v]
 u = "extend_line_up"
-n = "goto_line_start"
+l = "extend_to_line_start"
 e = "extend_line_down"
-i = "goto_line_end"
-
-[keys.select.f] # find
-f = "search"
-i = "search_next"
-n = "search_prev"
-s = ["search_selection", "search"]
-c = "find_next_char"
-C = "find_prev_char"
-
-[keys.select]
-d = "delete_selection_noyank"
-c = "no_op"
-j = "extend_line_below"
-r = "flip_selections"
-
+y = "extend_to_line_end"
 n = "extend_char_left"
-e = "extend_visual_line_down"
 i = "extend_char_right"
-u = "extend_visual_line_up"
-
-h = "yank"
-y = "no_op"
-
-z = "undo"
-Z = "redo"
+o = "extend_next_word_end"
+b = "extend_prev_word_end"
 
 [editor.statusline]
-left = ["mode", "spinner", "file-name"]
-right = ["diagnostics", "selections", "position", "file-line-ending"]
-mode.normal = "NORMAL"
-mode.insert = "INSERT"
-mode.select = "SELECT"
+left = ["read-only-indicator", "file-modification-indicator", "spinner"]

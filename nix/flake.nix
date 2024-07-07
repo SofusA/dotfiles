@@ -10,27 +10,35 @@
   inputs.language-servers.url = "path:./tools/ngserver";
   inputs.language-servers.inputs.nixpkgs.follows = "nixpkgs";
 
-  outputs = { self, nixpkgs, flake-utils, flatpak-xdg-utils, ccase, language-servers}:
+  outputs = { 
+    self, 
+    nixpkgs,
+    flake-utils,
+    flatpak-xdg-utils,
+    ccase,
+    language-servers
+  }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = import nixpkgs { inherit system; config.allowUnfree = true;};
-      in {
+        pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
+      in
+      {
 
         packages.dotnetSdks = pkgs.buildEnv {
           name = "dotnetSdks";
           paths = [
             (with pkgs.dotnetCorePackages;
-              combinePackages [
-                dotnet_8.sdk
-                dotnet_8.aspnetcore
-                sdk_6_0_1xx
-              ])
+            combinePackages [
+              dotnet_8.sdk
+              dotnet_8.aspnetcore
+              sdk_6_0_1xx
+            ])
           ];
         };
 
-      
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
+
             # helix
             helix
             nil
@@ -40,7 +48,7 @@
             nodePackages.typescript-language-server
             vscode-langservers-extracted
             nodePackages.prettier
-            
+
             # shell
             fish
             starship
@@ -86,11 +94,11 @@
             chromedriver
           ];
 
-          shellHook = 
-          ''
-            export PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";
-            fish
-          '';
+          shellHook =
+            ''
+              export PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";
+              fish
+            '';
         };
       }
     );
