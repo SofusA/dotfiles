@@ -1,4 +1,4 @@
-theme = "mytheme"
+theme = "onedark"
 
 [editor]
 line-number = "relative"
@@ -31,8 +31,8 @@ i = "move_char_right"
 u = "move_visual_line_up"
 h = "yank"
 
-l = "half_page_up"
-y = "half_page_down"
+l = "goto_prev_paragraph"
+y = "goto_next_paragraph"
 
 a = "undo"
 z = "redo"
@@ -70,8 +70,6 @@ g = "global_search"
 i = "search_next"
 n = "search_prev"
 s = ["search_selection", "search"]
-c = "find_next_char"
-C = "find_prev_char"
 
 [keys.normal.c] # change
 h = "insert_mode"
@@ -143,7 +141,8 @@ y = "extend_to_line_end"
 n = "extend_char_left"
 i = "extend_char_right"
 o = "extend_next_word_end"
-b = "extend_prev_word_end"
+c = "extend_till_char"
 
-[editor.statusline]
-left = ["read-only-indicator", "file-modification-indicator", "spinner"]
+[keys.normal.v.b]
+c = "extend_till_prev_char"
+o = "extend_prev_word_end"
