@@ -2,7 +2,5 @@
 ~/dotfiles/init/download_scripts
 ~/dotfiles/replace_config
 
-toolbox create dev -i ghcr.io/sofusa/dotfiles/dev-container
-
 rpm-ostree install alacritty langpacks-da
 rpm-ostree override remove firefox firefox-langpacks
