@@ -92,11 +92,20 @@
             # Chrome
             google-chrome
             chromedriver
+
+            # Playwright
+            playwright-driver.browsers
+
           ];
+
 
           shellHook =
             ''
-              export PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";
+              playwright_chromium_revision="$(${pkgs.jq}/bin/jq --raw-output '.browsers[] | select(.name == "chromium").revision' ${pkgs.playwright-driver}/package/browsers.json)"
+              export PLAYWRIGHT_LAUNCH_OPTIONS_EXECUTABLE_PATH="${pkgs.playwright-driver.browsers}/chromium-$playwright_chromium_revision/chrome-linux/chrome";
+              export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=rue;
+              export PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";          
+
               fish
             '';
         };

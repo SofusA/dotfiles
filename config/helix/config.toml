@@ -5,6 +5,8 @@ line-number = "relative"
 mouse = false
 bufferline = "always"
 
+jump-label-alphabet = "abcdefghijklmnoprstuvwyz"
+
 [editor.soft-wrap]
 enable = true
 
@@ -146,3 +148,4 @@ c = "extend_till_char"
 [keys.normal.v.b]
 c = "extend_till_prev_char"
 o = "extend_prev_word_end"
+
