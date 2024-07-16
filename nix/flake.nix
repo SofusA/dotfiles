@@ -45,6 +45,7 @@
             taplo
             omnisharp-roslyn
             tailwindcss-language-server
+            typescript
             nodePackages.typescript-language-server
             vscode-langservers-extracted
             nodePackages.prettier
