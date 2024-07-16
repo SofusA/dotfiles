@@ -18,6 +18,10 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "error"
+
 [keys.normal]
 d = "delete_selection_noyank"
 N = "goto_previous_buffer"

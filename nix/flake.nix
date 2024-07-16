@@ -9,6 +9,8 @@
 
   inputs.language-servers.url = "path:./tools/ngserver";
   inputs.language-servers.inputs.nixpkgs.follows = "nixpkgs";
+  inputs.helix.url = "github:helix-editor/helix/master";
+
 
   outputs = { 
     self, 
@@ -16,7 +18,8 @@
     flake-utils,
     flatpak-xdg-utils,
     ccase,
-    language-servers
+    language-servers,
+    helix
   }:
     flake-utils.lib.eachDefaultSystem (system:
       let
@@ -40,7 +43,7 @@
           buildInputs = with pkgs; [
 
             # helix
-            helix
+            helix.packages.${system}.helix
             nil
             taplo
             omnisharp-roslyn
