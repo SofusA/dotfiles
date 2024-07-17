@@ -32,7 +32,7 @@ formatter = { command = "dotnet-csharpier" }
 # roots = ["sln", "csproj"]
 # indent = { tab-width = 2, unit = "  " }
 auto-format = true
-language-servers = ["cshapls"]
+language-servers = ["csharpls"]
 
 [[language]]
 name = "typescript"
