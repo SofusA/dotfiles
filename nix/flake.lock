@@ -8,11 +8,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1721488132,
-        "narHash": "sha256-X3e0zjoX3IbW+bQfFSsmDWUDlqiHYrs4wJuQgymreU0=",
+        "lastModified": 1721492105,
+        "narHash": "sha256-Uzv2Nj29TgvUTlIdaqT8WvqeWGOCzY5kYphB8URFFog=",
         "owner": "sofusa",
         "repo": "angular-language-server",
-        "rev": "539759269b79e459016fd7bbc9f44d727df2a103",
+        "rev": "0a4c1cb0812f6ff942d30f7e095ec94ce1fa5b62",
         "type": "github"
       },
       "original": {
@@ -246,11 +246,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1721482358,
-        "narHash": "sha256-41+XAlWyC4/tN+IKd3BUB0H7Akr9l+BibFNDuxx9Veg=",
+        "lastModified": 1721495242,
+        "narHash": "sha256-5NxbR5TGWYOziPvA61VddgQUTb5B1htPz0pFyXk31po=",
         "owner": "sofusa",
         "repo": "roslyn-language-server",
-        "rev": "2d3149c766bab46c95e5bd0ac830c2d7ee591f4f",
+        "rev": "e76b291d0ddb6682c7e8761ca263ae04443f3549",
         "type": "github"
       },
       "original": {
