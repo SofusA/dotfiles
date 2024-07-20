@@ -5,12 +5,16 @@
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
   inputs.flatpak-xdg-utils.url = "path:./tools/flatpak-xdg-utils";
+  inputs.flatpak-xdg-utils.inputs.nixpkgs.follows = "nixpkgs";
+
   inputs.ccase.url = "path:./tools/ccase";
+  inputs.ccase.inputs.nixpkgs.follows = "nixpkgs";
 
-  inputs.language-servers.url = "path:./tools/ngserver";
-  inputs.language-servers.inputs.nixpkgs.follows = "nixpkgs";
+  inputs.angular-language-server.url = "github:sofusa/angular-language-server/main";
+  inputs.angular-language-server.inputs.nixpkgs.follows = "nixpkgs";
+
   inputs.helix.url = "github:helix-editor/helix/master";
-
+  inputs.helix.inputs.nixpkgs.follows = "nixpkgs";
 
   outputs = { 
     self, 
@@ -18,7 +22,7 @@
     flake-utils,
     flatpak-xdg-utils,
     ccase,
-    language-servers,
+    angular-language-server,
     helix
   }:
     flake-utils.lib.eachDefaultSystem (system:
@@ -53,6 +57,7 @@
             nodePackages.typescript-language-server
             vscode-langservers-extracted
             nodePackages.prettier
+            angular-language-server.packages.${system}.angular-language-server
 
             # shell
             fish
@@ -73,9 +78,6 @@
             # dotnet
             self.packages.${system}.dotnetSdks
             csharpier
-
-            # angular
-            language-servers.packages.angular-language-server
 
             # azure
             azure-cli
