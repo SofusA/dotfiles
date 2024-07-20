@@ -151,6 +151,24 @@
         "type": "github"
       }
     },
+    "flake-utils_6": {
+      "inputs": {
+        "systems": "systems_6"
+      },
+      "locked": {
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "flatpak-xdg-utils": {
       "inputs": {
         "flake-utils": "flake-utils_4",
@@ -179,17 +197,17 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1721378695,
-        "narHash": "sha256-WHjO7Ku9AjcDxaciZzEe6taye6KWLrw/eRQNWHMIkB8=",
-        "owner": "helix-editor",
-        "repo": "helix",
-        "rev": "dbaa6366834790cda0bd92ea8971fec9ae9b601b",
+        "lastModified": 1721477424,
+        "narHash": "sha256-SovSqP+A7CVDoHw/XDXW9mDjexzgIwZ+OQRBblmE4fE=",
+        "owner": "sofusa",
+        "repo": "helix-pull-diagnostics",
+        "rev": "58447dae606e93cc84e77ae0848c7dfaffe90c92",
         "type": "github"
       },
       "original": {
-        "owner": "helix-editor",
-        "ref": "master",
-        "repo": "helix",
+        "owner": "sofusa",
+        "ref": "pull-diagnostics",
+        "repo": "helix-pull-diagnostics",
         "type": "github"
       }
     },
@@ -216,7 +234,30 @@
         "flake-utils": "flake-utils_3",
         "flatpak-xdg-utils": "flatpak-xdg-utils",
         "helix": "helix",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "roslyn-language-server": "roslyn-language-server"
+      }
+    },
+    "roslyn-language-server": {
+      "inputs": {
+        "flake-utils": "flake-utils_6",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1721482358,
+        "narHash": "sha256-41+XAlWyC4/tN+IKd3BUB0H7Akr9l+BibFNDuxx9Veg=",
+        "owner": "sofusa",
+        "repo": "roslyn-language-server",
+        "rev": "2d3149c766bab46c95e5bd0ac830c2d7ee591f4f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sofusa",
+        "ref": "main",
+        "repo": "roslyn-language-server",
+        "type": "github"
       }
     },
     "rust-overlay": {
@@ -305,6 +346,21 @@
       }
     },
     "systems_5": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_6": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",

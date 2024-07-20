@@ -1,13 +1,15 @@
 [language-server.csharpls]
 command = "csharp-ls"
 
+[language-server.roslyn]
+command = "roslyn-language-server"
+
 [language-server.omnisharp]
 command = "OmniSharp"
 args = ["--languageserver"]
 
 [language-server.angular]
 command = "angular-language-server"
-roots = ["angular.json", "nx.json"]
 
 [language-server.eslint]
 command = "vscode-eslint-language-server"
@@ -25,14 +27,10 @@ codeAction = { disableRuleComment = { enable = true, location = 'separateLine' }
 
 [[language]]
 name = "c-sharp"
-# scope = "source.csharp"
 formatter = { command = "dotnet-csharpier" }
-# injection-regex = "c-?sharp"
-# file-types = ["cs"]
-# roots = ["sln", "csproj"]
-# indent = { tab-width = 2, unit = "  " }
+indent = { tab-width = 2, unit = "  " }
 auto-format = true
-language-servers = ["csharpls"]
+language-servers = ["roslyn"]
 
 [[language]]
 name = "typescript"
@@ -48,8 +46,6 @@ auto-format = true
 [[language]]
 name = "html"
 formatter = { command = 'prettier', args = ["--parser", "angular", "--stdin-filepath=file.html"]}
-roots = ["package.json"]
-file-types = ["html"]
 auto-format = true
 language-servers = ["vscode-html-language-server", "tailwindcss-ls", "angular"]
 

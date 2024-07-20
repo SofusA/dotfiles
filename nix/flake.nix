@@ -13,7 +13,10 @@
   inputs.angular-language-server.url = "github:sofusa/angular-language-server/main";
   inputs.angular-language-server.inputs.nixpkgs.follows = "nixpkgs";
 
-  inputs.helix.url = "github:helix-editor/helix/master";
+  inputs.roslyn-language-server.url = "github:sofusa/roslyn-language-server/main";
+  inputs.roslyn-language-server.inputs.nixpkgs.follows = "nixpkgs";
+
+  inputs.helix.url = "github:sofusa/helix-pull-diagnostics/pull-diagnostics";
   inputs.helix.inputs.nixpkgs.follows = "nixpkgs";
 
   outputs = { 
@@ -23,6 +26,7 @@
     flatpak-xdg-utils,
     ccase,
     angular-language-server,
+    roslyn-language-server,
     helix
   }:
     flake-utils.lib.eachDefaultSystem (system:
@@ -58,6 +62,8 @@
             vscode-langservers-extracted
             nodePackages.prettier
             angular-language-server.packages.${system}.angular-language-server
+            roslyn-ls
+            roslyn-language-server.packages.${system}.roslyn-language-server
 
             # shell
             fish
