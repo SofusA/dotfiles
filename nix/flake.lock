@@ -197,11 +197,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1721477424,
-        "narHash": "sha256-SovSqP+A7CVDoHw/XDXW9mDjexzgIwZ+OQRBblmE4fE=",
+        "lastModified": 1721513686,
+        "narHash": "sha256-rY3ehOwSQ5Jdr4kG9KVMBVKFkoyMJ2CerWLtOhzmfQU=",
         "owner": "sofusa",
         "repo": "helix-pull-diagnostics",
-        "rev": "58447dae606e93cc84e77ae0848c7dfaffe90c92",
+        "rev": "8084a2c7466fac8275c6f7f01dd6fd94535fe08e",
         "type": "github"
       },
       "original": {
@@ -246,11 +246,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1721495242,
-        "narHash": "sha256-5NxbR5TGWYOziPvA61VddgQUTb5B1htPz0pFyXk31po=",
+        "lastModified": 1721495753,
+        "narHash": "sha256-fIXfAn4rowe9EAaGGD9dOhGvPv3u+OCjaZ2+PgoNQao=",
         "owner": "sofusa",
         "repo": "roslyn-language-server",
-        "rev": "e76b291d0ddb6682c7e8761ca263ae04443f3549",
+        "rev": "755a1e2b898d4b22e2e5a35d366cec5c4961f9bd",
         "type": "github"
       },
       "original": {
