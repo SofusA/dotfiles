@@ -197,11 +197,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1721513686,
-        "narHash": "sha256-rY3ehOwSQ5Jdr4kG9KVMBVKFkoyMJ2CerWLtOhzmfQU=",
+        "lastModified": 1721757840,
+        "narHash": "sha256-pKLgvCev+pZZvrm3lpT/pKrTXzMy8iLxQui8v7Uoeyg=",
         "owner": "sofusa",
         "repo": "helix-pull-diagnostics",
-        "rev": "8084a2c7466fac8275c6f7f01dd6fd94535fe08e",
+        "rev": "c9074d196bdd47cc4f1a4a7994d7237e1322c9ab",
         "type": "github"
       },
       "original": {
@@ -213,11 +213,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1721379653,
-        "narHash": "sha256-8MUgifkJ7lkZs3u99UDZMB4kbOxvMEXQZ31FO3SopZ0=",
+        "lastModified": 1721562059,
+        "narHash": "sha256-Tybxt65eyOARf285hMHIJ2uul8SULjFZbT9ZaEeUnP8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "1d9c2c9b3e71b9ee663d11c5d298727dace8d374",
+        "rev": "68c9ed8bbed9dfce253cc91560bf9043297ef2fe",
         "type": "github"
       },
       "original": {
@@ -246,11 +246,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1721495753,
-        "narHash": "sha256-fIXfAn4rowe9EAaGGD9dOhGvPv3u+OCjaZ2+PgoNQao=",
+        "lastModified": 1721755368,
+        "narHash": "sha256-lteNfdlOw4odUzyWh25kjbPpCbgnXdSzNQ4vl6hgezg=",
         "owner": "sofusa",
         "repo": "roslyn-language-server",
-        "rev": "755a1e2b898d4b22e2e5a35d366cec5c4961f9bd",
+        "rev": "ead02b21223f04894c4047bd7f1ef16f2986b11d",
         "type": "github"
       },
       "original": {
