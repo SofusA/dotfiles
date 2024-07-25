@@ -197,11 +197,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1721757840,
-        "narHash": "sha256-pKLgvCev+pZZvrm3lpT/pKrTXzMy8iLxQui8v7Uoeyg=",
+        "lastModified": 1721904610,
+        "narHash": "sha256-9VXOnOY4dQkZEX08GUw0DDuXSN05IU+5Hh/fqKGlLjk=",
         "owner": "sofusa",
         "repo": "helix-pull-diagnostics",
-        "rev": "c9074d196bdd47cc4f1a4a7994d7237e1322c9ab",
+        "rev": "6541153cb4826d12084acb7035e5a27dd85d191d",
         "type": "github"
       },
       "original": {
