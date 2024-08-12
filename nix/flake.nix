@@ -54,8 +54,6 @@
             helix.packages.${system}.helix
             nil
             taplo
-            omnisharp-roslyn
-            csharp-ls
             tailwindcss-language-server
             typescript
             nodePackages.typescript-language-server
