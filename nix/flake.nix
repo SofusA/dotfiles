@@ -82,6 +82,7 @@
             # dotnet
             self.packages.${system}.dotnetSdks
             csharpier
+            azure-functions-core-tools
 
             # azure
             azure-cli
