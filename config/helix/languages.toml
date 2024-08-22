@@ -1,5 +1,6 @@
 [language-server.typos]
 command = "typos-lsp"
+config.diagnosticSeverity = "Warning"
 
 [language-server.csharpls]
 command = "csharp-ls"
@@ -77,4 +78,4 @@ config = { userLanguages = { rust = "html", "*.rs" = "html" } }
 name = "rust"
 auto-format = true
 indent = { tab-width = 4, unit = "    " }
-language-servers = ["typos"]
+language-servers = ["rust-analyzer", "typos"]
