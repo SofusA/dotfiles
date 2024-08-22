@@ -10,6 +10,9 @@
   inputs.ccase.url = "path:./tools/ccase";
   inputs.ccase.inputs.nixpkgs.follows = "nixpkgs";
 
+  inputs.typos.url = "path:./tools/typos";
+  inputs.typos.inputs.nixpkgs.follows = "nixpkgs";
+
   inputs.angular-language-server.url = "github:sofusa/angular-language-server/main";
   inputs.angular-language-server.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -25,6 +28,7 @@
     flake-utils,
     flatpak-xdg-utils,
     ccase,
+    typos,
     angular-language-server,
     roslyn-language-server,
     helix
@@ -49,7 +53,6 @@
 
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
-
             # helix
             helix.packages.${system}.helix
             nil
@@ -62,6 +65,7 @@
             angular-language-server.packages.${system}.angular-language-server
             roslyn-ls
             roslyn-language-server.packages.${system}.roslyn-language-server
+            typos.packages.${system}.typos
 
             # shell
             fish

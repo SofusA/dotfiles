@@ -1,3 +1,6 @@
+[language-server.typos]
+command = "typos-lsp"
+
 [language-server.csharpls]
 command = "csharp-ls"
 
@@ -30,13 +33,13 @@ name = "c-sharp"
 formatter = { command = "dotnet-csharpier" }
 indent = { tab-width = 2, unit = "  " }
 auto-format = true
-language-servers = ["roslyn"]
+language-servers = ["roslyn", "typos"]
 
 [[language]]
 name = "typescript"
 formatter = { command = 'prettier', args = ["--stdin-filepath=file.ts"] }
 auto-format = true
-language-servers = ["typescript-language-server", "angular", "eslint", "tailwindcss-ls"]
+language-servers = ["typescript-language-server", "angular", "eslint", "tailwindcss-ls", "typos"]
 
 [[language]]
 name = "javascript"
@@ -47,7 +50,7 @@ auto-format = true
 name = "html"
 formatter = { command = 'prettier', args = ["--parser", "angular", "--stdin-filepath=file.html"]}
 auto-format = true
-language-servers = ["vscode-html-language-server", "tailwindcss-ls", "angular"]
+language-servers = ["vscode-html-language-server", "tailwindcss-ls", "angular", "typos"]
 
 [[language]]
 name = "json"
@@ -74,3 +77,4 @@ config = { userLanguages = { rust = "html", "*.rs" = "html" } }
 name = "rust"
 auto-format = true
 indent = { tab-width = 4, unit = "    " }
+language-servers = ["typos"]
