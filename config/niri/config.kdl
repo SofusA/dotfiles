@@ -18,14 +18,6 @@ input {
     }
 }
 
-output "eDP-1" {
-    off
-}
-
-output "eDP-2" {
-    off
-}
-
 layout {
     focus-ring {
         width 4
@@ -44,20 +36,20 @@ layout {
 }
 
 spawn-at-startup "waybar"
+spawn-at-startup "kanshi"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 binds {
-    Mod+T { spawn "alacritty" "-e" "toolbox" "run" "--container" "dev" "fish"; }
+    Mod+T { spawn "alacritty" "-e" "nix-shell"; }
     Mod+D { spawn "fuzzel"; }
-    Mod+L { spawn "swaylock"; }
+    // Mod+L { spawn "swaylock"; }
 
     XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     XF86AudioPlay { spawn "playerctl" "play-pause"; }
 
     Mod+Backspace { close-window; }
-    Mod+H { spawn "he"; }
 
     Mod+N     { focus-column-left; }
     Mod+E     { focus-window-down; }
@@ -88,7 +80,5 @@ binds {
     Mod+P { screenshot; }
     Mod+Ctrl+P { screenshot-screen; }
     Mod+Shift+P { screenshot-window; }
-
-    Mod+Shift+E { quit; }
 }
 
