@@ -13,6 +13,10 @@
   inputs.typos.url = "path:./tools/typos";
   inputs.typos.inputs.nixpkgs.follows = "nixpkgs";
 
+  inputs.leptosfmt.url = "path:./tools/leptosfmt";
+  inputs.leptosfmt.inputs.nixpkgs.follows = "nixpkgs";
+
+
   inputs.angular-language-server.url = "github:sofusa/angular-language-server/main";
   inputs.angular-language-server.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -29,6 +33,7 @@
     flatpak-xdg-utils,
     ccase,
     typos,
+    leptosfmt,
     angular-language-server,
     roslyn-language-server,
     helix
@@ -96,6 +101,7 @@
             rustup
             openssl
             cargo-watch
+            leptosfmt.packages.${system}.leptosfmt
 
             # node
             nodePackages.npm
