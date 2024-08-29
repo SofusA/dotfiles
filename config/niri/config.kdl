@@ -43,7 +43,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 binds {
     Mod+T { spawn "alacritty" "-e" "nix-shell"; }
     Mod+D { spawn "fuzzel"; }
-    // Mod+L { spawn "swaylock"; }
+    Mod+L { spawn "swaylock"; }
 
     XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
