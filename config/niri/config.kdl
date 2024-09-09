@@ -13,7 +13,7 @@ input {
 
     mouse {
         // natural-scroll
-        accel-speed 2.0
+        accel-speed 1.0
         accel-profile "flat"
     }
 }
@@ -55,6 +55,8 @@ binds {
     Mod+E     { focus-window-down; }
     Mod+U     { focus-window-up; }
     Mod+I     { focus-column-right; }
+
+    Mod+Q { quit; }
 
     Mod+Shift+N     { move-column-left; }
     Mod+Shift+E     { move-window-down; }
