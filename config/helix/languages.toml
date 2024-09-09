@@ -2,15 +2,8 @@
 command = "typos-lsp"
 config.diagnosticSeverity = "Warning"
 
-[language-server.csharpls]
-command = "csharp-ls"
-
 [language-server.roslyn]
 command = "roslyn-language-server"
-
-[language-server.omnisharp]
-command = "OmniSharp"
-args = ["--languageserver"]
 
 [language-server.angular]
 command = "angular-language-server"

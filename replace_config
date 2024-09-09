@@ -5,8 +5,5 @@ fd -t d "" config -d 1 -x ln -s $HOME/dotfiles/{} $HOME/.{}
 
 ln -s $HOME/dotfiles/scripts/* $HOME/.local/bin/
 
-rm -rf ~/.omnisharp
-cp -r ~/dotfiles/home/.omnisharp ~/
-
 cp ~/dotfiles/config/starship.toml ~/.config/
 
