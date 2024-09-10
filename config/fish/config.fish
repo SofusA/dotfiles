@@ -42,9 +42,9 @@ function gsb
     end
 end
 
-alias dt "dotnet test"
+alias dt "dotnet test -v=normal"
 function dtt
-    dotnet test --filter Name~$argv
+    dotnet test -v=normal --filter Name~$argv
 end
 
 function ts
