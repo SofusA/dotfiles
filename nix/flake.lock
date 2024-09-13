@@ -302,11 +302,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1726125148,
-        "narHash": "sha256-FKJv9Hip4Qu6Tj2DqBgaS2T5geFQoaYj22yghgp45t8=",
+        "lastModified": 1726161891,
+        "narHash": "sha256-KbEJ5Nval5ed3Kb0Sh4T8ZApCxe+FG9RDjVEOg/E1ec=",
         "owner": "sofusa",
         "repo": "roslyn-language-server",
-        "rev": "d44b3e1a9b23fd0b6f3ff89010497d6626d003f5",
+        "rev": "9d99af0afa9b0b7ad1c87085deafd80e8030e93a",
         "type": "github"
       },
       "original": {

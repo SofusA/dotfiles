@@ -68,7 +68,6 @@
             vscode-langservers-extracted
             nodePackages.prettier
             angular-language-server.packages.${system}.angular-language-server
-            roslyn-ls
             roslyn-language-server.packages.${system}.roslyn-language-server
             typos.packages.${system}.typos
 
