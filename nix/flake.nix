@@ -49,8 +49,6 @@
           paths = [
             (with pkgs.dotnetCorePackages;
             combinePackages [
-              dotnet_9.sdk
-              dotnet_9.aspnetcore
               dotnet_8.sdk
               dotnet_8.aspnetcore
               sdk_6_0_1xx
