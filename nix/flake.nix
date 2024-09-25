@@ -10,9 +10,6 @@
   inputs.ccase.url = "path:./tools/ccase";
   inputs.ccase.inputs.nixpkgs.follows = "nixpkgs";
 
-  inputs.typos.url = "path:./tools/typos";
-  inputs.typos.inputs.nixpkgs.follows = "nixpkgs";
-
   inputs.angular-language-server.url = "github:sofusa/angular-language-server/main";
   inputs.angular-language-server.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -28,7 +25,6 @@
     flake-utils,
     flatpak-xdg-utils,
     ccase,
-    typos,
     angular-language-server,
     roslyn-language-server,
     helix
@@ -64,7 +60,7 @@
             nodePackages.prettier
             angular-language-server.packages.${system}.angular-language-server
             roslyn-language-server.packages.${system}.roslyn-language-server
-            typos.packages.${system}.typos
+            typos-lsp
 
             # shell
             fish
@@ -76,6 +72,7 @@
             flatpak-xdg-utils.packages.${system}.flatpak-xdg-utils
             skim
             wl-clipboard
+            sd
             ripgrep
 
             # git
