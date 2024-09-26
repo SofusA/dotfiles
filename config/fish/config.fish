@@ -42,9 +42,9 @@ function gsb
     end
 end
 
-alias dt "dotnet test -v=normal"
+alias dt "dotnet test -v quiet --nologo -l:'console;verbosity=normal'"
 function dtt
-    dotnet test -v=normal --filter Name~$argv
+    dotnet test -v quiet --nologo -l:"console;verbosity=normal" --filter Name~$argv
 end
 
 function ts
