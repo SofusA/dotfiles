@@ -213,11 +213,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1726937504,
-        "narHash": "sha256-bvGoiQBvponpZh8ClUcmJ6QnsNKw0EMrCQJARK3bI1c=",
+        "lastModified": 1727348695,
+        "narHash": "sha256-J+PeFKSDV+pHL7ukkfpVzCOO7mBSrrpJ3svwBFABbhI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "9357f4f23713673f310988025d9dc261c20e70c6",
+        "rev": "1925c603f17fc89f4c8f6bf6f631a802ad85d784",
         "type": "github"
       },
       "original": {
@@ -246,11 +246,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1727246586,
-        "narHash": "sha256-SSmFTt1vqW4zbFTogHKfCQ9xWSwGEOm4SO+2ux92Ezs=",
+        "lastModified": 1727624500,
+        "narHash": "sha256-f+I5gzcfEJ+69vWgSRim99UBzPN/YhkpBbgl9w0cw34=",
         "owner": "sofusa",
         "repo": "roslyn-language-server",
-        "rev": "1fe1142d10f6d4bb0ea34fd65658a3790eacb214",
+        "rev": "c373d61570ed48f8fae8b4c1db6c3bc5b47d5b75",
         "type": "github"
       },
       "original": {
