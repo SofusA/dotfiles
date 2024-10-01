@@ -19,6 +19,9 @@
   inputs.helix.url = "github:sofusa/helix-pull-diagnostics/pull-diagnostics";
   inputs.helix.inputs.nixpkgs.follows = "nixpkgs";
 
+  inputs.jujutsu.url = "github:martinvonz/jj";
+  inputs.jujutsu.inputs.nixpkgs.follows = "nixpkgs";
+
   outputs = { 
     self, 
     nixpkgs,
@@ -27,7 +30,8 @@
     ccase,
     angular-language-server,
     roslyn-language-server,
-    helix
+    helix,
+    jujutsu
   }:
     flake-utils.lib.eachDefaultSystem (system:
       let
@@ -78,6 +82,8 @@
             # git
             gitui
             gh
+            jujutsu.packages.${system}.jujutsu
+            lazyjj
 
             # dotnet
             self.packages.${system}.dotnetSdks
