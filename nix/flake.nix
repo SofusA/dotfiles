@@ -78,6 +78,7 @@
             wl-clipboard
             sd
             ripgrep
+            zellij
 
             # git
             gitui
