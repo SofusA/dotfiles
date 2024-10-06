@@ -84,7 +84,6 @@
             gitui
             gh
             jujutsu.packages.${system}.jujutsu
-            lazyjj
 
             # dotnet
             self.packages.${system}.dotnetSdks
