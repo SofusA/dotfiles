@@ -130,6 +130,7 @@
               export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=rue;
               export PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";          
 
+              source ~/.env
               zellij
             '';
         };

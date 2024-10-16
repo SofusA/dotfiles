@@ -1,45 +1,25 @@
-set -g -x LC_ALL C
+# set -g -x LC_ALL C
+# set -gx LOCALE_ARCHIVE /usr/lib/locale/locale-archive
+# set -g -x ASPNETCORE_ENVIRONMENT Test
+
+set -U fish_greeting
 
 alias h hx
-
 set -gx EDITOR hx
-set -U fish_greeting
-set -g -x ASPNETCORE_ENVIRONMENT Test
-
-set -gx LOCALE_ARCHIVE /usr/lib/locale/locale-archive
 
 # set PATH /var/home/sofusa/.npm-packages/bin $PATH
-fish_add_path ~/.cargo/bin/
+# fish_add_path ~/.cargo/bin/
 
 alias ls "eza -1 --icons --group-directories-first"
 
 alias gui gitui
-alias gap "git commit --amend && git push --force"
-alias gp "git push"
-alias gpu "git pull"
-alias gpud "git pull origin develop"
 
-alias dnr "~/dotnet-run-multiple/target/release/dotnet_run_multi"
-
-alias git "flatpak-spawn --host git"
-
-function gdb
-    git fetch
-    set branch (git branch | grep -v ^\* | sk)
-    if not test -z "$branch"
-        set trim (string trim $branch)
-        git branch -d $trim
-    end
-
-end
-
-function gsb
-    git fetch
-    set branch (git branch -a --format='%(refname:short)' | sk)
-
-    if not test -z "$branch"
-        git checkout $branch
-    end
+# Todo: parameterize this
+function cms
+    zellij action rename-tab close
+    zellij action new-tab -l ~/dotfiles/layouts/configuration-management.kdl
+    zellij action go-to-tab-name close
+    zellij action close-tab
 end
 
 alias dt "dotnet test -v quiet --nologo -l:'console;verbosity=normal'"
@@ -70,11 +50,6 @@ function t
             t
         end
     end
-end
-
-function hs
-    set file (rg --files-with-matches --no-messages $argv[1] | sk --preview "hgrep $argv[1] {} --theme=TwoDark --no-grid --term-width 200")
-    h $file
 end
 
 alias th "cd ~"

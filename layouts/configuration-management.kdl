@@ -1,0 +1,29 @@
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+
+	tab name="edit" cwd="~/Simcorp/ConfigurationManagementService/src/ConfigurationManagementService" {
+		pane {
+			command "hx"
+		}
+	}
+
+	tab name="proccess" cwd="~/Simcorp/ConfigurationManagementService/src/ConfigurationManagementService" {
+		pane cwd="ConfigurationManagementService.Client" {
+			command "npm"
+			args "run" "start"
+		}
+		pane cwd="ConfigurationManagementService.Api" {
+			command "dotnet"
+			args "watch" "-x" "'run'"
+		}
+	}
+
+	tab name="commands" cwd="~/Simcorp/ConfigurationManagementService/src/ConfigurationManagementService" {
+		pane {}
+	}
+}
