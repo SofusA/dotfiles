@@ -22,6 +22,9 @@
   inputs.jujutsu.url = "github:martinvonz/jj";
   inputs.jujutsu.inputs.nixpkgs.follows = "nixpkgs";
 
+  inputs.zellij.url = "github:a-kenji/zellij-nix";
+  inputs.zellij.inputs.nixpkgs.follows = "nixpkgs";
+
   outputs = { 
     self, 
     nixpkgs,
@@ -31,7 +34,8 @@
     angular-language-server,
     roslyn-language-server,
     helix,
-    jujutsu
+    jujutsu,
+    zellij
   }:
     flake-utils.lib.eachDefaultSystem (system:
       let
@@ -78,7 +82,7 @@
             wl-clipboard
             sd
             ripgrep
-            zellij
+            zellij.packages.${system}.default
 
             # git
             gitui
@@ -126,7 +130,7 @@
               export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=rue;
               export PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";          
 
-              fish
+              zellij
             '';
         };
       }

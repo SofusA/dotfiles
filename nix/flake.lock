@@ -61,6 +61,22 @@
         "type": "github"
       }
     },
+    "flake-compat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1696426674,
+        "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -187,6 +203,24 @@
         "type": "github"
       }
     },
+    "flake-utils_8": {
+      "inputs": {
+        "systems": "systems_8"
+      },
+      "locked": {
+        "lastModified": 1726560853,
+        "narHash": "sha256-X6rJYSESBVr3hBoH0WbKE5KvhPU5bloyZ2L4K60/fPQ=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c1dfcf08411b08f6b8615f7d8971a2bfa81d5e8a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "flatpak-xdg-utils": {
       "inputs": {
         "flake-utils": "flake-utils_4",
@@ -251,6 +285,22 @@
         "type": "github"
       }
     },
+    "multitask": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1718331704,
+        "narHash": "sha256-QOElADOP37F+bXZDZ291m/ofGXTmr4k7Nm/DlwoMbZA=",
+        "owner": "imsnif",
+        "repo": "multitask",
+        "rev": "a79096cea604a30214829b51294f596d165ab36c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "imsnif",
+        "repo": "multitask",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1728492678,
@@ -276,7 +326,8 @@
         "helix": "helix",
         "jujutsu": "jujutsu",
         "nixpkgs": "nixpkgs",
-        "roslyn-language-server": "roslyn-language-server"
+        "roslyn-language-server": "roslyn-language-server",
+        "zellij": "zellij"
       }
     },
     "roslyn-language-server": {
@@ -339,6 +390,27 @@
         "owner": "oxalica",
         "repo": "rust-overlay",
         "rev": "94749eee5a2b351b6893d5bddb0a18f7f01251ac",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "rust-overlay_3": {
+      "inputs": {
+        "nixpkgs": [
+          "zellij",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1728786660,
+        "narHash": "sha256-qY+1e0o6oV5ySlErhj/dsWsPLWjrMKzq4QI7a1t9/Ps=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "174a8d9cec9e2c23877a7b887c52b68ef0421d8b",
         "type": "github"
       },
       "original": {
@@ -449,6 +521,62 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_8": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "zellij": {
+      "inputs": {
+        "flake-compat": "flake-compat",
+        "flake-utils": "flake-utils_8",
+        "multitask": "multitask",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay_3",
+        "zellij": "zellij_2"
+      },
+      "locked": {
+        "lastModified": 1729042235,
+        "narHash": "sha256-mbBzXYUu5n06cZbj94azlexeHPK8J48e12C+Y9U4QD0=",
+        "owner": "a-kenji",
+        "repo": "zellij-nix",
+        "rev": "5d5cfd714915093dcd9908cac39f43a89137ab79",
+        "type": "github"
+      },
+      "original": {
+        "owner": "a-kenji",
+        "repo": "zellij-nix",
+        "type": "github"
+      }
+    },
+    "zellij_2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1729006186,
+        "narHash": "sha256-oPtHoDo2nxiDTtOP+jgLfjXN4opEo4C6wmqUCjdqsxM=",
+        "owner": "zellij-org",
+        "repo": "zellij",
+        "rev": "b74f6c9861a91ed52ed0ccb78098c0871bc8493e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zellij-org",
+        "repo": "zellij",
         "type": "github"
       }
     }
