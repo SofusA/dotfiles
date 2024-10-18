@@ -1,3 +1,7 @@
+animations {
+    off
+}
+
 input {
     keyboard {
         xkb {
@@ -40,6 +44,11 @@ spawn-at-startup "kanshi"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
+workspace "browser"
+workspace "code"
+workspace "music"
+workspace "communication"
+
 binds {
     Mod+T { spawn "alacritty" "-e" "nix-shell"; }
     Mod+D { spawn "fuzzel"; }
@@ -63,14 +72,14 @@ binds {
     Mod+Shift+K     { move-window-up; }
     Mod+Shift+I     { move-column-right; }
 
-    Mod+B { focus-workspace 1; }
-    Mod+C { focus-workspace 2; }
-    Mod+M { focus-workspace 3; }
-    Mod+J { focus-workspace 4; }
-    Mod+Shift+B { move-window-to-workspace 1; }
-    Mod+Shift+C { move-window-to-workspace 2; }
-    Mod+Shift+M { move-window-to-workspace 3; }
-    Mod+Shift+J { move-window-to-workspace 4; }
+    Mod+B { focus-workspace "browser"; }
+    Mod+C { focus-workspace "code"; }
+    Mod+M { focus-workspace "music"; }
+    Mod+J { focus-workspace "communication"; }
+    Mod+Shift+B { move-window-to-workspace "browser"; }
+    Mod+Shift+C { move-window-to-workspace "code"; }
+    Mod+Shift+M { move-window-to-workspace "music"; }
+    Mod+Shift+J { move-window-to-workspace "communication"; }
 
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }

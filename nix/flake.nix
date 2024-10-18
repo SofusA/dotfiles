@@ -1,29 +1,16 @@
 {
   description = "My development flake";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
   inputs.flatpak-xdg-utils.url = "path:./tools/flatpak-xdg-utils";
-  inputs.flatpak-xdg-utils.inputs.nixpkgs.follows = "nixpkgs";
-
   inputs.ccase.url = "path:./tools/ccase";
-  inputs.ccase.inputs.nixpkgs.follows = "nixpkgs";
-
   inputs.angular-language-server.url = "github:sofusa/angular-language-server/main";
-  inputs.angular-language-server.inputs.nixpkgs.follows = "nixpkgs";
-
   inputs.roslyn-language-server.url = "github:sofusa/roslyn-language-server/main";
-  inputs.roslyn-language-server.inputs.nixpkgs.follows = "nixpkgs";
-
   inputs.helix.url = "github:sofusa/helix-pull-diagnostics/pull-diagnostics";
-  inputs.helix.inputs.nixpkgs.follows = "nixpkgs";
-
   inputs.jujutsu.url = "github:martinvonz/jj";
-  inputs.jujutsu.inputs.nixpkgs.follows = "nixpkgs";
-
   inputs.zellij.url = "github:a-kenji/zellij-nix";
-  inputs.zellij.inputs.nixpkgs.follows = "nixpkgs";
 
   outputs = { 
     self, 
@@ -88,7 +75,6 @@
             gitui
             gh
             jujutsu.packages.${system}.jujutsu
-            lazyjj
 
             # dotnet
             self.packages.${system}.dotnetSdks
