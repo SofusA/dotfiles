@@ -11,6 +11,7 @@
   inputs.helix.url = "github:sofusa/helix-pull-diagnostics/pull-diagnostics";
   inputs.jujutsu.url = "github:martinvonz/jj";
   inputs.zellij.url = "github:a-kenji/zellij-nix";
+  inputs.bicep.url = "github:sofusa/bicep-language-server-nix";
 
   outputs = { 
     self, 
@@ -22,7 +23,8 @@
     roslyn-language-server,
     helix,
     jujutsu,
-    zellij
+    zellij,
+    bicep
   }:
     flake-utils.lib.eachDefaultSystem (system:
       let
@@ -84,6 +86,7 @@
             # azure
             azure-cli
             powershell
+            bicep.packages.${system}.bicep-langserver
 
             # rust
             rustup
