@@ -12,6 +12,9 @@ command = "angular-language-server"
 command = "vscode-eslint-language-server"
 args = ["--stdio"]
 
+[language-server.azure-pipelines-language-server]
+command = "azure-pipelines-language-server"
+
 [language-server.eslint.config]
 validate = "on"
 experimental = { useFlatConfig = false }
@@ -21,6 +24,10 @@ problems = { shortenToSingleLine = false }
 nodePath = ""
 format = false
 codeAction = { disableRuleComment = { enable = true, location = 'separateLine' }, showDocumentation = { enable = true } }
+
+[[language]]
+name = "yaml"
+language-servers = [ "yaml-language-server", "azure-pipelines-language-server" ]
 
 [[language]]
 name = "c-sharp"

@@ -12,6 +12,7 @@
   inputs.jujutsu.url = "github:martinvonz/jj";
   inputs.zellij.url = "github:a-kenji/zellij-nix";
   inputs.bicep.url = "github:sofusa/bicep-language-server-nix";
+  inputs.azure-pipelines.url = "github:sofusa/azure-pipelines-language-server-nix";
 
   outputs = { 
     self, 
@@ -24,7 +25,8 @@
     helix,
     jujutsu,
     zellij,
-    bicep
+    bicep,
+    azure-pipelines
   }:
     flake-utils.lib.eachDefaultSystem (system:
       let
@@ -72,6 +74,7 @@
             sd
             ripgrep
             zellij.packages.${system}.default
+            yaml-language-server
 
             # git
             gitui
@@ -87,6 +90,7 @@
             azure-cli
             powershell
             bicep.packages.${system}.bicep-langserver
+            azure-pipelines.packages.${system}.azure-pipelines-language-server
 
             # rust
             rustup
