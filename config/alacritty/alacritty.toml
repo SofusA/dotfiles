@@ -88,6 +88,9 @@ chars = "\u0003"
 key = "K"
 mods = "Control"
 
+[window]
+decorations = "none"
+
 [window.padding]
 x = 10
 y = 10
