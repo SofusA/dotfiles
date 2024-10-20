@@ -24,7 +24,7 @@ bright_foreground = "0xe6efff"
 foreground = "0xabb2bf"
 
 [font]
-size = 12
+size = 13
 
 [font.normal]
 family = "DejaVuSansM Nerd Font Mono"
@@ -37,41 +37,6 @@ hide_when_typing = true
 chars = "\u001B\u007F"
 key = "Back"
 mods = "Control"
-
-[[keyboard.bindings]]
-action = "ToggleViMode"
-key = "S"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "Left"
-key = "N"
-mode = "Vi"
-
-[[keyboard.bindings]]
-action = "Right"
-key = "I"
-mode = "Vi"
-
-[[keyboard.bindings]]
-action = "Up"
-key = "U"
-mode = "Vi"
-
-[[keyboard.bindings]]
-action = "Down"
-key = "E"
-mode = "Vi"
-
-[[keyboard.bindings]]
-action = "ScrollHalfPageUp"
-key = "L"
-mode = "Vi"
-
-[[keyboard.bindings]]
-action = "ScrollHalfPageDown"
-key = "Y"
-mode = "Vi"
 
 [[keyboard.bindings]]
 action = "Copy"
@@ -92,5 +57,5 @@ mods = "Control"
 decorations = "none"
 
 [window.padding]
-x = 10
-y = 10
+x = 5
+y = 5
