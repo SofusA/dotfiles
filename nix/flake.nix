@@ -2,6 +2,7 @@
   description = "My development flake";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+  inputs.nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
   inputs.flatpak-xdg-utils.url = "path:./tools/flatpak-xdg-utils";
@@ -17,6 +18,7 @@
   outputs = { 
     self, 
     nixpkgs,
+    nixpkgs-unstable,
     flake-utils,
     flatpak-xdg-utils,
     ccase,
@@ -31,6 +33,7 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
+        pkgs-unstable = import nixpkgs-unstable { inherit system; config.allowUnfree = true; };
       in
       {
 
@@ -47,72 +50,72 @@
         };
 
         devShell = pkgs.mkShell {
-          buildInputs = with pkgs; [
+          buildInputs = [
             # helix
             helix.packages.${system}.helix
-            nil
-            taplo
-            tailwindcss-language-server
-            typescript
-            nodePackages.typescript-language-server
-            vscode-langservers-extracted
-            nodePackages.prettier
+            pkgs.nil
+            pkgs.taplo
+            pkgs.tailwindcss-language-server
+            pkgs.typescript
+            pkgs.nodePackages.typescript-language-server
+            pkgs.vscode-langservers-extracted
+            pkgs.nodePackages.prettier
             angular-language-server.packages.${system}.angular-language-server
             roslyn-language-server.packages.${system}.roslyn-language-server
-            typos-lsp
+            pkgs.typos-lsp
 
             # shell
-            fish
-            starship
-            zoxide
-            atuin
-            fd
+            pkgs.fish
+            pkgs.starship
+            pkgs.zoxide
+            pkgs.atuin
+            pkgs.fd
             ccase.packages.${system}.ccase
             flatpak-xdg-utils.packages.${system}.flatpak-xdg-utils
-            skim
-            wl-clipboard
-            sd
-            ripgrep
+            pkgs.skim
+            pkgs.wl-clipboard
+            pkgs.sd
+            pkgs.ripgrep
             zellij.packages.${system}.default
-            yaml-language-server
+            pkgs.yaml-language-server
 
             # git
-            gitui
-            gh
+            pkgs.gitui
+            pkgs.gh
             jujutsu.packages.${system}.jujutsu
+            pkgs-unstable.lazyjj
 
             # dotnet
             self.packages.${system}.dotnetSdks
-            csharpier
-            azure-functions-core-tools
+            pkgs.csharpier
+            pkgs.azure-functions-core-tools
 
             # azure
-            azure-cli
-            powershell
+            pkgs.azure-cli
+            pkgs.powershell
             bicep.packages.${system}.bicep-langserver
             azure-pipelines.packages.${system}.azure-pipelines-language-server
 
             # rust
-            rustup
-            openssl
-            cargo-watch
-            leptosfmt
+            pkgs.rustup
+            pkgs.openssl
+            pkgs.cargo-watch
+            pkgs.leptosfmt
 
             # node
-            nodePackages.npm
-            nodePackages.yarn
-            nodePackages.nodejs
+            pkgs.nodePackages.npm
+            pkgs.nodePackages.yarn
+            pkgs.nodePackages.nodejs
 
             # vscode
-            vscode
+            pkgs.vscode
 
             # Chrome
-            google-chrome
-            chromedriver
+            pkgs.google-chrome
+            pkgs.chromedriver
 
             # Playwright
-            playwright-driver.browsers
-
+            pkgs.playwright-driver.browsers
           ];
 
 
