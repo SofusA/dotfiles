@@ -42,6 +42,8 @@
           paths = [
             (with pkgs.dotnetCorePackages;
             combinePackages [
+              dotnet_9.sdk
+              dotnet_9.aspnetcore
               dotnet_8.sdk
               dotnet_8.aspnetcore
               sdk_6_0_1xx
@@ -115,15 +117,13 @@
             pkgs.chromedriver
 
             # Playwright
-            pkgs.playwright-driver.browsers
+            pkgs-unstable.playwright-driver.browsers
           ];
-
 
           shellHook =
             ''
-              playwright_chromium_revision="$(${pkgs.jq}/bin/jq --raw-output '.browsers[] | select(.name == "chromium").revision' ${pkgs.playwright-driver}/browsers.json)"
-              export PLAYWRIGHT_LAUNCH_OPTIONS_EXECUTABLE_PATH="${pkgs.playwright-driver.browsers}/chromium-$playwright_chromium_revision/chrome-linux/chrome";
-              export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=rue;
+              #export PLAYWRIGHT_BROWSERS_PATH="${pkgs.playwright-driver.browsers}"
+              export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true;
               export PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";          
 
               source ~/.env
