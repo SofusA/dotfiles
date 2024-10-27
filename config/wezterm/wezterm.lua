@@ -11,12 +11,24 @@ config.enable_kitty_keyboard = true
 config.text_blink_rate = 0
 config.tab_bar_at_bottom = true
 
-config.font_size = 14
+config.font_size = 13
 
 config.leader = { key = 't', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.keys = {
   { key = 'v', mods = 'CTRL', action = wezterm.action.PasteFrom 'PrimarySelection' },
-  { key = 'c', mods = 'CTRL', action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection' },
+  {
+    key = 'c',
+    mods = 'CTRL',
+    action = wezterm.action_callback(function(window, pane)
+        selection_text = window:get_selection_text_for_pane(pane)
+        is_selection_active = string.len(selection_text) ~= 0
+        if is_selection_active then
+            window:perform_action(wezterm.action.CopyTo('ClipboardAndPrimarySelection'), pane)
+        else
+            window:perform_action(wezterm.action.SendKey{ key='c', mods='CTRL' }, pane)
+        end
+    end),
+  },
 
   {
     key = 't',
@@ -54,6 +66,11 @@ config.keys = {
     key = 'e',
     mods = 'LEADER',
     action = act.ActivatePaneDirection 'Down',
+  },
+  {
+    key = 'w',
+    mods = 'LEADER',
+    action = wezterm.action.CloseCurrentPane { confirm = true },
   },
 }
 

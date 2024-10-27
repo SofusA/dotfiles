@@ -13,6 +13,7 @@ set -gx EDITOR hx
 alias ls "eza -1 --icons --group-directories-first"
 
 alias gui gitui
+alias se "wezterm cli get-text --start-line -99999 | hx"
 
 # Todo: parameterize this
 function cms
