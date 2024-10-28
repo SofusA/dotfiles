@@ -45,10 +45,9 @@ layout {
     }
 
 
-    gaps 16
+    gaps 8
 }
 
-spawn-at-startup "waybar"
 spawn-at-startup "kanshi"
 spawn-at-startup "bash" "-c" "swaybg -i ~/bg.jpg -m fill"
 

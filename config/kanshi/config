@@ -4,6 +4,11 @@ profile {
 }
 
 profile {
+	output eDP-1 disable
+	output HDMI-A-1 enable
+}
+
+profile {
 	output eDP-2 disable
 	output DP-1 enable
 }

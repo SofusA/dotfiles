@@ -11,6 +11,7 @@
   inputs.roslyn-language-server.url = "github:sofusa/roslyn-language-server/main";
   inputs.helix.url = "github:sofusa/helix-pull-diagnostics/pull-diagnostics";
   inputs.jujutsu.url = "github:martinvonz/jj";
+  inputs.zellij.url = "github:a-kenji/zellij-nix";
   inputs.bicep.url = "github:sofusa/bicep-language-server-nix";
   inputs.azure-pipelines.url = "github:sofusa/azure-pipelines-language-server-nix";
 
@@ -25,6 +26,7 @@
     roslyn-language-server,
     helix,
     jujutsu,
+    zellij,
     bicep,
     azure-pipelines
   }:
@@ -77,6 +79,7 @@
             pkgs.sd
             pkgs.ripgrep
             pkgs.yaml-language-server
+            zellij.packages.${system}.zellij
 
             # git
             pkgs.gitui
@@ -125,7 +128,7 @@
 
               source ~/.env
               clear
-              fish
+              zellij
             '';
         };
       }
