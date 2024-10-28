@@ -128,7 +128,7 @@
 
               source ~/.env
               clear
-              zellij
+              fish
             '';
         };
       }
