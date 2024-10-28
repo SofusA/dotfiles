@@ -13,9 +13,16 @@ config.tab_bar_at_bottom = true
 
 config.font_size = 13
 
+config.window_padding = {
+  left = 0,
+  right = 0,
+  top = 0,
+  bottom = 0,
+}
+
 config.leader = { key = 't', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.keys = {
-  { key = 'v', mods = 'CTRL', action = wezterm.action.PasteFrom 'PrimarySelection' },
+  { key = 'v', mods = 'CTRL', action = wezterm.action.PasteFrom 'Clipboard' },
   {
     key = 'c',
     mods = 'CTRL',
