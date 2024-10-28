@@ -124,7 +124,9 @@
             ''
               #export PLAYWRIGHT_BROWSERS_PATH="${pkgs.playwright-driver.browsers}"
               export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true;
+
               export PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";          
+              export DOTNET_ROOT="${pkgs.dotnetCorePackages.dotnet_8.sdk}";
 
               source ~/.env
               clear

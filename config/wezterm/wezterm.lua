@@ -4,21 +4,15 @@ local act = wezterm.action
 
 config.default_prog = { 'nix-shell' }
 
-config.color_scheme = 'One Dark (Gogh)'
+config.window_close_confirmation = 'NeverPrompt'
+config.color_scheme = 'onedarkpro_onedark'
 config.disable_default_key_bindings = true
 config.enable_kitty_keyboard = true
 
-config.text_blink_rate = 0
+config.default_cursor_style = 'SteadyBlock'
 config.tab_bar_at_bottom = true
 
 config.font_size = 13
-
-config.window_padding = {
-  left = 0,
-  right = 0,
-  top = 0,
-  bottom = 0,
-}
 
 config.leader = { key = 't', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.keys = {
@@ -77,7 +71,7 @@ config.keys = {
   {
     key = 'w',
     mods = 'LEADER',
-    action = wezterm.action.CloseCurrentPane { confirm = true },
+    action = wezterm.action.CloseCurrentPane { confirm = false },
   },
 }
 
