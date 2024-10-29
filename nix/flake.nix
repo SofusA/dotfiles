@@ -86,7 +86,7 @@
 
             # dotnet
             self.packages.${system}.dotnetSdks
-            pkgs.csharpier
+            pkgs-unstable.csharpier
             pkgs.azure-functions-core-tools
 
             # azure
