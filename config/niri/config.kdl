@@ -51,6 +51,7 @@ layout {
 spawn-at-startup "waybar"
 spawn-at-startup "kanshi"
 spawn-at-startup "bash" "-c" "swaybg -i ~/bg.jpg -m fill"
+spawn-at-startup "swayidle" "-w" "timeout" "120" "swaylock"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
