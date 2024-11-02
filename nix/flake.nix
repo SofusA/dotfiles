@@ -99,7 +99,7 @@
             pkgs.rustup
             pkgs.openssl
             pkgs.cargo-watch
-            pkgs.leptosfmt
+            pkgs-unstable.leptosfmt
 
             # node
             pkgs.nodePackages.npm
