@@ -4,6 +4,7 @@ theme = "transparent"
 line-number = "relative"
 mouse = false
 bufferline = "always"
+end-of-line-diagnostics = "hint"
 
 jump-label-alphabet = "abcdefghijklmnoprstuvwyz"
 
@@ -19,8 +20,9 @@ select = "underline"
 hidden = false
 
 [editor.inline-diagnostics]
-cursor-line = "hint"
+cursor-line = "warning"
 other-lines = "error"
+max-diagnostics = 1
 
 [keys.normal]
 d = "delete_selection_noyank"
@@ -28,11 +30,6 @@ d = "delete_selection_noyank"
 C-tab = "goto_next_buffer"
 C-S-tab = "goto_previous_buffer"
 C-w = ":buffer-close"
-
-W = "extend_next_word_end"
-B = "extend_prev_word_end"
-N = "extend_char_left"
-I = "extend_char_right"
 
 j = "extend_line_below"
 
@@ -72,7 +69,7 @@ w = ":w!"
 b = ":buffer-close!"
 c = ":q!"
 
-[keys.normal.m] # move
+[keys.normal.m] # move & match
 u = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 e = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 
@@ -135,20 +132,49 @@ t = "goto_type_definition"
 k = "goto_implementation"
 
 f = "jump_backward"
-c = "jump_forward"
+p = "jump_forward"
+
+c = "find_next_char"
+b = "find_prev_char"
 
 j = "no_op"
 h = "no_op"
-
-b = "no_op"
 m = "no_op"
-p = "no_op"
 s = "no_op"
 
-[keys.normal.v]
+[keys.select]
 u = "extend_line_up"
 l = "extend_to_line_start"
 e = "extend_line_down"
 y = "extend_to_line_end"
 c = "extend_till_char"
+n = "extend_char_left"
+i = "extend_char_right"
+
+"space" = "no_op"
+m = "no_op"
+
+[keys.select.g]
+c = "extend_next_char"
+b = "extend_prev_char"
+n = "extend_to_first_nonwhitespace"
+
+g = "no_op"  
+f = "no_op"
+h = "no_op"
+l = "no_op"
+s = "no_op"
+d = "no_op"
+D = "no_op"
+y = "no_op"
+r = "no_op"
+i = "no_op"
+t = "no_op"
+a = "no_op"
+m = "no_op"
+p = "no_op"
+k = "no_op"
+j = "no_op"
+w = "no_op"
+"." = "no_op"
 
