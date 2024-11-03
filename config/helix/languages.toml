@@ -27,7 +27,7 @@ codeAction = { disableRuleComment = { enable = true, location = 'separateLine' }
 
 [[language]]
 name = "yaml"
-language-servers = [ "yaml-language-server", "azure-pipelines-language-server" ]
+language-servers = []
 
 [[language]]
 name = "c-sharp"

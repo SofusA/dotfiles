@@ -66,6 +66,8 @@
 
             # shell
             pkgs.fish
+            pkgs-unstable.nushell
+            pkgs-unstable.carapace
             pkgs.starship
             pkgs.zoxide
             pkgs.atuin
@@ -126,9 +128,11 @@
               export PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";          
               export DOTNET_ROOT="${pkgs.dotnetCorePackages.dotnet_8.sdk}";
 
+              export EDITOR = hx
+
               source ~/.env
               clear
-              fish
+              nu
             '';
         };
       }
