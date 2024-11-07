@@ -1,8 +1,7 @@
 {
   description = "My development flake";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
-  inputs.nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
   inputs.flatpak-xdg-utils.url = "path:./tools/flatpak-xdg-utils";
@@ -17,7 +16,6 @@
   outputs = { 
     self, 
     nixpkgs,
-    nixpkgs-unstable,
     flake-utils,
     flatpak-xdg-utils,
     ccase,
@@ -31,7 +29,6 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
-        pkgs-unstable = import nixpkgs-unstable { inherit system; config.allowUnfree = true; };
       in
       {
 
@@ -66,8 +63,8 @@
 
             # shell
             pkgs.fish
-            pkgs-unstable.nushell
-            pkgs-unstable.carapace
+            pkgs.nushell
+            pkgs.carapace
             pkgs.starship
             pkgs.zoxide
             pkgs.atuin
@@ -84,11 +81,11 @@
             pkgs.gitui
             pkgs.gh
             jujutsu.packages.${system}.jujutsu
-            pkgs-unstable.lazyjj
+            pkgs.lazyjj
 
             # dotnet
             self.packages.${system}.dotnetSdks
-            pkgs-unstable.csharpier
+            pkgs.csharpier
             pkgs.azure-functions-core-tools
 
             # azure
@@ -101,7 +98,7 @@
             pkgs.rustup
             pkgs.openssl
             pkgs.cargo-watch
-            pkgs-unstable.leptosfmt
+            pkgs.leptosfmt
 
             # node
             pkgs.nodePackages.npm
@@ -116,8 +113,8 @@
             pkgs.chromedriver
 
             # Playwright
-            pkgs-unstable.playwright-driver.browsers
-            pkgs-unstable.xwayland-satellite
+            pkgs.playwright-driver.browsers
+            pkgs.xwayland-satellite
           ];
 
           shellHook =
