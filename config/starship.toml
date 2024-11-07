@@ -2,6 +2,32 @@
 
 add_newline = false
 
+[custom.jj]
+when = "jj log"
+symbol = " "
+style = "bold purple"
+command = '''
+  jj log -r@ -n1 --ignore-working-copy --no-graph --color always -T 'separate(" ", bookmarks, description)'
+'''
+
+[custom.jjstate]
+when = "jj log"
+command = '''
+jj log -r@ -n1 --no-graph -T "" --stat | tail -n1 | sed 's/,.*//'
+'''
+
+[git_branch]
+disabled =  true
+
+[git_commit]
+disabled =  true
+
+[git_state]
+disabled =  true
+
+[git_status]
+disabled =  true
+
 [line_break]
 disabled = true
 
