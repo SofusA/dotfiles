@@ -12,6 +12,7 @@
   inputs.jujutsu.url = "github:martinvonz/jj";
   inputs.bicep.url = "github:sofusa/bicep-language-server-nix";
   inputs.azure-pipelines.url = "github:sofusa/azure-pipelines-language-server-nix";
+  inputs.hifi-rs.url = "path:./tools/hifi-rs";
 
   outputs = { 
     self, 
@@ -24,7 +25,8 @@
     helix,
     jujutsu,
     bicep,
-    azure-pipelines
+    azure-pipelines,
+    hifi-rs
   }:
     flake-utils.lib.eachDefaultSystem (system:
       let
@@ -76,6 +78,8 @@
             pkgs.sd
             pkgs.ripgrep
             pkgs.yaml-language-server
+
+            hifi-rs.packages.${system}.hifi-rs
 
             # git
             pkgs.gitui
