@@ -62,6 +62,7 @@
             angular-language-server.packages.${system}.angular-language-server
             roslyn-language-server.packages.${system}.roslyn-language-server
             pkgs.typos-lsp
+            pkgs.svelte-language-server
 
             # shell
             pkgs.fish
