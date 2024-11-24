@@ -9,7 +9,6 @@
   inputs.angular-language-server.url = "github:sofusa/angular-language-server/main";
   inputs.roslyn-language-server.url = "github:sofusa/roslyn-language-server/main";
   inputs.helix.url = "github:sofusa/helix-pull-diagnostics/pull-diagnostics";
-  inputs.jujutsu.url = "github:martinvonz/jj";
   inputs.bicep.url = "github:sofusa/bicep-language-server-nix";
   inputs.azure-pipelines.url = "github:sofusa/azure-pipelines-language-server-nix";
   inputs.hifi-rs.url = "path:./tools/hifi-rs";
@@ -23,7 +22,6 @@
     angular-language-server,
     roslyn-language-server,
     helix,
-    jujutsu,
     bicep,
     azure-pipelines,
     hifi-rs
@@ -85,7 +83,7 @@
             # git
             pkgs.gitui
             pkgs.gh
-            jujutsu.packages.${system}.jujutsu
+            pkgs.jujutsu
             pkgs.lazyjj
 
             # dotnet
