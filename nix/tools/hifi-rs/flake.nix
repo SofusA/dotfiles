@@ -15,8 +15,8 @@
         hifi-rs = pkgs.stdenv.mkDerivation {
           name = "hifi-rs";
           src = pkgs.fetchurl {
-            url = "https://github.com/iamdb/hifi.rs/releases/download/v0.3.8/hifi-rs-x86_64-unknown-linux-gnu.tar.gz";
-            sha256 = "sha256-91kVziYsX/9voLE26QJpIuukDGHz5nC+o4S4B/jEiBo=";
+            url = "https://github.com/sofusa/hifi.rs/releases/download/v4.5.4/hifi-rs-x86_64-unknown-linux-gnu.tar.gz";
+            sha256 = "sha256-bd+9CL2JZlTAjO5K+GA9FERaiFcgmOqN4RI3LuS7C9Y=";
           };
 
           unpackPhase = ''

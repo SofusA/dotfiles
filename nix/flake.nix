@@ -41,7 +41,6 @@
               dotnet_9.aspnetcore
               dotnet_8.sdk
               dotnet_8.aspnetcore
-              sdk_6_0_1xx
             ])
           ];
         };
@@ -61,6 +60,7 @@
             roslyn-language-server.packages.${system}.roslyn-language-server
             pkgs.typos-lsp
             pkgs.svelte-language-server
+            pkgs.rustywind
 
             # shell
             pkgs.fish
@@ -89,7 +89,7 @@
             # dotnet
             self.packages.${system}.dotnetSdks
             pkgs.csharpier
-            pkgs.azure-functions-core-tools
+            # pkgs.azure-functions-core-tools
 
             # azure
             pkgs.azure-cli
