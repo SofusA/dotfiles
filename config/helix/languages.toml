@@ -54,6 +54,11 @@ auto-format = true
 language-servers = ["vscode-html-language-server", "tailwindcss-ls", "angular", "typos"]
 
 [[language]]
+name = "svelte"
+auto-format = true
+language-servers = ["svelteserver", "tailwindcss-ls", "typos"]
+
+[[language]]
 name = "json"
 formatter = { command = 'prettier', args = ["--stdin-filepath=file.json"] }
 auto-format = true
