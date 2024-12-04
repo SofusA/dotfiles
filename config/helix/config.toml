@@ -4,7 +4,7 @@ theme = "transparent"
 line-number = "relative"
 mouse = false
 bufferline = "always"
-end-of-line-diagnostics = "hint"
+#end-of-line-diagnostics = "hint"
 
 jump-label-alphabet = "abcdefghijklmnoprstuvwyz"
 
@@ -19,10 +19,10 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 
-[editor.inline-diagnostics]
-cursor-line = "warning"
-other-lines = "error"
-max-diagnostics = 1
+#[editor.inline-diagnostics]
+#cursor-line = "warning"
+#other-lines = "error"
+#max-diagnostics = 1
 
 [keys.normal]
 d = "delete_selection_noyank"

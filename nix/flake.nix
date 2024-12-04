@@ -77,6 +77,7 @@
             pkgs.sd
             pkgs.ripgrep
             pkgs.yaml-language-server
+            pkgs.eza
 
             hifi-rs.packages.${system}.hifi-rs
 
@@ -85,6 +86,7 @@
             pkgs.gh
             pkgs.jujutsu
             pkgs.lazyjj
+            pkgs.meld
 
             # dotnet
             self.packages.${system}.dotnetSdks
@@ -132,7 +134,7 @@
 
               source ~/.env
               clear
-              nu
+              fish
             '';
         };
       }
