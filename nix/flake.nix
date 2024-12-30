@@ -2,6 +2,7 @@
   description = "My development flake";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  inputs.nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
   inputs.flatpak-xdg-utils.url = "path:./tools/flatpak-xdg-utils";
@@ -16,6 +17,7 @@
   outputs = { 
     self, 
     nixpkgs,
+    nixpkgs-stable,
     flake-utils,
     flatpak-xdg-utils,
     ccase,
@@ -29,13 +31,14 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
+        pkgs-stable = import nixpkgs-stable { inherit system; config.allowUnfree = true; };
       in
       {
 
         packages.dotnetSdks = pkgs.buildEnv {
           name = "dotnetSdks";
           paths = [
-            (with pkgs.dotnetCorePackages;
+            (with pkgs-stable.dotnetCorePackages;
             combinePackages [
               dotnet_9.sdk
               dotnet_9.aspnetcore
@@ -90,12 +93,12 @@
 
             # dotnet
             self.packages.${system}.dotnetSdks
-            pkgs.csharpier
-            # pkgs.azure-functions-core-tools
+            pkgs-stable.csharpier
+            pkgs.azure-functions-core-tools
 
             # azure
-            pkgs.azure-cli
-            pkgs.powershell
+            pkgs-stable.azure-cli
+            pkgs-stable.powershell
             bicep.packages.${system}.bicep-langserver
             azure-pipelines.packages.${system}.azure-pipelines-language-server
 
@@ -105,10 +108,12 @@
             pkgs.cargo-watch
             pkgs.leptosfmt
 
-            # node
+            # javascript
             pkgs.nodePackages.npm
             pkgs.nodePackages.yarn
             pkgs.nodePackages.nodejs
+            pkgs.deno
+            pkgs.live-server
 
             # vscode
             pkgs.vscode
@@ -119,7 +124,6 @@
 
             # Playwright
             pkgs.playwright-driver.browsers
-            pkgs.xwayland-satellite
           ];
 
           shellHook =
@@ -128,7 +132,7 @@
               export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true;
 
               export PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";          
-              export DOTNET_ROOT="${pkgs.dotnetCorePackages.dotnet_8.sdk}";
+              export DOTNET_ROOT="${pkgs-stable.dotnetCorePackages.dotnet_8.sdk}";
 
               export EDITOR = hx
 
