@@ -136,10 +136,9 @@
               export PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";          
               export DOTNET_ROOT="${pkgs-stable.dotnetCorePackages.dotnet_8.sdk}";
 
-              export EDITOR = hx
+              export EDITOR=hx
 
               source ~/.env
-              clear
               fish
             '';
         };
