@@ -4,6 +4,7 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
   inputs.flake-utils.url = "github:numtide/flake-utils";
+  inputs.jujutsu.url = "github:bnjmnt4n/jj/ssh-openssh";
 
   # inputs.flatpak-xdg-utils.url = "path:./tools/flatpak-xdg-utils";
   # inputs.ccase.url = "path:./tools/ccase";
@@ -26,6 +27,7 @@
     helix,
     bicep,
     azure-pipelines,
+    jujutsu
     # hifi-rs
   }:
     flake-utils.lib.eachDefaultSystem (system:
@@ -88,7 +90,7 @@
             pkgs.gitui
             pkgs.gh
             pkgs.lazyjj
-            pkgs.jujutsu
+            jujutsu.packages.${system}.jujutsu
             pkgs.meld
 
             # dotnet
