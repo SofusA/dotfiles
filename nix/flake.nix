@@ -88,6 +88,7 @@
             pkgs.gitui
             pkgs.gh
             pkgs.lazyjj
+            pkgs.jujutsu
             pkgs.meld
 
             # dotnet
