@@ -1,6 +1,0 @@
-#!/bin/bash
-~/dotfiles/init/download_scripts
-~/dotfiles/replace_config
-
-rpm-ostree install alacritty langpacks-da
-rpm-ostree override remove firefox firefox-langpacks

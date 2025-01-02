@@ -5,28 +5,28 @@
   inputs.nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
-  inputs.flatpak-xdg-utils.url = "path:./tools/flatpak-xdg-utils";
-  inputs.ccase.url = "path:./tools/ccase";
+  # inputs.flatpak-xdg-utils.url = "path:./tools/flatpak-xdg-utils";
+  # inputs.ccase.url = "path:./tools/ccase";
   inputs.angular-language-server.url = "github:sofusa/angular-language-server/main";
   inputs.roslyn-language-server.url = "github:sofusa/roslyn-language-server/main";
   inputs.helix.url = "github:sofusa/helix-pull-diagnostics/pull-diagnostics";
   inputs.bicep.url = "github:sofusa/bicep-language-server-nix";
   inputs.azure-pipelines.url = "github:sofusa/azure-pipelines-language-server-nix";
-  inputs.hifi-rs.url = "path:./tools/hifi-rs";
+  # inputs.hifi-rs.url = "path:./tools/hifi-rs";
 
   outputs = { 
     self, 
     nixpkgs,
     nixpkgs-stable,
     flake-utils,
-    flatpak-xdg-utils,
-    ccase,
+    # flatpak-xdg-utils,
+    # ccase,
     angular-language-server,
     roslyn-language-server,
     helix,
     bicep,
     azure-pipelines,
-    hifi-rs
+    # hifi-rs
   }:
     flake-utils.lib.eachDefaultSystem (system:
       let
@@ -73,8 +73,8 @@
             pkgs.zoxide
             pkgs.atuin
             pkgs.fd
-            ccase.packages.${system}.ccase
-            flatpak-xdg-utils.packages.${system}.flatpak-xdg-utils
+            # ccase.packages.${system}.ccase
+            # flatpak-xdg-utils.packages.${system}.flatpak-xdg-utils
             pkgs.skim
             pkgs.wl-clipboard
             pkgs.sd
@@ -82,12 +82,11 @@
             pkgs.yaml-language-server
             pkgs.eza
 
-            hifi-rs.packages.${system}.hifi-rs
+            # hifi-rs.packages.${system}.hifi-rs
 
             # git
             pkgs.gitui
             pkgs.gh
-            pkgs.jujutsu
             pkgs.lazyjj
             pkgs.meld
 

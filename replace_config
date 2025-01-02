@@ -3,7 +3,5 @@
 fd -t d "" config -x rm -rf ~/.{}
 fd -t d "" config -d 1 -x ln -s $HOME/dotfiles/{} $HOME/.{}
 
-ln -s $HOME/dotfiles/scripts/* $HOME/.local/bin/
-
 cp ~/dotfiles/config/starship.toml ~/.config/
 

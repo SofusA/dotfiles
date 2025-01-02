@@ -1,6 +1,0 @@
-#!/bin/bash
-flatpak list --app --columns=app | awk '{print $1}' | paste -s -d ' ' - > gnome/flatpak-list.txt
-
-dconf dump /org/gnome/desktop/ > gnome/desktop.ini
-dconf dump /org/gnome/shell/ > gnome/shell.ini
-
