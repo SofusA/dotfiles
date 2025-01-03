@@ -9,7 +9,7 @@
   # inputs.flatpak-xdg-utils.url = "path:./tools/flatpak-xdg-utils";
   # inputs.ccase.url = "path:./tools/ccase";
   inputs.angular-language-server.url = "github:sofusa/angular-language-server/main";
-  inputs.roslyn-language-server.url = "github:sofusa/roslyn-language-server/4be62ce1f14b405ae9fc7e2d3c1589ca304facd8";
+  inputs.roslyn-language-server.url = "github:sofusa/roslyn-language-server";
   inputs.helix.url = "github:sofusa/helix-pull-diagnostics/pull-diagnostics";
   inputs.bicep.url = "github:sofusa/bicep-language-server-nix";
   inputs.azure-pipelines.url = "github:sofusa/azure-pipelines-language-server-nix";

@@ -387,17 +387,16 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1735728807,
-        "narHash": "sha256-gWVtZUDngQnUxhi+OUCLuaxxioomz1Rp0Vy2LkJiQr4=",
+        "lastModified": 1735900181,
+        "narHash": "sha256-UtHUR+OE3waVR3Ldp3/bpuNOvWzB6LHs+khJ1UKQYRE=",
         "owner": "sofusa",
         "repo": "roslyn-language-server",
-        "rev": "4be62ce1f14b405ae9fc7e2d3c1589ca304facd8",
+        "rev": "f1d5217c53883c09597c1dd8ac3bebe8ba7f4b93",
         "type": "github"
       },
       "original": {
         "owner": "sofusa",
         "repo": "roslyn-language-server",
-        "rev": "4be62ce1f14b405ae9fc7e2d3c1589ca304facd8",
         "type": "github"
       }
     },
