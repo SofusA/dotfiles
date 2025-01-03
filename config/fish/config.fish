@@ -1,7 +1,3 @@
-# set -g -x LC_ALL C
-# set -gx LOCALE_ARCHIVE /usr/lib/locale/locale-archive
-# set -g -x ASPNETCORE_ENVIRONMENT Test
-
 set -U fish_greeting
 
 alias h hx
@@ -10,10 +6,15 @@ set -gx EDITOR hx
 # set PATH /var/home/sofusa/.npm-packages/bin $PATH
 # fish_add_path ~/.cargo/bin/
 
-alias ls "eza -1 --icons --group-directories-first"
+alias nb "jj bookmark"
+alias nbs "jj bookmark set"
+alias nd "jj describe -m"
+alias nl "jj log"
+alias npc "jj git push"
+alias npc "jj git push -c @"
+alias nf "jj git fetch"
 
-alias gui gitui
-alias se "wezterm cli get-text --start-line -99999 | hx"
+alias ls "eza -1 --icons --group-directories-first"
 
 # Todo: parameterize this
 function cms
