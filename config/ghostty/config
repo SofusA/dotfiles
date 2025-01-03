@@ -1,2 +1,8 @@
-window-decoration=false
-theme=OneHalfDark
+window-decoration = false
+theme = OneHalfDark
+confirm-close-surface = false
+
+keybind = ctrl+c=copy_to_clipboard
+keybind = ctrl+v=paste_from_clipboard
+
+font-size = 13
