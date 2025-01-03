@@ -1,4 +1,6 @@
 window-decoration = false
+mouse-hide-while-typing = true
+
 theme = OneHalfDark
 confirm-close-surface = false
 
