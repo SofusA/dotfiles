@@ -10,7 +10,7 @@ alias nb "jj bookmark"
 alias nbs "jj bookmark set"
 alias nd "jj describe -m"
 alias nl "jj log"
-alias npc "jj git push"
+alias np "jj git push"
 alias npc "jj git push -c @"
 alias nf "jj git fetch"
 
