@@ -2,10 +2,8 @@ local wezterm = require 'wezterm'
 local config = {}
 local act = wezterm.action
 
-config.default_prog = { 'nix-shell' }
-
 config.window_close_confirmation = 'NeverPrompt'
-config.color_scheme = 'onedarkpro_onedark'
+config.color_scheme = 'OneHalfDark'
 config.disable_default_key_bindings = true
 config.enable_kitty_keyboard = true
 

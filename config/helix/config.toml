@@ -4,7 +4,7 @@ theme = "transparent"
 line-number = "relative"
 mouse = false
 bufferline = "always"
-#end-of-line-diagnostics = "hint"
+end-of-line-diagnostics = "hint"
 
 jump-label-alphabet = "abcdefghijklmnoprstuvwyz"
 
@@ -19,13 +19,16 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 
-#[editor.inline-diagnostics]
-#cursor-line = "warning"
-#other-lines = "error"
-#max-diagnostics = 1
+[editor.inline-diagnostics]
+cursor-line = "warning"
+other-lines = "error"
+max-diagnostics = 1
 
 [keys.normal]
 d = "delete_selection_noyank"
+
+I = "goto_next_buffer"
+N = "goto_previous_buffer"
 
 C-tab = "goto_next_buffer"
 C-S-tab = "goto_previous_buffer"
@@ -50,6 +53,7 @@ z = "redo"
 r = "flip_selections"
 
 O = "no_op"
+o = "no_op"
 R = "no_op"
 J = "no_op"
 k = "no_op"
@@ -143,6 +147,9 @@ m = "no_op"
 s = "no_op"
 
 [keys.select]
+h = "yank"
+d = "delete_selection_noyank"
+
 u = "extend_line_up"
 l = "extend_to_line_start"
 e = "extend_line_down"
