@@ -62,7 +62,7 @@ workspace "music"
 workspace "communication"
 
 binds {
-    Mod+T { spawn "ghostty" "-e" "nix develop ~/dotfiles/nix"; }
+    Mod+T { spawn "alacritty" "-e" "nix-shell"; }
     Mod+D { spawn "fuzzel"; }
     Mod+L { spawn "swaylock"; }
 
