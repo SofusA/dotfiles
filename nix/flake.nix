@@ -90,7 +90,7 @@
             # git
             pkgs.gitui
             pkgs.gh
-            pkgs.lazyjj
+            # pkgs.lazyjj
             jujutsu.packages.${system}.jujutsu
             pkgs.meld
 
