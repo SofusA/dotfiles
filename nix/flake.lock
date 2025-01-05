@@ -15,7 +15,6 @@
       },
       "original": {
         "owner": "sofusa",
-        "ref": "main",
         "repo": "angular-language-server",
         "type": "github"
       }
@@ -387,11 +386,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1735900181,
+        "lastModified": 1736075727,
         "narHash": "sha256-UtHUR+OE3waVR3Ldp3/bpuNOvWzB6LHs+khJ1UKQYRE=",
         "owner": "sofusa",
         "repo": "roslyn-language-server",
-        "rev": "f1d5217c53883c09597c1dd8ac3bebe8ba7f4b93",
+        "rev": "69b6c14afa160d9038782cef928dbc1697ae9325",
         "type": "github"
       },
       "original": {

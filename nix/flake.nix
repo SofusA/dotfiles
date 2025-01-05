@@ -8,7 +8,7 @@
 
   # inputs.flatpak-xdg-utils.url = "path:./tools/flatpak-xdg-utils";
   # inputs.ccase.url = "path:./tools/ccase";
-  inputs.angular-language-server.url = "github:sofusa/angular-language-server/main";
+  inputs.angular-language-server.url = "github:sofusa/angular-language-server";
   inputs.roslyn-language-server.url = "github:sofusa/roslyn-language-server";
   inputs.helix.url = "github:sofusa/helix-pull-diagnostics/pull-diagnostics";
   inputs.bicep.url = "github:sofusa/bicep-language-server-nix";
@@ -83,6 +83,7 @@
             pkgs.ripgrep
             pkgs.yaml-language-server
             pkgs.eza
+            pkgs.zellij
 
             # hifi-rs.packages.${system}.hifi-rs
 
@@ -139,7 +140,7 @@
               export EDITOR=hx
 
               source ~/.env
-              fish
+              zellij
             '';
         };
       }
