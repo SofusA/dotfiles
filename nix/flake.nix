@@ -127,6 +127,7 @@
 
             # Playwright
             pkgs.playwright-driver.browsers
+            pkgs.xwayland-satellite
           ];
 
           shellHook =

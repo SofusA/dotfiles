@@ -1,3 +1,0 @@
-#! /bin/bash
-export NP_RUNTIME=bwrap
-nix-portable nix develop ~/dotfiles/nix
