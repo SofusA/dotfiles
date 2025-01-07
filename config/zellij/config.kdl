@@ -9,8 +9,8 @@ keybinds clear-defaults=true{
     pane {
         bind "Ctrl p" { SwitchToMode "Normal"; }
         bind "Esc" { SwitchToMode "Normal"; }
-        bind "n" "Left" { MoveFocus "Left"; }
-        bind "i" "Right" { MoveFocus "Right"; }
+        bind "n" "Left" { MoveFocusOrTab "Left"; }
+        bind "i" "Right" { MoveFocusOrTab "Right"; }
         bind "e" "Down" { MoveFocus "Down"; }
         bind "u" "Up" { MoveFocus "Up"; }
         bind "c" { NewPane; SwitchToMode "Normal"; }
@@ -61,7 +61,12 @@ keybinds clear-defaults=true{
         bind "7" { GoToTab 7; SwitchToMode "Normal"; }
         bind "8" { GoToTab 8; SwitchToMode "Normal"; }
         bind "9" { GoToTab 9; SwitchToMode "Normal"; }
+        bind "l" { MoveTab "Left"; }
+        bind "y" { MoveTab "Right"; }
         bind "Tab" { ToggleTab; }
+    }
+    renametab {
+        bind "Enter" { SwitchToMode "Normal"; }
     }
     session {
         bind "Ctrl o" { SwitchToMode "Normal"; }
