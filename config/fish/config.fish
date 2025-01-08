@@ -24,7 +24,7 @@ function cms
     zellij action close-tab
 end
 
-alias dt "dotnet test -v quiet --nologo -l:'console;verbosity=normal'"
+alias dt "dotnet test"
 function dtt
     dotnet test -v quiet --nologo -l:"console;verbosity=normal" --filter Name~$argv
 end
