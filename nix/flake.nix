@@ -84,6 +84,7 @@
             pkgs.yaml-language-server
             pkgs.eza
             pkgs.zellij
+            pkgs.yazi
 
             # hifi-rs.packages.${system}.hifi-rs
 
