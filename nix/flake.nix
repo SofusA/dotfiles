@@ -66,6 +66,7 @@
             pkgs.typos-lsp
             pkgs.svelte-language-server
             pkgs.rustywind
+            pkgs.lemminx
 
             # shell
             pkgs.fish

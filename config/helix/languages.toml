@@ -29,6 +29,13 @@ codeAction = { disableRuleComment = { enable = true, location = 'separateLine' }
 name = "yaml"
 language-servers = []
 
+[language-server.lemminx]
+command = "lemminx"
+
+[[language]]
+name = "xml"
+language-servers = ["lemminx"]
+
 [[language]]
 name = "c-sharp"
 formatter = { command = "dotnet-csharpier" }
