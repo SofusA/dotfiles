@@ -3,7 +3,7 @@
     "height": 20,
     "margin-bottom": -10,
     "modules-left": ["niri/workspaces", "sway/mode"],
-    "modules-right": ["clock", "battery", "idle_inhibitor", "tray"],
+    "modules-right": ["custom/waybar-mpris", "clock", "battery", "idle_inhibitor", "tray"],
 
     "sway/workspaces": {
         "disable-click": true
@@ -27,5 +27,12 @@
     
     "clock": {
         "format": "{:%A, %d. %B  %H:%M}"
+    },
+
+    "custom/waybar-mpris": {
+        "return-type": "json",
+        "exec": "nix run nixpkgs#waybar-mpris -- --autofocus --order ARTIST:ALBUM:TITLE",
+        "on-click": "waybar-mpris --send toggle",
+        "escape": true,
     },
 }

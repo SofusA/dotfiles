@@ -6,7 +6,6 @@
   inputs.flake-utils.url = "github:numtide/flake-utils";
   inputs.jujutsu.url = "github:bnjmnt4n/jj/ssh-openssh";
 
-  # inputs.flatpak-xdg-utils.url = "path:./tools/flatpak-xdg-utils";
   # inputs.ccase.url = "path:./tools/ccase";
   inputs.angular-language-server.url = "github:sofusa/angular-language-server";
   inputs.roslyn-language-server.url = "github:sofusa/roslyn-language-server";
@@ -20,7 +19,6 @@
     nixpkgs,
     nixpkgs-stable,
     flake-utils,
-    # flatpak-xdg-utils,
     # ccase,
     angular-language-server,
     roslyn-language-server,
@@ -52,6 +50,8 @@
 
         devShell = pkgs.mkShell {
           buildInputs = [
+
+          
             # helix
             helix.packages.${system}.helix
             pkgs.nil
@@ -77,7 +77,6 @@
             pkgs.atuin
             pkgs.fd
             # ccase.packages.${system}.ccase
-            # flatpak-xdg-utils.packages.${system}.flatpak-xdg-utils
             pkgs.skim
             pkgs.wl-clipboard
             pkgs.sd
@@ -92,7 +91,6 @@
             # git
             pkgs.gitui
             pkgs.gh
-            # pkgs.lazyjj
             jujutsu.packages.${system}.jujutsu
             pkgs.meld
 
@@ -129,7 +127,10 @@
 
             # Playwright
             pkgs.playwright-driver.browsers
+
+            # Niri
             pkgs.xwayland-satellite
+            pkgs.waybar-mpris
           ];
 
           shellHook =
