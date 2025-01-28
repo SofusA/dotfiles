@@ -13,6 +13,8 @@ alias nl "jj log"
 alias np "jj git push"
 alias npc "jj git push -c @"
 alias nf "jj git fetch"
+alias nn "jj new"
+alias n jj
 
 alias ls "eza -1 --icons --group-directories-first"
 
