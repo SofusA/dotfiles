@@ -12,7 +12,7 @@
   inputs.helix.url = "github:sofusa/helix-pull-diagnostics/pull-diagnostics";
   inputs.bicep.url = "github:sofusa/bicep-language-server-nix";
   inputs.azure-pipelines.url = "github:sofusa/azure-pipelines-language-server-nix";
-  # inputs.hifi-rs.url = "path:./tools/hifi-rs";
+  inputs.qobuz-player.url = "github:sofusa/qobuz-player-nix";
 
   outputs = { 
     self, 
@@ -25,8 +25,8 @@
     helix,
     bicep,
     azure-pipelines,
-    jujutsu
-    # hifi-rs
+    jujutsu,
+    qobuz-player
   }:
     flake-utils.lib.eachDefaultSystem (system:
       let
@@ -86,7 +86,7 @@
             pkgs.zellij
             pkgs.yazi
 
-            # hifi-rs.packages.${system}.hifi-rs
+            qobuz-player.packages.${system}.qobuz-player
 
             # git
             pkgs.gitui
