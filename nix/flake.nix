@@ -127,7 +127,7 @@
             pkgs.chromedriver
 
             # Playwright
-            pkgs.playwright-driver.browsers
+            pkgs-stable.playwright-driver.browsers
 
             # Niri
             pkgs.xwayland-satellite
@@ -136,11 +136,11 @@
 
           shellHook =
             ''
-              export PLAYWRIGHT_BROWSERS_PATH="${pkgs.playwright-driver.browsers}"
+              export PLAYWRIGHT_BROWSERS_PATH="${pkgs-stable.playwright-driver.browsers}"
               export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true;
 
               export PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";          
-              export DOTNET_ROOT="${pkgs-stable.dotnetCorePackages.dotnet_8.sdk}";
+              export DOTNET_ROOT="${pkgs-stable.dotnetCorePackages.dotnet_9.sdk}";
 
               export EDITOR=hx
 
