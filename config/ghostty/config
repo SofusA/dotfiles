@@ -1,4 +1,6 @@
-window-decoration = false
+window-decoration = none
+gtk-adwaita = false
+gtk-titlebar = false
 mouse-hide-while-typing = true
 
 theme = Oceanic-Next

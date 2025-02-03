@@ -1,1 +1,9 @@
 default-timeout=3000
+
+background-color=#1b2b34
+text-color=#d8dee9
+border-color=#6699cc
+progress-color=over #65737e
+
+[urgency=high]
+border-color=#ec5f67

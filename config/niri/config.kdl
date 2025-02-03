@@ -34,8 +34,8 @@ input {
 layout {
     focus-ring {
         width 4
-        active-color 127 200 255 255
-        inactive-color 80 80 80 255
+        active-color 102 153 204 255
+        inactive-color 167 173 186 255
     }
 
     preset-column-widths {
