@@ -70,6 +70,8 @@ binds {
     XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     XF86AudioPlay { spawn "playerctl" "play-pause"; }
 
+    Mod+S { spawn "bash" "-c" "nix run nixpkgs#bemoji"; }
+
     Mod+Backspace { close-window; }
 
     Mod+N     { focus-column-left; }
