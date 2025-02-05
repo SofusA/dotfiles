@@ -4,9 +4,9 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
   inputs.flake-utils.url = "github:numtide/flake-utils";
-  inputs.jujutsu.url = "github:jj-vcs/jj/";
+  inputs.jujutsu.url = "github:jj-vcs/jj";
 
-  # inputs.ccase.url = "path:./tools/ccase";
+  inputs.ccase.url = "github:rutrum/ccase";
   inputs.angular-language-server.url = "github:sofusa/angular-language-server";
   inputs.roslyn-language-server.url = "github:sofusa/roslyn-language-server";
   inputs.helix.url = "github:sofusa/helix-pull-diagnostics/pull-diagnostics";
@@ -19,7 +19,7 @@
     nixpkgs,
     nixpkgs-stable,
     flake-utils,
-    # ccase,
+    ccase,
     angular-language-server,
     roslyn-language-server,
     helix,
@@ -50,8 +50,6 @@
 
         devShell = pkgs.mkShell {
           buildInputs = [
-
-          
             # helix
             helix.packages.${system}.helix
             pkgs.nil
@@ -76,7 +74,7 @@
             pkgs.zoxide
             pkgs.atuin
             pkgs.fd
-            # ccase.packages.${system}.ccase
+            ccase.packages.${system}.default
             pkgs.skim
             pkgs.wl-clipboard
             pkgs.sd
