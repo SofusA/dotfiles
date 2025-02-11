@@ -386,11 +386,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1739172703,
-        "narHash": "sha256-CkANcOIPnuQnAQMQ0NrEwQcewLmOrd96GhUbLJnjy+I=",
+        "lastModified": 1739260600,
+        "narHash": "sha256-qORf3URBEnLYL7KNoypxVXI8Jr+f4AvoaBEGQMfCUtk=",
         "owner": "sofusa",
         "repo": "qobuz-player-nix",
-        "rev": "9be1520ad582b71b3ed924123f6078a0b73703a9",
+        "rev": "b1d3a857ab43806324d72662d3071f60dd8db870",
         "type": "github"
       },
       "original": {
@@ -419,11 +419,11 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "lastModified": 1739124464,
-        "narHash": "sha256-H9SRNbc6XRgyNz8vi8wE5BNq9xOIqGl20CenxJmICzM=",
+        "lastModified": 1739209199,
+        "narHash": "sha256-IXemY38IgENRcnBw2/0hBkUU8dNwZr+kzrrVQd4EH/o=",
         "owner": "sofusa",
         "repo": "roslyn-language-server",
-        "rev": "bbe5b6a1002246685b6c8854d0f414796eadfe4a",
+        "rev": "e1e9831f8fc83121f87516b00401cca409392c29",
         "type": "github"
       },
       "original": {
