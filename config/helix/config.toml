@@ -24,6 +24,10 @@ cursor-line = "warning"
 other-lines = "error"
 max-diagnostics = 1
 
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-modification-indicator"]
+right = ["workspace-diagnostics", "diagnostics", "selections", "position", "file-encoding", "file-line-ending"]
+
 [keys.normal]
 d = "delete_selection_noyank"
 
