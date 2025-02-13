@@ -36,7 +36,7 @@
         packages.dotnetSdks = pkgs.buildEnv {
           name = "dotnetSdks";
           paths = [
-            (with pkgs.dotnetCorePackages;
+            (with pkgs-stable.dotnetCorePackages;
             combinePackages [
               dotnet_9.sdk
               dotnet_9.aspnetcore
