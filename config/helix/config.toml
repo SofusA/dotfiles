@@ -32,6 +32,8 @@ right = ["workspace-diagnostics", "diagnostics", "selections", "position", "file
 d = "delete_selection_noyank"
 
 # Selection
+U = "extend_line_up"
+E = "extend_line_down"
 I = "extend_char_right"
 N = "extend_char_left"
 W = "extend_next_word_start"
@@ -56,7 +58,6 @@ e = "move_visual_line_down"
 i = "move_char_right"
 u = "move_visual_line_up"
 h = "yank"
-
 
 q = ":reset-diff-change"
 
@@ -161,28 +162,4 @@ s = "no_op"
 [keys.normal.v]
 e = "expand_selection"
 s = "shrink_selection"
-
-[keys.select.g]
-c = "extend_next_char"
-b = "extend_prev_char"
-n = "extend_to_first_nonwhitespace"
-
-g = "no_op"  
-f = "no_op"
-h = "no_op"
-l = "no_op"
-s = "no_op"
-d = "no_op"
-D = "no_op"
-y = "no_op"
-r = "no_op"
-i = "no_op"
-t = "no_op"
-a = "no_op"
-m = "no_op"
-p = "no_op"
-k = "no_op"
-j = "no_op"
-w = "no_op"
-"." = "no_op"
 
