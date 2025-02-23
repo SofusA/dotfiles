@@ -225,11 +225,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1740249247,
-        "narHash": "sha256-uX36l0Te3vEBvMwmsqErSXjtr80SyN5iceIddkmYVdM=",
+        "lastModified": 1740317838,
+        "narHash": "sha256-Ukj9bWILZB69E1X+C+zrzNw+p0Bp9UKO2BoNGCeqLQQ=",
         "owner": "sofusa",
         "repo": "helix-pull-diagnostics",
-        "rev": "708d8f9380273b53fd689d289de1d5a770b0d8da",
+        "rev": "73d716d71d52dd461479fab6ffd23e6612ebf4c4",
         "type": "github"
       },
       "original": {
@@ -353,11 +353,11 @@
     },
     "nixpkgs_7": {
       "locked": {
-        "lastModified": 1740298873,
-        "narHash": "sha256-BLRGL71ZErBI95tSRHqexP6aRlcG5/KSrmdKFpjXRuM=",
+        "lastModified": 1740316897,
+        "narHash": "sha256-jUQ2iOY6Z1zxUkRpk8oOzE7lVbTs9uCSNlHi5fGrg84=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "fdb7b9822b82be68ef907004714039c906281d9e",
+        "rev": "157258f5a7fb94ef6e599d56d4f3c3484c1e2efe",
         "type": "github"
       },
       "original": {

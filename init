@@ -8,4 +8,4 @@ sudo wget -P /etc/yum.repos.d/ https://copr.fedorainfracloud.org/coprs/pgdev/gho
 sudo wget -P /etc/yum.repos.d/ https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-rawhide/yalter-niri-fedora-rawhide.repo
 
 # packages
-rpm-ostree install ghostty waybar niri
+rpm-ostree install ghostty niri rust-glib-sys-devel rust-gstreamer-devel waybar
