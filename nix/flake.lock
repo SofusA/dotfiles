@@ -225,11 +225,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1740037257,
-        "narHash": "sha256-PP0vW2oxO7wM/LaHb9BUDw1ib6PzZpacobY89lG8bJ4=",
+        "lastModified": 1740249247,
+        "narHash": "sha256-uX36l0Te3vEBvMwmsqErSXjtr80SyN5iceIddkmYVdM=",
         "owner": "sofusa",
         "repo": "helix-pull-diagnostics",
-        "rev": "0db575c4eedcd8ce05e811deca10b4c03867502c",
+        "rev": "708d8f9380273b53fd689d289de1d5a770b0d8da",
         "type": "github"
       },
       "original": {
@@ -257,11 +257,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1739923778,
-        "narHash": "sha256-BqUY8tz0AQ4to2Z4+uaKczh81zsGZSYxjgvtw+fvIfM=",
+        "lastModified": 1740162160,
+        "narHash": "sha256-SSYxFhqCOb3aiPb6MmN68yEzBIltfom8IgRz7phHscM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "36864ed72f234b9540da4cf7a0c49e351d30d3f1",
+        "rev": "11415c7ae8539d6292f2928317ee7a8410b28bb9",
         "type": "github"
       },
       "original": {
@@ -353,11 +353,11 @@
     },
     "nixpkgs_7": {
       "locked": {
-        "lastModified": 1740036005,
-        "narHash": "sha256-t/wglOB+IjfUUzvr8l22VP/mz68n2vUyyGeyQgsdCds=",
+        "lastModified": 1740298873,
+        "narHash": "sha256-BLRGL71ZErBI95tSRHqexP6aRlcG5/KSrmdKFpjXRuM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2f7e782ff637cd95f87359a5f8f080ca4baddebb",
+        "rev": "fdb7b9822b82be68ef907004714039c906281d9e",
         "type": "github"
       },
       "original": {
