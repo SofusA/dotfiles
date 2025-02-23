@@ -1,0 +1,14 @@
+hide-cursor-when-typing = true
+theme = "Oceanic-Next"
+confirm-before-quit = false
+
+[fonts]
+size = 18
+
+[bindings]
+keys = [
+  { key = "tab", with = "control", action = "ReceiveChar" },
+  { key = "tab", with = "control | shift", action = "ReceiveChar" },
+  { key = "c", with = "control", action = "Copy" },
+  { key = "v", with = "control", action = "Paste" }
+]
