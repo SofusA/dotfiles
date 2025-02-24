@@ -353,11 +353,11 @@
     },
     "nixpkgs_7": {
       "locked": {
-        "lastModified": 1740398228,
-        "narHash": "sha256-Duyt4XYQmHmohiDtTWFndWsvTM8ZLmZhbF1ekoviMUM=",
+        "lastModified": 1740398568,
+        "narHash": "sha256-uVFnst3NtNJfKe7g/DxZSMepW9TIvarPQxS8XO5N1V0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2cef00db1f7e0d4b6c8f5d178e26121a756958f7",
+        "rev": "e4dd0c70649e8b365bf00f30cfb3cd37686b7e77",
         "type": "github"
       },
       "original": {
@@ -386,11 +386,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1739519914,
-        "narHash": "sha256-SdQnOyvchh/HwtIjD8eCBtjEGdmzz4GXYS6xPyNwanc=",
+        "lastModified": 1740398852,
+        "narHash": "sha256-Z8EqmmPV/Kk7ttlUPfWkaje3PXjlWjAsi9QDU0zIuLw=",
         "owner": "sofusa",
         "repo": "qobuz-player-nix",
-        "rev": "5226e8f59aac39ed221e71fb3683b326827afd49",
+        "rev": "ae02c754c6ae5a8c49997dc3d8aa2d9b3715b422",
         "type": "github"
       },
       "original": {
