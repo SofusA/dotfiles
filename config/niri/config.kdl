@@ -40,8 +40,8 @@ layout {
 
     focus-ring {
         width 4
-        active-color 102 153 204 255
-        inactive-color 167 173 186 255
+        active-color 113 152 200 255
+        inactive-color 192 197 206 255
     }
 
     preset-column-widths {

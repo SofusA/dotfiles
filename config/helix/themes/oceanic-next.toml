@@ -5,11 +5,11 @@
 "constant.numeric" = { fg = "orange" }
 "constant.builtin" = { fg = "orange" }
 "constant.character.escape" = { fg = "orange" }
-"constructor" = { fg = "blue" }
+"constructor" = { fg = "green" }
 "function" = { fg = "blue" }
-"function.builtin" = { fg = "blue" }
+"function.builtin" = { fg = "green" }
 "function.macro" = { fg = "purple" }
-"keyword" = { fg = "red" }
+"keyword" = { fg = "blue" }
 "keyword.control" = { fg = "purple" }
 "keyword.control.import" = { fg = "red" }
 "keyword.directive" = { fg = "purple" }
@@ -21,7 +21,7 @@
 "special" = { fg = "blue" }
 "string" = { fg = "green" }
 "type" = { fg = "yellow" }
-"variable" = { fg = "cyan" }
+"variable" = { fg = "light-gray" }
 "variable.builtin" = { fg = "blue" }
 "variable.parameter" = { fg = "red" }
 "variable.other.member" = { fg = "red" }
@@ -105,11 +105,11 @@ light-gray= "#c0c5ce"
 dark-white= "#cdd3de"
 white = "#d8dee9"
 
-red    = "#ec5f67"
+red    = "#db686b"
 orange = "#f99157"
-yellow = "#fac863"
-green  = "#99c794"
-cyan   = "#62b3b2"
-blue   = "#6699cc"
+yellow = "#f2ca73"
+green  = "#a2c699"
+cyan   = "#74b1b2"
+blue   = "#7198c8"
 purple = "#c594c5"
 brown  = "#ab7967"
