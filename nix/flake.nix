@@ -8,7 +8,7 @@
   inputs.ccase.url = "github:rutrum/ccase";
   inputs.angular-language-server.url = "github:sofusa/angular-language-server";
   inputs.roslyn-language-server.url = "github:sofusa/roslyn-language-server";
-  inputs.helix.url = "github:sofusa/helix-pull-diagnostics/update-csharp-queries";
+  inputs.helix.url = "github:sofusa/helix-pull-diagnostics/pull-diagnostics";
   inputs.bicep.url = "github:sofusa/bicep-language-server-nix";
   inputs.azure-pipelines.url = "github:sofusa/azure-pipelines-language-server-nix";
   inputs.qobuz-player.url = "github:sofusa/qobuz-player-nix";

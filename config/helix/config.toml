@@ -59,8 +59,6 @@ i = "move_char_right"
 u = "move_visual_line_up"
 h = "yank"
 
-q = ":reset-diff-change"
-
 a = "undo"
 z = "redo"
 
@@ -163,3 +161,5 @@ s = "no_op"
 e = "expand_selection"
 s = "shrink_selection"
 
+q = ":reset-diff-change"
+b = ":sh git blame -L %{cursor_line},%{cursor_line} %{buffer_name}"
