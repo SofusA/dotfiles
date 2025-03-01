@@ -23,7 +23,7 @@ run = "onType"
 problems = { shortenToSingleLine = false }
 nodePath = ""
 format = false
-codeAction = { disableRuleComment = { enable = true, location = 'separateLine' }, showDocumentation = { enable = true } }
+codeAction = { disableRuleComment = { enable = true, location = "separateLine" }, showDocumentation = { enable = true } }
 
 [[language]]
 name = "yaml"
@@ -45,18 +45,18 @@ language-servers = ["roslyn", "typos"]
 
 [[language]]
 name = "typescript"
-formatter = { command = 'prettier', args = ["--stdin-filepath=file.ts"] }
+formatter = { command = "prettier", args = ["--stdin-filepath=file.ts"] }
 auto-format = true
 language-servers = ["typescript-language-server", "angular", "eslint", "tailwindcss-ls", "typos"]
 
 [[language]]
 name = "javascript"
-formatter = { command = 'prettier', args = ["--stdin-filepath=file.js"] }
+formatter = { command = "prettier", args = ["--stdin-filepath=file.js"] }
 auto-format = true
 
 [[language]]
 name = "html"
-formatter = { command = 'prettier', args = ["--parser", "angular", "--stdin-filepath=file.html"]}
+formatter = { command = "prettier", args = ["--parser", "angular", "--stdin-filepath=file.html"]}
 auto-format = true
 language-servers = ["vscode-html-language-server", "tailwindcss-ls", "angular", "typos"]
 
@@ -67,17 +67,17 @@ language-servers = ["svelteserver", "tailwindcss-ls", "typos"]
 
 [[language]]
 name = "json"
-formatter = { command = 'prettier', args = ["--stdin-filepath=file.json"] }
+formatter = { command = "prettier", args = ["--stdin-filepath=file.json"] }
 auto-format = true
 
 [[language]]
 name = "css"
-formatter = { command = 'prettier', args = ["--stdin-filepath=file.css"] }
+formatter = { command = "prettier", args = ["--stdin-filepath=file.css"] }
 auto-format = true
 
 [[language]]
 name = "scss"
-formatter = { command = 'prettier', args = ["--stdin-filepath=file.scss"] }
+formatter = { command = "prettier", args = ["--stdin-filepath=file.scss"] }
 auto-format = true
 
 [language-server.rust-analyzer.config]
