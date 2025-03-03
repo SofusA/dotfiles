@@ -4,6 +4,7 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
   inputs.flake-utils.url = "github:numtide/flake-utils";
+  inputs.fenix.url = "github:nix-community/fenix";
 
   inputs.ccase.url = "github:rutrum/ccase";
   inputs.angular-language-server.url = "github:sofusa/angular-language-server";
@@ -18,6 +19,7 @@
     nixpkgs,
     nixpkgs-stable,
     flake-utils,
+    fenix,
     ccase,
     angular-language-server,
     roslyn-language-server,
@@ -104,9 +106,17 @@
             azure-pipelines.packages.${system}.azure-pipelines-language-server
 
             # rust
-            pkgs.rustup
+            (fenix.packages.${system}.complete.withComponents [
+              "cargo"
+              "clippy"
+              "rust-src"
+              "rustc"
+              "rustfmt"
+            ])
+            fenix.packages.${system}.rust-analyzer
             pkgs.openssl
             pkgs.cargo-watch
+            pkgs.cargo-machete
             pkgs.leptosfmt
 
             # javascript
