@@ -151,9 +151,6 @@ p = "jump_forward"
 c = "find_next_char"
 b = "find_prev_char"
 
-i = "goto_next_change"
-n = "goto_prev_change"
-
 j = "no_op"
 h = "no_op"
 m = "no_op"
@@ -162,6 +159,9 @@ s = "no_op"
 [keys.normal.v]
 e = "expand_selection"
 s = "shrink_selection"
+
+i = "goto_next_change"
+n = "goto_prev_change"
 
 q = ":reset-diff-change"
 b = ":sh git blame -L %{cursor_line},%{cursor_line} %{buffer_name}"
