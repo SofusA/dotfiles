@@ -126,7 +126,14 @@ i = "select_textobject_inner"
 I = "select_textobject_around"
 h = "yank_joined_to_clipboard"
 
-y = "no_op"
+y = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
+
 Y = "no_op"
 g = "no_op"
 F = "no_op"
