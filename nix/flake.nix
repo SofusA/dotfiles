@@ -86,6 +86,7 @@
             pkgs.zellij
             yazi.packages.${system}.default
             pkgs.see-cat
+            pkgs.uutils-coreutils-noprefix
 
             qobuz-player.packages.${system}.qobuz-player
 

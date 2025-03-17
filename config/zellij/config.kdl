@@ -97,17 +97,17 @@ pane_frames false
 theme "one-half-dark"
 themes {
     one-half-dark {
-        fg 169 177 214
-        bg 26 27 38
-        black 56 62 90
-        red 249 51 87
-        green 158 206 106
-        yellow 224 175 104
-        blue 122 162 247
-        magenta 187 154 247
-        cyan 42 195 222
-        white 192 202 245
-        orange 255 158 100
+        fg 		219	104	107
+        bg 		219	104	107
+        black 	27	43	52
+        red		219	104	107
+        green	162	198	153
+        yellow	242	202	115
+        blue	113	152	200
+        magenta 197	148	197
+        cyan	116	177	178
+        white	216	222	233
+        orange 	249	145	87
     }
 }
 
