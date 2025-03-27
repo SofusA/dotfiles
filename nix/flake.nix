@@ -9,7 +9,7 @@
   inputs.ccase.url = "github:rutrum/ccase";
   inputs.yazi.url = "github:sxyazi/yazi";
   inputs.angular-language-server.url = "github:sofusa/angular-language-server";
-  inputs.roslyn-language-server.url = "github:sofusa/roslyn-language-server";
+  inputs.csharp-language-server.url = "github:sofusa/csharp-language-server";
   inputs.helix.url = "github:sofusa/helix-pull-diagnostics/pull-diagnostics";
   inputs.bicep.url = "github:sofusa/bicep-language-server-nix";
   inputs.azure-pipelines.url = "github:sofusa/azure-pipelines-language-server-nix";
@@ -24,7 +24,7 @@
     ccase,
     yazi,
     angular-language-server,
-    roslyn-language-server,
+    csharp-language-server,
     helix,
     bicep,
     azure-pipelines,
@@ -62,7 +62,7 @@
             pkgs.vscode-langservers-extracted
             pkgs.nodePackages.prettier
             angular-language-server.packages.${system}.angular-language-server
-            roslyn-language-server.packages.${system}.roslyn-language-server
+            csharp-language-server.packages.${system}.csharp-language-server
             pkgs.typos-lsp
             pkgs.svelte-language-server
             pkgs.rustywind

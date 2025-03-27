@@ -2,8 +2,8 @@
 command = "typos-lsp"
 config.diagnosticSeverity = "Warning"
 
-[language-server.roslyn]
-command = "roslyn-language-server"
+[language-server.csharp]
+command = "csharp-language-server"
 
 [language-server.angular]
 command = "angular-language-server"
@@ -41,7 +41,7 @@ name = "c-sharp"
 formatter = { command = "dotnet-csharpier" }
 indent = { tab-width = 2, unit = "  " }
 auto-format = true
-language-servers = ["roslyn", "typos"]
+language-servers = ["csharp", "typos"]
 
 [[language]]
 name = "typescript"
