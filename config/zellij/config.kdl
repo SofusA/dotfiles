@@ -120,6 +120,6 @@ theme "one-half-dark"
 default_shell "fish"
 default_layout "compact"
 pane_frames false
-on_force_close "quit"
+on_force_close "detach"
 scrollback_editor "hx"
 show_startup_tips false
