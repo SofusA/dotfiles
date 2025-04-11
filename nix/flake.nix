@@ -67,6 +67,7 @@
             pkgs.svelte-language-server
             pkgs.rustywind
             pkgs.lemminx
+            pkgs.markdown-oxide
 
             # shell
             pkgs.fish

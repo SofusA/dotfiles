@@ -29,6 +29,10 @@ codeAction = { disableRuleComment = { enable = true, location = "separateLine" }
 name = "yaml"
 language-servers = []
 
+[[language]]
+name = "markdown"
+language-servers = [ "typos", "markdown-oxide" ]
+
 [language-server.lemminx]
 command = "lemminx"
 
