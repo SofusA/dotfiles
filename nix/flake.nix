@@ -7,7 +7,6 @@
   inputs.fenix.url = "github:nix-community/fenix";
 
   inputs.ccase.url = "github:rutrum/ccase";
-  inputs.yazi.url = "github:sxyazi/yazi";
   inputs.angular-language-server.url = "github:sofusa/angular-language-server";
   inputs.csharp-language-server.url = "github:sofusa/csharp-language-server";
   inputs.helix.url = "github:sofusa/helix-pull-diagnostics/pull-diagnostics";
@@ -22,7 +21,6 @@
     flake-utils,
     fenix,
     ccase,
-    yazi,
     angular-language-server,
     csharp-language-server,
     helix,
@@ -85,7 +83,7 @@
             pkgs.yaml-language-server
             pkgs.eza
             pkgs.zellij
-            yazi.packages.${system}.default
+            pkgs.yazi
             pkgs.see-cat
             pkgs.uutils-coreutils-noprefix
 
