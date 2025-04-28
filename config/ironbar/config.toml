@@ -1,0 +1,26 @@
+anchor_to_edges = true
+position = "top"
+height = 18
+center = []
+
+[[start]]
+type = "workspaces"
+hidden = ["5"]
+
+[[end]]
+type = "music"
+player_type = "mpris"
+show_status_icon = false
+
+[[end]]
+type = "clock"
+format = "%d/%m/%Y %H:%M"
+
+[[end]]
+type = "clipboard"
+max_items = 3
+
+[[end]]
+type = "upower"
+format = "{percentage}%"
+icon_size = 16

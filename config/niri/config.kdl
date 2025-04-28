@@ -17,6 +17,16 @@ debug {
     wait-for-frame-completion-in-pipewire
 }
 
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+overview {
+    zoom 0.8
+}
+
 input {
     keyboard {
         xkb {
@@ -60,18 +70,17 @@ layout {
     gaps 16
 }
 
-spawn-at-startup "waybar"
-// spawn-at-startup "kanshi"
+spawn-at-startup "bash" "-c" "nix run github:JakeStanger/ironbar"
 spawn-at-startup "bash" "-c" "swaybg -i ~/bg.jpg -m fill"
 // spawn-at-startup "swayidle" "-w" "timeout" "120" "swaylock"
 spawn-at-startup "swayidle" "-w" "timeout" "600" "systemctl suspend"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-workspace "browser"
-workspace "code"
-workspace "music"
-workspace "communication"
+workspace "🦊"
+workspace "🖥️"
+workspace "🎵"
+workspace "📞"
 
 binds {
     Mod+T { spawn "ghostty" "-e" "nix" "develop" "/var/home/sofusa/dotfiles/nix"; }
@@ -85,6 +94,7 @@ binds {
     Mod+S { spawn "bash" "-c" "nix run nixpkgs#bemoji"; }
 
     Mod+Backspace { close-window; }
+    Mod+O { toggle-overview; }
 
     Mod+N     { focus-column-left; }
     Mod+E     { focus-window-down; }
@@ -98,14 +108,14 @@ binds {
     Mod+Shift+K     { move-window-up; }
     Mod+Shift+I     { move-column-right; }
 
-    Mod+B { focus-workspace "browser"; }
-    Mod+C { focus-workspace "code"; }
-    Mod+M { focus-workspace "music"; }
-    Mod+J { focus-workspace "communication"; }
-    Mod+Shift+B { move-window-to-workspace "browser"; }
-    Mod+Shift+C { move-window-to-workspace "code"; }
-    Mod+Shift+M { move-window-to-workspace "music"; }
-    Mod+Shift+J { move-window-to-workspace "communication"; }
+    Mod+B { focus-workspace "🦊"; }
+    Mod+C { focus-workspace "🖥️"; }
+    Mod+M { focus-workspace "🎵"; }
+    Mod+J { focus-workspace "📞"; }
+    Mod+Shift+B { move-window-to-workspace "🦊"; }
+    Mod+Shift+C { move-window-to-workspace "🖥️"; }
+    Mod+Shift+M { move-window-to-workspace "🎵"; }
+    Mod+Shift+J { move-window-to-workspace "📞"; }
 
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }
