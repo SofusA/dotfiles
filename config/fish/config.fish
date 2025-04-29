@@ -16,7 +16,7 @@ alias nf "jj git fetch"
 alias nn "jj new"
 alias n jj
 
-alias ls "eza -1 --icons --group-directories-first"
+alias ls "eza -1 --icons --group-directories-first; rpg-cli ls"
 
 # Todo: parameterize this
 function cms
@@ -34,18 +34,29 @@ end
 function ts
     if set -q argv[1]
         z $argv[1]
+        rpg-cli cd .
     else
         set dir (fd -t d | sk --preview 'eza -1 --icons --group-directories-first {} --color=always')
 
         if not test -z "$dir"
             z $dir
+            rpg-cli cd .
         end
     end
 end
 
 function t
     if set -q argv[1]
-        z $argv[1..-1]
+        set -l dir_name $argv[1]
+        set -l matched_dir (ls | grep -i "^$dir_name")
+
+        if test -n "$matched_dir"
+            set -l new_args $matched_dir $argv[2..-1]
+            z $new_args
+            rpg-cli cd .
+        else
+            echo "No matching directory found."
+        end
     else
         set dir (fd -t d -d 1 | sort -r -f | cat - (echo .. | psub) | sk --preview 'eza -1 --icons --group-directories-first {} --color=always')
 
@@ -65,7 +76,7 @@ function y
     rm -f -- "$tmp"
 end
 
-alias th "cd ~"
+alias th "cd ~; rpg-cli cd ."
 
 starship init fish | source
 zoxide init fish | source

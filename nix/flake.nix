@@ -86,6 +86,7 @@
             pkgs.yazi
             pkgs.see-cat
             pkgs.uutils-coreutils-noprefix
+            pkgs.rpg-cli
 
             qobuz-player.packages.${system}.qobuz-player
 
