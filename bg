@@ -1,0 +1,3 @@
+#! /bin/bash
+
+kitty +kitten panel --edge=background sh -c 'nix run nixpkgs#asciiquarium'

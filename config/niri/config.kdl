@@ -71,7 +71,8 @@ layout {
 }
 
 spawn-at-startup "bash" "-c" "nix run github:JakeStanger/ironbar"
-spawn-at-startup "bash" "-c" "swaybg -i ~/bg.jpg -m fill"
+spawn-at-startup "bash" "-c" "~/dotfiles/bg"
+
 // spawn-at-startup "swayidle" "-w" "timeout" "120" "swaylock"
 spawn-at-startup "swayidle" "-w" "timeout" "600" "systemctl suspend"
 
