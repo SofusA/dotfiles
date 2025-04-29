@@ -140,7 +140,6 @@
 
             # Niri
             pkgs.xwayland-satellite
-            pkgs.waybar-mpris
           ];
 
           shellHook =
