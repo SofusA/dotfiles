@@ -55,7 +55,8 @@ function t
             z $new_args
             rpg-cli cd .
         else
-            echo "No matching directory found."
+            z $argv[1..-1]
+            rpg-cli cd .
         end
     else
         set dir (fd -t d -d 1 | sort -r -f | cat - (echo .. | psub) | sk --preview 'eza -1 --icons --group-directories-first {} --color=always')

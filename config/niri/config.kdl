@@ -93,6 +93,7 @@ binds {
     XF86AudioPlay { spawn "playerctl" "play-pause"; }
 
     Mod+S { spawn "bash" "-c" "nix run nixpkgs#bemoji"; }
+    Mod+Y { spawn "bash" "-c" "~/dotfiles/bg"; }
 
     Mod+Backspace { close-window; }
     Mod+O { toggle-overview; }
