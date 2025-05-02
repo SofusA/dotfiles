@@ -60,7 +60,7 @@ auto-format = true
 
 [[language]]
 name = "html"
-formatter = { command = "prettier", args = ["--parser", "angular", "--stdin-filepath=file.html"]}
+formatter = { command = "prettier", args = ["--parser", "angular", "--stdin-filepath=%{buffer_name}"]}
 auto-format = true
 language-servers = ["vscode-html-language-server", "tailwindcss-ls", "angular", "typos"]
 
@@ -71,17 +71,17 @@ language-servers = ["svelteserver", "tailwindcss-ls", "typos"]
 
 [[language]]
 name = "json"
-formatter = { command = "prettier", args = ["--stdin-filepath=file.json"] }
+formatter = { command = "prettier", args = ["--stdin-filepath=%{buffer_name}"] }
 auto-format = true
 
 [[language]]
 name = "css"
-formatter = { command = "prettier", args = ["--stdin-filepath=file.css"] }
+formatter = { command = "prettier", args = ["--stdin-filepath=%{buffer_name}"] }
 auto-format = true
 
 [[language]]
 name = "scss"
-formatter = { command = "prettier", args = ["--stdin-filepath=file.scss"] }
+formatter = { command = "prettier", args = ["--stdin-filepath=%{buffer_name}"] }
 auto-format = true
 
 [language-server.rust-analyzer.config]
