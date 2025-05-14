@@ -141,6 +141,7 @@
 
             # Niri
             pkgs.xwayland-satellite
+            pkgs.bore-cli
           ];
 
           shellHook =
