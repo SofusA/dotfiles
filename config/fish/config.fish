@@ -1,10 +1,8 @@
 set -U fish_greeting
 
+alias nix "~/nixsa/bin/nixsa nix"
 alias h hx
 set -gx EDITOR hx
-
-# set PATH /var/home/sofusa/.npm-packages/bin $PATH
-# fish_add_path ~/.cargo/bin/
 
 alias nb "jj bookmark"
 alias nbs "jj bookmark set"
@@ -14,17 +12,10 @@ alias np "jj git push"
 alias npc "jj git push -c @"
 alias nf "jj git fetch"
 alias nn "jj new"
+alias nbm "nb move --from @- --to @"
 alias n jj
 
 alias ls "eza -1 --icons --group-directories-first; rpg-cli ls"
-
-# Todo: parameterize this
-function cms
-    zellij action rename-tab close
-    zellij action new-tab -l ~/dotfiles/layouts/configuration-management.kdl
-    zellij action go-to-tab-name close
-    zellij action close-tab
-end
 
 alias dt "dotnet test"
 function dtt

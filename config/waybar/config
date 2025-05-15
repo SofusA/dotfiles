@@ -31,7 +31,7 @@
 
     "custom/waybar-mpris": {
         "return-type": "json",
-        "exec": "nix run nixpkgs#waybar-mpris -- --autofocus --order ARTIST:ALBUM:TITLE",
+        "exec": "~/nixsa/bin/nixsa nix run nixpkgs#waybar-mpris -- --autofocus --order ARTIST:ALBUM:TITLE",
         "on-click": "waybar-mpris --send toggle",
         "escape": true,
     },
