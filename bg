@@ -1,3 +1,3 @@
 #! /bin/bash
 
-kitty +kitten panel --edge=background sh -c '~/nixsa/bin/nixsa nix run nixpkgs#asciiquarium'
+kitty +kitten panel --edge=background sh -c 'nix run nixpkgs#asciiquarium'

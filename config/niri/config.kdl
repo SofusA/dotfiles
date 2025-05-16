@@ -70,7 +70,7 @@ layout {
     gaps 16
 }
 
-spawn-at-startup "bash" "-c" "~/nixsa/bin/nixsa nix run github:JakeStanger/ironbar"
+spawn-at-startup "bash" "-c" "nix run github:JakeStanger/ironbar"
 spawn-at-startup "bash" "-c" "~/dotfiles/bg"
 
 // spawn-at-startup "swayidle" "-w" "timeout" "120" "swaylock"
@@ -84,7 +84,7 @@ workspace "🎵"
 workspace "📞"
 
 binds {
-    Mod+T { spawn "ghostty" "-e" "~/nixsa/bin/nixsa nix" "develop" "/var/home/sofusa/dotfiles/nix"; }
+    Mod+T { spawn "ghostty" "-e" "nix" "develop" "/var/home/sofusa/dotfiles/nix"; }
     Mod+D { spawn "fuzzel"; }
     Mod+L { spawn "swaylock"; }
 
@@ -92,7 +92,7 @@ binds {
     XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     XF86AudioPlay { spawn "playerctl" "play-pause"; }
 
-    Mod+S { spawn "bash" "-c" "~/nixsa/bin/nixsa nix run nixpkgs#bemoji"; }
+    Mod+S { spawn "bash" "-c" "nix run nixpkgs#bemoji"; }
     Mod+Y { spawn "bash" "-c" "~/dotfiles/bg"; }
 
     Mod+Backspace { close-window; }
