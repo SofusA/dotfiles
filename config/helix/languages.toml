@@ -10,9 +10,9 @@ command = "ngserver"
 args = [
   "--stdio",
   "--tsProbeLocations",
-  "$(npm -g root)",
+  "/usr/lib/node_modules",
   "--ngProbeLocations",
-  "$(npm -g root)",
+  "/usr/lib/node_modules",
 ]
 
 [language-server.eslint]
