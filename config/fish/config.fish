@@ -16,7 +16,7 @@ alias nf "jj git fetch"
 alias nn "jj new"
 alias n jj
 
-alias ls "eza -1 --icons --group-directories-first; rpg-cli ls"
+alias ls "eza -1 --icons --group-directories-first"
 
 # Todo: parameterize this
 function cms
@@ -79,6 +79,6 @@ end
 
 alias th "cd ~; rpg-cli cd ."
 
-starship init fish | source
+# starship init fish | source
 zoxide init fish | source
 atuin init fish | source

@@ -27,7 +27,7 @@ foreground = "0xabb2bf"
 size = 13
 
 [font.normal]
-family = "JetBrainsMono NFM"
+family = "JetBrainsMono NL"
 style = "Regular"
 
 [mouse]

@@ -6,7 +6,14 @@ config.diagnosticSeverity = "Warning"
 command = "csharp-language-server"
 
 [language-server.angular]
-command = "angular-language-server"
+command = "ngserver"
+args = [
+  "--stdio",
+  "--tsProbeLocations",
+  "$(npm -g root)",
+  "--ngProbeLocations",
+  "$(npm -g root)",
+]
 
 [language-server.eslint]
 command = "vscode-eslint-language-server"

@@ -43,13 +43,16 @@ input {
     }
 
     mouse {
-        // natural-scroll
         accel-speed 1.0
         accel-profile "flat"
     }
 }
 
 layout {
+    background-color "black"
+    always-center-single-column
+    default-column-display "tabbed"
+
     shadow {
         on
     }
@@ -68,13 +71,16 @@ layout {
 
 
     gaps 16
-}
 
-spawn-at-startup "bash" "-c" "nix run github:JakeStanger/ironbar"
-spawn-at-startup "bash" "-c" "~/dotfiles/bg"
+    tab-indicator {
+        hide-when-single-tab
+    }
+}
 
 // spawn-at-startup "swayidle" "-w" "timeout" "120" "swaylock"
 spawn-at-startup "swayidle" "-w" "timeout" "600" "systemctl suspend"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "waybar"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
@@ -84,16 +90,13 @@ workspace "🎵"
 workspace "📞"
 
 binds {
-    Mod+T { spawn "ghostty" "-e" "nix" "develop" "/var/home/sofusa/dotfiles/nix"; }
+    Mod+T { spawn "alacritty" "-e" "fish"; }
     Mod+D { spawn "fuzzel"; }
     Mod+L { spawn "swaylock"; }
 
     XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     XF86AudioPlay { spawn "playerctl" "play-pause"; }
-
-    Mod+S { spawn "bash" "-c" "nix run nixpkgs#bemoji"; }
-    Mod+Y { spawn "bash" "-c" "~/dotfiles/bg"; }
 
     Mod+Backspace { close-window; }
     Mod+O { toggle-overview; }
@@ -119,8 +122,9 @@ binds {
     Mod+Shift+M { move-window-to-workspace "🎵"; }
     Mod+Shift+J { move-window-to-workspace "📞"; }
 
-    Mod+Comma  { consume-window-into-column; }
-    Mod+Period { expel-window-from-column; }
+    Mod+S { consume-window-into-column; }
+    Mod+Shift+S { expel-window-from-column; }
+    Mod+W { toggle-column-tabbed-display; }
 
     Mod+R { switch-preset-column-width; }
     Mod+F { maximize-column; }
