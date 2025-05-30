@@ -1,18 +1,9 @@
 {
     "layer": "top",
     "height": 20,
-    "margin-bottom": -10,
-    "modules-left": ["niri/workspaces", "sway/mode"],
+    "margin-bottom": -12,
     "modules-right": ["clock", "battery", "idle_inhibitor", "tray"],
 
-    "sway/workspaces": {
-        "disable-click": true
-    },
-
-    "sway/window": {
-        "max-length": 50
-    },
-   
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
