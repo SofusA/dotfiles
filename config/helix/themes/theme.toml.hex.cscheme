@@ -68,7 +68,7 @@
 "ui.cursorline.primary" = { bg = "light-black" }
 
 "ui.highlight" = { bg = "gray" }
-"ui.highlight.frameline" = { bg = "#97202a" }
+"ui.highlight.frameline" = { bg = "red" }
 
 "ui.linenr" = { fg = "dark-gray" }
 "ui.linenr.selected" = { fg = "light-gray" }
@@ -96,20 +96,19 @@
 "ui.debug" = { fg = "red" }
 
 [palette]
-black = "#1b2b34"
-light-black= "#343d46"
-dark-gray = "#4f5b66"
-gray = "#65737e"
-faint-gray= "#a7adba"
-light-gray= "#c0c5ce"
-dark-white= "#cdd3de"
-white = "#d8dee9"
-
-red    = "#db686b"
-orange = "#f99157"
-yellow = "#f2ca73"
-green  = "#a2c699"
-cyan   = "#74b1b2"
-blue   = "#7198c8"
-purple = "#c594c5"
-brown  = "#ab7967"
+black = "#$black"
+light-black = "#$light-black"
+dark-gray = "#$dark-gray"
+gray = "#$gray"
+faint-gray = "#$faint-gray"
+light-gray = "#$light-gray"
+dark-white = "#$dark-white"
+white = "#$white"
+red = "#$red"
+orange = "#$orange"
+yellow = "#$yellow"
+green = "#$green"
+cyan = "#$cyan"
+blue = "#$blue"
+purple = "#$purple"
+brown = "#$brown"

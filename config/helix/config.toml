@@ -1,4 +1,4 @@
-theme = "oceanic-next"
+theme = "theme"
 
 [editor]
 line-number = "relative"
