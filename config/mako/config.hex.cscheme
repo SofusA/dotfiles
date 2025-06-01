@@ -1,9 +1,9 @@
 default-timeout=3000
 
-background-color=#$black
-text-color=#$light-gray
-border-color=#$blue
-progress-color=over #$gray
+background-color=$black
+text-color=$light-gray
+border-color=$blue
+progress-color=over $gray
 
 [urgency=high]
-border-color=#$red
+border-color=$red

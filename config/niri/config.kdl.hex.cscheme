@@ -49,7 +49,7 @@ input {
 }
 
 layout {
-    background-color "#$dark-gray"
+    background-color "$dark-gray"
     always-center-single-column
     default-column-display "tabbed"
 
@@ -59,8 +59,8 @@ layout {
 
     focus-ring {
         width 4
-        active-color "#$blue"
-        inactive-color "#$gray"
+        active-color "$blue"
+        inactive-color "$gray"
     }
 
     preset-column-widths {

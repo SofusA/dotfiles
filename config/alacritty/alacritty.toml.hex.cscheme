@@ -1,32 +1,32 @@
 [colors.primary]
-background = '#$black'
-foreground = '#$light-gray'
+background = '$black'
+foreground = '$light-gray'
 
 [colors.normal]
-black   = '#$black'
-red     = '#$red'
-green   = '#$green'
-yellow  = '#$yellow'
-blue    = '#$blue'
-magenta = '#$purple'
-cyan    = '#$cyan'
-white   = '#$white'
+black   = '$black'
+red     = '$red'
+green   = '$green'
+yellow  = '$yellow'
+blue    = '$blue'
+magenta = '$purple'
+cyan    = '$cyan'
+white   = '$white'
 
 [colors.bright]
-black   = '#$black'
-red     = '#$red'
-green   = '#$green'
-yellow  = '#$yellow'
-blue    = '#$blue'
-magenta = '#$purple'
-cyan    = '#$cyan'
-white   = '#$white'
+black   = '$black'
+red     = '$red'
+green   = '$green'
+yellow  = '$yellow'
+blue    = '$blue'
+magenta = '$purple'
+cyan    = '$cyan'
+white   = '$white'
 
 [font]
 size = 13
 
 [font.normal]
-family = "JetBrainsMono NL"
+family = "$font-family"
 style = "Regular"
 
 [mouse]

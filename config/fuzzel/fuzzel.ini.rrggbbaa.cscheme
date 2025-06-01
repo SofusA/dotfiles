@@ -1,0 +1,15 @@
+[colors]
+background=$black
+text=$light-gray
+prompt=$blue
+placeholder=$green
+input=$blue
+match=$blue
+selection=$dark-gray
+selection-text=$light-gray
+selection-match=$red
+counter=$green
+border=$blue
+
+[border]
+width=4
