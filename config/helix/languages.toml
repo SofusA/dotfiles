@@ -49,7 +49,7 @@ language-servers = ["lemminx"]
 
 [[language]]
 name = "c-sharp"
-formatter = { command = "dotnet-csharpier" }
+formatter = { command = "csharpier", args = ["format"] }
 indent = { tab-width = 2, unit = "  " }
 auto-format = true
 language-servers = ["csharp", "typos"]
