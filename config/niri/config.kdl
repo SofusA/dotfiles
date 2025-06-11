@@ -23,6 +23,11 @@ gestures {
     }
 }
 
+cursor {
+    hide-when-typing
+    hide-after-inactive-ms 1000
+}
+
 overview {
     zoom 0.8
 }
