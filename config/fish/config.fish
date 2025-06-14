@@ -45,13 +45,11 @@ end
 function ts
     if set -q argv[1]
         z $argv[1]
-        rpg-cli cd .
     else
         set dir (fd -t d | sk --preview 'eza -1 --icons --group-directories-first {} --color=always')
 
         if not test -z "$dir"
             z $dir
-            rpg-cli cd .
         end
     end
 end
@@ -64,10 +62,8 @@ function t
         if test -n "$matched_dir"
             set -l new_args $matched_dir $argv[2..-1]
             z $new_args
-            rpg-cli cd .
         else
             z $argv[1..-1]
-            rpg-cli cd .
         end
     else
         set dir (fd -t d -d 1 | sort -r -f | cat - (echo .. | psub) | sk --preview 'eza -1 --icons --group-directories-first {} --color=always')
@@ -88,7 +84,7 @@ function y
     rm -f -- "$tmp"
 end
 
-alias th "cd ~; rpg-cli cd ."
+alias th "cd ~"
 
 # starship init fish | source
 zoxide init fish | source
