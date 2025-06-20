@@ -4,7 +4,7 @@ config.diagnosticSeverity = "Warning"
 
 [language-server.csharp]
 command = "csharp-language-server"
-arguments = ["--directory", "/usr/lib/csharp-language-server"]
+args = ["--directory", "/usr/lib/csharp-language-server"]
 
 [language-server.angular]
 command = "ngserver"
