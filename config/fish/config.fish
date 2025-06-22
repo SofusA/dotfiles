@@ -7,7 +7,7 @@ set -gx EDITOR hx
 # fish_add_path ~/.cargo/bin/
 
 alias nb "jj bookmark"
-alias nbs "jj bookmark set"
+alias nbs "jj bookmark set --revision=@"
 alias nd "jj describe -m"
 alias nl "jj log"
 alias np "jj git push"
@@ -20,6 +20,7 @@ alias n jj
 alias ls "eza -1 --icons --group-directories-first"
 
 function fish_prompt
+    cli-dungeon play
     set -l last_status $status
     set -l stat
     if test $last_status -ne 0
