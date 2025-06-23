@@ -5,6 +5,7 @@ line-number = "relative"
 mouse = false
 bufferline = "always"
 end-of-line-diagnostics = "hint"
+rounded-corners = true
 
 jump-label-alphabet = "abcdefghijklmnoprstuvwyz"
 
@@ -26,6 +27,7 @@ max-diagnostics = 1
 
 [editor.statusline]
 left = ["mode", "spinner", "file-name", "file-modification-indicator"]
+center = ["version-control"]
 right = ["workspace-diagnostics", "diagnostics", "selections", "position", "file-encoding", "file-line-ending"]
 
 [keys.normal]
