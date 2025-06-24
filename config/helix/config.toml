@@ -6,6 +6,7 @@ mouse = false
 bufferline = "always"
 end-of-line-diagnostics = "hint"
 rounded-corners = true
+popup-border = "all"
 
 jump-label-alphabet = "abcdefghijklmnoprstuvwyz"
 
