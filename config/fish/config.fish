@@ -17,10 +17,17 @@ alias nn "jj new"
 alias nbm "nb move --from @- --to @"
 alias n jj
 
-alias ls "eza -1 --icons --group-directories-first"
+function cd
+    cli-dungeon play
+    builtin cd $argv
+end
+
+function ls
+    cli-dungeon play
+    eza -1 --icons --group-directories-first $argv
+end
 
 function fish_prompt
-    cli-dungeon play
     set -l last_status $status
     set -l stat
     if test $last_status -ne 0
@@ -28,14 +35,6 @@ function fish_prompt
     end
 
     string join '' -- (set_color blue) (prompt_pwd) (set_color normal) $stat '> '
-end
-
-# Todo: parameterize this
-function cms
-    zellij action rename-tab close
-    zellij action new-tab -l ~/dotfiles/layouts/configuration-management.kdl
-    zellij action go-to-tab-name close
-    zellij action close-tab
 end
 
 alias dt "dotnet test"
@@ -46,11 +45,13 @@ end
 function ts
     if set -q argv[1]
         z $argv[1]
+        cli-dungeon play
     else
         set dir (fd -t d | sk --preview 'eza -1 --icons --group-directories-first {} --color=always')
 
         if not test -z "$dir"
             z $dir
+            cli-dungeon play
         end
     end
 end
@@ -63,14 +64,17 @@ function t
         if test -n "$matched_dir"
             set -l new_args $matched_dir $argv[2..-1]
             z $new_args
+            cli-dungeon play
         else
             z $argv[1..-1]
+            cli-dungeon play
         end
     else
         set dir (fd -t d -d 1 | sort -r -f | cat - (echo .. | psub) | sk --preview 'eza -1 --icons --group-directories-first {} --color=always')
 
         if not test -z "$dir"
             z $dir
+            cli-dungeon play
             t
         end
     end
