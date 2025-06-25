@@ -1,0 +1,11 @@
+#!/bin/bash
+
+messages=(
+"Windows dårlig"
+"cosmosdb emulator sucks"
+"Office 365 nej tak"
+"Mere kaffe"
+)
+
+random_message="${messages[$RANDOM % ${#messages[@]}]}"
+kitty +kitten panel --edge=background sh -c "./cowsay-centered -r \"$random_message\"; sleep infinity"

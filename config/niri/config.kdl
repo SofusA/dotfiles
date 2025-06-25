@@ -86,6 +86,7 @@ layout {
 spawn-at-startup "swayidle" "-w" "timeout" "600" "systemctl suspend"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "waybar"
+spawn-at-startup "bash" "-c" "~/dotfiles/bg"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 

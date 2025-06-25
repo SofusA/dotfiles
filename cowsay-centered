@@ -1,0 +1,19 @@
+#!/bin/bash
+
+term_rows=$(tput lines)
+term_cols=$(tput cols)
+
+output=$(cowsay "$@")
+output_lines=$(echo "$output" | wc -l)
+output_width=$(echo "$output" | awk '{ print length }' | sort -nr | head -1)
+
+vertical_padding=$(( (term_rows - output_lines) / 2 ))
+horizontal_padding=$(( (term_cols - output_width) / 2 ))
+
+for ((i=0; i<vertical_padding; i++)); do
+  echo ""
+done
+
+while IFS= read -r line; do
+  printf "%*s%s\n" "$horizontal_padding" "" "$line"
+done <<< "$output"
