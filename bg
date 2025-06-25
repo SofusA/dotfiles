@@ -1,11 +1,24 @@
 #!/bin/bash
 
 messages=(
-"Windows dårlig"
+"windows dårlig"
 "cosmosdb emulator sucks"
 "Office 365 nej tak"
 "Mere kaffe"
+"Goodbye complexity"
+"Cache my ass"
+"Cache me outside"
+"AI is the future"
+"You want news in the start menu?"
+"Paint: Now with copilot"
+"Up arrow"
+"Hesties besties"
+"Horses porses"
+"🐎"
+"🐴"
+"🐮"
+"🐄"
 )
 
 random_message="${messages[$RANDOM % ${#messages[@]}]}"
-kitty +kitten panel --edge=background sh -c "./cowsay-centered -r \"$random_message\"; sleep infinity"
+kitty +kitten panel --output "DP-1" --edge=background sh -c "~/dotfiles/cowsay-centered -r \"$random_message\"; sleep infinity"

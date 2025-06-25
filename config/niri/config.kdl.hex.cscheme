@@ -23,6 +23,11 @@ gestures {
     }
 }
 
+cursor {
+    hide-when-typing
+    hide-after-inactive-ms 1000
+}
+
 overview {
     zoom 0.8
 }
@@ -81,6 +86,7 @@ layout {
 spawn-at-startup "swayidle" "-w" "timeout" "600" "systemctl suspend"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "waybar"
+spawn-at-startup "~/dotfiles/bg"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
@@ -106,7 +112,7 @@ binds {
     Mod+U     { focus-window-up; }
     Mod+I     { focus-column-right; }
 
-    Mod+Q { quit; }
+    Mod+Q { spawn "~/dotfiles/scripts/power-menu"; }
 
     Mod+Shift+N     { move-column-left; }
     Mod+Shift+E     { move-window-down; }

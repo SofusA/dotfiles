@@ -1,0 +1,70 @@
+hide-cursor-when-typing = true
+confirm-before-quit = false
+
+[fonts]
+size = 18
+
+[bindings]
+keys = [
+  { key = "tab", with = "control", action = "ReceiveChar" },
+  { key = "tab", with = "control | shift", action = "ReceiveChar" },
+  { key = "c", with = "control", action = "Copy" },
+  { key = "v", with = "control", action = "Paste" }
+]
+
+[colors]
+# Regular colors
+background = '$black'
+black = '$black'
+blue = '$blue'
+cyan = '$cyan'
+foreground  = '$light-gray'
+green = '$green'
+magenta = '$purple'
+red = '$red'
+white = '$white'
+yellow = '$yellow'
+
+# Cursor
+cursor = '$white'
+vi-cursor = '$white'
+
+# Navigation
+tabs = '$light-gray'
+tabs-foreground = '$white'
+tabs-active = '$blue'
+tabs-active-highlight = '$cyan'
+tabs-active-foreground = '$white'
+bar = '$faint-gray'
+
+# Search
+search-match-background = '$light-gray'
+search-match-foreground = '$white'
+search-focused-match-background = '$red'
+search-focused-match-foreground = '$white'
+
+# Selection
+selection-foreground = '$white'
+selection-background = '$light-gray'
+
+# Dim colors
+dim-black = '$black'
+dim-blue = '$blue'
+dim-cyan = '$cyan'
+dim-foreground = '$white'
+dim-green = '$green'
+dim-magenta = '$purple'
+dim-red = '$red'
+dim-white = '$white'
+dim-yellow = '$yellow'
+
+# Light colors
+light-black = '$black'
+light-blue = '$blue'
+light-cyan = '$cyan'
+light-foreground = '$light-gray'
+light-green = '$green'
+light-magenta = '$purple'
+light-red = '$red'
+light-white = '$white'
+light-yellow = '$yellow'
