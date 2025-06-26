@@ -86,10 +86,10 @@
 "ui.text" = { fg = "faint-gray" }
 "ui.text.focus" = { fg = "faint-gray", bg = "light-black", modifiers = ["bold"] }
 
-"ui.help" = { fg = "faint-gray", bg = "light-black" }
+"ui.help" = { fg = "faint-gray", bg = "black" }
 "ui.popup" = { bg = "black" }
 "ui.window" = { fg = "light-black" }
-"ui.menu" = { fg = "faint-gray", bg = "light-black" }
+"ui.menu" = { fg = "faint-gray", bg = "black" }
 "ui.menu.selected" = { fg = "black", bg = "blue" }
 "ui.menu.scroll" = { fg = "faint-gray", bg = "faint-gray" }
 
