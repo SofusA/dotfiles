@@ -14,10 +14,6 @@ messages=(
 "Up arrow"
 "Hesties besties"
 "Horses porses"
-"🐎"
-"🐴"
-"🐮"
-"🐄"
 )
 
 random_message="${messages[$RANDOM % ${#messages[@]}]}"

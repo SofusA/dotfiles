@@ -3,7 +3,11 @@ gtk-adwaita = false
 gtk-titlebar = false
 mouse-hide-while-typing = true
 
-theme = Oceanic-Next
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+theme = theme
 confirm-close-surface = false
 
 keybind = ctrl+c=copy_to_clipboard
