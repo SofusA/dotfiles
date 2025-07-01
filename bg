@@ -11,9 +11,9 @@ messages=(
 "AI is the future"
 "You want news in the start menu?"
 "Paint: Now with copilot"
-"Up arrow"
 "Hesties besties"
 "Horses porses"
+"I debloated windows"
 )
 
 random_message="${messages[$RANDOM % ${#messages[@]}]}"
