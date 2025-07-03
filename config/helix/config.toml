@@ -1,5 +1,12 @@
 theme = "theme"
 
+[icons.vcs]
+enabled = true
+icon = ""
+
+[icons.mime]
+enabled = true
+
 [editor]
 line-number = "relative"
 mouse = false
@@ -28,7 +35,6 @@ max-diagnostics = 1
 
 [editor.statusline]
 left = ["mode", "spinner", "file-name", "file-modification-indicator"]
-center = ["version-control"]
 right = ["workspace-diagnostics", "diagnostics", "selections", "position", "file-encoding", "file-line-ending"]
 
 [keys.normal]
