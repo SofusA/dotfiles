@@ -3,9 +3,6 @@ set -U fish_greeting
 alias h hx
 set -gx EDITOR hx
 
-# set PATH /var/home/sofusa/.npm-packages/bin $PATH
-# fish_add_path ~/.cargo/bin/
-
 alias nb "jj bookmark"
 alias nbs "jj bookmark set --revision=@"
 alias nd "jj describe -m"
@@ -16,6 +13,14 @@ alias nf "jj git fetch"
 alias nn "jj new"
 alias nbm "nb move --from @- --to @"
 alias n jj
+
+function nr
+    set file (jj log -r@ -n1 --no-graph -T "" --stat | awk -F'|' '/\|/ {print $1}' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | sk)
+
+    if not test -z "$file"
+        jj restore $file
+    end
+end
 
 function cd
     cli-dungeon play
