@@ -8,6 +8,7 @@ icon = ""
 enabled = true
 
 [editor]
+rainbow-brackets = true
 line-number = "relative"
 mouse = false
 bufferline = "always"
@@ -30,7 +31,6 @@ hidden = false
 
 [editor.inline-diagnostics]
 cursor-line = "warning"
-other-lines = "error"
 max-diagnostics = 1
 
 [editor.statusline]
