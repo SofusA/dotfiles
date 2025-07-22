@@ -1,19 +1,19 @@
 theme = "theme"
 
-[icons.vcs]
-enabled = true
-icon = ""
+#[icons.vcs]
+#enabled = true
+#icon = ""
 
-[icons.mime]
-enabled = true
+#[icons.mime]
+#enabled = true
 
 [editor]
-rainbow-brackets = true
+#rainbow-brackets = true
 line-number = "relative"
 mouse = false
 bufferline = "always"
 end-of-line-diagnostics = "hint"
-rounded-corners = true
+#rounded-corners = true
 popup-border = "all"
 
 jump-label-alphabet = "abcdefghijklmnoprstuvwyz"
