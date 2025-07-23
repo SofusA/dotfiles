@@ -22,15 +22,17 @@ function nr
     end
 end
 
-function cd
-    cli-dungeon play
-    builtin cd $argv
-end
+# function cd
+#     cli-dungeon play
+#     builtin cd $argv
+# end
 
 function ls
-    cli-dungeon play
+    # cli-dungeon play
     eza -1 --icons --group-directories-first $argv
 end
+
+alias sudo sudo-rs
 
 function fish_prompt
     set -l last_status $status
@@ -50,13 +52,13 @@ end
 function ts
     if set -q argv[1]
         z $argv[1]
-        cli-dungeon play
+        # cli-dungeon play
     else
         set dir (fd -t d | sk --preview 'eza -1 --icons --group-directories-first {} --color=always')
 
         if not test -z "$dir"
             z $dir
-            cli-dungeon play
+            # cli-dungeon play
         end
     end
 end
@@ -69,17 +71,17 @@ function t
         if test -n "$matched_dir"
             set -l new_args $matched_dir $argv[2..-1]
             z $new_args
-            cli-dungeon play
+            # cli-dungeon play
         else
             z $argv[1..-1]
-            cli-dungeon play
+            # cli-dungeon play
         end
     else
         set dir (fd -t d -d 1 | sort -r -f | cat - (echo .. | psub) | sk --preview 'eza -1 --icons --group-directories-first {} --color=always')
 
         if not test -z "$dir"
             z $dir
-            cli-dungeon play
+            # cli-dungeon play
             t
         end
     end
