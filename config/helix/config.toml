@@ -8,7 +8,7 @@ theme = "theme"
 #enabled = true
 
 [editor]
-#rainbow-brackets = true
+rainbow-brackets = true
 line-number = "relative"
 mouse = false
 bufferline = "always"

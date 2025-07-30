@@ -95,6 +95,8 @@
 
 "ui.debug" = { fg = "red" }
 
+rainbow = ["red", "orange", "yellow", "purple", "green", "blue"]
+
 [palette]
 black = "#1b2b34"
 light-black = "#343d46"
