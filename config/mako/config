@@ -4,6 +4,7 @@ background-color=#1b2b34
 text-color=#c0c5ce
 border-color=#7198c8
 progress-color=over #65737e
+border-radius=12
 
 [urgency=high]
 border-color=#db686b
