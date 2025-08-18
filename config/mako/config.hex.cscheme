@@ -4,6 +4,7 @@ background-color=$black
 text-color=$light-gray
 border-color=$blue
 progress-color=over $gray
+border-radius=12
 
 [urgency=high]
 border-color=$red
