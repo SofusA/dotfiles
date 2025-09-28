@@ -1,5 +1,3 @@
-set -U fish_greeting
-
 alias h hx
 set -gx EDITOR hx
 
@@ -22,13 +20,7 @@ function nr
     end
 end
 
-# function cd
-#     cli-dungeon play
-#     builtin cd $argv
-# end
-
 function ls
-    # cli-dungeon play
     eza -1 --icons --group-directories-first $argv
 end
 
@@ -51,38 +43,25 @@ end
 
 function ts
     if set -q argv[1]
-        z $argv[1]
-        # cli-dungeon play
+        t $argv[1]
     else
         set dir (fd -t d | sk --preview 'eza -1 --icons --group-directories-first {} --color=always')
 
         if not test -z "$dir"
-            z $dir
-            # cli-dungeon play
+            t $dir
         end
     end
 end
 
-function t
+function tr
     if set -q argv[1]
-        set -l dir_name $argv[1]
-        set -l matched_dir (ls | grep -i "^$dir_name")
-
-        if test -n "$matched_dir"
-            set -l new_args $matched_dir $argv[2..-1]
-            z $new_args
-            # cli-dungeon play
-        else
-            z $argv[1..-1]
-            # cli-dungeon play
-        end
+        t $argv[1]
     else
         set dir (fd -t d -d 1 | sort -r -f | cat - (echo .. | psub) | sk --preview 'eza -1 --icons --group-directories-first {} --color=always')
 
         if not test -z "$dir"
-            z $dir
-            # cli-dungeon play
-            t
+            t $dir
+            tr
         end
     end
 end
@@ -99,5 +78,5 @@ end
 alias th "cd ~"
 
 # starship init fish | source
-zoxide init fish | source
+zoxide init --cmd t fish | source
 atuin init fish | source
