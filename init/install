@@ -1,0 +1,21 @@
+#!/bin/bash
+
+sudo rpm-ostree reset
+sudo rpm-ostree install \
+  ghostty \
+  niri swayidle mako \
+  cargo clippy rustfmt rust-analyzer \
+  zoxide atuin fd-find ripgrep skim eza \
+  sudo-rs uutils-coreutils \
+  cowsay kitty \
+  npm \
+  clang \
+  dotnet-sdk-9.0 dotnet-sdk-8.0 aspnetcore-runtime-9.0 azure-cli \
+  rust-alsa-sys-devel rust-openssl-sys-devel \
+  gh
+  
+# TODO
+# code
+# powershell
+# dnf5 -y copr enable vdanielmo/git-credential-manager
+# dnf5 install -yq git-credential-manager
