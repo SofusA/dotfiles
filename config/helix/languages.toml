@@ -4,16 +4,15 @@ config.diagnosticSeverity = "Warning"
 
 [language-server.csharp]
 command = "csharp-language-server"
-args = ["--directory", "/usr/lib/csharp-language-server"]
 
 [language-server.angular]
 command = "ngserver"
 args = [
   "--stdio",
   "--tsProbeLocations",
-  "/usr/lib/node_modules",
+  "/var/home/sofusa/build/lib/node_modules",
   "--ngProbeLocations",
-  "/usr/lib/node_modules",
+  "/var/home/sofusa/build/lib/node_modules",
 ]
 
 [language-server.eslint]
@@ -40,13 +39,6 @@ language-servers = []
 [[language]]
 name = "markdown"
 language-servers = [ "typos", "markdown-oxide" ]
-
-[language-server.lemminx]
-command = "lemminx"
-
-[[language]]
-name = "xml"
-language-servers = ["lemminx"]
 
 [[language]]
 name = "c-sharp"

@@ -1,0 +1,78 @@
+#!/bin/bash
+
+mkdir -p ~/build
+cd ~/build
+
+npm config set prefix ~/build
+
+dotnet tool update --tool-path ~/build/bin csharpier
+
+packages=(
+  azure-functions-core-tools
+  prettier
+  @tailwindcss/language-server
+  vscode-langservers-extracted
+  typescript-language-server
+  typescript
+  @angular/cli
+  @angular/language-service
+  @angular/language-server
+)
+
+for pkg in "${packages[@]}"; do
+  if npm list -g --depth=0 "$pkg" >/dev/null 2>&1; then
+    echo "Updating $pkg..."
+    npm update -g "$pkg"
+  else
+    echo "Installing $pkg..."
+    npm install -g "$pkg"
+  fi
+done
+
+
+wget -q https://github.com/Azure/bicep/releases/latest/download/bicep-langserver.zip
+rm -rf ~/build/lib/bicep-langserver
+unzip -qq bicep-langserver.zip -d ~/build/lib/bicep-langserver
+echo -e "#!/usr/bin/env bash\nexec dotnet ~/build/lib/bicep-langserver/Bicep.LangServer.dll" > ~/build/bin/bicep-langserver
+chmod +x ~/build/bin/bicep-langserver
+rm bicep-langserver.zip
+
+# helix
+if [ ! -d helix ]; then
+  echo "Cloning Helix for the first time..."
+  git clone https://github.com/helix-editor/helix
+  cd helix
+  cargo install --path helix-term --profile opt --locked 
+  rm -rf ~/.config/helix/runtime
+  mv runtime ~/.config/helix
+else
+  cd helix
+  git fetch
+  LOCAL=$(git rev-parse @)
+  REMOTE=$(git rev-parse @{u})
+
+  if [ "$LOCAL" = "$REMOTE" ]; then
+    echo "Helix is up to date. Skipping build."
+  else
+    echo "Changes detected. Building Helix..."
+    git pull
+    cargo install --path helix-term --profile opt --locked 
+    rm -rf ~/.config/helix/runtime
+    mv runtime ~/.config/helix
+  fi
+fi
+
+cargo install --root ~/build --locked --git https://github.com/SofusA/csharp-language-server.git
+csharp-language-server --download
+
+cargo install --root ~/build --locked --git https://github.com/sofusa/qobuz-player.git
+cargo install --root ~/build --locked --git https://github.com/SofusA/color-scheme.git
+cargo install --root ~/build --locked --git https://github.com/tekumara/typos-lsp.git
+cargo install --root ~/build --locked lazyjj
+cargo install --root ~/build --locked leptosfmt
+cargo install --root ~/build --locked --bin jj jj-cli
+cargo install --root ~/build --locked sd
+cargo install --root ~/build --locked caseify
+
+wget -q -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
+
