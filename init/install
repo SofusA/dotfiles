@@ -17,4 +17,3 @@ sudo rpm-ostree install \
   rust-alsa-sys-devel rust-openssl-sys-devel \
   gh \
   code
- 
