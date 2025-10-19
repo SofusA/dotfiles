@@ -68,11 +68,13 @@ csharp-language-server --download
 cargo install --root ~/build --locked --git https://github.com/sofusa/qobuz-player.git
 cargo install --root ~/build --locked --git https://github.com/SofusA/color-scheme.git
 cargo install --root ~/build --locked --git https://github.com/tekumara/typos-lsp.git
+cargo install --root ~/build --locked codebook-lsp
 cargo install --root ~/build --locked lazyjj
 cargo install --root ~/build --locked leptosfmt
 cargo install --root ~/build --locked --bin jj jj-cli
 cargo install --root ~/build --locked sd
 cargo install --root ~/build --locked caseify
+cargo install --root ~/build --locked sqlx-cli
 
 wget -q -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
 
