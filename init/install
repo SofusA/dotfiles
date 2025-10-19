@@ -17,9 +17,4 @@ sudo rpm-ostree install \
   rust-alsa-sys-devel rust-openssl-sys-devel \
   gh \
   code
-  
-# TODO
-# code
-# powershell
-# dnf5 -y copr enable vdanielmo/git-credential-manager
-# dnf5 install -yq git-credential-manager
+ 
