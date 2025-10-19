@@ -65,6 +65,7 @@ else
   else
     echo "Changes detected. Building Helix..."
     git pull
+    rm -rf ./target
     cargo install --path helix-term --profile opt --locked 
     rm -rf ~/.config/helix/runtime
     mv runtime ~/.config/helix
