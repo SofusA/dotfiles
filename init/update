@@ -3,9 +3,18 @@
 mkdir -p ~/build
 cd ~/build
 
-npm config set prefix ~/build
+# powershell
+wget -q $(curl -s https://api.github.com/repos/powershell/powershell/releases/latest | jq -r '.assets[] | select(.name | test(".*-linux-x64.tar.gz")).browser_download_url')
+mkdir -p ~/build/lib/powershell
+tar -xf powershell-7.5.3-linux-x64.tar.gz -C ~/build/lib/powershell
+chmod +x ~/build/lib/powershell/pwsh
+rm ~/build/bin/pwsh
+if [ ! -e ~/build/bin/pwsh ]; then
+    ln -s ~/build/lib/powershell/pwsh ~/build/bin/pwsh
+fi
 
-dotnet tool update --tool-path ~/build/bin csharpier
+# npm packages
+npm config set prefix ~/build
 
 packages=(
   azure-functions-core-tools
@@ -29,7 +38,7 @@ for pkg in "${packages[@]}"; do
   fi
 done
 
-
+# Bicep language server
 wget -q https://github.com/Azure/bicep/releases/latest/download/bicep-langserver.zip
 rm -rf ~/build/lib/bicep-langserver
 unzip -qq bicep-langserver.zip -d ~/build/lib/bicep-langserver
@@ -62,6 +71,7 @@ else
   fi
 fi
 
+# cargo packages
 cargo install --root ~/build --locked --git https://github.com/SofusA/csharp-language-server.git
 csharp-language-server --download
 
@@ -76,5 +86,8 @@ cargo install --root ~/build --locked sd
 cargo install --root ~/build --locked caseify
 cargo install --root ~/build --locked sqlx-cli
 
-wget -q -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
+# dotnet packages
+dotnet tool update --tool-path ~/build/bin csharpier
 
+# other
+wget -q -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
