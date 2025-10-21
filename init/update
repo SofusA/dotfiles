@@ -65,8 +65,9 @@ else
   else
     echo "Changes detected. Building Helix..."
     git pull
-    rm -rf ./target
-    cargo install --path helix-term --profile opt --locked 
+    rm -rf target
+    cargo build --profile opt --locked 
+    mv target/opt/hx ~/build/bin
     rm -rf ~/.config/helix/runtime
     mv runtime ~/.config/helix
   fi
@@ -87,6 +88,7 @@ cargo install --root ~/build --locked sd
 cargo install --root ~/build --locked caseify
 cargo install --root ~/build --locked scooter
 cargo install --root ~/build --locked sqlx-cli
+cargo install --root ~/build --locked cargo-machete
 
 # dotnet packages
 dotnet tool update --tool-path ~/build/bin csharpier
