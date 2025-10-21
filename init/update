@@ -85,6 +85,7 @@ cargo install --root ~/build --locked leptosfmt
 cargo install --root ~/build --locked --bin jj jj-cli
 cargo install --root ~/build --locked sd
 cargo install --root ~/build --locked caseify
+cargo install --root ~/build --locked scooter
 cargo install --root ~/build --locked sqlx-cli
 
 # dotnet packages
