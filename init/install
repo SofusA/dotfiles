@@ -3,17 +3,19 @@
 sudo curl -O https://packages.microsoft.com/keys/microsoft.asc -L --output-dir /etc/pki/rpm-gpg
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
 
+sudo wget -P /etc/yum.repos.d/ https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-rawhide/scottames-ghostty-fedora-rawhide.repo
+
 sudo rpm-ostree reset
 sudo rpm-ostree install \
   ghostty \
   niri swayidle mako \
   cargo clippy rustfmt rust-analyzer \
-  zoxide atuin fd-find ripgrep skim eza \
+  zoxide atuin fd-find ripgrep \
   sudo-rs uutils-coreutils \
   cowsay kitty \
   npm \
-  clang \
   dotnet-sdk-9.0 dotnet-sdk-8.0 aspnetcore-runtime-9.0 azure-cli \
-  rust-alsa-sys-devel rust-openssl-sys-devel \
   gh \
-  code
+  code \
+  rust-alsa-sys-devel rust-openssl-sys-devel \
+  clang 

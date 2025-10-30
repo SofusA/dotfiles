@@ -1,7 +1,3 @@
-[language-server.typos]
-command = "typos-lsp"
-config.diagnosticSeverity = "Warning"
-
 [language-server.codebook]
 command = "codebook-lsp"
 args = ["serve"]

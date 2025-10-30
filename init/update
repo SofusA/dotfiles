@@ -64,22 +64,20 @@ else
     echo "Helix is up to date. Skipping build."
   else
     echo "Changes detected. Building Helix..."
-    git pull
-    rm -rf target
-    cargo build --profile opt --locked 
-    mv target/opt/hx ~/build/bin
+    cd ..
+    git clone https://github.com/helix-editor/helix
+    cd helix
+    cargo install --path helix-term --profile opt --locked 
     rm -rf ~/.config/helix/runtime
     mv runtime ~/.config/helix
   fi
 fi
 
-# cargo packages
 cargo install --root ~/build --locked --git https://github.com/SofusA/csharp-language-server.git
 csharp-language-server --download
 
 cargo install --root ~/build --locked --git https://github.com/sofusa/qobuz-player.git
 cargo install --root ~/build --locked --git https://github.com/SofusA/color-scheme.git
-cargo install --root ~/build --locked --git https://github.com/tekumara/typos-lsp.git
 cargo install --root ~/build --locked codebook-lsp
 cargo install --root ~/build --locked lazyjj
 cargo install --root ~/build --locked leptosfmt
@@ -89,9 +87,9 @@ cargo install --root ~/build --locked caseify
 cargo install --root ~/build --locked scooter
 cargo install --root ~/build --locked sqlx-cli
 cargo install --root ~/build --locked cargo-machete
+cargo install --root ~/build --locked skim
+cargo install --root ~/build --locked eza
 
-# dotnet packages
 dotnet tool update --tool-path ~/build/bin csharpier
 
-# other
 wget -q -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
