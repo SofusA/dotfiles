@@ -6,9 +6,9 @@ cd ~/build
 # powershell
 wget -q $(curl -s https://api.github.com/repos/powershell/powershell/releases/latest | jq -r '.assets[] | select(.name | test(".*-linux-x64.tar.gz")).browser_download_url')
 mkdir -p ~/build/lib/powershell
-tar -xf powershell-7.5.3-linux-x64.tar.gz -C ~/build/lib/powershell
+tar -xf powershell-*-linux-x64.tar.gz -C ~/build/lib/powershell
 chmod +x ~/build/lib/powershell/pwsh
-rm ~/build/bin/pwsh
+rm powershell-*
 if [ ! -e ~/build/bin/pwsh ]; then
     ln -s ~/build/lib/powershell/pwsh ~/build/bin/pwsh
 fi
@@ -65,6 +65,7 @@ else
   else
     echo "Changes detected. Building Helix..."
     cd ..
+    rm -rf helix
     git clone https://github.com/helix-editor/helix
     cd helix
     cargo install --path helix-term --profile opt --locked 
@@ -79,8 +80,6 @@ csharp-language-server --download
 cargo install --root ~/build --locked --git https://github.com/sofusa/qobuz-player.git
 cargo install --root ~/build --locked --git https://github.com/SofusA/color-scheme.git
 cargo install --root ~/build --locked codebook-lsp
-cargo install --root ~/build --locked lazyjj
-cargo install --root ~/build --locked leptosfmt
 cargo install --root ~/build --locked --bin jj jj-cli
 cargo install --root ~/build --locked sd
 cargo install --root ~/build --locked caseify
