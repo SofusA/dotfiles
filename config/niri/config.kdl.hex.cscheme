@@ -50,7 +50,7 @@ input {
 }
 
 layout {
-    background-color "$dark-gray"
+    background-color "$black"
     always-center-single-column
     default-column-display "tabbed"
 

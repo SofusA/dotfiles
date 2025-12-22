@@ -15,7 +15,9 @@ sudo rpm-ostree install \
   sudo-rs uutils-coreutils \
   cowsay kitty \
   npm \
+  azure-cli \
   dotnet-sdk-10.0 aspnetcore-runtime-10.0 azure-cli \
+  dotnet-sdk-8.0 aspnetcore-runtime-8.0 azure-cli \
   gh \
   code \
   rust-alsa-sys-devel rust-openssl-sys-devel \
