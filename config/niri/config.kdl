@@ -70,7 +70,6 @@ layout {
         proportion 0.66667
     }
 
-
     gaps 16
 
     tab-indicator {
