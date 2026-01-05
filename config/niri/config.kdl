@@ -77,8 +77,8 @@ layout {
     }
 }
 
-// spawn-at-startup "swayidle" "-w" "timeout" "120" "swaylock"
-spawn-at-startup "swayidle" "-w" "timeout" "600" "systemctl suspend"
+spawn-at-startup "swayidle" "-w" "timeout" "120" "swaylock"
+// spawn-at-startup "swayidle" "-w" "timeout" "600" "systemctl suspend"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "waybar"
 spawn-at-startup "~/dotfiles/bg"
