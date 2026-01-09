@@ -44,7 +44,6 @@ language-servers = [ "codebook", "markdown-oxide" ]
 name = "c-sharp"
 formatter = { command = "csharpier", args = ["format"] }
 indent = { tab-width = 2, unit = "  " }
-auto-format = true
 language-servers = ["csharp", "codebook"]
 
 [[language]]

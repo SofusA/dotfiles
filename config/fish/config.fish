@@ -114,6 +114,6 @@ end
 alias th "cd ~"
 
 # starship init fish | source
-zoxide init --cmd t fish | source
-atuin init fish | sed 's/-k up/up/' | source
-# atuin init fish | source
+# zoxide init --cmd t fish | source
+lacy init --cmd t fish | source
+atuin init fish | source

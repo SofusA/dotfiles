@@ -49,7 +49,7 @@ rm bicep-langserver.zip
 # helix
 if [ ! -d helix ]; then
   echo "Cloning Helix for the first time..."
-  git clone https://github.com/helix-editor/helix
+    git clone -b root-marker-suffix https://github.com/sofusa/helix
   cd helix
   cargo install --path helix-term --profile opt --locked 
   rm -rf ~/.config/helix/runtime
@@ -66,7 +66,7 @@ else
     echo "Changes detected. Building Helix..."
     cd ..
     rm -rf helix
-    git clone https://github.com/helix-editor/helix
+    git clone -b root-marker-suffix https://github.com/sofusa/helix
     cd helix
     cargo install --path helix-term --profile opt --locked 
     rm -rf ~/.config/helix/runtime
@@ -88,6 +88,7 @@ cargo install --root ~/build --locked sqlx-cli
 cargo install --root ~/build --locked cargo-machete
 cargo install --root ~/build --locked skim
 cargo install --root ~/build --locked eza
+cargo install --root ~/build --locked lacy
 
 dotnet tool update --tool-path ~/build/bin csharpier
 

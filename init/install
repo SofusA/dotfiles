@@ -9,7 +9,7 @@ sudo wget -P /etc/yum.repos.d/ https://copr.fedorainfracloud.org/coprs/lihaohong
 sudo rpm-ostree reset
 sudo rpm-ostree install \
   ghostty \
-  niri swayidle mako \
+  niri swayidle mako swaybg \
   cargo clippy rustfmt rust-analyzer \
   zoxide atuin fd-find ripgrep \
   sudo-rs uutils-coreutils \
@@ -22,4 +22,5 @@ sudo rpm-ostree install \
   code \
   rust-alsa-sys-devel rust-openssl-sys-devel \
   clang \
-  yazi
+  yazi \
+  asciiquarium
