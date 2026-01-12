@@ -77,31 +77,6 @@ function dtt
     dotnet test -v quiet --nologo -l:"console;verbosity=normal" --filter Name~$argv
 end
 
-function ts
-    if set -q argv[1]
-        t $argv[1]
-    else
-        set dir (fd -t d | sk --preview 'eza -1 --icons --group-directories-first {} --color=always')
-
-        if not test -z "$dir"
-            t $dir
-        end
-    end
-end
-
-function tr
-    if set -q argv[1]
-        t $argv[1]
-    else
-        set dir (fd -t d -d 1 | sort -r -f | cat - (echo .. | psub) | sk --preview 'eza -1 --icons --group-directories-first {} --color=always')
-
-        if not test -z "$dir"
-            t $dir
-            tr
-        end
-    end
-end
-
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
     yazi $argv --cwd-file="$tmp"
@@ -113,7 +88,5 @@ end
 
 alias th "cd ~"
 
-# starship init fish | source
-# zoxide init --cmd t fish | source
-lacy init --cmd t fish | source
 atuin init fish | source
+pathmarks init fish | source

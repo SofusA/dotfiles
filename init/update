@@ -78,7 +78,8 @@ cargo install --root ~/build --locked --git https://github.com/SofusA/csharp-lan
 csharp-language-server --download
 
 cargo install --root ~/build --locked --git https://github.com/sofusa/qobuz-player.git
-cargo install --root ~/build --locked --git https://github.com/SofusA/color-scheme.git
+cargo install --root ~/build --locked --git https://github.com/sofusa/color-scheme.git
+cargo install --root ~/build --locked --git https://github.com/sofusa/pathmarks.git
 cargo install --root ~/build --locked codebook-lsp
 cargo install --root ~/build --locked --bin jj jj-cli
 cargo install --root ~/build --locked sd
@@ -88,7 +89,6 @@ cargo install --root ~/build --locked sqlx-cli
 cargo install --root ~/build --locked cargo-machete
 cargo install --root ~/build --locked skim
 cargo install --root ~/build --locked eza
-cargo install --root ~/build --locked lacy
 
 dotnet tool update --tool-path ~/build/bin csharpier
 
