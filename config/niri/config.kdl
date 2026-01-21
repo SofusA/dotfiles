@@ -81,7 +81,7 @@ spawn-at-startup "swayidle" "-w" "timeout" "600" "swaylock"
 // spawn-at-startup "swayidle" "-w" "timeout" "600" "systemctl suspend"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "waybar"
-spawn-at-startup "~/dotfiles/bg"
+spawn-sh-at-startup "sleep 10; ~/dotfiles/bg"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 

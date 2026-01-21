@@ -3,15 +3,21 @@
 sudo curl https://packages.microsoft.com/keys/microsoft.asc -fsSL -o /etc/pki/rpm-gpg/microsoft.asc
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
 
-sudo wget -PO /etc/yum.repos.d/ https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-rawhide/scottames-ghostty-fedora-rawhide.repo
-sudo wget -PO /etc/yum.repos.d/ https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-rawhide/lihaohong-yazi-fedora-rawhide.repo
+
+sudo wget -q \
+  -O /etc/yum.repos.d/scottames-ghostty.repo \
+  https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-rawhide/scottames-ghostty-fedora-rawhide.repo
+
+sudo wget -q \
+  -O /etc/yum.repos.d/lihaohong-yazi.repo \
+  https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-rawhide/lihaohong-yazi-fedora-rawhide.repo
+
 
 sudo rpm-ostree reset
 sudo rpm-ostree install \
   ghostty \
   niri swayidle mako swaybg \
-  cargo clippy rustfmt rust-analyzer \
-  zoxide atuin fd-find ripgrep \
+  atuin fd-find ripgrep \
   sudo-rs uutils-coreutils \
   cowsay kitty \
   npm \
@@ -20,7 +26,6 @@ sudo rpm-ostree install \
   dotnet-sdk-8.0 aspnetcore-runtime-8.0 azure-cli \
   gh \
   code \
-  rust-alsa-sys-devel rust-openssl-sys-devel \
-  clang \
-  yazi \
-  asciiquarium
+  rustup \
+  yazi 
+  # rust-alsa-sys-devel rust-openssl-sys-devel \
