@@ -11,16 +11,9 @@ alias nf "jj git fetch"
 alias nn "jj new"
 alias nbm "nb move --from @- --to @"
 alias n jj
+alias nr "tv jjrestore"
 
 alias music "qobuz-player open --audio-cache ~/Music --audio-cache-time-to-live 720"
-
-function nr
-    set file (jj log -r@ -n1 --no-graph -T "" --stat | awk -F'|' '/\|/ {print $1}' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | sk)
-
-    if not test -z "$file"
-        jj restore $file
-    end
-end
 
 function ls
     eza -1 --icons --group-directories-first $argv

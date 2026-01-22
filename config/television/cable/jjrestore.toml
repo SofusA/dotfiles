@@ -1,0 +1,18 @@
+[metadata]
+name = "jjrestore"
+description = "Restore changed files with jj"
+requirements = ["jj"]
+
+[source]
+command = "jj log -r@ -n1 --no-graph -T \"\" --stat | awk -F'|' '/\\|/ {print $1}'"
+
+[preview]
+command = "jj diff --color always '{0}'"
+
+[actions.restore]
+description = "Restore with jj"
+command = "jj restore '{0}'"
+mode = "execute"
+
+[keybindings]
+enter = "actions:restore"
