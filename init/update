@@ -91,5 +91,6 @@ cargo install --root ~/build --locked eza
 cargo install --root ~/build --locked television
 
 dotnet tool update --tool-path ~/build/bin csharpier
+dotnet tool update --tool-path ~/build/bin roslyn-language-server
 
 wget -q -qO- https://aka.ms/install-artifacts-credprovider.sh | bash

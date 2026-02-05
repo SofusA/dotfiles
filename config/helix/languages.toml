@@ -3,7 +3,8 @@ command = "codebook-lsp"
 args = ["serve"]
 
 [language-server.csharp]
-command = "csharp-language-server"
+command = "roslyn-language-server"
+args = ["--stdio", "--autoLoadProjects"]
 
 [language-server.angular]
 command = "ngserver"
