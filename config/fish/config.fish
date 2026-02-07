@@ -81,5 +81,5 @@ end
 
 alias th "cd ~"
 
-atuin init fish | source
+atuin init fish | sed 's/-k up/up/' | source
 pathmarks init fish | source
