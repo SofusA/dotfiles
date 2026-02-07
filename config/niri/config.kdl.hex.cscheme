@@ -2,6 +2,9 @@ prefer-no-csd
 
 environment {
     DISPLAY ":0"
+    GTK_IM_MODULE "ibus"
+    QT_IM_MODULE "ibus"
+    XMODIFYERS "@im=ibus"
 }
 
 hotkey-overlay {
