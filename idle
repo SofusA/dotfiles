@@ -1,0 +1,17 @@
+#! /bin/env bash
+
+source ~/.env
+
+LOCK="${LOCK:-true}"
+SUSPEND="${SUSPEND:-false}"
+
+echo $LOCK
+echo $SUSPEND
+
+if $LOCK; then
+  swayidle -w timeout 600 "swaylock"
+fi
+
+if $SUSPEND; then
+  swayidle -w timeout 600 "systemctl suspend"
+fi
