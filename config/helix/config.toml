@@ -112,14 +112,14 @@ l = "increment"
 L = "decrement"
 
 [keys.normal.c.c] # change case
-p = [":pipe caseify --pascal"]
+p = [":pipe caseify Pascal"]
 u = "switch_to_uppercase"
 l = "switch_to_lowercase"
-c = [":pipe caseify --camel"]
-s = [":pipe caseify --snake"]
-k = [":pipe caseify --kebab"]
-t = [":pipe caseify --capitalised"]
-o = [":pipe caseify --sentence"]
+c = [":pipe caseify Camel"]
+s = [":pipe caseify Snake"]
+k = [":pipe caseify Kebab"]
+t = [":pipe caseify Capitalised"]
+o = [":pipe caseify Sentence"]
 
 [keys.normal.space]
 f = "file_picker_in_current_directory"
