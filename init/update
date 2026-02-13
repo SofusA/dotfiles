@@ -89,6 +89,7 @@ cargo install --root ~/build --locked sqlx-cli
 cargo install --root ~/build --locked cargo-machete
 cargo install --root ~/build --locked eza
 cargo install --root ~/build --locked television
+cargo install --root ~/build --locked nu
 
 dotnet tool update --tool-path ~/build/bin csharpier
 dotnet tool update --tool-path ~/build/bin roslyn-language-server
