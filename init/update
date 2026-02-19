@@ -1,17 +1,26 @@
 #!/bin/env bash
-
 mkdir -p ~/build
 cd ~/build
 
-# powershell
-wget -q $(curl -s https://api.github.com/repos/powershell/powershell/releases/latest | jq -r '.assets[] | select(.name | test(".*-linux-x64.tar.gz")).browser_download_url')
-mkdir -p ~/build/lib/powershell
-tar -xf powershell-*-linux-x64.tar.gz -C ~/build/lib/powershell
-chmod +x ~/build/lib/powershell/pwsh
-rm powershell-*
-if [ ! -e ~/build/bin/pwsh ]; then
-    ln -s ~/build/lib/powershell/pwsh ~/build/bin/pwsh
-fi
+cargo install --root ~/build --locked --git https://github.com/sofusa/qobuz-player.git
+cargo install --root ~/build --locked color-scheme
+cargo install --root ~/build --locked pathmarks
+cargo install --root ~/build --locked codebook-lsp
+cargo install --root ~/build --locked --bin jj jj-cli
+cargo install --root ~/build --locked sd
+cargo install --root ~/build --locked caseify
+cargo install --root ~/build --locked scooter
+cargo install --root ~/build --locked sqlx-cli
+cargo install --root ~/build --locked cargo-machete
+cargo install --root ~/build --locked eza
+cargo install --root ~/build --locked television
+cargo install --root ~/build --locked nu
+
+dotnet tool update --tool-path ~/build/bin csharpier
+dotnet tool update --tool-path ~/build/bin roslyn-language-server
+
+# Other
+wget -q -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
 
 # npm packages
 npm config set prefix ~/build
@@ -37,6 +46,16 @@ for pkg in "${packages[@]}"; do
     npm install -g "$pkg"
   fi
 done
+
+# powershell
+wget -q $(curl -s https://api.github.com/repos/powershell/powershell/releases/latest | jq -r '.assets[] | select(.name | test(".*-linux-x64.tar.gz")).browser_download_url')
+mkdir -p ~/build/lib/powershell
+tar -xf powershell-*-linux-x64.tar.gz -C ~/build/lib/powershell
+chmod +x ~/build/lib/powershell/pwsh
+rm powershell-*
+if [ ! -e ~/build/bin/pwsh ]; then
+    ln -s ~/build/lib/powershell/pwsh ~/build/bin/pwsh
+fi
 
 # Bicep language server
 wget -q https://github.com/Azure/bicep/releases/latest/download/bicep-langserver.zip
@@ -73,25 +92,3 @@ else
     mv runtime ~/.config/helix
   fi
 fi
-
-cargo install --root ~/build --locked --git https://github.com/SofusA/csharp-language-server.git
-csharp-language-server --download
-
-cargo install --root ~/build --locked --git https://github.com/sofusa/qobuz-player.git
-cargo install --root ~/build --locked color-scheme
-cargo install --root ~/build --locked pathmarks
-cargo install --root ~/build --locked codebook-lsp
-cargo install --root ~/build --locked --bin jj jj-cli
-cargo install --root ~/build --locked sd
-cargo install --root ~/build --locked caseify
-cargo install --root ~/build --locked scooter
-cargo install --root ~/build --locked sqlx-cli
-cargo install --root ~/build --locked cargo-machete
-cargo install --root ~/build --locked eza
-cargo install --root ~/build --locked television
-cargo install --root ~/build --locked nu
-
-dotnet tool update --tool-path ~/build/bin csharpier
-dotnet tool update --tool-path ~/build/bin roslyn-language-server
-
-wget -q -qO- https://aka.ms/install-artifacts-credprovider.sh | bash

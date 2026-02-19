@@ -2,10 +2,6 @@
 command = "codebook-lsp"
 args = ["serve"]
 
-[language-server.csharp]
-command = "roslyn-language-server"
-args = ["--stdio", "--autoLoadProjects"]
-
 [language-server.angular]
 command = "ngserver"
 args = [
@@ -44,9 +40,9 @@ language-servers = [ "codebook", "markdown-oxide" ]
 [[language]]
 name = "c-sharp"
 # formatter = { command = "csharpier", args = ["format"] }
-# auto-format = true
+auto-format = true
 indent = { tab-width = 4, unit = "  " }
-language-servers = ["csharp", "codebook"]
+language-servers = ["roslyn-language-server", "codebook"]
 
 [[language]]
 name = "typescript"
