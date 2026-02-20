@@ -20,8 +20,6 @@ sudo rpm-ostree install \
   cowsay kitty \
   npm \
   azure-cli \
-  dotnet-sdk-10.0 aspnetcore-runtime-10.0 \
-  dotnet-sdk-8.0 aspnetcore-runtime-8.0 \
   gh \
   code \
   rustup \

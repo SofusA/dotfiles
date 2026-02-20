@@ -1,0 +1,12 @@
+#! /bin/env bash
+
+curl https://dot.net/v1/dotnet-install.sh -fsSL -o ~/.local/bin/dotnet-install.sh
+chmod +x ~/.local/bin/dotnet-install.sh
+
+dotnet-install.sh --channel 8.0
+dotnet-install.sh --runtime aspnetcore --channel 8.0
+
+dotnet-install.sh --channel 10.0
+dotnet-install.sh --runtime aspnetcore --channel 10.0
+
+ln -sf ~/.dotnet/dotnet ~/.local/bin/dotnet

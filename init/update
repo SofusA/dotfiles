@@ -1,4 +1,7 @@
 #!/bin/env bash
+
+scripts/install-dotnet
+
 mkdir -p ~/build
 cd ~/build
 
@@ -17,7 +20,8 @@ cargo install --root ~/build --locked television
 cargo install --root ~/build --locked nu
 
 dotnet tool update --tool-path ~/build/bin csharpier
-dotnet tool update --tool-path ~/build/bin roslyn-language-server
+dotnet tool update --tool-path ~/build/bin roslyn-language-server --prerelease
+dotnet tool update --tool-path ~/build/bin dotnet-outdated-tool
 
 # Other
 wget -q -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
