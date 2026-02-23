@@ -11,10 +11,6 @@ sudo wget -q \
   -O /etc/yum.repos.d/lihaohong-yazi.repo \
   https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-rawhide/lihaohong-yazi-fedora-rawhide.repo
 
-sudo wget -q \
-  -O /etc/yum.repos.d/atim-nushell.repo \
-  https://copr.fedorainfracloud.org/coprs/atim/nushell/repo/fedora-rawhide/atim-nushell-fedora-rawhide.repo
-
 sudo rpm-ostree reset
 sudo rpm-ostree install \
   ghostty \
@@ -30,5 +26,4 @@ sudo rpm-ostree install \
   clang \
   yazi \
   alsa-lib-devel protobuf-devel \
-  nushell
   # rust-alsa-sys-devel rust-openssl-sys-devel \
