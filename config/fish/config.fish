@@ -15,10 +15,6 @@ alias nr "tv jjrestore"
 
 alias music "qobuz-player open --audio-cache ~/Music --audio-cache-time-to-live 720"
 
-function ls
-    eza -1 --icons --group-directories-first $argv
-end
-
 alias sudo sudo-rs
 
 function fish_jj_prompt --description 'Write out the jj prompt'
@@ -65,11 +61,6 @@ function fish_prompt
     string join '' -- (set_color blue) (prompt_pwd) (set_color normal) (fish_jj_prompt) $stat '> '
 end
 
-alias dt "dotnet test"
-function dtt
-    dotnet test -v quiet --nologo -l:"console;verbosity=normal" --filter Name~$argv
-end
-
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
     yazi $argv --cwd-file="$tmp"
@@ -81,5 +72,5 @@ end
 
 alias th "cd ~"
 
-atuin init fish | sed 's/-k up/up/' | source
+atuin init fish | source
 pathmarks init fish | source

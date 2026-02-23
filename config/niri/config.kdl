@@ -95,7 +95,7 @@ workspace "🎵"
 workspace "📞"
 
 binds {
-    Mod+T { spawn "ghostty" "-e" "fish"; }
+    Mod+T { spawn "ghostty" "-e" "nu"; }
     Mod+D { spawn "fuzzel"; }
     Mod+L { spawn "swaylock"; }
 
