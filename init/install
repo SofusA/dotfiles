@@ -25,5 +25,5 @@ sudo rpm-ostree install \
   rustup \
   clang \
   yazi \
-  alsa-lib-devel protobuf-devel \
+  alsa-lib-devel SDL2-devel 
   # rust-alsa-sys-devel rust-openssl-sys-devel \
