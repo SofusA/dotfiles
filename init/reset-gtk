@@ -1,0 +1,4 @@
+#! /bin/env bash
+
+dconf reset -f /org/gnome/
+dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
