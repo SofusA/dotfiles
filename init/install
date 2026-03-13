@@ -25,5 +25,7 @@ sudo rpm-ostree install \
   rustup \
   clang \
   yazi \
-  alsa-lib-devel SDL2-devel 
+  alsa-lib-devel SDL2-devel \
+  chromedriver google-chrome-stable \
+  nushell
   # rust-alsa-sys-devel rust-openssl-sys-devel \
