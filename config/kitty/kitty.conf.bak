@@ -2,6 +2,6 @@ include current-theme.conf
 
 
 # BEGIN_KITTY_THEME
-# Gruvbox Dark Soft
+# Gruvbox Light Soft
 include current-theme.conf
 # END_KITTY_THEME

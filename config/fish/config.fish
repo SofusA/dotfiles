@@ -9,7 +9,7 @@ alias np "jj git push"
 alias npc "jj git push -c @"
 alias nf "jj git fetch"
 alias nn "jj new"
-alias nbm "nb move --from @- --to @"
+alias nbm "nb advance"
 alias n jj
 alias nr "tv jjrestore"
 

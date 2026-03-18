@@ -68,7 +68,10 @@ r = "flip_selections"
 O = "goto_prev_diag"
 o = "goto_next_diag"
 
-R = "no_op"
+pageup = ":half-page-up-smooth"
+pagedown = ":half-page-down-smooth"
+
+R = ":streal-open"
 J = "no_op"
 k = "no_op"
 Q = "no_op"

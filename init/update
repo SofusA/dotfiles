@@ -19,6 +19,50 @@ cargo install --root ~/build --locked eza
 cargo install --root ~/build --locked television
 cargo install --root ~/build --locked nu
 
+cargo install cargo-binstall
+ 
+# helix
+if [ ! -d helix ]; then
+  echo "Cloning Helix for the first time..."
+  git clone -b steel-event-system https://github.com/mattwparas/helix
+  cd helix
+  cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git steel-interpreter
+  cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git steel-language-server
+  cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git cargo-steel-lib
+  cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git steel-forge
+  forge pkg refresh
+  cargo install --root ~/build --path helix-term --features steel,git --profile opt --locked 
+  rm -rf ~/.config/helix/runtime
+  mv runtime ~/.config/helix
+else
+  cd helix
+  git fetch
+  LOCAL=$(git rev-parse @)
+  REMOTE=$(git rev-parse @{u})
+
+  if [ "$LOCAL" = "$REMOTE" ]; then
+    echo "Helix is up to date. Skipping build."
+  else
+    echo "Changes detected. Building Helix..."
+    cd ..
+    rm -rf helix
+    git clone -b steel-event-system https://github.com/mattwparas/helix
+    cd helix
+    cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git steel-interpreter
+    cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git steel-language-server
+    cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git cargo-steel-lib
+    cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git steel-forge
+    forge pkg refresh
+    cargo install --root ~/build --path helix-term --features steel,git --profile opt --locked 
+    rm -rf ~/.config/helix/runtime
+    mv runtime ~/.config/helix
+  fi
+fi
+
+forge pkg install --git https://github.com/thomasschafer/smooth-scroll.hx.git
+forge pkg install --git https://github.com/thomasschafer/scooter.hx.git
+forge pkg install --git https://github.com/gllms/streal.hx.git
+
 dotnet tool update --tool-path ~/build/bin csharpier
 dotnet tool update --tool-path ~/build/bin roslyn-language-server --prerelease
 dotnet tool update --tool-path ~/build/bin dotnet-outdated-tool
@@ -69,30 +113,3 @@ echo -e "#!/usr/bin/env bash\nexec dotnet ~/build/lib/bicep-langserver/Bicep.Lan
 chmod +x ~/build/bin/bicep-langserver
 rm bicep-langserver.zip
 
-# helix
-if [ ! -d helix ]; then
-  echo "Cloning Helix for the first time..."
-    git clone https://github.com/helix-editor/helix
-  cd helix
-  cargo install --root ~/build --path helix-term --profile opt --locked 
-  rm -rf ~/.config/helix/runtime
-  mv runtime ~/.config/helix
-else
-  cd helix
-  git fetch
-  LOCAL=$(git rev-parse @)
-  REMOTE=$(git rev-parse @{u})
-
-  if [ "$LOCAL" = "$REMOTE" ]; then
-    echo "Helix is up to date. Skipping build."
-  else
-    echo "Changes detected. Building Helix..."
-    cd ..
-    rm -rf helix
-    git clone https://github.com/helix-editor/helix
-    cd helix
-    cargo install --root ~/build --path helix-term --profile opt --locked 
-    rm -rf ~/.config/helix/runtime
-    mv runtime ~/.config/helix
-  fi
-fi

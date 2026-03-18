@@ -1,7 +1,22 @@
-#!/bin/bash
+#!/bin/env bash
 
+# Reset sources
+sudo rm -rf /etc/yum.repos.d/*
+sudo cp /usr/etc/yum.repos.d/* /etc/yum.repos.d/
+
+# Microsoft
 sudo curl https://packages.microsoft.com/keys/microsoft.asc -fsSL -o /etc/pki/rpm-gpg/microsoft.asc
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+
+# google
+ sudo tee /etc/yum.repos.d/google-chrome.repo << 'EOF'
+[google-chrome]
+name=google-chrome
+baseurl=https://dl.google.com/linux/chrome/rpm/stable/x86_64
+enabled=1
+gpgcheck=1
+gpgkey=https://dl.google.com/linux/linux_signing_key.pub
+EOF
 
 sudo wget -q \
   -O /etc/yum.repos.d/scottames-ghostty.repo \
@@ -10,6 +25,12 @@ sudo wget -q \
 sudo wget -q \
   -O /etc/yum.repos.d/lihaohong-yazi.repo \
   https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-rawhide/lihaohong-yazi-fedora-rawhide.repo
+
+sudo wget -q \
+  -O /etc/yum.repos.d/yalter-niri-git.repo \
+  https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-rawhide/yalter-niri-git-fedora-rawhide.repo
+
+echo "priority=1" | sudo tee -a /etc/yum.repos.d/yalter-niri-git.repo
 
 sudo rpm-ostree reset
 sudo rpm-ostree install \
@@ -27,5 +48,4 @@ sudo rpm-ostree install \
   yazi \
   alsa-lib-devel SDL2-devel \
   chromedriver google-chrome-stable \
-  nushell
-  # rust-alsa-sys-devel rust-openssl-sys-devel \
+  nu 
