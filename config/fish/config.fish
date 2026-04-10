@@ -13,7 +13,7 @@ alias nbm "nb advance"
 alias n jj
 alias nr "tv jjrestore"
 
-alias music "qobuz-player open --audio-cache ~/Music --audio-cache-time-to-live 720"
+alias music "qobuz-tui --audio-cache ~/Music --audio-cache-time-to-live 720"
 
 function ls
     eza -1 --icons --group-directories-first $argv

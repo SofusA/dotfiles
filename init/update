@@ -5,7 +5,7 @@ scripts/install-dotnet
 mkdir -p ~/build
 cd ~/build
 
-cargo install --root ~/build --locked --git https://github.com/sofusa/qobuz-player.git
+cargo install --root ~/build --locked --git https://github.com/sofusa/qobuz-player.git --bin qobuz-tui
 cargo install --root ~/build --locked color-scheme
 cargo install --root ~/build --locked pathmarks
 cargo install --root ~/build --locked codebook-lsp
