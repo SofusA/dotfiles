@@ -80,8 +80,7 @@ layout {
     }
 }
 
-spawn-at-startup "swayidle" "-w" "timeout" "600" "swaylock"
-// spawn-at-startup "swayidle" "-w" "timeout" "600" "systemctl suspend"
+spawn-at-startup "~/dotfiles/idle" 
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "waybar"
 spawn-sh-at-startup "sleep 10; ~/dotfiles/bg"

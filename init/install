@@ -46,6 +46,6 @@ sudo rpm-ostree install \
   rustup \
   clang \
   yazi \
-  alsa-lib-devel SDL2-devel \
+  alsa-lib-devel SDL2-devel rust-libadwaita-devel \
   chromedriver google-chrome-stable \
   nu 
