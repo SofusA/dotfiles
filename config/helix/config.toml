@@ -10,6 +10,9 @@ popup-border = "all"
 
 jump-label-alphabet = "abcdefghijklmnoprstuvwyz"
 
+[editor.lsp]
+auto-document-highlight = true
+
 [editor.soft-wrap]
 enable = true
 
