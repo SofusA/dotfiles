@@ -1,115 +1,23 @@
 #!/bin/env bash
 
+npm config set prefix ~/.npm
+
 scripts/install-dotnet
+brew bundle install
+brew bundle cleanup --force
 
-mkdir -p ~/build
-cd ~/build
-
-cargo install --root ~/build --locked --git https://github.com/sofusa/qobuz-player.git --bin qobuz-tui
-cargo install --root ~/build --locked color-scheme
-cargo install --root ~/build --locked pathmarks
-cargo install --root ~/build --locked codebook-lsp
-cargo install --root ~/build --locked --bin jj jj-cli
-cargo install --root ~/build --locked sd
-cargo install --root ~/build --locked caseify
-cargo install --root ~/build --locked scooter
-cargo install --root ~/build --locked sqlx-cli
-cargo install --root ~/build --locked cargo-machete
-cargo install --root ~/build --locked eza
-cargo install --root ~/build --locked television
-cargo install --root ~/build --locked nu
-
-cargo install cargo-binstall
- 
-# helix
-if [ ! -d helix ]; then
-  echo "Cloning Helix for the first time..."
-  git clone -b steel-event-system https://github.com/mattwparas/helix
-  cd helix
-  cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git steel-interpreter
-  cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git steel-language-server
-  cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git cargo-steel-lib
-  cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git steel-forge
-  forge pkg refresh
-  cargo install --root ~/build --path helix-term --features steel,git --profile opt --locked 
-  rm -rf ~/.config/helix/runtime
-  mv runtime ~/.config/helix
-else
-  cd helix
-  git fetch
-  LOCAL=$(git rev-parse @)
-  REMOTE=$(git rev-parse @{u})
-
-  if [ "$LOCAL" = "$REMOTE" ]; then
-    echo "Helix is up to date. Skipping build."
-  else
-    echo "Changes detected. Building Helix..."
-    cd ..
-    rm -rf helix
-    git clone -b steel-event-system https://github.com/mattwparas/helix
-    cd helix
-    cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git steel-interpreter
-    cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git steel-language-server
-    cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git cargo-steel-lib
-    cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git steel-forge
-    forge pkg refresh
-    cargo install --root ~/build --path helix-term --features steel,git --profile opt --locked 
-    rm -rf ~/.config/helix/runtime
-    mv runtime ~/.config/helix
-  fi
-fi
-
-forge pkg install --git https://github.com/thomasschafer/smooth-scroll.hx.git
-forge pkg install --git https://github.com/thomasschafer/scooter.hx.git
-forge pkg install --git https://github.com/gllms/streal.hx.git
-
-dotnet tool update --tool-path ~/build/bin csharpier
-dotnet tool update --tool-path ~/build/bin roslyn-language-server --prerelease
-dotnet tool update --tool-path ~/build/bin dotnet-outdated-tool
+dotnet tool update --tool-path ~/.local/bin csharpier
+dotnet tool update --tool-path ~/.local/bin roslyn-language-server --prerelease
+dotnet tool update --tool-path ~/.local/bin dotnet-outdated-tool
 
 # Other
 wget -q -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
-
-# npm packages
-npm config set prefix ~/build
-
-packages=(
-  azure-functions-core-tools
-  prettier
-  @tailwindcss/language-server
-  vscode-langservers-extracted
-  typescript-language-server
-  typescript
-  @angular/cli
-  @angular/language-service
-  @angular/language-server
-)
-
-for pkg in "${packages[@]}"; do
-  if npm list -g --depth=0 "$pkg" >/dev/null 2>&1; then
-    echo "Updating $pkg..."
-    npm update -g "$pkg"
-  else
-    echo "Installing $pkg..."
-    npm install -g "$pkg"
-  fi
-done
-
-# powershell
-wget -q $(curl -s https://api.github.com/repos/powershell/powershell/releases/latest | jq -r '.assets[] | select(.name | test(".*-linux-x64.tar.gz")).browser_download_url')
-mkdir -p ~/build/lib/powershell
-tar -xf powershell-*-linux-x64.tar.gz -C ~/build/lib/powershell
-chmod +x ~/build/lib/powershell/pwsh
-rm powershell-*
-if [ ! -e ~/build/bin/pwsh ]; then
-    ln -s ~/build/lib/powershell/pwsh ~/build/bin/pwsh
-fi
 
 # Bicep language server
 wget -q https://github.com/Azure/bicep/releases/latest/download/bicep-langserver.zip
 rm -rf ~/build/lib/bicep-langserver
 unzip -qq bicep-langserver.zip -d ~/build/lib/bicep-langserver
-echo -e "#!/usr/bin/env bash\nexec dotnet ~/build/lib/bicep-langserver/Bicep.LangServer.dll" > ~/build/bin/bicep-langserver
+echo -e "#!/usr/bin/env bash\nexec dotnet ~/build/lib/bicep-langserver/Bicep.LangServer.dll" > ~/.local/bin/bicep-langserver
 chmod +x ~/build/bin/bicep-langserver
 rm bicep-langserver.zip
 

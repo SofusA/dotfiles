@@ -8,23 +8,9 @@ sudo cp /usr/etc/yum.repos.d/* /etc/yum.repos.d/
 sudo curl https://packages.microsoft.com/keys/microsoft.asc -fsSL -o /etc/pki/rpm-gpg/microsoft.asc
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
 
-# google
- sudo tee /etc/yum.repos.d/google-chrome.repo << 'EOF'
-[google-chrome]
-name=google-chrome
-baseurl=https://dl.google.com/linux/chrome/rpm/stable/x86_64
-enabled=1
-gpgcheck=1
-gpgkey=https://dl.google.com/linux/linux_signing_key.pub
-EOF
-
 sudo wget -q \
   -O /etc/yum.repos.d/scottames-ghostty.repo \
   https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-rawhide/scottames-ghostty-fedora-rawhide.repo
-
-sudo wget -q \
-  -O /etc/yum.repos.d/lihaohong-yazi.repo \
-  https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-rawhide/lihaohong-yazi-fedora-rawhide.repo
 
 sudo wget -q \
   -O /etc/yum.repos.d/yalter-niri-git.repo \
@@ -34,17 +20,9 @@ echo "priority=1" | sudo tee -a /etc/yum.repos.d/yalter-niri-git.repo
 
 sudo rpm-ostree reset
 sudo rpm-ostree install \
-  ghostty \
   niri swayidle mako swaybg \
-  atuin fd-find ripgrep \
-  sudo-rs uutils-coreutils \
-  cowsay kitty \
-  npm \
-  azure-cli \
-  gh \
+  ghostty \
   code \
-  clang \
-  yazi \
+  sudo-rs uutils-coreutils \
   alsa-lib-devel rust-libadwaita-devel webkitgtk6.0-devel \
-  chromedriver google-chrome-stable \
   nu 

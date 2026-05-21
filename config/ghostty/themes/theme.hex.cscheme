@@ -1,4 +1,4 @@
-palette = 0=$black
+palette = 0=$dark-gray
 palette = 1=$red
 palette = 2=$green
 palette = 3=$yellow
@@ -7,7 +7,7 @@ palette = 5=$purple
 palette = 6=$cyan
 palette = 7=$white
 
-palette = 8=$black
+palette = 8=$dark-gray
 palette = 9=$red
 palette = 10=$green
 palette = 11=$yellow
@@ -21,4 +21,4 @@ foreground = $white
 cursor-color = $faint-gray
 cursor-text = $black
 selection-background = $light-gray
-selection-foreground = $black
+selection-foreground = $light-black
