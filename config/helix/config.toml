@@ -53,8 +53,6 @@ C-tab = "goto_next_buffer"
 C-S-tab = "goto_previous_buffer"
 C-w = ":buffer-close"
 
-j = "extend_line_below"
-
 esc = ["collapse_selection", "keep_primary_selection"]
 
 n = "move_char_left"
@@ -71,6 +69,7 @@ r = "flip_selections"
 O = "goto_prev_diag"
 o = "goto_next_diag"
 
+j = "no_op"
 J = "no_op"
 k = "no_op"
 Q = "no_op"
