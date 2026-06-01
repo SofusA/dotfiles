@@ -20,6 +20,7 @@ function ls
 end
 
 alias sudo sudo-rs
+alias crlf-line-endings "fd -t f -x perl -pi -e 's/\r?\n/\r\n/g'"
 
 function fish_jj_prompt --description 'Write out the jj prompt'
     if not command -sq jj
