@@ -1,4 +1,3 @@
-brew "cargo-binstall"
 brew "helix", args: ["HEAD"]
 brew "codebook-lsp"
 brew "jj"
@@ -9,7 +8,6 @@ brew "eza"
 brew "television"
 brew "nushell"
 brew "powershell"
-brew "cargo-binstall"
 brew "atuin"
 brew "fd"
 brew "ripgrep"
