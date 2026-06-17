@@ -64,7 +64,7 @@
 "ui.cursor.match" = { fg = "blue", modifiers = ["underlined"]}
 
 "ui.selection" = { bg = "light-black" }
-"ui.selection.primary" = { bg = "dark-gray" }
+"ui.selection.primary" = { bg = "light-black" }
 "ui.cursorline.primary" = { bg = "light-black" }
 
 "ui.highlight" = { bg = "gray" }
