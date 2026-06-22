@@ -45,11 +45,6 @@ input {
         natural-scroll
         accel-profile "flat"
     }
-
-    mouse {
-        accel-speed 1.0
-        accel-profile "flat"
-    }
 }
 
 layout {
