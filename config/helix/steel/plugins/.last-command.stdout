@@ -1,0 +1,13 @@
+Installing package from git with args:  #true 
+Fetching package from git:  streal.hx 
+Updating git repo from remote...
+Fetching origin for repo
+Received 0/0 objects in 0 bytes
+Already up to date.
+=> Installing:  #hash((path . /var/home/sofusa/.local/share/steel/cog-sources/streal.hx/) (package-name . streal) (dependencies . ()) (version . 0.3.0)) 
+   ...Installing to: /var/home/sofusa/.local/share/steel/cogs/streal 
+Checking if the paths are equivalent:  /var/home/sofusa/.local/share/steel/cog-sources/streal.hx/ /var/home/sofusa/.local/share/steel/cogs/streal 
+Package has changed.
+=> Copied package over to:  /var/home/sofusa/.local/share/steel/cogs/streal 
+✅ Installed package to: /var/home/sofusa/.local/share/steel/cogs/streal
+

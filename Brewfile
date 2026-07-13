@@ -1,4 +1,4 @@
-brew "helix", args: ["HEAD"]
+# brew "helix", args: ["HEAD"]
 brew "codebook-lsp"
 brew "jj"
 brew "sd"
@@ -15,6 +15,7 @@ brew "npm"
 brew "azure-cli"
 brew "gh"
 brew "yazi"
+brew "cargo-binstall"
 
 cargo "pathmarks"
 cargo "color-scheme"
