@@ -31,26 +31,21 @@ function fish_jj_prompt --description 'Write out the jj prompt'
         return 1
     end
 
-    jj log --ignore-working-copy --no-graph --color always -r @ -T '
-        surround(
-            " (",
-            ")",
-            separate(
-                " ",
-                bookmarks.join(", "),
-                coalesce(
-                    if(
-                        description.first_line().substr(0, 24).starts_with(description.first_line()),
-                        description.first_line().substr(0, 24),
-                        description.first_line().substr(0, 23) ++ "…"
-                    ),
-                    label(if(empty, "empty"), description_placeholder)
+    jj log --no-graph --color always -r @ -T '
+        separate(
+            " ",
+            bookmarks.join(", "),
+            coalesce(
+                if(
+                    description.first_line().substr(0, 24).starts_with(description.first_line()),
+                    description.first_line().substr(0, 24),
+                    description.first_line().substr(0, 23) ++ "…"
                 ),
-                if(conflict, label("conflict", "conflict")),
-                if(empty, label("empty", "empty")),
-                if(divergent, "divergent"),
-                if(hidden, "hidden"),
-            )
+                description_placeholder
+            ),
+            if(conflict, label("conflict", "conflict")),
+            if(divergent, "divergent"),
+            if(hidden, "hidden")
         )
     '
 end
@@ -63,7 +58,7 @@ function fish_prompt
         set stat (set_color red)"[$last_status]"(set_color normal)
     end
 
-    string join '' -- (set_color blue) (prompt_pwd) (set_color normal) (fish_jj_prompt) $stat '> '
+    string join '' -- (set_color blue) (prompt_pwd) (set_color normal)\ \((fish_jj_prompt)\) $stat '> '
 end
 
 alias dt "dotnet test"

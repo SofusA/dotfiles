@@ -22,28 +22,22 @@
 ;; Keep the template as a separate string so Scheme and shell quoting
 ;; do not become intertwined.
 (define jj-template
-  "surround(
-     \" (\",
-     \")\",
-     separate(
-       \" \",
-       bookmarks.join(\", \"),
-       coalesce(
-         if(
-           description.first_line().substr(0, 24).starts_with(
-             description.first_line()
-           ),
-           description.first_line().substr(0, 24),
-           description.first_line().substr(0, 23) ++ \"…\"
-         ),
-         label(if(empty, \"empty\"), description_placeholder)
-       ),
-       if(conflict, label(\"conflict\", \"conflict\")),
-       if(empty, label(\"empty\", \"empty\")),
-       if(divergent, \"divergent\"),
-       if(hidden, \"hidden\")
-     )
-   )")
+    "separate(
+            \" \",
+            bookmarks.join(\", \"),
+            coalesce(
+                if(
+                    description.first_line().substr(0, 24).starts_with(description.first_line()),
+                    description.first_line().substr(0, 24),
+                    description.first_line().substr(0, 23) ++ \"…\"
+                ),
+                description_placeholder
+            ),
+            if(conflict, label(\"conflict\", \"conflict\")),
+            if(divergent, \"divergent\"),
+            if(hidden, \"hidden\")
+        )
+   ")
 
 ;; Return the parent directory of a path.
 ;;
@@ -100,10 +94,8 @@
           "jj"
           (list
             "log"
-            "--ignore-working-copy"
             "--no-graph"
 
-            ;; See the color note below.
             "--color"
             "never"
 
