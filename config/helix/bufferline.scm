@@ -35,6 +35,9 @@
 ;; Each entry is: (list path start-column end-column)
 (define *ux-bufferline-tabs* '())
 
+;; Stores path -> 1-based cursor line.
+(define *ux-bufferline-lines* '())
+
 (define (ux-bufferline-install-component!)
   (unless *ux-bufferline-component-installed?*
     (push-component!
@@ -316,6 +319,30 @@
          [else
           (loop (cdr rest) (car rest))]))]))
 
+(define (ux-bufferline-save-line! path line)
+  (set! *ux-bufferline-lines*
+        (cons (list path line)
+              (ux-filter
+                (lambda (entry)
+                  (not (equal? (car entry) path)))
+                *ux-bufferline-lines*))))
+
+(define (ux-bufferline-line-for path)
+  (let loop ([entries *ux-bufferline-lines*])
+    (cond
+      [(null? entries) 1]
+      [(equal? (car (car entries)) path)
+       (cadr (car entries))]
+      [else
+       (loop (cdr entries))])))
+
+(define (ux-bufferline-save-current-line!)
+  (define path (ux-current-path))
+  (when path
+    (ux-bufferline-save-line!
+      path
+      (+ 1 (get-current-line-number)))))
+
 ;; Keep this command call isolated because the Steel wrapper signature has
 ;; changed across experimental Helix revisions.
 ;;
@@ -323,7 +350,16 @@
 ;; represented as a list of strings.
 (define (ux-bufferline-open-path! path)
   (when path
-    (apply helix.open (list path))
+    (ux-bufferline-save-current-line!)
+
+    (apply helix.open
+      (list
+        (string-append
+          path
+          ":"
+          (number->string
+            (ux-bufferline-line-for path)))))
+
     (helix.redraw)))
 
 ;;@doc
