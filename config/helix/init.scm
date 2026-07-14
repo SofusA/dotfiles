@@ -13,3 +13,6 @@
 
 (smith-init)
 
+(require (only-in "bufferline.scm" ux-bufferline-enable!))
+
+(ux-bufferline-enable!)

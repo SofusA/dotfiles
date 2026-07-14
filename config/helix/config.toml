@@ -49,8 +49,8 @@ y = "goto_line_end"
 Y = "extend_to_line_end"
 L = "extend_to_first_nonwhitespace"
 
-C-tab = "goto_next_buffer"
-C-S-tab = "goto_previous_buffer"
+C-tab = ":ux-bufferline-next"
+C-S-tab = ":ux-bufferline-previous"
 C-w = ":buffer-close"
 
 esc = ["collapse_selection", "keep_primary_selection"]
@@ -71,9 +71,12 @@ o = "goto_next_diag"
 
 j = "no_op"
 J = "no_op"
-k = "no_op"
 Q = "no_op"
 "/" = "no_op"
+
+[keys.normal.k]
+C-tab = ":ux-bufferline-move-right"
+C-S-tab = ":ux-bufferline-move-left"
 
 [keys.normal.backspace]
 backspace = ":q"
