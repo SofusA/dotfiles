@@ -16,3 +16,5 @@
 (require (only-in "bufferline.scm" ux-bufferline-enable!))
 
 (ux-bufferline-enable!)
+
+(require "jj-status.scm")
