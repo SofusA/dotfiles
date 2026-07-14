@@ -18,3 +18,4 @@
 (ux-bufferline-enable!)
 
 (require "jj-status.scm")
+(setup-jj-status! 'center)

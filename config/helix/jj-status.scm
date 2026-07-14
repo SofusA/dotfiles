@@ -5,14 +5,14 @@
 (require "helix/editor.scm")
 (require "steel/result")
 
-(provide jj-status-element)
+(provide jj-status-element setup-jj-status!)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Configuration
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Minimum time between jj invocations for the same directory.
-(define jj-refresh-interval-ms 1000)
+(define jj-refresh-interval-ms 10000)
 
 ;; Keep the JJ template separate from the command invocation so that quoting
 ;; does not need to pass through a shell.
@@ -275,4 +275,5 @@
           (list
             (span output (style)))))))
 
-(push-status-element! 'center jj-status-element)
+(define (setup-jj-status! position)
+  (push-status-element! position jj-status-element))
