@@ -24,5 +24,4 @@ sudo rpm-ostree install \
   ghostty \
   code \
   sudo-rs uutils-coreutils \
-  alsa-lib-devel rust-libadwaita-devel webkitgtk6.0-devel \
-  nu 
+  alsa-lib-devel rust-libadwaita-devel webkitgtk6.0-devel 

@@ -87,7 +87,7 @@ workspace "🎵"
 workspace "📞"
 
 binds {
-    Mod+T { spawn "ghostty" "-e" "fish"; }
+    Mod+T { spawn "ghostty" "-e" "/home/linuxbrew/.linuxbrew/bin/fish"; }
     Mod+D { spawn "fuzzel"; }
     Mod+L { spawn "swaylock"; }
 

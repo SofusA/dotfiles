@@ -21,6 +21,8 @@ brew "prettier"
 brew "typescript-language-server"
 brew "vscode-langservers-extracted"
 brew "terraform-ls"
+brew "fish"
+brew "fish-lsp"
 
 tap "Xerxes-2/homebrew-tap"
 brew "steel"
