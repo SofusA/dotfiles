@@ -17,6 +17,10 @@ brew "gh"
 brew "yazi"
 brew "cargo-binstall"
 
+tap "Xerxes-2/homebrew-tap"
+brew "steel", args: ["HEAD"]
+brew "helix-steel", args: ["HEAD"]
+
 cargo "pathmarks"
 cargo "color-scheme"
 cargo "caseify"

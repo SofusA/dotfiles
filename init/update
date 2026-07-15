@@ -3,6 +3,8 @@
 npm config set prefix ~/.npm
 
 scripts/install-dotnet
+
+brew trust xerxes-2/tap
 brew bundle install
 brew upgrade -y
 brew bundle cleanup --force
@@ -10,20 +12,6 @@ brew bundle cleanup --force
 dotnet tool update --tool-path ~/.local/bin csharpier
 dotnet tool update --tool-path ~/.local/bin roslyn-language-server --prerelease
 dotnet tool update --tool-path ~/.local/bin dotnet-outdated-tool
-
-# Helix steel
-git clone -b steel-event-system https://github.com/mattwparas/helix
-cd helix
-cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git steel-interpreter
-cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git steel-language-server
-cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git cargo-steel-lib
-cargo binstall -y --root ~/build --git https://github.com/mattwparas/steel.git steel-forge
-forge pkg refresh
-cargo install --root ~/build --path helix-term --features steel,git --profile opt --locked 
-rm -rf ~/.config/helix/runtime
-mv runtime ~/.config/helix
-cd ..
-rm -rf helix
 
 forge pkg install --git https://github.com/kn66/smith.hx.git
 
