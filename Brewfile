@@ -20,6 +20,7 @@ brew "tailwindcss-language-server"
 brew "prettier"
 brew "typescript-language-server"
 brew "vscode-langservers-extracted"
+brew "terraform-ls"
 
 tap "Xerxes-2/homebrew-tap"
 brew "steel"
