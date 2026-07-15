@@ -10,6 +10,8 @@ brew bundle install
 brew upgrade -y
 brew bundle cleanup --force
 
+scripts/update-helix
+
 dotnet tool update --tool-path ~/.local/bin csharpier
 dotnet tool update --tool-path ~/.local/bin roslyn-language-server --prerelease
 dotnet tool update --tool-path ~/.local/bin dotnet-outdated-tool

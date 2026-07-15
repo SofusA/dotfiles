@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+REPO_URL="https://github.com/mattwparas/helix.git"
+BRANCH="steel-event-system"
+PACKAGE="helix-steel"
+
+echo "Checking local Helix version..."
+
+if ! command -v hx >/dev/null 2>&1; then
+  echo "hx is not installed or not in PATH."
+  echo "Installing/reinstalling ${PACKAGE}..."
+  brew reinstall "$PACKAGE"
+  exit 0
+fi
+
+HX_VERSION_OUTPUT="$(hx --version)"
+echo "Local version: ${HX_VERSION_OUTPUT}"
+
+# Extract commit hash from output like:
+# helix 25.07.1 (0522d519)
+LOCAL_COMMIT="$(echo "$HX_VERSION_OUTPUT" | sed -n 's/.*(\([a-fA-F0-9]\{7,40\}\)).*/\1/p')"
+
+if [ -z "$LOCAL_COMMIT" ]; then
+  echo "Could not extract local Helix commit from hx --version output."
+  echo "Reinstalling ${PACKAGE}..."
+  brew reinstall "$PACKAGE"
+  exit 0
+fi
+
+echo "Local commit: ${LOCAL_COMMIT}"
+
+echo "Checking latest remote commit from ${BRANCH}..."
+
+REMOTE_COMMIT="$(git ls-remote "$REPO_URL" "refs/heads/${BRANCH}" | awk '{print $1}')"
+
+if [ -z "$REMOTE_COMMIT" ]; then
+  echo "Could not fetch remote commit for branch ${BRANCH}."
+  exit 1
+fi
+
+echo "Remote commit: ${REMOTE_COMMIT}"
+
+# Compare local short commit against the start of the full remote commit
+if [[ "$REMOTE_COMMIT" == "$LOCAL_COMMIT"* ]]; then
+  echo "Helix is already up to date."
+else
+  echo "Helix is out of date."
+  echo "Reinstalling ${PACKAGE}..."
+  brew reinstall "$PACKAGE"
+
+  echo
+  echo "Updated version:"
+  hx --version
+fi
