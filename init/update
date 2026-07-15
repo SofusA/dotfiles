@@ -5,6 +5,7 @@ npm config set prefix ~/.npm
 scripts/install-dotnet
 
 brew trust xerxes-2/tap
+brew trust sofusa/tap
 brew bundle install
 brew upgrade -y
 brew bundle cleanup --force
@@ -17,12 +18,3 @@ forge pkg install --git https://github.com/kn66/smith.hx.git
 
 # Other
 wget -q -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
-
-# Bicep language server
-wget -q https://github.com/Azure/bicep/releases/latest/download/bicep-langserver.zip
-rm -rf ~/.local/bin/lib/bicep-langserver
-unzip -qq bicep-langserver.zip -d ~/.local/lib/bicep-langserver
-echo -e "#!/usr/bin/env bash\nexec dotnet ~/.local/lib/bicep-langserver/Bicep.LangServer.dll" > ~/.local/bin/bicep-langserver
-chmod +x ~/.local/bin/bicep-langserver
-rm bicep-langserver.zip
-

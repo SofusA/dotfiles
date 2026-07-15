@@ -25,6 +25,9 @@ tap "Xerxes-2/homebrew-tap"
 brew "steel"
 brew "helix-steel", args: ["HEAD"]
 
+tap "sofusa/tap"
+brew "bicep-langserver"
+
 cargo "pathmarks"
 cargo "color-scheme"
 cargo "caseify"
