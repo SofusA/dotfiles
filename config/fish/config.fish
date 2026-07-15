@@ -5,13 +5,25 @@ alias nb "jj bookmark"
 alias nbs "jj bookmark set --revision=@"
 alias nd "jj describe -m"
 alias nl "jj log"
-alias np "jj git push"
 alias npc "jj git push -c @"
 alias nf "jj git fetch"
 alias nn "jj new"
 alias nbm "nb advance"
 alias n jj
 alias nr "tv jjrestore"
+
+function np
+    jj git push $argv
+    set -l push_status $status
+
+    if test $push_status -ne 0
+        return $push_status
+    end
+
+    if test -n "$(jj log -r 'immutable() & @' --no-graph --color never -T 'commit_id' 2>/dev/null)"
+        jj new
+    end
+end
 
 alias music "qobuz-tui --audio-cache ~/Music --audio-cache-time-to-live 720"
 
