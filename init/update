@@ -20,10 +20,9 @@ wget -q -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
 
 # Bicep language server
 wget -q https://github.com/Azure/bicep/releases/latest/download/bicep-langserver.zip
-rm -rf ~/build/lib/bicep-langserver
-mkdir ~/build/lib
-unzip -qq bicep-langserver.zip -d ~/build/lib/bicep-langserver
-echo -e "#!/usr/bin/env bash\nexec dotnet ~/build/lib/bicep-langserver/Bicep.LangServer.dll" > ~/build/bin/bicep-langserver
-chmod +x ~/build/bin/bicep-langserver
+rm -rf ~/.local/bin/lib/bicep-langserver
+unzip -qq bicep-langserver.zip -d ~/.local/lib/bicep-langserver
+echo -e "#!/usr/bin/env bash\nexec dotnet ~/.local/lib/bicep-langserver/Bicep.LangServer.dll" > ~/.local/bin/bicep-langserver
+chmod +x ~/.local/bin/bicep-langserver
 rm bicep-langserver.zip
 
