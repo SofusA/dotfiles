@@ -78,6 +78,7 @@ layout {
 spawn-at-startup "~/dotfiles/idle" 
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "waybar"
+spawn-at-startup "~/dotfiles/bg"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 

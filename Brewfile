@@ -23,6 +23,7 @@ brew "vscode-langservers-extracted"
 brew "terraform-ls"
 brew "fish"
 brew "fish-lsp"
+brew "cowsay"
 
 tap "Xerxes-2/homebrew-tap"
 brew "steel"
@@ -30,6 +31,7 @@ brew "helix-steel", args: ["HEAD"]
 
 tap "sofusa/tap"
 brew "bicep-langserver"
+brew "text-wallpaper"
 
 cargo "pathmarks"
 cargo "color-scheme"

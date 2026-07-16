@@ -14,7 +14,8 @@ messages=(
 "Hesties besties"
 "Horses porses"
 "I debloated windows"
+"Embrace to win"
 )
 
 random_message="${messages[$RANDOM % ${#messages[@]}]}"
-kitty +kitten panel --output "DP-1" --edge=background sh -c "~/dotfiles/cowsay-centered -r \"$random_message\"; sleep infinity"
+cowsay -r $random_message | text-wallpaper
