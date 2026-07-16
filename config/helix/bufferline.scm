@@ -31,13 +31,6 @@
 (define *ux-bufferline-row* 0)
 (define *ux-bufferline-gap* 0)
 
-;; Used for optional mouse interaction.
-;; Each entry is: (list path start-column end-column)
-(define *ux-bufferline-tabs* '())
-
-;; Stores path -> 1-based cursor line.
-(define *ux-bufferline-positions* '())
-
 (define (ux-bufferline-install-component!)
   (unless *ux-bufferline-component-installed?*
     (push-component!
@@ -45,9 +38,7 @@
         "ux-bufferline"
         #f
         ux-render-bufferline
-        (hash
-          "cursor" ux-bufferline-cursor-handler
-          "handle_event" ux-bufferline-handle-event)))
+        (hash)))
 
     (set! *ux-bufferline-component-installed?* #t)
     (ux-bufferline-update-clip!)
@@ -107,9 +98,6 @@
       (lambda (path) path)
       (map ux-document-path (editor-all-documents)))))
 
-(define (ux-path-live? path)
-  (ux-list-contains? (ux-live-paths) path))
-
 ;; Public mostly for debugging:
 ;;
 ;;   :eval (ux-bufferline-buffers)
@@ -159,8 +147,7 @@
         (append preserved missing)))
 
 (define (ux-bufferline-reset!)
-  (set! *ux-bufferline-buffers* '())
-  (for-each ux-bufferline-add-path! (ux-live-paths))
+  (set! *ux-bufferline-buffers* (ux-live-paths))
   (ux-bufferline-update-clip!)
   (helix.redraw))
 
@@ -320,51 +307,14 @@
           (loop (cdr rest) (car rest))]))]))
 
 
-(define (ux-bufferline-save-position! path line column)
-  (set! *ux-bufferline-positions*
-        (cons (list path line column)
-              (ux-filter
-                (lambda (entry)
-                  (not (equal? (car entry) path)))
-                *ux-bufferline-positions*))))
-
-(define (ux-bufferline-position-for path)
-  (let loop ([entries *ux-bufferline-positions*])
-    (cond
-      [(null? entries) (list 1 1)]
-      [(equal? (car (car entries)) path)
-       (list
-         (cadr (car entries))
-         (caddr (car entries)))]
-      [else
-       (loop (cdr entries))])))
-
-(define (ux-bufferline-save-current-position!)
-  (define path (ux-current-path))
-  (when path
-    (ux-bufferline-save-position!
-      path
-      (+ 1 (get-current-line-number))
-      (+ 1 (get-current-column-number)))))
-
-(define (ux-bufferline-open-path! path)
-  (when path
-    (ux-bufferline-save-current-position!)
-
-    (define position
-      (ux-bufferline-position-for path))
-
-    (define line (car position))
-    (define column (cadr position))
-
-    (apply helix.open
-      (list
-        (string-append
-          path
-          ":"
-          (number->string line)
-          ":"
-          (number->string column))))
+(define (ux-bufferline-open-path! target)
+  (when target
+    ;; Bound the loop so it cannot run forever if the target disappears.
+    (let loop ([remaining (length (ux-live-paths))])
+      (unless (or (zero? remaining)
+                  (equal? (ux-current-path) target))
+        (helix.buffer-next)
+        (loop (- remaining 1))))
 
     (helix.redraw)))
 
@@ -428,7 +378,7 @@
   (string-append
     " "
     (ux-buffer-name path)
-    (if (ux-buffer-dirty? path) " *" "")
+    (if (ux-buffer-dirty? path) "*" "")
     " "))
 
 (define (ux-bufferline-base-style)
@@ -451,72 +401,28 @@
     (buffer/clear-with frame (area 0 y width 1) base-style)
 
     (let loop ([paths *ux-bufferline-buffers*]
-               [x 0]
-               [tabs '()])
-      (cond
-        [(or (null? paths) (>= x width))
-         (set! *ux-bufferline-tabs* (reverse tabs))]
+           [x 0])
+  (unless (or (null? paths) (>= x width))
+    (define path (car paths))
+    (define label (ux-buffer-label path))
+    (define remaining (- width x))
+    (define label-width (string-length label))
+    (define draw-width (min remaining label-width))
 
-        [else
-         (define path (car paths))
-         (define label (ux-buffer-label path))
-         (define remaining (- width x))
-         (define label-width (string-length label))
-         (define draw-width (min remaining label-width))
+    (define visible-label
+      (substring label 0 draw-width))
 
-         ;; Avoid drawing past the terminal width.
-         (define visible-label
-           (substring label 0 draw-width))
+    (define style
+      (if (equal? path current)
+          (ux-bufferline-active-style)
+          (ux-bufferline-inactive-style)))
 
-         (define style
-           (if (equal? path current)
-               (ux-bufferline-active-style)
-               (ux-bufferline-inactive-style)))
+    (frame-set-string! frame x y visible-label style)
 
-         (frame-set-string! frame x y visible-label style)
-
-         (define end-x (+ x draw-width))
-         (define next-x
-           (min width (+ end-x *ux-bufferline-gap*)))
-
-         (loop
-           (cdr paths)
-           next-x
-           (cons (list path x end-x) tabs))]))))
-
-(define (ux-bufferline-cursor-handler state rect)
-  #f)
-
-;; -----------------------------------------------------------------------------
-;; Optional mouse navigation
-;; -----------------------------------------------------------------------------
-
-(define (ux-bufferline-path-at column)
-  (let loop ([tabs *ux-bufferline-tabs*])
-    (cond
-      [(null? tabs)
-       #f]
-
-      [(and (>= column (cadr (car tabs)))
-            (< column (caddr (car tabs))))
-       (car (car tabs))]
-
-      [else
-       (loop (cdr tabs))])))
-
-(define (ux-bufferline-handle-event state event)
-  (if (and (mouse-event? event)
-           (equal? (event-mouse-kind event) 0)
-           (equal? (event-mouse-row event) *ux-bufferline-row*))
-      (let ([path
-             (ux-bufferline-path-at
-               (event-mouse-col event))])
-        (if path
-            (begin
-              (ux-bufferline-open-path! path)
-              event-result/consume)
-            event-result/ignore))
-      event-result/ignore))
+    (loop
+      (cdr paths)
+      (min width
+           (+ x draw-width *ux-bufferline-gap*)))))))
 
 ;; -----------------------------------------------------------------------------
 ;; Lifecycle
@@ -558,6 +464,5 @@
 
     (set! *ux-bufferline-enabled?* #f)
     (set! *ux-bufferline-component-installed?* #f)
-    (set! *ux-bufferline-tabs* '())
 
     (helix.redraw)))
