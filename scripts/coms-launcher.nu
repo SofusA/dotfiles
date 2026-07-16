@@ -18,6 +18,10 @@ launcher [
         {|| ^flatpak run com.microsoft.Edge $"--app=($teams_url)" ...$common_args }
     ]
     [
+        "Skaylink outlook"
+        {|| ^flatpak run com.microsoft.Edge $"--app=($outlook_url)" ...$common_args }
+    ]
+    [
         "cvation teams"
         {|| ^flatpak run com.google.Chrome $"--app=($teams_url)" ...$common_args }
     ]
