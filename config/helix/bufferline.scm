@@ -36,7 +36,7 @@
 (define *ux-bufferline-tabs* '())
 
 ;; Stores path -> 1-based cursor line.
-(define *ux-bufferline-lines* '())
+(define *ux-bufferline-positions* '())
 
 (define (ux-bufferline-install-component!)
   (unless *ux-bufferline-component-installed?*
@@ -319,46 +319,52 @@
          [else
           (loop (cdr rest) (car rest))]))]))
 
-(define (ux-bufferline-save-line! path line)
-  (set! *ux-bufferline-lines*
-        (cons (list path line)
+
+(define (ux-bufferline-save-position! path line column)
+  (set! *ux-bufferline-positions*
+        (cons (list path line column)
               (ux-filter
                 (lambda (entry)
                   (not (equal? (car entry) path)))
-                *ux-bufferline-lines*))))
+                *ux-bufferline-positions*))))
 
-(define (ux-bufferline-line-for path)
-  (let loop ([entries *ux-bufferline-lines*])
+(define (ux-bufferline-position-for path)
+  (let loop ([entries *ux-bufferline-positions*])
     (cond
-      [(null? entries) 1]
+      [(null? entries) (list 1 1)]
       [(equal? (car (car entries)) path)
-       (cadr (car entries))]
+       (list
+         (cadr (car entries))
+         (caddr (car entries)))]
       [else
        (loop (cdr entries))])))
 
-(define (ux-bufferline-save-current-line!)
+(define (ux-bufferline-save-current-position!)
   (define path (ux-current-path))
   (when path
-    (ux-bufferline-save-line!
+    (ux-bufferline-save-position!
       path
-      (+ 1 (get-current-line-number)))))
+      (+ 1 (get-current-line-number))
+      (+ 1 (get-current-column-number)))))
 
-;; Keep this command call isolated because the Steel wrapper signature has
-;; changed across experimental Helix revisions.
-;;
-;; In the current command wrappers, typable command arguments are normally
-;; represented as a list of strings.
 (define (ux-bufferline-open-path! path)
   (when path
-    (ux-bufferline-save-current-line!)
+    (ux-bufferline-save-current-position!)
+
+    (define position
+      (ux-bufferline-position-for path))
+
+    (define line (car position))
+    (define column (cadr position))
 
     (apply helix.open
       (list
         (string-append
           path
           ":"
-          (number->string
-            (ux-bufferline-line-for path)))))
+          (number->string line)
+          ":"
+          (number->string column))))
 
     (helix.redraw)))
 

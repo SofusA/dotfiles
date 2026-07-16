@@ -31,7 +31,7 @@ brew "helix-steel", args: ["HEAD"]
 
 tap "sofusa/tap"
 brew "bicep-langserver"
-brew "text-wallpaper"
+brew "text-wallpaper", args: ["HEAD"]
 
 cargo "pathmarks"
 cargo "color-scheme"
