@@ -104,8 +104,8 @@ binds {
     Mod+U     { focus-window-up; }
     Mod+I     { focus-column-right; }
 
-    Mod+Q { spawn-sh "nu ~/dotfiles/scripts/power-menu.nu"; }
-    Mod+K { spawn-sh "nu ~/dotfiles/scripts/coms-launcher.nu"; }
+    Mod+Q { spawn-sh "/home/linuxbrew/.linuxbrew/bin/nu ~/dotfiles/scripts/power-menu.nu"; }
+    Mod+K { spawn-sh "/home/linuxbrew/.linuxbrew/bin/nu ~/dotfiles/scripts/coms-launcher.nu"; }
 
     Mod+Shift+N     { move-column-left; }
     Mod+Shift+E     { move-window-down; }
