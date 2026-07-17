@@ -18,4 +18,4 @@ messages=(
 )
 
 random_message="${messages[$RANDOM % ${#messages[@]}]}"
-/home/linuxbrew/.linuxbrew/bin/cowsay -r $random_message | /home/linuxbrew/.linuxbrew/bin/text-wallpaper --color "#d8dee9"
+/home/linuxbrew/.linuxbrew/bin/cowsay -r $random_message | /home/linuxbrew/.linuxbrew/bin/text-wallpaper --color "$white"
