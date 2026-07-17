@@ -1,0 +1,21 @@
+dictionaries = [
+    "en_gb",
+    "da",
+]
+words = [
+    "cvation",
+    "eventhub",
+    "ioc",
+    "jabra",
+    "mqtt",
+    "mqtts",
+    "mvc",
+    "newtonsoft",
+    "qobine",
+    "qobuz",
+    "skaylink",
+    "unbundle",
+    "unconfigured",
+    "vation",
+    "xunit",
+]
