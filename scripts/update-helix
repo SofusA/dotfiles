@@ -10,7 +10,8 @@ echo "Checking local Helix version..."
 if ! command -v hx >/dev/null 2>&1; then
   echo "hx is not installed or not in PATH."
   echo "Installing/reinstalling ${PACKAGE}..."
-  brew reinstall "$PACKAGE"
+  brew trust xerxes-2/tap
+  brew reinstall "$PACKAGE" -y
   exit 0
 fi
 
@@ -24,7 +25,8 @@ LOCAL_COMMIT="$(echo "$HX_VERSION_OUTPUT" | sed -n 's/.*(\([a-fA-F0-9]\{7,40\}\)
 if [ -z "$LOCAL_COMMIT" ]; then
   echo "Could not extract local Helix commit from hx --version output."
   echo "Reinstalling ${PACKAGE}..."
-  brew reinstall "$PACKAGE"
+  brew trust xerxes-2/tap
+  brew reinstall "$PACKAGE" -y
   exit 0
 fi
 
@@ -47,7 +49,8 @@ if [[ "$REMOTE_COMMIT" == "$LOCAL_COMMIT"* ]]; then
 else
   echo "Helix is out of date."
   echo "Reinstalling ${PACKAGE}..."
-  brew reinstall "$PACKAGE"
+  brew trust xerxes-2/tap
+  brew reinstall "$PACKAGE" -y
 
   echo
   echo "Updated version:"
