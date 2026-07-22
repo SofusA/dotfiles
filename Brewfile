@@ -24,6 +24,7 @@ brew "terraform-ls"
 brew "fish"
 brew "fish-lsp"
 brew "cowsay"
+brew "markdown-oxide"
 
 tap "Xerxes-2/homebrew-tap"
 brew "steel"

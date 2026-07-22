@@ -3,8 +3,11 @@ dictionaries = [
     "da",
 ]
 words = [
+    "Jira",
     "cvation",
     "eventhub",
+    "favorite",
+    "flathub",
     "ioc",
     "jabra",
     "mqtt",
@@ -13,6 +16,7 @@ words = [
     "newtonsoft",
     "qobine",
     "qobuz",
+    "rodio",
     "skaylink",
     "unbundle",
     "unconfigured",
