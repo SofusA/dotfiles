@@ -25,6 +25,7 @@ brew "fish"
 brew "fish-lsp"
 brew "cowsay"
 brew "markdown-oxide"
+brew "cloudflared"
 
 tap "Xerxes-2/homebrew-tap"
 brew "steel"
