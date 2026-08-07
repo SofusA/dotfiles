@@ -11,7 +11,7 @@
 ;; Configuration
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Minimum time between jj invocations for the same directory.
+;; Minimum time between JJ invocations.
 (define jj-refresh-interval-ms 10000)
 
 ;; Keep the JJ template separate from the command invocation so that quoting
@@ -41,81 +41,17 @@
    )")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Path helpers
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; Return the parent directory of a path.
-;;
-;; This supports both Unix "/" and Windows "\" path separators.
-
-(define (path-parent path)
-  (define characters
-    (string->list path))
-
-  (define (walk remaining index last-separator)
-    (cond
-      [(null? remaining)
-       last-separator]
-
-      [(or (equal? (car remaining) #\/)
-           (equal? (car remaining) #\\))
-       (walk
-         (cdr remaining)
-         (+ index 1)
-         index)]
-
-      [else
-       (walk
-         (cdr remaining)
-         (+ index 1)
-         last-separator)]))
-
-  (define separator-index
-    (walk characters 0 #false))
-
-  (if separator-index
-      (substring path 0 separator-index)
-      "."))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; String helpers
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; Remove trailing LF and CR characters from command output.
-;;
-;; This intentionally doesn't remove spaces because the JJ template may
-;; intentionally include them.
-(define (trim-line-ending value)
-  (define newline-character
-    (integer->char 10))
-
-  (define return-character
-    (integer->char 13))
-
-  (define (trim-to end)
-    (if (= end 0)
-        ""
-        (let ([last-character
-               (string-ref value (- end 1))])
-          (if (or
-                (equal? last-character newline-character)
-                (equal? last-character return-character))
-              (trim-to (- end 1))
-              (substring value 0 end)))))
-
-  (trim-to (string-length value)))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Process execution
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Run a command in the specified directory and capture its standard output.
-(define (capture-command program arguments working-directory)
+;; Run a command and capture its standard output.
+;;
+;; The command inherits Helix's current working directory. JJ will discover
+;; the workspace by searching upward from that directory.
+(define (capture-command program arguments)
   (define process
     (command program arguments))
 
-  ;; These functions mutate the command builder.
-  (set-current-dir! process working-directory)
   (set-piped-stdout! process)
 
   (~> process
@@ -125,136 +61,65 @@
       (Ok->value)))
 
 ;; Query the current JJ revision.
-(define (load-jj-status directory)
-  (trim-line-ending
-    (capture-command
-      "jj"
-      (list
-        "log"
-        "--ignore-working-copy"
-        "--no-graph"
+(define (load-jj-status)
+  (capture-command
+    "jj"
+    (list
+      "log"
+      "--ignore-working-copy"
+      "--no-graph"
 
-        ;; Status spans do not necessarily interpret ANSI escape sequences,
-        ;; so use plain text here.
-        "--color"
-        "never"
+      ;; Status spans do not necessarily interpret ANSI escape sequences,
+      ;; so use plain text here.
+      "--color"
+      "never"
 
-        "-r"
-        "@"
-        "-T"
-        jj-template)
-      directory)))
+      "-r"
+      "@"
+      "-T"
+      jj-template)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Status cache
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Each cache entry has this shape:
-;;
-;;   (directory timestamp status)
-;;
-;; The cache is keyed by directory so split views and files in different
-;; repositories can have independent status values.
-(define *jj-status-cache* '())
+;; Since JJ runs relative to Helix's working directory, only one cached value
+;; is required.
+(define *jj-status-timestamp* #false)
+(define *jj-status* "")
 
-(define (cache-entry-directory entry)
-  (car entry))
-
-(define (cache-entry-timestamp entry)
-  (car (cdr entry)))
-
-(define (cache-entry-status entry)
-  (car (cdr (cdr entry))))
-
-;; Find the cached entry for a directory.
-(define (find-cache-entry directory entries)
-  (cond
-    [(null? entries)
-     #false]
-
-    [(equal?
-       directory
-       (cache-entry-directory (car entries)))
-     (car entries)]
-
-    [else
-     (find-cache-entry
-       directory
-       (cdr entries))]))
-
-;; Remove all existing entries for a directory.
-(define (remove-cache-entry directory entries)
-  (cond
-    [(null? entries)
-     '()]
-
-    [(equal?
-       directory
-       (cache-entry-directory (car entries)))
-     (remove-cache-entry
-       directory
-       (cdr entries))]
-
-    [else
-     (cons
-       (car entries)
-       (remove-cache-entry
-         directory
-         (cdr entries)))]))
-
-;; Insert or replace a cache entry.
-(define (store-cache-entry! directory timestamp status)
-  (set! *jj-status-cache*
-    (cons
-      (list directory timestamp status)
-      (remove-cache-entry
-        directory
-        *jj-status-cache*))))
-
-;; Return true when an existing cache entry is still fresh.
-(define (cache-entry-fresh? entry now)
+;; Return true when the cached value is still fresh.
+(define (jj-status-fresh? now)
   (and
-    entry
-    (< (- now (cache-entry-timestamp entry))
+    *jj-status-timestamp*
+    (< (- now *jj-status-timestamp*)
        jj-refresh-interval-ms)))
+
+;; Return the cached status or refresh it when necessary.
+(define (cached-jj-status)
+  (define now
+    (current-milliseconds))
+
+  (if (jj-status-fresh? now)
+      *jj-status*
+      (let ([status
+             (load-jj-status)])
+
+        (set! *jj-status-timestamp* now)
+        (set! *jj-status* status)
+
+        status)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Status calculation
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define (jj-status-for-document document-id)
-  (define document-path
-    (editor-document->path document-id))
-
   ;; Scratch buffers and virtual documents may not have a filesystem path.
-  (if (not document-path)
-      ""
-      (let* ([directory
-              (path-parent document-path)]
-
-             [now
-              (current-milliseconds)]
-
-             [cached
-              (find-cache-entry
-                directory
-                *jj-status-cache*)])
-
-        (if (cache-entry-fresh? cached now)
-
-            ;; Reuse the cached value if it is less than one second old.
-            (cache-entry-status cached)
-
-            ;; Otherwise, query JJ and update the cache.
-            (let ([status
-                   (load-jj-status directory)])
-
-              (store-cache-entry!
-                directory
-                now
-                status)
-
-              status)))))
+  ;; Keep this check so they do not display the repository status.
+  (if (editor-document->path document-id)
+      (cached-jj-status)
+      ""))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Status element
