@@ -6,6 +6,8 @@ scripts/install-dotnet
 
 brew trust xerxes-2/tap
 brew trust sofusa/tap
+brew trust hashicorp/tap
+
 brew bundle install
 brew upgrade -y
 brew bundle cleanup --force

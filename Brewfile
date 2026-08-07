@@ -35,6 +35,9 @@ tap "sofusa/tap"
 brew "bicep-langserver"
 brew "text-wallpaper", args: ["HEAD"]
 
+tap "hashicorp/tap"
+brew "terraform"
+
 cargo "pathmarks"
 cargo "color-scheme"
 cargo "caseify"
