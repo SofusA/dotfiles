@@ -34,6 +34,7 @@ brew "helix-steel", args: ["HEAD"]
 tap "sofusa/tap"
 brew "bicep-langserver"
 brew "text-wallpaper", args: ["HEAD"]
+brew "rssbook", args: ["HEAD"]
 
 tap "hashicorp/tap"
 brew "terraform"

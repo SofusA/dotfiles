@@ -12,17 +12,10 @@ sudo wget -q \
   -O /etc/yum.repos.d/scottames-ghostty.repo \
   https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-rawhide/scottames-ghostty-fedora-rawhide.repo
 
-sudo wget -q \
-  -O /etc/yum.repos.d/yalter-niri-git.repo \
-  https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-rawhide/yalter-niri-git-fedora-rawhide.repo
-
-echo "priority=1" | sudo tee -a /etc/yum.repos.d/yalter-niri-git.repo
-
 sudo rpm-ostree reset
 sudo rpm-ostree install \
   niri swayidle mako swaybg \
   ghostty \
   code \
   sudo-rs uutils-coreutils \
-  calibre \
   alsa-lib-devel rust-libadwaita-devel webkitgtk6.0-devel 
