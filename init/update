@@ -22,3 +22,4 @@ forge pkg install --git https://github.com/kn66/smith.hx.git
 
 # Other
 wget -q -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
+cargo install --git https://github.com/nushell/nufmt
