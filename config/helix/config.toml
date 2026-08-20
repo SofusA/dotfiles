@@ -115,6 +115,8 @@ e = "open_below"
 l = "increment"
 L = "decrement"
 
+g = ":insert-output uuidgen"
+
 [keys.normal.c.c] # change case
 p = [":pipe caseify Pascal"]
 u = "switch_to_uppercase"
