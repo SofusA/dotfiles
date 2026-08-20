@@ -31,28 +31,28 @@ codeAction = { disableRuleComment = { enable = true, location = "separateLine" }
 
 [[language]]
 name = "yaml"
-language-servers = []
+language-servers = ["codebook"]
 
 [[language]]
 name = "markdown"
-language-servers = [ "codebook", "markdown-oxide" ]
+language-servers = ["codebook", "markdown-oxide"]
 
 [[language]]
 name = "c-sharp"
-# formatter = { command = "csharpier", args = ["format"] }
+formatter = { command = "csharpier", args = ["format"] }
 auto-format = true
 indent = { tab-width = 4, unit = "  " }
 language-servers = ["roslyn-language-server", "codebook"]
 
 [[language]]
 name = "typescript"
-formatter = { command = "prettier", args = ["--stdin-filepath=file.ts"] }
+formatter = { command = "prettier", args = ["--stdin-filepath=%{buffer_name}"] }
 auto-format = true
 language-servers = ["typescript-language-server", "angular", "eslint", "tailwindcss-ls", "codebook"]
 
 [[language]]
 name = "javascript"
-formatter = { command = "prettier", args = ["--stdin-filepath=file.js"] }
+formatter = { command = "prettier", args = ["--stdin-filepath=%{buffer_name}"] }
 auto-format = true
 
 [[language]]
@@ -70,10 +70,12 @@ language-servers = ["svelteserver", "tailwindcss-ls", "codebook"]
 name = "json"
 formatter = { command = "prettier", args = ["--stdin-filepath=%{buffer_name}"] }
 auto-format = true
+language-servers = ["codebook"]
 
 [[language]]
 name = "css"
 formatter = { command = "prettier", args = ["--stdin-filepath=%{buffer_name}"] }
+language-servers = [ "vscode-css-language-server", "codebook" ]
 auto-format = true
 
 [[language]]
@@ -81,11 +83,11 @@ name = "scss"
 formatter = { command = "prettier", args = ["--stdin-filepath=%{buffer_name}"] }
 auto-format = true
 
-[language-server.rust-analyzer.config]
-check.command = "clippy"
-
 [language-server.tailwindcss-ls]
 config = { userLanguages = { rust = "html", "*.rs" = "html" } }
+
+[language-server.rust-analyzer.config]
+check.command = "clippy"
 
 [[language]]
 name = "rust"
@@ -96,3 +98,8 @@ language-servers = ["rust-analyzer", "codebook"]
 [[language]]
 name = "nu"
 auto-format = true
+language-servers = [ "nu-lsp", "nu-lint", "codebook" ]
+
+[[language]]
+name = "jjdescription"
+language-servers = ["codebook"]
