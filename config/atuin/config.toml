@@ -2,4 +2,4 @@ style = "compact"
 enter_accept = true
 
 [search]
-filters = ["session", "global", "directory"]
+filters = ["session", "directory", "global"]
