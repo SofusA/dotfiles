@@ -14,7 +14,7 @@ sudo wget -q \
 
 sudo rpm-ostree reset
 sudo rpm-ostree install \
-  niri swayidle mako swaybg \
+  niri swayidle mako \
   ghostty \
   code \
   sudo-rs uutils-coreutils \
