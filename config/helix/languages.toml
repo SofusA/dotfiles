@@ -103,3 +103,13 @@ language-servers = [ "nu-lsp", "nu-lint", "codebook" ]
 [[language]]
 name = "jjdescription"
 language-servers = ["codebook"]
+
+[language-server.hx-remote]
+command = "hxr"
+args = ["--lsp"]
+
+[[language]]
+name = "hx-remote"
+scope = "source.hx-remote"
+file-types = ["hxremote"]
+language-servers = ["hx-remote"]

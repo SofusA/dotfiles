@@ -1,0 +1,9 @@
+[opener]
+hxr = [
+  { run = 'hxr --open %s', desc = "hxr" }
+]
+
+[open]
+prepend_rules = [
+	{ url = "/var/**/*", use = "hxr" },
+]
