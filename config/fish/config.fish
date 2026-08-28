@@ -1,4 +1,4 @@
-alias h hx
+alias h "hxr --listen"
 set -gx EDITOR hx
 
 alias nb "jj bookmark"

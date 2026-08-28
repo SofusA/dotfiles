@@ -133,15 +133,10 @@ i = "select_textobject_inner"
 I = "select_textobject_around"
 h = "yank_joined_to_clipboard"
 
-y = [
-  ':sh rm -f /tmp/unique-file',
-  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
-  ':insert-output echo "\x1b[?1049h" > /dev/tty',
-  ':open %sh{cat /tmp/unique-file}',
-  ':redraw',
-]
+Y = ":sh ghostty --working-directory=\"%{workspace_directory}\" --title=quick-terminal -e yazi \"%{file_path_absolute}\" >/dev/null 2>&1 &"
+y = ":sh ghostty --working-directory=\"%{workspace_directory}\" --title=quick-terminal -e yazi >/dev/null 2>&1 &"
+t = ":sh ghostty --working-directory=\"%{workspace_directory}\" --title=quick-terminal -e fish >/dev/null 2>&1 &"
 
-Y = "no_op"
 g = "no_op"
 F = "no_op"
 "'" = "no_op"

@@ -5,5 +5,5 @@ hxr = [
 
 [open]
 prepend_rules = [
-	{ mime = "text/*", url = "/var/**/*", use = "hxr" },
+	{ url = "/var/**/*", use = "hxr" },
 ]

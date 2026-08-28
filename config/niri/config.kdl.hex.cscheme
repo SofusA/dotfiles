@@ -16,6 +16,13 @@ window-rule {
     clip-to-geometry true
 }
 
+window-rule {
+    match title="^quick-terminal$"
+    open-floating true
+    default-column-width { proportion 0.7; }
+    default-window-height { proportion 0.6; }
+}
+
 gestures {
     hot-corners {
         off
@@ -88,7 +95,7 @@ workspace "🎵"
 workspace "📞"
 
 binds {
-    Mod+T { spawn "ghostty" "-e" "/home/linuxbrew/.linuxbrew/bin/fish"; }
+    Mod+T { spawn-sh "ghostty -e /home/linuxbrew/.linuxbrew/bin/nu ~/dotfiles/scripts/dev-terminal.nu"; }
     Mod+D { spawn "fuzzel"; }
     Mod+L { spawn "swaylock"; }
 
