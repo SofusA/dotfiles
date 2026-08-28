@@ -4,6 +4,7 @@ dictionaries = [
 ]
 words = [
     "Jira",
+    "bitbucket",
     "cvation",
     "eventhub",
     "favorite",

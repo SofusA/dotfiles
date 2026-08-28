@@ -3,7 +3,6 @@ set -gx EDITOR hx
 
 alias nb "jj bookmark"
 alias nbs "jj bookmark set --revision=@"
-alias nd "jj describe -m"
 alias nl "jj log"
 alias npc "jj git push -c @"
 alias nf "jj git fetch"
@@ -25,7 +24,13 @@ function np
     end
 end
 
-alias music "qobuz-tui --audio-cache ~/Music --audio-cache-time-to-live 720"
+function nd
+    if test (count $argv) -gt 0
+        jj describe -m $argv
+    else
+        jj describe
+    end
+end
 
 function ls
     eza -1 --icons --group-directories-first $argv
