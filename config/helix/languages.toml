@@ -31,7 +31,7 @@ codeAction = { disableRuleComment = { enable = true, location = "separateLine" }
 
 [[language]]
 name = "yaml"
-language-servers = ["codebook"]
+language-servers = ["codebook", "yaml-language-server"]
 
 [[language]]
 name = "markdown"
