@@ -117,16 +117,6 @@ L = "decrement"
 
 g = ":insert-output uuidgen"
 
-[keys.normal.c.c] # change case
-p = [":pipe caseify Pascal"]
-u = "switch_to_uppercase"
-l = "switch_to_lowercase"
-c = [":pipe caseify Camel"]
-s = [":pipe caseify Snake"]
-k = [":pipe caseify Kebab"]
-t = [":pipe caseify Capitalised"]
-o = [":pipe caseify Sentence"]
-
 [keys.normal.space]
 f = "file_picker_in_current_directory"
 i = "select_textobject_inner"

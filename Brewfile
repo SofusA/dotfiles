@@ -43,7 +43,6 @@ brew "terraform"
 
 cargo "pathmarks"
 cargo "color-scheme"
-cargo "caseify"
 cargo "hx-remote"
 
 npm "@angular/cli"
