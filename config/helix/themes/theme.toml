@@ -1,6 +1,6 @@
 "tag" = { fg = "red" }
 "attribute" = { fg = "yellow" }
-"comment" = { fg = "dark-gray", modifiers = ["italic"] }
+"comment" = { fg = "faint-gray", modifiers = ["italic"] }
 "constant" = { fg = "cyan" }
 "constant.numeric" = { fg = "orange" }
 "constant.builtin" = { fg = "orange" }
