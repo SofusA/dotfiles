@@ -44,6 +44,9 @@
     (ux-bufferline-update-clip!)
     (helix.redraw)))
 
+;; Horizontal character/column offset into the complete bufferline.
+(define *ux-bufferline-scroll-offset* 0)
+
 ;; -----------------------------------------------------------------------------
 ;; Small list helpers
 ;; -----------------------------------------------------------------------------
@@ -75,6 +78,61 @@
      (cons (car xs) (ux-filter predicate (cdr xs)))]
     [else
      (ux-filter predicate (cdr xs))]))
+
+;; Return the active buffer's start and end positions in the complete
+;; unscrolled bufferline.
+;;
+;; The result is:
+;;
+;;   (cons start end)
+;;
+;; where end is exclusive.
+(define (ux-bufferline-active-bounds paths current)
+  (let loop ([rest paths] [position 0])
+    (cond
+      [(null? rest)
+       #f]
+
+      [else
+       (define path (car rest))
+       (define label-width
+         (string-length (ux-buffer-label path)))
+
+       (if (equal? path current)
+           (cons position
+                 (+ position label-width))
+           (loop
+             (cdr rest)
+             (+ position
+                label-width
+                *ux-bufferline-gap*)))])))
+
+
+;; Adjust the scroll offset just enough to make the complete active label
+;; visible.
+(define (ux-bufferline-ensure-active-visible! width current)
+  (define bounds
+    (ux-bufferline-active-bounds
+      *ux-bufferline-buffers*
+      current))
+
+  (when bounds
+    (define active-start (car bounds))
+    (define active-end (cdr bounds))
+    (define viewport-start *ux-bufferline-scroll-offset*)
+    (define viewport-end
+      (+ *ux-bufferline-scroll-offset* width))
+
+    (cond
+      ;; Active buffer is left of the visible area.
+      [(< active-start viewport-start)
+       (set! *ux-bufferline-scroll-offset*
+             active-start)]
+
+      ;; Active buffer extends beyond the right side.
+      [(> active-end viewport-end)
+       (set! *ux-bufferline-scroll-offset*
+             (max 0 (- active-end width)))])))
 
 ;; -----------------------------------------------------------------------------
 ;; Document/path access
@@ -398,31 +456,77 @@
     (define current (ux-current-path))
     (define base-style (ux-bufferline-base-style))
 
-    (buffer/clear-with frame (area 0 y width 1) base-style)
+    ;; Update the viewport before drawing.
+    (ux-bufferline-ensure-active-visible!
+      width
+      current)
 
+    (define viewport-start
+      *ux-bufferline-scroll-offset*)
+
+    (define viewport-end
+      (+ viewport-start width))
+
+    ;; Clear the complete bufferline row first.
+    (buffer/clear-with
+      frame
+      (area 0 y width 1)
+      base-style)
+
+    ;; position is the label's position in the complete, unscrolled line.
     (let loop ([paths *ux-bufferline-buffers*]
-           [x 0])
-  (unless (or (null? paths) (>= x width))
-    (define path (car paths))
-    (define label (ux-buffer-label path))
-    (define remaining (- width x))
-    (define label-width (string-length label))
-    (define draw-width (min remaining label-width))
+               [position 0])
+      (unless (null? paths)
+        (define path (car paths))
+        (define label (ux-buffer-label path))
+        (define label-width (string-length label))
 
-    (define visible-label
-      (substring label 0 draw-width))
+        (define label-start position)
+        (define label-end
+          (+ label-start label-width))
 
-    (define style
-      (if (equal? path current)
-          (ux-bufferline-active-style)
-          (ux-bufferline-inactive-style)))
+        ;; Intersection between this label and the viewport.
+        (define visible-start
+          (max label-start viewport-start))
 
-    (frame-set-string! frame x y visible-label style)
+        (define visible-end
+          (min label-end viewport-end))
 
-    (loop
-      (cdr paths)
-      (min width
-           (+ x draw-width *ux-bufferline-gap*)))))))
+        ;; Only draw labels that intersect the viewport.
+        (when (< visible-start visible-end)
+          (define substring-start
+            (- visible-start label-start))
+
+          (define substring-end
+            (- visible-end label-start))
+
+          (define screen-x
+            (- visible-start viewport-start))
+
+          (define visible-label
+            (substring
+              label
+              substring-start
+              substring-end))
+
+          (define style
+            (if (equal? path current)
+                (ux-bufferline-active-style)
+                (ux-bufferline-inactive-style)))
+
+          (frame-set-string!
+            frame
+            screen-x
+            y
+            visible-label
+            style))
+
+        ;; Continue using the full label width, not its visible width.
+        (loop
+          (cdr paths)
+          (+ position
+             label-width
+             *ux-bufferline-gap*))))))
 
 ;; -----------------------------------------------------------------------------
 ;; Lifecycle
