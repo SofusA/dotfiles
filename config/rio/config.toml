@@ -1,6 +1,9 @@
 hide-cursor-when-typing = true
 confirm-before-quit = false
 
+[effects]
+trail-cursor = true
+
 [fonts]
 size = 18
 
