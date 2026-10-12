@@ -26,6 +26,13 @@
     (add-global-keybinding
       (hash "normal" (hash "c" (hash "c" case-mode))))))
 
+(smith-plugin "https://github.com/ivoronin/fresco.hx.git"
+  (config
+    (require "fresco/fresco.scm")
+    (fresco-start!)
+  )
+)
+
 (smith-init)
 
 (require (only-in "bufferline.scm" ux-bufferline-enable!))

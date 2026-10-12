@@ -1,1 +1,8 @@
-Deleting: /var/home/sofusa/.local/share/steel/cogs/scopeline 
+Installing package from git with args:  #true 
+Fetching package from git:  fresco.hx 
+=> Installing:  #hash((package-name . fresco) (version . 2026.07.26) (path . /var/home/sofusa/.local/share/steel/cog-sources/fresco.hx/) (dependencies . ())) 
+   ...Installing to: /var/home/sofusa/.local/share/steel/cogs/fresco 
+Package has changed.
+=> Copied package over to:  /var/home/sofusa/.local/share/steel/cogs/fresco 
+✅ Installed package to: /var/home/sofusa/.local/share/steel/cogs/fresco
+

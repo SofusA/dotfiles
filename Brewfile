@@ -41,6 +41,9 @@ brew "rssbook", args: ["HEAD"]
 tap "hashicorp/tap"
 brew "terraform"
 
+tap "terraform-linters/tap"
+brew "terraform-linters/tflint"
+
 cargo "pathmarks"
 cargo "color-scheme"
 cargo "hx-remote"
