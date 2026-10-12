@@ -21,3 +21,6 @@ keybind = ctrl+k=text:\x03
 window-padding-x = 5
 window-padding-y = 2
 font-size = 13
+
+custom-shader-animation = always
+custom-shader = shaders/tinkle-cursor.glsl
