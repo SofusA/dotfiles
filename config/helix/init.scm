@@ -33,13 +33,6 @@
   )
 )
 
-(smith-plugin "https://github.com/Xerxes-2/fake-warp.hx.git"
-  (config
-    (require "fake-warp/fake-warp.scm")
-    (install-fake-warp! #:mode-switch #f)
-  )
-)
-
 (smith-init)
 
 (require (only-in "bufferline.scm" ux-bufferline-enable!))

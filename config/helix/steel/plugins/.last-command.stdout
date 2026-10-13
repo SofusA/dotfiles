@@ -1,8 +1,8 @@
 Installing package from git with args:  #true 
-Fetching package from git:  fake-warp.hx 
-=> Installing:  #hash((path . /var/home/sofusa/.local/share/steel/cog-sources/fake-warp.hx/) (package-name . fake-warp) (version . 0.1.0) (dependencies . ())) 
-   ...Installing to: /var/home/sofusa/.local/share/steel/cogs/fake-warp 
+Fetching package from git:  fresco.hx 
+=> Installing:  #hash((package-name . fresco) (version . 2026.07.26) (path . /var/home/sofusa/.local/share/steel/cog-sources/fresco.hx/) (dependencies . ())) 
+   ...Installing to: /var/home/sofusa/.local/share/steel/cogs/fresco 
 Package has changed.
-=> Copied package over to:  /var/home/sofusa/.local/share/steel/cogs/fake-warp 
-✅ Installed package to: /var/home/sofusa/.local/share/steel/cogs/fake-warp
+=> Copied package over to:  /var/home/sofusa/.local/share/steel/cogs/fresco 
+✅ Installed package to: /var/home/sofusa/.local/share/steel/cogs/fresco
 
