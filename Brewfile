@@ -15,7 +15,6 @@ brew "npm"
 brew "azure-cli"
 brew "gh"
 brew "yazi"
-brew "cargo-binstall"
 brew "tailwindcss-language-server"
 brew "yaml-language-server"
 brew "prettier"
@@ -37,6 +36,7 @@ tap "sofusa/tap"
 brew "bicep-langserver"
 brew "text-wallpaper", args: ["HEAD"]
 brew "rssbook", args: ["HEAD"]
+brew "mitos", args: ["HEAD"]
 
 tap "hashicorp/tap"
 brew "terraform"

@@ -1,7 +1,12 @@
 Installing package from git with args:  #true 
 Fetching package from git:  fresco.hx 
+Updating git repo from remote...
+Fetching origin for repo
+Received 0/0 objects in 0 bytes
+Already up to date.
 => Installing:  #hash((package-name . fresco) (version . 2026.07.26) (path . /var/home/sofusa/.local/share/steel/cog-sources/fresco.hx/) (dependencies . ())) 
    ...Installing to: /var/home/sofusa/.local/share/steel/cogs/fresco 
+Checking if the paths are equivalent:  /var/home/sofusa/.local/share/steel/cog-sources/fresco.hx/ /var/home/sofusa/.local/share/steel/cogs/fresco 
 Package has changed.
 => Copied package over to:  /var/home/sofusa/.local/share/steel/cogs/fresco 
 ✅ Installed package to: /var/home/sofusa/.local/share/steel/cogs/fresco

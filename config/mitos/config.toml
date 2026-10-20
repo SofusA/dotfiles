@@ -1,0 +1,168 @@
+theme = "theme"
+
+[editor]
+rainbow-brackets = true
+line-number = "relative"
+mouse = false
+bufferline = "always"
+end-of-line-diagnostics = "hint"
+welcome-screen = false
+icons = true
+
+jump-label-alphabet = "abcdefghijklmnoprstuvwyz"
+
+[editor.lsp]
+auto-document-highlight = true
+
+[editor.soft-wrap]
+enable = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.whitespace]
+render = "none"
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+max-diagnostics = 1
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-modification-indicator"]
+right = ["workspace-diagnostics", "diagnostics", "selections", "position", "file-encoding", "file-line-ending"]
+
+[keys.normal]
+d = "delete_selection_noyank"
+
+# Selection
+U = "extend_line_up"
+E = "extend_line_down"
+I = "extend_char_right"
+N = "extend_char_left"
+W = "extend_next_word_start"
+B = "extend_prev_word_start"
+
+l = "goto_first_nonwhitespace"
+y = "goto_line_end"
+
+Y = "extend_to_line_end"
+L = "extend_to_first_nonwhitespace"
+
+C-tab = ":buffer-next"
+C-S-tab = ":buffer-previous"
+C-w = ":buffer-close"
+
+esc = ["collapse_selection", "keep_primary_selection"]
+
+n = "move_char_left"
+e = "move_visual_line_down"
+i = "move_char_right"
+u = "move_visual_line_up"
+h = "yank"
+
+a = "undo"
+z = "redo"
+
+r = "flip_selections"
+
+O = "goto_prev_diag"
+o = "goto_next_diag"
+
+j = "no_op"
+J = "no_op"
+Q = "no_op"
+"/" = "no_op"
+k = "no_op"
+
+[keys.normal.backspace]
+backspace = ":q"
+w = ":w"
+r = ":reload"
+b = ":buffer-close"
+c = ":q"
+
+[keys.normal.backspace.f]
+backspace = ":q!"
+w = ":w!"
+b = ":buffer-close!"
+c = ":q!"
+
+[keys.normal.m] # move & match
+u = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+e = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+
+[keys.normal.f] # find
+f = "search"
+g = "global_search"
+i = "search_next"
+n = "search_prev"
+s = ["search_selection", "search"]
+
+[keys.normal.c] # change
+h = "insert_mode"
+n = "insert_at_line_start"
+i = "insert_at_line_end"
+r = "replace"
+R = "replace_with_yanked"
+
+u = "open_above"
+e = "open_below"
+
+l = "increment"
+L = "decrement"
+
+g = ":insert-output uuidgen"
+
+[keys.normal.space]
+f = "file_picker_in_current_directory"
+i = "select_textobject_inner"
+I = "select_textobject_around"
+h = "yank_joined_to_clipboard"
+
+Y = ":sh ghostty --working-directory=\"%{workspace_directory}\" --title=quick-terminal -e yazi \"%{file_path_absolute}\" >/dev/null 2>&1 &"
+y = ":sh ghostty --working-directory=\"%{workspace_directory}\" --title=quick-terminal -e yazi >/dev/null 2>&1 &"
+t = ":sh ghostty --working-directory=\"%{workspace_directory}\" --title=quick-terminal -e fish >/dev/null 2>&1 &"
+
+g = "no_op"
+F = "no_op"
+"'" = "no_op"
+j = "no_op"
+R = "no_op"
+A-c = "no_op"
+"/" = "no_op"
+
+[keys.normal.g]
+u = "goto_last_change"
+e = "goto_file_end"
+
+l = "goto_prev_function"
+y = "goto_next_function"
+
+t = "goto_type_definition"
+
+f = "jump_backward"
+p = "jump_forward"
+
+c = "find_next_char"
+b = "find_prev_char"
+
+j = "no_op"
+h = "no_op"
+m = "no_op"
+s = "no_op"
+
+[keys.normal.v]
+e = "expand_selection"
+s = "shrink_selection"
+
+i = "goto_next_change"
+n = "goto_prev_change"
+
+q = ":restore-change"
+# b = ":sh git blame -L %{cursor_line},%{cursor_line} %{buffer_name}"
+# b = ":sh jj file annotate -T 'commit.author().name() ++ \": \" ++ commit.author().timestamp().local().format(\"%%Y-%%m-%%d\") ++ \"\n\"' %{buffer_name} | sed -n '%{cursor_line}p'"

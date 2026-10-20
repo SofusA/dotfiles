@@ -1,5 +1,5 @@
 alias h "hxr --listen"
-set -gx EDITOR hx
+set -gx EDITOR ms
 
 alias nb "jj bookmark"
 alias nbs "jj bookmark set --revision=@"
