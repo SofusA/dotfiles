@@ -104,7 +104,7 @@ workspace "🎵"
 workspace "📞"
 
 binds {
-    Mod+T { spawn-sh "ghostty -e /home/linuxbrew/.linuxbrew/bin/nu ~/dotfiles/scripts/dev-terminal.nu"; }
+    Mod+T { spawn "ghostty" "+new-window" "-e" "fish"; }
     Mod+D { spawn "fuzzel"; }
     Mod+L { spawn "swaylock"; }
 

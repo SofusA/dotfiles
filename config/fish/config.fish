@@ -1,4 +1,3 @@
-alias h "hxr --listen"
 set -gx EDITOR ms
 
 alias nb "jj bookmark"

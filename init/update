@@ -7,7 +7,6 @@ scripts/install-dotnet
 brew trust xerxes-2/tap
 brew trust sofusa/tap
 brew trust hashicorp/tap
-brew trust terraform-linters/tap
 
 brew bundle install
 brew upgrade -y
@@ -24,3 +23,5 @@ forge pkg install --git https://github.com/kn66/smith.hx.git
 # Other
 wget -q -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
 # cargo install --git https://github.com/nushell/nufmt
+
+systemctl --user enable --now app-com.mitchellh.ghostty.service
