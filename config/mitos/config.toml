@@ -93,8 +93,8 @@ b = ":buffer-close!"
 c = ":q!"
 
 [keys.normal.m] # move & match
-u = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
-e = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+u = "move_lines_up"
+e = "move_lines_down"
 
 [keys.normal.f] # find
 f = "search"
