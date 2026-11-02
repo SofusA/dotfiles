@@ -14,15 +14,15 @@ let common_args = [
 
 launcher [
     [
-        "Skaylink teams"
+        "Customer teams"
         {|| ^flatpak run com.microsoft.Edge $"--app=($teams_url)" ...$common_args }
     ]
     [
-        "Skaylink outlook"
+        "Customer outlook"
         {|| ^flatpak run com.microsoft.Edge $"--app=($outlook_url)" ...$common_args }
     ]
     [
-        "cvation teams"
+        "Teams"
         {|| ^flatpak run com.google.Chrome $"--app=($teams_url)" ...$common_args }
     ]
     [
@@ -30,7 +30,7 @@ launcher [
         {|| ^flatpak run com.google.Chrome $"--app=($slack_url)" ...$common_args }
     ]
     [
-        "cvation outlook"
+        "Outlook"
         {|| ^flatpak run com.google.Chrome $"--app=($outlook_url)" ...$common_args }
     ]
 ] "Coms"
