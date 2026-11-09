@@ -4,12 +4,12 @@ let teams_url = "https://teams.microsoft.com"
 let slack_url = "https://cvation.slack.com"
 let outlook_url = "https://outlook.cloud.microsoft"
 
-let user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36"
+# let user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36"
 
 let common_args = [
     "--enable-features=UseOzonePlatform"
     "--ozone-platform=wayland"
-    $"--user-agent=($user_agent)"
+    # $"--user-agent=($user_agent)"
 ]
 
 launcher [

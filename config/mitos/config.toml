@@ -45,7 +45,7 @@ E = "extend_line_down"
 I = "extend_char_right"
 N = "extend_char_left"
 W = "extend_next_word_start"
-B = "extend_prev_word_start"
+B = "extend_previous_word_start"
 
 l = "goto_first_nonwhitespace"
 y = "goto_line_end"
@@ -70,13 +70,13 @@ z = "redo"
 
 r = "flip_selections"
 
-O = "goto_prev_diag"
-o = "goto_next_diag"
+O = "goto_previous_diagnostic"
+o = "goto_next_diagnostic"
 
 j = "no_op"
 J = "no_op"
 Q = "no_op"
-"/" = "no_op"
+# "/" = "no_op"
 k = "no_op"
 
 [keys.normal.backspace]
@@ -97,11 +97,11 @@ u = "move_lines_up"
 e = "move_lines_down"
 
 [keys.normal.f] # find
-f = "search"
-g = "global_search"
+f = "search_forward"
+g = "search_picker_in_current_working_directory"
 i = "search_next"
-n = "search_prev"
-s = ["search_selection", "search"]
+n = "search_previous"
+s = ["search_selection", "search_next"]
 
 [keys.normal.c] # change
 h = "insert_mode"
@@ -119,7 +119,7 @@ L = "decrement"
 g = ":insert-output uuidgen"
 
 [keys.normal.space]
-f = "file_picker_in_current_directory"
+f = "file_picker_in_current_working_directory"
 i = "select_textobject_inner"
 I = "select_textobject_around"
 h = "yank_joined_to_clipboard"
@@ -137,10 +137,9 @@ A-c = "no_op"
 "/" = "no_op"
 
 [keys.normal.g]
-u = "goto_last_change"
 e = "goto_file_end"
 
-l = "goto_prev_function"
+l = "goto_previous_function"
 y = "goto_next_function"
 
 t = "goto_type_definition"
@@ -149,7 +148,7 @@ f = "jump_backward"
 p = "jump_forward"
 
 c = "find_next_char"
-b = "find_prev_char"
+b = "find_previous_char"
 
 j = "no_op"
 h = "no_op"
@@ -160,9 +159,9 @@ s = "no_op"
 e = "expand_selection"
 s = "shrink_selection"
 
-i = "goto_next_change"
-n = "goto_prev_change"
+i = "vcs_goto_next_change"
+n = "vcs_goto_previous_change"
 
-q = ":restore-change"
+q = ":vcs-restore-change"
 # b = ":sh git blame -L %{cursor_line},%{cursor_line} %{buffer_name}"
 # b = ":sh jj file annotate -T 'commit.author().name() ++ \": \" ++ commit.author().timestamp().local().format(\"%%Y-%%m-%%d\") ++ \"\n\"' %{buffer_name} | sed -n '%{cursor_line}p'"
