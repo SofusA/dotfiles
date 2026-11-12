@@ -1,4 +1,3 @@
-# brew "helix", args: ["HEAD"]
 brew "codebook-lsp"
 brew "jj"
 brew "sd"
@@ -12,7 +11,7 @@ brew "atuin"
 brew "fd"
 brew "ripgrep"
 brew "npm"
-brew "azure-cli"
+cask "azure-cli"
 brew "gh"
 brew "yazi"
 brew "tailwindcss-language-server"
@@ -27,10 +26,6 @@ brew "cowsay"
 brew "markdown-oxide"
 brew "cloudflared"
 brew "zellij"
-
-tap "Xerxes-2/homebrew-tap"
-brew "steel"
-brew "helix-steel", args: ["HEAD"]
 
 tap "sofusa/tap"
 brew "bicep-langserver"

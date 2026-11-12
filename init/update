@@ -4,15 +4,12 @@ npm config set prefix ~/.npm
 
 scripts/install-dotnet
 
-brew trust xerxes-2/tap
 brew trust sofusa/tap
 brew trust hashicorp/tap
 
 brew bundle install
 brew upgrade -y
 brew bundle cleanup --force
-
-scripts/update-helix
 
 dotnet tool update --tool-path ~/.local/bin csharpier
 dotnet tool update --tool-path ~/.local/bin roslyn-language-server --prerelease

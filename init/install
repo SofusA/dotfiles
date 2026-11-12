@@ -17,5 +17,4 @@ sudo rpm-ostree install \
   niri swayidle mako \
   ghostty \
   code \
-  sudo-rs uutils-coreutils \
   alsa-lib-devel rust-libadwaita-devel webkitgtk6.0-devel

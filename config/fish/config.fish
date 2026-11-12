@@ -35,7 +35,6 @@ function ls
     eza -1 --icons --group-directories-first $argv
 end
 
-alias sudo sudo-rs
 alias crlf-line-endings "fd -t f -x perl -pi -e 's/\r?\n/\r\n/g'"
 
 function fish_jj_prompt --description 'Write out the jj prompt'
